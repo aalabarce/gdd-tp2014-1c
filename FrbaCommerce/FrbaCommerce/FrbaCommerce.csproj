@@ -157,6 +157,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="GD1C2014DataSet1.xsc">
       <DependentUpon>GD1C2014DataSet1.xsd</DependentUpon>
     </None>
