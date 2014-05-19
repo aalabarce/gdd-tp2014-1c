@@ -29,9 +29,29 @@ namespace FrbaCommerce.Login
             }
             usuario = textBox1.Text;
             string contraseña = textBox2.Text;
-            if (usuarioTableAdapter1.existeUsuario(usuario)==1)
+            if (usuarioTableAdapter1.existeUsuario(usuario)==1) //Le mando a usuarioTableAdaapter el mensaje "Existe Usuario", que me devuelve 0 o 1
             {
                 MessageBox.Show("Existe!!");
+                if (usuarioTableAdapter1.habilitadoUsuario(usuario) == 1)
+                {
+                    MessageBox.Show("Está habilitado");
+                    if (Convert.ToInt32(usuarioTableAdapter1.passValido(usuario, contraseña)) == 1)
+                    {
+                        MessageBox.Show("Contraseña coincide");
+                        usuarioTableAdapter1.resetearIntentosFallidos(usuario);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña NO coincide, se te agrega intento fallido. Cabió");
+                        usuarioTableAdapter1.agregaIntentoFallido(usuario);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Usuario inhabilitado, comuníquese con Administración para resolver el problema");
+                }
+
             }
             else
             {
