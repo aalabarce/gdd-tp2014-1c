@@ -17995,12 +17995,18 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJA" +
                 " FROM STR_NOMBRE_GRUPO.USUARIO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COUNT(*)\r\nFROM STR_NOMBRE_GRUPO.USUARIO\r\nWHERE STR_NOMBRE_GRUPO.USUARIO.US" +
+                "U_USERNAME=@username\r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18258,6 +18264,39 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string USU_USERNAME, string USU_PASSWORD, global::System.Nullable<int> USU_INTENTOS_LOGIN, string USU_TIPO, global::System.Nullable<bool> USU_BAJA, int Original_USU_ID, string Original_USU_USERNAME, string Original_USU_PASSWORD, global::System.Nullable<int> Original_USU_INTENTOS_LOGIN, string Original_USU_TIPO, global::System.Nullable<bool> Original_USU_BAJA) {
             return this.Update(USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJA, Original_USU_ID, Original_USU_USERNAME, Original_USU_PASSWORD, Original_USU_INTENTOS_LOGIN, Original_USU_TIPO, Original_USU_BAJA, Original_USU_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> existeUsuario(string username) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((username == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(username));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     

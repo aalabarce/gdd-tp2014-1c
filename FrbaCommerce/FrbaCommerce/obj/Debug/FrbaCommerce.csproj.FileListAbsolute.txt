@@ -15,3 +15,5 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\Frba
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Form1.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.Login.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.MasDeUno.resources

@@ -36,6 +36,7 @@
             this.rOLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
             this.rOLTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -88,11 +89,21 @@
             // 
             this.rOLTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(181, 223);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 294);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -113,6 +124,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rOLIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rOLNOMBREDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn rOLBAJADataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Button button1;
     }
 }
 
