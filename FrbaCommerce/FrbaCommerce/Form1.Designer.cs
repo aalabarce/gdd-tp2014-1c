@@ -28,66 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rOLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rOLNOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rOLBAJADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rOLBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
-            this.rOLTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rOLIDDataGridViewTextBoxColumn,
-            this.rOLNOMBREDataGridViewTextBoxColumn,
-            this.rOLBAJADataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.rOLBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(375, 130);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // rOLIDDataGridViewTextBoxColumn
-            // 
-            this.rOLIDDataGridViewTextBoxColumn.DataPropertyName = "ROL_ID";
-            this.rOLIDDataGridViewTextBoxColumn.HeaderText = "ROL_ID";
-            this.rOLIDDataGridViewTextBoxColumn.Name = "rOLIDDataGridViewTextBoxColumn";
-            this.rOLIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rOLNOMBREDataGridViewTextBoxColumn
-            // 
-            this.rOLNOMBREDataGridViewTextBoxColumn.DataPropertyName = "ROL_NOMBRE";
-            this.rOLNOMBREDataGridViewTextBoxColumn.HeaderText = "ROL_NOMBRE";
-            this.rOLNOMBREDataGridViewTextBoxColumn.Name = "rOLNOMBREDataGridViewTextBoxColumn";
-            // 
-            // rOLBAJADataGridViewCheckBoxColumn
-            // 
-            this.rOLBAJADataGridViewCheckBoxColumn.DataPropertyName = "ROL_BAJA";
-            this.rOLBAJADataGridViewCheckBoxColumn.HeaderText = "ROL_BAJA";
-            this.rOLBAJADataGridViewCheckBoxColumn.Name = "rOLBAJADataGridViewCheckBoxColumn";
-            // 
-            // rOLBindingSource
-            // 
-            this.rOLBindingSource.DataMember = "ROL";
-            this.rOLBindingSource.DataSource = this.gD1C2014DataSet;
-            // 
-            // gD1C2014DataSet
-            // 
-            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rOLTableAdapter
-            // 
-            this.rOLTableAdapter.ClearBeforeFill = true;
             // 
             // button1
             // 
@@ -98,33 +42,45 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 294);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private GD1C2014DataSet gD1C2014DataSet;
-        private System.Windows.Forms.BindingSource rOLBindingSource;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter rOLTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rOLIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rOLNOMBREDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn rOLBAJADataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

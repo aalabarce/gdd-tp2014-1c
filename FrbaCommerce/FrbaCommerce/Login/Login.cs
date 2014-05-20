@@ -13,6 +13,8 @@ namespace FrbaCommerce.Login
     {
         public bool exito { get; set; }
         public string usuario { get; set; }
+        public string rol { get; set; }
+
         
         public Login()
         {
@@ -39,6 +41,21 @@ namespace FrbaCommerce.Login
                     {
                         MessageBox.Show("Contraseña coincide");
                         usuarioTableAdapter1.resetearIntentosFallidos(usuario);
+                        if (usuariO_ROLTableAdapter1.cantidadRoles(usuario) > 1)
+                        {
+
+                            new FrbaCommerce.Login.MasDeUno(this).Show();
+                            this.Hide();
+                            
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rol chequeado");
+                            this.rol = usuariO_ROLTableAdapter1.rolPorDefecto(usuario);
+                            this.Close();
+                        }
+
                     }
                     else
                     {
@@ -57,6 +74,11 @@ namespace FrbaCommerce.Login
             {
                 MessageBox.Show("No existe!!");
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
 
 

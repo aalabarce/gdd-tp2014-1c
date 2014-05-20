@@ -36,6 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.usuariO_ROLTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter();
             this.SuspendLayout();
             // 
             // label1
@@ -105,6 +106,10 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,6 +125,7 @@
             this.Name = "Login";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "FRBA Commerce";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +141,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
     }
 }

@@ -32,6 +32,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.usuariO_ROLTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter();
+            this.rolTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +63,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -70,6 +73,15 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
+            // 
+            // rolTableAdapter1
+            // 
+            this.rolTableAdapter1.ClearBeforeFill = true;
             // 
             // MasDeUno
             // 
@@ -93,5 +105,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
     }
 }

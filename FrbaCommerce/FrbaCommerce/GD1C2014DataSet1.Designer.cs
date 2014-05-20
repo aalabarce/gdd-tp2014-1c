@@ -17018,11 +17018,20 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT STR_NOMBRE_GRUPO.ROL.ROL_NOMBRE
+FROM STR_NOMBRE_GRUPO.USUARIO_ROL
+JOIN STR_NOMBRE_GRUPO.USUARIO on STR_NOMBRE_GRUPO.USUARIO_ROL.USU_ROL_USUARIO_ID= STR_NOMBRE_GRUPO.USUARIO.USU_ID
+JOIN STR_NOMBRE_GRUPO.ROL on STR_NOMBRE_GRUPO.USUARIO_ROL.USU_ROL_ROL_ID=ROL.ROL_ID
+WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17042,6 +17051,22 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD1C2014DataSet.ROLDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD1C2014DataSet.ROLDataTable dataTable = new GD1C2014DataSet.ROLDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2014DataSet.ROLDataTable getRolesByUsername(string username) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((username == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(username));
+            }
             GD1C2014DataSet.ROLDataTable dataTable = new GD1C2014DataSet.ROLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -18604,11 +18629,26 @@ SELECT USU_ROL_USUARIO_ID, USU_ROL_ROL_ID FROM STR_NOMBRE_GRUPO.USUARIO_ROL WHER
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT USU_ROL_USUARIO_ID, USU_ROL_ROL_ID FROM STR_NOMBRE_GRUPO.USUARIO_ROL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) \r\nFROM STR_NOMBRE_GRUPO.USUARIO_ROL\r\nJOIN STR_NOMBRE_GRUPO.USUARI" +
+                "O on STR_NOMBRE_GRUPO.USUARIO_ROL.USU_ROL_USUARIO_ID= STR_NOMBRE_GRUPO.USUARIO.U" +
+                "SU_ID\r\nWHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "select top 1 STR_NOMBRE_GRUPO.ROL.ROL_NOMBRE\r\nfrom STR_NOMBRE_GRUPO.ROL\r\njoin STR" +
+                "_NOMBRE_GRUPO.USUARIO_ROL on USUARIO_ROL.USU_ROL_ROL_ID=ROL.ROL_ID\r\njoin STR_NOM" +
+                "BRE_GRUPO.USUARIO on USUARIO.USU_ID=USU_ROL_USUARIO_ID\r\nwhere USU_USERNAME=@user" +
+                "name";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18731,6 +18771,72 @@ SELECT USU_ROL_USUARIO_ID, USU_ROL_ROL_ID FROM STR_NOMBRE_GRUPO.USUARIO_ROL WHER
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int Original_USU_ROL_USUARIO_ID, int Original_USU_ROL_ROL_ID) {
             return this.Update(Original_USU_ROL_USUARIO_ID, Original_USU_ROL_ROL_ID, Original_USU_ROL_USUARIO_ID, Original_USU_ROL_ROL_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> cantidadRoles(string username) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((username == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(username));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual string rolPorDefecto(string username) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((username == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(username));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((string)(returnValue));
+            }
         }
     }
     
