@@ -10,34 +10,15 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Abm_Empresa
 {
+
+    
     public partial class Alta : Form
     {
 
-        public DataRow nuevaEmpresa;
-
+        
         public Alta()
         {
             InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void gD1C2014DataSetBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -47,34 +28,76 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("¿Está seguro que desea volver? Perdera todos los datos cargados hasta ahora.")
+
+            if (MessageBox.Show("¿Está seguro que desea volver? Perdera todos los datos cargados hasta ahora", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                // TODO: Volver a la pantalla anterior (no está hecha)
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*VALIDAD QUE LOS CAMPOS NO SEAN NULL, EXCEPTO EL SEXO, TELEFONO Y EMAIL */
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == "" || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "")
+
+            /* VALIDO */
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == "" || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || textBox12.Text == "")
             {
                 MessageBox.Show("Ingrese todos los datos necesarios");
                 return;
             }
-
+            
+            if (!esInteger(textBox3) || !esInteger(textBox5) || !esInteger(textBox6))
+            {
+                return;
+            }
+            // Si está todo bien, le pego a la base de datos
             persistir();
         }
 
         private void persistir()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("INSERT INTO sometable VALUES(@text1,@text2)");
+           DataRow empresa = gD1C2014DataSet1.EMPRESA.NewRow();
+          
+           // if (esInteger(textBox1))
+           empresa["EMP_RAZON_SOCIAL"] = textBox1.Text;
+           empresa["EMP_MAIL"] = textBox2.Text;
+           empresa["EMP_TELEFONO"] = textBox3.Text;
+           empresa["EMP_CALLE"] = textBox4.Text;
+           empresa["EMP_CALLE_NRO"] = textBox5.Text;
+           empresa["EMP_PISO"] = textBox6.Text;
+           empresa["EMP_DPTO"] = textBox7.Text;
+           empresa["EMP_LOCALIDAD"] = textBox8.Text;
+           empresa["EMP_COD_POSTAL"] = textBox9.Text;
+           empresa["EMP_CIUDAD"] = textBox10.Text;
+           empresa["EMP_CUIT"] = textBox11.Text;
+           empresa["EMP_NOM_CONTACTO"] = textBox12.Text;
+           empresa["EMP_FECHA_CREACION"] = DateTime.Now;
 
-            SqlConnection conn = new SqlConnection(connStr);
-            SqlCommand command = new SqlCommand(sb.ToString());
-            command.CommandType = CommandType.Text;
-            command.Parameters.AddWithValue("text1", text1.Text);
-            command.Parameters.AddWithValue("text2", text2.Text);
-            command.ExecuteNonQuery();
+           gD1C2014DataSet1.EMPRESA.Rows.Add(empresa);
 
+           empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
+
+           string mensaje = "La empresa " + textBox1.Text + " ha sido dada de alta";
+           MessageBox.Show(mensaje);
+            
         }
+
+        private bool esInteger(TextBox txt)
+        {
+            int number;
+
+            bool result = Int32.TryParse(txt.Text, out number);
+            if (result)
+                return true;
+            else
+            {
+                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
+                MessageBox.Show(errores);
+                return false;
+            }   
+        }
+
 
 
 

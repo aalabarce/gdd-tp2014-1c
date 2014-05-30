@@ -81,6 +81,18 @@ namespace FrbaCommerce.Login
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Empresa.Alta().Show();
+            this.Hide();
+            
+        }
+
 
     }
 }
