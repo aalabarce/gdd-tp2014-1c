@@ -34,6 +34,8 @@
             this.tareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarNuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +70,8 @@
             // tareasToolStripMenuItem
             // 
             this.tareasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clienteToolStripMenuItem});
+            this.clienteToolStripMenuItem,
+            this.publicaciónToolStripMenuItem});
             this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
             this.tareasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.tareasToolStripMenuItem.Text = "Tareas";
@@ -87,6 +90,21 @@
             this.modificarClienteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modificarClienteToolStripMenuItem.Text = "Modificar Cliente";
             this.modificarClienteToolStripMenuItem.Click += new System.EventHandler(this.modificarClienteToolStripMenuItem_Click);
+            // 
+            // publicaciónToolStripMenuItem
+            // 
+            this.publicaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generarNuevaToolStripMenuItem});
+            this.publicaciónToolStripMenuItem.Name = "publicaciónToolStripMenuItem";
+            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.publicaciónToolStripMenuItem.Text = "Publicación";
+            // 
+            // generarNuevaToolStripMenuItem
+            // 
+            this.generarNuevaToolStripMenuItem.Name = "generarNuevaToolStripMenuItem";
+            this.generarNuevaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.generarNuevaToolStripMenuItem.Text = "Generar nueva";
+            this.generarNuevaToolStripMenuItem.Click += new System.EventHandler(this.generarNuevaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -115,6 +133,8 @@
         private System.Windows.Forms.ToolStripMenuItem tareasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem publicaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generarNuevaToolStripMenuItem;
     }
 }
 

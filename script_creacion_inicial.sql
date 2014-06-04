@@ -178,6 +178,7 @@ GO
 	CREATE TABLE [STR_NOMBRE_GRUPO].[VISIBILIDAD](
 		[VIS_ID][numeric](18,0) IDENTITY(0,1),
 		PRIMARY KEY CLUSTERED (VIS_ID),
+		[VIS_CODIGO][numeric](18,0),
 		[VIS_DESCRIPCION][NVARCHAR](255),
 		[VIS_PRECIO][numeric](18,2),
 		[VIS_PORCENTAJE][numeric](18,2),
@@ -186,15 +187,13 @@ GO
 	)
 	GO
 	
-	SET IDENTITY_INSERT [STR_NOMBRE_GRUPO].[VISIBILIDAD] ON
 	INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[VISIBILIDAD]
-			   ([VIS_ID], [VIS_DESCRIPCION]
+			   ([VIS_CODIGO], [VIS_DESCRIPCION]
 			   ,[VIS_PRECIO]
 			   ,[VIS_PORCENTAJE])
 	select distinct Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Precio,Publicacion_Visibilidad_Porcentaje
 				FROM gd_esquema.Maestra
 				where Publicacion_Visibilidad_Cod is not NULL
-	SET IDENTITY_INSERT [STR_NOMBRE_GRUPO].[VISIBILIDAD] OFF
 	GO
 	
 	CREATE TABLE [STR_NOMBRE_GRUPO].[PUBLICACION](

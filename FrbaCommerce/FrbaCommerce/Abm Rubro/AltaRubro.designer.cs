@@ -129,7 +129,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "AltaRubro";
             this.Text = "Frba Commerce";
-            this.Load += new System.EventHandler(this.AltaRubro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

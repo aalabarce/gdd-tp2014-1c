@@ -96,7 +96,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(86, 223);
+            this.button1.Location = new System.Drawing.Point(86, 215);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 23);
             this.button1.TabIndex = 6;
@@ -114,11 +114,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(124, 258);
+            this.button2.Location = new System.Drawing.Point(86, 258);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(113, 23);
             this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
+            this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

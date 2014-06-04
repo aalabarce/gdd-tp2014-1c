@@ -88,7 +88,8 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FrbaCommerce.Abm_Empresa.Alta().Show();
+            //new FrbaCommerce.Abm_Empresa.Alta().Show();
+            new FrbaCommerce.Abm_Rubro.AltaRubro().Show();
             this.Hide();
             
         }

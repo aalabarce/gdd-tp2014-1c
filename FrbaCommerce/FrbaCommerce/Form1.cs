@@ -34,5 +34,10 @@ namespace FrbaCommerce
             MessageBox.Show("PANEL DE CLIENTES");
             new FrbaCommerce.Abm_Cliente.Clientes().Show(); 
         }
+
+        private void generarNuevaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show(); 
+        }
     }
 }

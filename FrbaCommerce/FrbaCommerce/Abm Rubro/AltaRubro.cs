@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace FrbaCommerce.Abm_Rubro
 {
@@ -55,14 +56,12 @@ namespace FrbaCommerce.Abm_Rubro
         }
 
         private void darAlta() {
-
-            
             DataRow nuevo = gD1C2014DataSet1.RUBRO.NewRow();
 
             nuevo["RUBRO_ID"] = textBox1.Text;
             nuevo["RUBRO_DESCRIPCION"] = textBox2.Text;
             nuevo["RUBRO_BAJA"] = 0;
-            
+
             gD1C2014DataSet1.RUBRO.Rows.Add(nuevo);
 
             rubroTableAdapter1.Update(gD1C2014DataSet1.RUBRO);
@@ -89,10 +88,6 @@ namespace FrbaCommerce.Abm_Rubro
             }   
         }
 
-         private void AltaRubro_Load(object sender, EventArgs e)
-         {
-
-         }
 
          private void button2_Click(object sender, EventArgs e)
          {
