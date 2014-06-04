@@ -66,17 +66,35 @@
     <Compile Include="ABM Rol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.cs">
+    <Compile Include="Abm Rubro\AltaRubro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Rubro\AltaRubro.designer.cs">
+      <DependentUpon>AltaRubro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
+    <Compile Include="Abm Rubro\BajaRubro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Rubro\BajaRubro.designer.cs">
+      <DependentUpon>BajaRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rubro\BuscarRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rubro\BuscarRubro.designer.cs">
+      <DependentUpon>BuscarRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rubro\ModRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rubro\ModRubro.designer.cs">
+      <DependentUpon>ModRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaVi.designer.cs">
+      <DependentUpon>AltaVi.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
@@ -160,6 +178,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\Alta.resx">
       <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\AltaRubro.resx">
+      <DependentUpon>AltaRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\BajaRubro.resx">
+      <DependentUpon>BajaRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\BuscarRubro.resx">
+      <DependentUpon>BuscarRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\ModRubro.resx">
+      <DependentUpon>ModRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\AltaVi.resx">
+      <DependentUpon>AltaVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
