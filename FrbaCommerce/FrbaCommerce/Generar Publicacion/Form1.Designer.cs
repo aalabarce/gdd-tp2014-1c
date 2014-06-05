@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.radTipoCompra = new System.Windows.Forms.RadioButton();
             this.radTipoSubasta = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,14 +44,26 @@
             this.dateFechaVenc = new System.Windows.Forms.DateTimePicker();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkRubros = new System.Windows.Forms.CheckedListBox();
+            this.chkPreguntas = new System.Windows.Forms.CheckBox();
+            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
+            this.btnBorrador = new System.Windows.Forms.Button();
+            this.btnPublicar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbVisibilidad = new System.Windows.Forms.ComboBox();
             this.rubroTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
-            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
+            this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
+            this.getOrdenadosToolStrip = new System.Windows.Forms.ToolStrip();
+            this.getOrdenadosToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.getOrdenadosToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.getOrdenadosToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.lblAclaracionSubasta = new System.Windows.Forms.Label();
+            this.pub_rubro_TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
+            this.getOrdenadosToolStrip.SuspendLayout();
+            this.getOrdenadosToolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,29 +86,30 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tipo:";
             // 
+            // radTipoCompra
+            // 
+            this.radTipoCompra.AutoSize = true;
+            this.radTipoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTipoCompra.Location = new System.Drawing.Point(198, 57);
+            this.radTipoCompra.Name = "radTipoCompra";
+            this.radTipoCompra.Size = new System.Drawing.Size(118, 20);
+            this.radTipoCompra.TabIndex = 2;
+            this.radTipoCompra.TabStop = true;
+            this.radTipoCompra.Text = "Compra directa";
+            this.radTipoCompra.UseVisualStyleBackColor = false;
+            // 
             // radTipoSubasta
             // 
             this.radTipoSubasta.AutoSize = true;
             this.radTipoSubasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radTipoSubasta.Location = new System.Drawing.Point(198, 83);
             this.radTipoSubasta.Name = "radTipoSubasta";
-            this.radTipoSubasta.Size = new System.Drawing.Size(118, 20);
-            this.radTipoSubasta.TabIndex = 2;
+            this.radTipoSubasta.Size = new System.Drawing.Size(76, 20);
+            this.radTipoSubasta.TabIndex = 3;
             this.radTipoSubasta.TabStop = true;
-            this.radTipoSubasta.Text = "Compra directa";
+            this.radTipoSubasta.Text = "Subasta";
             this.radTipoSubasta.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(198, 57);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(76, 20);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Subasta";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radTipoSubasta.CheckedChanged += new System.EventHandler(this.radTipoSubasta_CheckedChanged);
             // 
             // label3
             // 
@@ -152,9 +165,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(35, 267);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 16);
+            this.label9.Size = new System.Drawing.Size(125, 16);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Precio:";
+            this.label9.Text = "Precio (por unidad):";
             // 
             // label10
             // 
@@ -205,25 +218,73 @@
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 16;
             // 
-            // checkedListBox1
+            // chkRubros
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(198, 293);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(140, 109);
-            this.checkedListBox1.TabIndex = 17;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.chkRubros.FormattingEnabled = true;
+            this.chkRubros.Location = new System.Drawing.Point(198, 301);
+            this.chkRubros.Name = "chkRubros";
+            this.chkRubros.Size = new System.Drawing.Size(333, 139);
+            this.chkRubros.TabIndex = 17;
+            this.chkRubros.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // checkBox1
+            // chkPreguntas
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(38, 420);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(182, 20);
-            this.checkBox1.TabIndex = 18;
-            this.checkBox1.Text = "Permitir realizar preguntas";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkPreguntas.AutoSize = true;
+            this.chkPreguntas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPreguntas.Location = new System.Drawing.Point(38, 486);
+            this.chkPreguntas.Name = "chkPreguntas";
+            this.chkPreguntas.Size = new System.Drawing.Size(182, 20);
+            this.chkPreguntas.TabIndex = 18;
+            this.chkPreguntas.Text = "Permitir realizar preguntas";
+            this.chkPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(198, 118);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(346, 43);
+            this.txtDescripcion.TabIndex = 19;
+            this.txtDescripcion.Text = "";
+            // 
+            // btnBorrador
+            // 
+            this.btnBorrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrador.Location = new System.Drawing.Point(151, 512);
+            this.btnBorrador.Name = "btnBorrador";
+            this.btnBorrador.Size = new System.Drawing.Size(147, 23);
+            this.btnBorrador.TabIndex = 20;
+            this.btnBorrador.Text = "Guardar borrador";
+            this.btnBorrador.UseVisualStyleBackColor = true;
+            this.btnBorrador.Click += new System.EventHandler(this.btnBorrador_Click);
+            // 
+            // btnPublicar
+            // 
+            this.btnPublicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPublicar.Location = new System.Drawing.Point(316, 512);
+            this.btnPublicar.Name = "btnPublicar";
+            this.btnPublicar.Size = new System.Drawing.Size(95, 23);
+            this.btnPublicar.TabIndex = 21;
+            this.btnPublicar.Text = "Publicar";
+            this.btnPublicar.UseVisualStyleBackColor = true;
+            this.btnPublicar.Click += new System.EventHandler(this.btnPublicar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(35, 457);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 16);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Visibilidad:";
+            // 
+            // cmbVisibilidad
+            // 
+            this.cmbVisibilidad.FormattingEnabled = true;
+            this.cmbVisibilidad.Location = new System.Drawing.Point(198, 452);
+            this.cmbVisibilidad.Name = "cmbVisibilidad";
+            this.cmbVisibilidad.Size = new System.Drawing.Size(170, 21);
+            this.cmbVisibilidad.TabIndex = 23;
             // 
             // rubroTableAdapter1
             // 
@@ -234,44 +295,79 @@
             this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // txtDescripcion
+            // visibilidadTableAdapter1
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(198, 118);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(346, 43);
-            this.txtDescripcion.TabIndex = 19;
-            this.txtDescripcion.Text = "";
+            this.visibilidadTableAdapter1.ClearBeforeFill = true;
             // 
-            // button1
+            // publicacionTableAdapter1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(151, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Guardar borrador";
-            this.button1.UseVisualStyleBackColor = true;
+            this.publicacionTableAdapter1.ClearBeforeFill = true;
             // 
-            // button2
+            // getOrdenadosToolStrip
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(319, 458);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Publicar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.getOrdenadosToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getOrdenadosToolStripButton});
+            this.getOrdenadosToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.getOrdenadosToolStrip.Name = "getOrdenadosToolStrip";
+            this.getOrdenadosToolStrip.Size = new System.Drawing.Size(566, 25);
+            this.getOrdenadosToolStrip.TabIndex = 24;
+            this.getOrdenadosToolStrip.Text = "getOrdenadosToolStrip";
+            this.getOrdenadosToolStrip.Visible = false;
+            // 
+            // getOrdenadosToolStripButton
+            // 
+            this.getOrdenadosToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.getOrdenadosToolStripButton.Name = "getOrdenadosToolStripButton";
+            this.getOrdenadosToolStripButton.Size = new System.Drawing.Size(80, 22);
+            this.getOrdenadosToolStripButton.Text = "getOrdenados";
+            // 
+            // getOrdenadosToolStrip1
+            // 
+            this.getOrdenadosToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getOrdenadosToolStripButton1});
+            this.getOrdenadosToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.getOrdenadosToolStrip1.Name = "getOrdenadosToolStrip1";
+            this.getOrdenadosToolStrip1.Size = new System.Drawing.Size(566, 25);
+            this.getOrdenadosToolStrip1.TabIndex = 25;
+            this.getOrdenadosToolStrip1.Text = "getOrdenadosToolStrip1";
+            this.getOrdenadosToolStrip1.Visible = false;
+            // 
+            // getOrdenadosToolStripButton1
+            // 
+            this.getOrdenadosToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.getOrdenadosToolStripButton1.Name = "getOrdenadosToolStripButton1";
+            this.getOrdenadosToolStripButton1.Size = new System.Drawing.Size(80, 22);
+            this.getOrdenadosToolStripButton1.Text = "getOrdenados";
+            // 
+            // lblAclaracionSubasta
+            // 
+            this.lblAclaracionSubasta.AutoSize = true;
+            this.lblAclaracionSubasta.Location = new System.Drawing.Point(316, 174);
+            this.lblAclaracionSubasta.Name = "lblAclaracionSubasta";
+            this.lblAclaracionSubasta.Size = new System.Drawing.Size(207, 13);
+            this.lblAclaracionSubasta.TabIndex = 26;
+            this.lblAclaracionSubasta.Text = "El lote se venderá completo en la subasta.";
+            this.lblAclaracionSubasta.Visible = false;
+            // 
+            // pub_rubro_TableAdapter
+            // 
+            this.pub_rubro_TableAdapter.ClearBeforeFill = true;
             // 
             // Generar_Publicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 493);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(566, 555);
+            this.Controls.Add(this.lblAclaracionSubasta);
+            this.Controls.Add(this.getOrdenadosToolStrip1);
+            this.Controls.Add(this.getOrdenadosToolStrip);
+            this.Controls.Add(this.cmbVisibilidad);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnPublicar);
+            this.Controls.Add(this.btnBorrador);
             this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.chkPreguntas);
+            this.Controls.Add(this.chkRubros);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.dateFechaVenc);
@@ -284,14 +380,18 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.radTipoSubasta);
+            this.Controls.Add(this.radTipoCompra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Generar_Publicacion";
             this.Text = "Generar publicación";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
+            this.getOrdenadosToolStrip.ResumeLayout(false);
+            this.getOrdenadosToolStrip.PerformLayout();
+            this.getOrdenadosToolStrip1.ResumeLayout(false);
+            this.getOrdenadosToolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,8 +401,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton radTipoCompra;
         private System.Windows.Forms.RadioButton radTipoSubasta;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -315,12 +415,22 @@
         private System.Windows.Forms.DateTimePicker dateFechaVenc;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckedListBox chkRubros;
+        private System.Windows.Forms.CheckBox chkPreguntas;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter1;
         private GD1C2014DataSet gD1C2014DataSet1;
         private System.Windows.Forms.RichTextBox txtDescripcion;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBorrador;
+        private System.Windows.Forms.Button btnPublicar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbVisibilidad;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter visibilidadTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter publicacionTableAdapter1;
+        private System.Windows.Forms.ToolStrip getOrdenadosToolStrip;
+        private System.Windows.Forms.ToolStripButton getOrdenadosToolStripButton;
+        private System.Windows.Forms.ToolStrip getOrdenadosToolStrip1;
+        private System.Windows.Forms.ToolStripButton getOrdenadosToolStripButton1;
+        private System.Windows.Forms.Label lblAclaracionSubasta;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter pub_rubro_TableAdapter;
     }
 }
