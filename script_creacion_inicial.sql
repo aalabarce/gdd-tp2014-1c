@@ -223,7 +223,7 @@ GO
 	SELECT DISTINCT Publicacion_Cod, 
 	LEFT(Publicacion_Tipo, 1),Publicacion_Stock, Publicacion_Precio, 'A',
 	Publicacion_Fecha, Publicacion_Fecha_Venc,
-	Publicacion_Descripcion, Publicacion_Visibilidad_Cod, 
+	Publicacion_Descripcion, (SELECT vis_id from [STR_NOMBRE_GRUPO].[visibilidad] where vis_codigo = Publicacion_Visibilidad_Cod), 
 	(CASE WHEN Publ_Cli_Mail IS NULL THEN
 		(select EMP_USU_ID FROM [STR_NOMBRE_GRUPO].[EMPRESA] WHERE EMP_CUIT = Publ_Empresa_Cuit) 
 		ELSE
