@@ -841,7 +841,7 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="PUB_ID" DataSetColumn="PUB_ID" />
-              <Mapping SourceColumn="PUB_ES_SUBASTA" DataSetColumn="PUB_ES_SUBASTA" />
+              <Mapping SourceColumn="PUB_ES_SUBASTA" DataSetColumn="PUB_TIPO_ID" />
               <Mapping SourceColumn="PUB_STOCK" DataSetColumn="PUB_STOCK" />
               <Mapping SourceColumn="PUB_PRECIO" DataSetColumn="PUB_PRECIO" />
               <Mapping SourceColumn="PUB_ESTADO" DataSetColumn="PUB_ESTADO" />
@@ -2260,7 +2260,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PUB_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="PUB_ID" msprop:Generator_ColumnVarNameInTable="columnPUB_ID" msprop:Generator_ColumnPropNameInRow="PUB_ID" msprop:Generator_ColumnPropNameInTable="PUB_IDColumn" type="xs:decimal" />
-              <xs:element name="PUB_ES_SUBASTA" msprop:Generator_UserColumnName="PUB_ES_SUBASTA" msprop:Generator_ColumnVarNameInTable="columnPUB_ES_SUBASTA" msprop:Generator_ColumnPropNameInRow="PUB_ES_SUBASTA" msprop:Generator_ColumnPropNameInTable="PUB_ES_SUBASTAColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="PUB_TIPO_ID" msprop:Generator_UserColumnName="PUB_TIPO_ID" msprop:Generator_ColumnVarNameInTable="columnPUB_TIPO_ID" msprop:Generator_ColumnPropNameInRow="PUB_TIPO_ID" msprop:Generator_ColumnPropNameInTable="PUB_TIPO_IDColumn" type="xs:boolean" minOccurs="0" />
               <xs:element name="PUB_STOCK" msprop:Generator_UserColumnName="PUB_STOCK" msprop:Generator_ColumnVarNameInTable="columnPUB_STOCK" msprop:Generator_ColumnPropNameInRow="PUB_STOCK" msprop:Generator_ColumnPropNameInTable="PUB_STOCKColumn" type="xs:decimal" minOccurs="0" />
               <xs:element name="PUB_PRECIO" msprop:Generator_UserColumnName="PUB_PRECIO" msprop:Generator_ColumnVarNameInTable="columnPUB_PRECIO" msprop:Generator_ColumnPropNameInRow="PUB_PRECIO" msprop:Generator_ColumnPropNameInTable="PUB_PRECIOColumn" type="xs:decimal" minOccurs="0" />
               <xs:element name="PUB_ESTADO" msprop:Generator_UserColumnName="PUB_ESTADO" msprop:Generator_ColumnVarNameInTable="columnPUB_ESTADO" msprop:Generator_ColumnPropNameInRow="PUB_ESTADO" msprop:Generator_ColumnPropNameInTable="PUB_ESTADOColumn" minOccurs="0">

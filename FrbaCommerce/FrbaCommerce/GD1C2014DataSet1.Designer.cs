@@ -4379,7 +4379,7 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnPUB_ID;
             
-            private global::System.Data.DataColumn columnPUB_ES_SUBASTA;
+            private global::System.Data.DataColumn columnPUB_TIPO_ID;
             
             private global::System.Data.DataColumn columnPUB_STOCK;
             
@@ -4437,9 +4437,9 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_ES_SUBASTAColumn {
+            public global::System.Data.DataColumn PUB_TIPO_IDColumn {
                 get {
-                    return this.columnPUB_ES_SUBASTA;
+                    return this.columnPUB_TIPO_ID;
                 }
             }
             
@@ -4535,11 +4535,11 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PUBLICACIONRow AddPUBLICACIONRow(bool PUB_ES_SUBASTA, decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_ESTADO, System.DateTime PUB_FECHA_INICIO, System.DateTime PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, VISIBILIDADRow parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E, USUARIORow parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97, bool PUB_PERMITIR_PREGUNTAS) {
+            public PUBLICACIONRow AddPUBLICACIONRow(bool PUB_TIPO_ID, decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_ESTADO, System.DateTime PUB_FECHA_INICIO, System.DateTime PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, VISIBILIDADRow parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E, USUARIORow parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97, bool PUB_PERMITIR_PREGUNTAS) {
                 PUBLICACIONRow rowPUBLICACIONRow = ((PUBLICACIONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        PUB_ES_SUBASTA,
+                        PUB_TIPO_ID,
                         PUB_STOCK,
                         PUB_PRECIO,
                         PUB_ESTADO,
@@ -4581,7 +4581,7 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnPUB_ID = base.Columns["PUB_ID"];
-                this.columnPUB_ES_SUBASTA = base.Columns["PUB_ES_SUBASTA"];
+                this.columnPUB_TIPO_ID = base.Columns["PUB_TIPO_ID"];
                 this.columnPUB_STOCK = base.Columns["PUB_STOCK"];
                 this.columnPUB_PRECIO = base.Columns["PUB_PRECIO"];
                 this.columnPUB_ESTADO = base.Columns["PUB_ESTADO"];
@@ -4597,8 +4597,8 @@ namespace FrbaCommerce {
             private void InitClass() {
                 this.columnPUB_ID = new global::System.Data.DataColumn("PUB_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_ID);
-                this.columnPUB_ES_SUBASTA = new global::System.Data.DataColumn("PUB_ES_SUBASTA", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_ES_SUBASTA);
+                this.columnPUB_TIPO_ID = new global::System.Data.DataColumn("PUB_TIPO_ID", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPUB_TIPO_ID);
                 this.columnPUB_STOCK = new global::System.Data.DataColumn("PUB_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_STOCK);
                 this.columnPUB_PRECIO = new global::System.Data.DataColumn("PUB_PRECIO", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -11099,17 +11099,17 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool PUB_ES_SUBASTA {
+            public bool PUB_TIPO_ID {
                 get {
                     try {
-                        return ((bool)(this[this.tablePUBLICACION.PUB_ES_SUBASTAColumn]));
+                        return ((bool)(this[this.tablePUBLICACION.PUB_TIPO_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_ES_SUBASTA\' de la tabla \'PUBLICACION\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_TIPO_ID\' de la tabla \'PUBLICACION\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePUBLICACION.PUB_ES_SUBASTAColumn] = value;
+                    this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = value;
                 }
             }
             
@@ -11271,13 +11271,13 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_ES_SUBASTANull() {
-                return this.IsNull(this.tablePUBLICACION.PUB_ES_SUBASTAColumn);
+            public bool IsPUB_TIPO_IDNull() {
+                return this.IsNull(this.tablePUBLICACION.PUB_TIPO_IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_ES_SUBASTANull() {
-                this[this.tablePUBLICACION.PUB_ES_SUBASTAColumn] = global::System.Convert.DBNull;
+            public void SetPUB_TIPO_IDNull() {
+                this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17867,7 +17867,7 @@ SELECT PRE_ID, PRE_PUB_ID, PRE_USU_ID, PRE_TEXTO FROM STR_NOMBRE_GRUPO.PREGUNTA 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "PUBLICACION";
             tableMapping.ColumnMappings.Add("PUB_ID", "PUB_ID");
-            tableMapping.ColumnMappings.Add("PUB_ES_SUBASTA", "PUB_ES_SUBASTA");
+            tableMapping.ColumnMappings.Add("PUB_ES_SUBASTA", "PUB_TIPO_ID");
             tableMapping.ColumnMappings.Add("PUB_STOCK", "PUB_STOCK");
             tableMapping.ColumnMappings.Add("PUB_PRECIO", "PUB_PRECIO");
             tableMapping.ColumnMappings.Add("PUB_ESTADO", "PUB_ESTADO");
