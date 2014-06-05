@@ -115,6 +115,10 @@ namespace FrbaCommerce {
         
         private global::System.Data.DataRelation relationFK__ITEM_FACT__ITEM___1B9317B3;
         
+        private global::System.Data.DataRelation relationFK__PUBLICACI__PUB_E__50FB042B;
+        
+        private global::System.Data.DataRelation relationFK__PUBLICACI__PUB_T__5006DFF2;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -733,6 +737,8 @@ namespace FrbaCommerce {
             this.relationFK__FACTURA__FAC_USU__14E61A24 = this.Relations["FK__FACTURA__FAC_USU__14E61A24"];
             this.relationFK__ITEM_FACT__ITEM___1A9EF37A = this.Relations["FK__ITEM_FACT__ITEM___1A9EF37A"];
             this.relationFK__ITEM_FACT__ITEM___1B9317B3 = this.Relations["FK__ITEM_FACT__ITEM___1B9317B3"];
+            this.relationFK__PUBLICACI__PUB_E__50FB042B = this.Relations["FK__PUBLICACI__PUB_E__50FB042B"];
+            this.relationFK__PUBLICACI__PUB_T__5006DFF2 = this.Relations["FK__PUBLICACI__PUB_T__5006DFF2"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -878,6 +884,14 @@ namespace FrbaCommerce {
                         this.tableFACTURA.FAC_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableITEM_FACTURA.ITEM_FAC_IDColumn}, false);
             this.Relations.Add(this.relationFK__ITEM_FACT__ITEM___1B9317B3);
+            this.relationFK__PUBLICACI__PUB_E__50FB042B = new global::System.Data.DataRelation("FK__PUBLICACI__PUB_E__50FB042B", new global::System.Data.DataColumn[] {
+                        this.tableESTADO.ESTADO_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePUBLICACION.PUB_ESTADO_IDColumn}, false);
+            this.Relations.Add(this.relationFK__PUBLICACI__PUB_E__50FB042B);
+            this.relationFK__PUBLICACI__PUB_T__5006DFF2 = new global::System.Data.DataRelation("FK__PUBLICACI__PUB_T__5006DFF2", new global::System.Data.DataColumn[] {
+                        this.tableTIPO.TIPO_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePUBLICACION.PUB_TIPO_IDColumn}, false);
+            this.Relations.Add(this.relationFK__PUBLICACI__PUB_T__5006DFF2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4379,13 +4393,9 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnPUB_ID;
             
-            private global::System.Data.DataColumn columnPUB_TIPO_ID;
-            
             private global::System.Data.DataColumn columnPUB_STOCK;
             
             private global::System.Data.DataColumn columnPUB_PRECIO;
-            
-            private global::System.Data.DataColumn columnPUB_ESTADO;
             
             private global::System.Data.DataColumn columnPUB_FECHA_INICIO;
             
@@ -4398,6 +4408,10 @@ namespace FrbaCommerce {
             private global::System.Data.DataColumn columnPUB_USU_ID;
             
             private global::System.Data.DataColumn columnPUB_PERMITIR_PREGUNTAS;
+            
+            private global::System.Data.DataColumn columnPUB_TIPO_ID;
+            
+            private global::System.Data.DataColumn columnPUB_ESTADO_ID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public PUBLICACIONDataTable() {
@@ -4437,13 +4451,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_TIPO_IDColumn {
-                get {
-                    return this.columnPUB_TIPO_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn PUB_STOCKColumn {
                 get {
                     return this.columnPUB_STOCK;
@@ -4454,13 +4461,6 @@ namespace FrbaCommerce {
             public global::System.Data.DataColumn PUB_PRECIOColumn {
                 get {
                     return this.columnPUB_PRECIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_ESTADOColumn {
-                get {
-                    return this.columnPUB_ESTADO;
                 }
             }
             
@@ -4507,6 +4507,20 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PUB_TIPO_IDColumn {
+                get {
+                    return this.columnPUB_TIPO_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PUB_ESTADO_IDColumn {
+                get {
+                    return this.columnPUB_ESTADO_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4535,25 +4549,31 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PUBLICACIONRow AddPUBLICACIONRow(bool PUB_TIPO_ID, decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_ESTADO, System.DateTime PUB_FECHA_INICIO, System.DateTime PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, VISIBILIDADRow parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E, USUARIORow parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97, bool PUB_PERMITIR_PREGUNTAS) {
+            public PUBLICACIONRow AddPUBLICACIONRow(decimal PUB_STOCK, decimal PUB_PRECIO, System.DateTime PUB_FECHA_INICIO, System.DateTime PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, VISIBILIDADRow parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E, USUARIORow parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97, bool PUB_PERMITIR_PREGUNTAS, TIPORow parentTIPORowByFK__PUBLICACI__PUB_T__5006DFF2, ESTADORow parentESTADORowByFK__PUBLICACI__PUB_E__50FB042B) {
                 PUBLICACIONRow rowPUBLICACIONRow = ((PUBLICACIONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        PUB_TIPO_ID,
                         PUB_STOCK,
                         PUB_PRECIO,
-                        PUB_ESTADO,
                         PUB_FECHA_INICIO,
                         PUB_FECHA_FINALIZACION,
                         PUB_DESCRIPCION,
                         null,
                         null,
-                        PUB_PERMITIR_PREGUNTAS};
+                        PUB_PERMITIR_PREGUNTAS,
+                        null,
+                        null};
                 if ((parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E != null)) {
-                    columnValuesArray[8] = parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E[0];
+                    columnValuesArray[6] = parentVISIBILIDADRowByFK__PUBLICACI__PUB_V__2A4B4B5E[0];
                 }
                 if ((parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97 != null)) {
-                    columnValuesArray[9] = parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97[0];
+                    columnValuesArray[7] = parentUSUARIORowByFK__PUBLICACI__PUB_U__2B3F6F97[0];
+                }
+                if ((parentTIPORowByFK__PUBLICACI__PUB_T__5006DFF2 != null)) {
+                    columnValuesArray[9] = parentTIPORowByFK__PUBLICACI__PUB_T__5006DFF2[0];
+                }
+                if ((parentESTADORowByFK__PUBLICACI__PUB_E__50FB042B != null)) {
+                    columnValuesArray[10] = parentESTADORowByFK__PUBLICACI__PUB_E__50FB042B[0];
                 }
                 rowPUBLICACIONRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPUBLICACIONRow);
@@ -4581,30 +4601,26 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnPUB_ID = base.Columns["PUB_ID"];
-                this.columnPUB_TIPO_ID = base.Columns["PUB_TIPO_ID"];
                 this.columnPUB_STOCK = base.Columns["PUB_STOCK"];
                 this.columnPUB_PRECIO = base.Columns["PUB_PRECIO"];
-                this.columnPUB_ESTADO = base.Columns["PUB_ESTADO"];
                 this.columnPUB_FECHA_INICIO = base.Columns["PUB_FECHA_INICIO"];
                 this.columnPUB_FECHA_FINALIZACION = base.Columns["PUB_FECHA_FINALIZACION"];
                 this.columnPUB_DESCRIPCION = base.Columns["PUB_DESCRIPCION"];
                 this.columnPUB_VIS_ID = base.Columns["PUB_VIS_ID"];
                 this.columnPUB_USU_ID = base.Columns["PUB_USU_ID"];
                 this.columnPUB_PERMITIR_PREGUNTAS = base.Columns["PUB_PERMITIR_PREGUNTAS"];
+                this.columnPUB_TIPO_ID = base.Columns["PUB_TIPO_ID"];
+                this.columnPUB_ESTADO_ID = base.Columns["PUB_ESTADO_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
                 this.columnPUB_ID = new global::System.Data.DataColumn("PUB_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_ID);
-                this.columnPUB_TIPO_ID = new global::System.Data.DataColumn("PUB_TIPO_ID", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_TIPO_ID);
                 this.columnPUB_STOCK = new global::System.Data.DataColumn("PUB_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_STOCK);
                 this.columnPUB_PRECIO = new global::System.Data.DataColumn("PUB_PRECIO", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_PRECIO);
-                this.columnPUB_ESTADO = new global::System.Data.DataColumn("PUB_ESTADO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_ESTADO);
                 this.columnPUB_FECHA_INICIO = new global::System.Data.DataColumn("PUB_FECHA_INICIO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_FECHA_INICIO);
                 this.columnPUB_FECHA_FINALIZACION = new global::System.Data.DataColumn("PUB_FECHA_FINALIZACION", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -4617,6 +4633,10 @@ namespace FrbaCommerce {
                 base.Columns.Add(this.columnPUB_USU_ID);
                 this.columnPUB_PERMITIR_PREGUNTAS = new global::System.Data.DataColumn("PUB_PERMITIR_PREGUNTAS", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_PERMITIR_PREGUNTAS);
+                this.columnPUB_TIPO_ID = new global::System.Data.DataColumn("PUB_TIPO_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPUB_TIPO_ID);
+                this.columnPUB_ESTADO_ID = new global::System.Data.DataColumn("PUB_ESTADO_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPUB_ESTADO_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPUB_ID}, true));
                 this.columnPUB_ID.AutoIncrement = true;
@@ -4625,8 +4645,9 @@ namespace FrbaCommerce {
                 this.columnPUB_ID.AllowDBNull = false;
                 this.columnPUB_ID.ReadOnly = true;
                 this.columnPUB_ID.Unique = true;
-                this.columnPUB_ESTADO.MaxLength = 1;
                 this.columnPUB_DESCRIPCION.MaxLength = 255;
+                this.columnPUB_TIPO_ID.MaxLength = 1;
+                this.columnPUB_ESTADO_ID.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11099,21 +11120,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool PUB_TIPO_ID {
-                get {
-                    try {
-                        return ((bool)(this[this.tablePUBLICACION.PUB_TIPO_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_TIPO_ID\' de la tabla \'PUBLICACION\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal PUB_STOCK {
                 get {
                     try {
@@ -11140,21 +11146,6 @@ namespace FrbaCommerce {
                 }
                 set {
                     this[this.tablePUBLICACION.PUB_PRECIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string PUB_ESTADO {
-                get {
-                    try {
-                        return ((string)(this[this.tablePUBLICACION.PUB_ESTADOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_ESTADO\' de la tabla \'PUBLICACION\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePUBLICACION.PUB_ESTADOColumn] = value;
                 }
             }
             
@@ -11251,6 +11242,36 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PUB_TIPO_ID {
+                get {
+                    try {
+                        return ((string)(this[this.tablePUBLICACION.PUB_TIPO_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_TIPO_ID\' de la tabla \'PUBLICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PUB_ESTADO_ID {
+                get {
+                    try {
+                        return ((string)(this[this.tablePUBLICACION.PUB_ESTADO_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_ESTADO_ID\' de la tabla \'PUBLICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePUBLICACION.PUB_ESTADO_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public USUARIORow USUARIORow {
                 get {
                     return ((USUARIORow)(this.GetParentRow(this.Table.ParentRelations["FK__PUBLICACI__PUB_U__2B3F6F97"])));
@@ -11271,13 +11292,23 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_TIPO_IDNull() {
-                return this.IsNull(this.tablePUBLICACION.PUB_TIPO_IDColumn);
+            public ESTADORow ESTADORow {
+                get {
+                    return ((ESTADORow)(this.GetParentRow(this.Table.ParentRelations["FK__PUBLICACI__PUB_E__50FB042B"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__PUBLICACI__PUB_E__50FB042B"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_TIPO_IDNull() {
-                this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = global::System.Convert.DBNull;
+            public TIPORow TIPORow {
+                get {
+                    return ((TIPORow)(this.GetParentRow(this.Table.ParentRelations["FK__PUBLICACI__PUB_T__5006DFF2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__PUBLICACI__PUB_T__5006DFF2"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11298,16 +11329,6 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetPUB_PRECIONull() {
                 this[this.tablePUBLICACION.PUB_PRECIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_ESTADONull() {
-                return this.IsNull(this.tablePUBLICACION.PUB_ESTADOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_ESTADONull() {
-                this[this.tablePUBLICACION.PUB_ESTADOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11368,6 +11389,26 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetPUB_PERMITIR_PREGUNTASNull() {
                 this[this.tablePUBLICACION.PUB_PERMITIR_PREGUNTASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPUB_TIPO_IDNull() {
+                return this.IsNull(this.tablePUBLICACION.PUB_TIPO_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPUB_TIPO_IDNull() {
+                this[this.tablePUBLICACION.PUB_TIPO_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPUB_ESTADO_IDNull() {
+                return this.IsNull(this.tablePUBLICACION.PUB_ESTADO_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPUB_ESTADO_IDNull() {
+                this[this.tablePUBLICACION.PUB_ESTADO_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12299,6 +12340,16 @@ namespace FrbaCommerce {
             public void SetESTADO_DESCRIPCIONNull() {
                 this[this.tableESTADO.ESTADO_DESCRIPCIONColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PUBLICACIONRow[] GetPUBLICACIONRows() {
+                if ((this.Table.ChildRelations["FK__PUBLICACI__PUB_E__50FB042B"] == null)) {
+                    return new PUBLICACIONRow[0];
+                }
+                else {
+                    return ((PUBLICACIONRow[])(base.GetChildRows(this.Table.ChildRelations["FK__PUBLICACI__PUB_E__50FB042B"])));
+                }
+            }
         }
         
         /// <summary>
@@ -12708,6 +12759,16 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetTIPO_DESCRIPCIONNull() {
                 this[this.tableTIPO.TIPO_DESCRIPCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PUBLICACIONRow[] GetPUBLICACIONRows() {
+                if ((this.Table.ChildRelations["FK__PUBLICACI__PUB_T__5006DFF2"] == null)) {
+                    return new PUBLICACIONRow[0];
+                }
+                else {
+                    return ((PUBLICACIONRow[])(base.GetChildRows(this.Table.ChildRelations["FK__PUBLICACI__PUB_T__5006DFF2"])));
+                }
             }
         }
         
@@ -17867,30 +17928,26 @@ SELECT PRE_ID, PRE_PUB_ID, PRE_USU_ID, PRE_TEXTO FROM STR_NOMBRE_GRUPO.PREGUNTA 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "PUBLICACION";
             tableMapping.ColumnMappings.Add("PUB_ID", "PUB_ID");
-            tableMapping.ColumnMappings.Add("PUB_ES_SUBASTA", "PUB_TIPO_ID");
             tableMapping.ColumnMappings.Add("PUB_STOCK", "PUB_STOCK");
             tableMapping.ColumnMappings.Add("PUB_PRECIO", "PUB_PRECIO");
-            tableMapping.ColumnMappings.Add("PUB_ESTADO", "PUB_ESTADO");
             tableMapping.ColumnMappings.Add("PUB_FECHA_INICIO", "PUB_FECHA_INICIO");
             tableMapping.ColumnMappings.Add("PUB_FECHA_FINALIZACION", "PUB_FECHA_FINALIZACION");
             tableMapping.ColumnMappings.Add("PUB_DESCRIPCION", "PUB_DESCRIPCION");
             tableMapping.ColumnMappings.Add("PUB_VIS_ID", "PUB_VIS_ID");
             tableMapping.ColumnMappings.Add("PUB_USU_ID", "PUB_USU_ID");
             tableMapping.ColumnMappings.Add("PUB_PERMITIR_PREGUNTAS", "PUB_PERMITIR_PREGUNTAS");
+            tableMapping.ColumnMappings.Add("PUB_TIPO_ID", "PUB_TIPO_ID");
+            tableMapping.ColumnMappings.Add("PUB_ESTADO_ID", "PUB_ESTADO_ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [STR_NOMBRE_GRUPO].[PUBLICACION] WHERE (([PUB_ID] = @Original_PUB_ID) AND ((@IsNull_PUB_ES_SUBASTA = 1 AND [PUB_ES_SUBASTA] IS NULL) OR ([PUB_ES_SUBASTA] = @Original_PUB_ES_SUBASTA)) AND ((@IsNull_PUB_STOCK = 1 AND [PUB_STOCK] IS NULL) OR ([PUB_STOCK] = @Original_PUB_STOCK)) AND ((@IsNull_PUB_PRECIO = 1 AND [PUB_PRECIO] IS NULL) OR ([PUB_PRECIO] = @Original_PUB_PRECIO)) AND ((@IsNull_PUB_ESTADO = 1 AND [PUB_ESTADO] IS NULL) OR ([PUB_ESTADO] = @Original_PUB_ESTADO)) AND ((@IsNull_PUB_FECHA_INICIO = 1 AND [PUB_FECHA_INICIO] IS NULL) OR ([PUB_FECHA_INICIO] = @Original_PUB_FECHA_INICIO)) AND ((@IsNull_PUB_FECHA_FINALIZACION = 1 AND [PUB_FECHA_FINALIZACION] IS NULL) OR ([PUB_FECHA_FINALIZACION] = @Original_PUB_FECHA_FINALIZACION)) AND ((@IsNull_PUB_DESCRIPCION = 1 AND [PUB_DESCRIPCION] IS NULL) OR ([PUB_DESCRIPCION] = @Original_PUB_DESCRIPCION)) AND ((@IsNull_PUB_VIS_ID = 1 AND [PUB_VIS_ID] IS NULL) OR ([PUB_VIS_ID] = @Original_PUB_VIS_ID)) AND ((@IsNull_PUB_USU_ID = 1 AND [PUB_USU_ID] IS NULL) OR ([PUB_USU_ID] = @Original_PUB_USU_ID)) AND ((@IsNull_PUB_PERMITIR_PREGUNTAS = 1 AND [PUB_PERMITIR_PREGUNTAS] IS NULL) OR ([PUB_PERMITIR_PREGUNTAS] = @Original_PUB_PERMITIR_PREGUNTAS)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [STR_NOMBRE_GRUPO].[PUBLICACION] WHERE (([PUB_ID] = @Original_PUB_ID) AND ((@IsNull_PUB_STOCK = 1 AND [PUB_STOCK] IS NULL) OR ([PUB_STOCK] = @Original_PUB_STOCK)) AND ((@IsNull_PUB_PRECIO = 1 AND [PUB_PRECIO] IS NULL) OR ([PUB_PRECIO] = @Original_PUB_PRECIO)) AND ((@IsNull_PUB_FECHA_INICIO = 1 AND [PUB_FECHA_INICIO] IS NULL) OR ([PUB_FECHA_INICIO] = @Original_PUB_FECHA_INICIO)) AND ((@IsNull_PUB_FECHA_FINALIZACION = 1 AND [PUB_FECHA_FINALIZACION] IS NULL) OR ([PUB_FECHA_FINALIZACION] = @Original_PUB_FECHA_FINALIZACION)) AND ((@IsNull_PUB_DESCRIPCION = 1 AND [PUB_DESCRIPCION] IS NULL) OR ([PUB_DESCRIPCION] = @Original_PUB_DESCRIPCION)) AND ((@IsNull_PUB_VIS_ID = 1 AND [PUB_VIS_ID] IS NULL) OR ([PUB_VIS_ID] = @Original_PUB_VIS_ID)) AND ((@IsNull_PUB_USU_ID = 1 AND [PUB_USU_ID] IS NULL) OR ([PUB_USU_ID] = @Original_PUB_USU_ID)) AND ((@IsNull_PUB_PERMITIR_PREGUNTAS = 1 AND [PUB_PERMITIR_PREGUNTAS] IS NULL) OR ([PUB_PERMITIR_PREGUNTAS] = @Original_PUB_PERMITIR_PREGUNTAS)) AND ((@IsNull_PUB_ESTADO_ID = 1 AND [PUB_ESTADO_ID] IS NULL) OR ([PUB_ESTADO_ID] = @Original_PUB_ESTADO_ID)) AND ((@IsNull_PUB_TIPO_ID = 1 AND [PUB_TIPO_ID] IS NULL) OR ([PUB_TIPO_ID] = @Original_PUB_TIPO_ID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ES_SUBASTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ES_SUBASTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_STOCK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_STOCK", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_PRECIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PRECIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_PRECIO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PUB_PRECIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ESTADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ESTADO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_FECHA_INICIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_FECHA_FINALIZACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_FINALIZACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -17903,66 +17960,66 @@ SELECT PRE_ID, PRE_PUB_ID, PRE_USU_ID, PRE_TEXTO FROM STR_NOMBRE_GRUPO.PREGUNTA 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ESTADO_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ESTADO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_TIPO_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_TIPO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [STR_NOMBRE_GRUPO].[PUBLICACION] ([PUB_ES_SUBASTA], [PUB_STOCK], [PUB_PRECIO], [PUB_ESTADO], [PUB_FECHA_INICIO], [PUB_FECHA_FINALIZACION], [PUB_DESCRIPCION], [PUB_VIS_ID], [PUB_USU_ID], [PUB_PERMITIR_PREGUNTAS]) VALUES (@PUB_ES_SUBASTA, @PUB_STOCK, @PUB_PRECIO, @PUB_ESTADO, @PUB_FECHA_INICIO, @PUB_FECHA_FINALIZACION, @PUB_DESCRIPCION, @PUB_VIS_ID, @PUB_USU_ID, @PUB_PERMITIR_PREGUNTAS);
-SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS FROM STR_NOMBRE_GRUPO.PUBLICACION WHERE (PUB_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [STR_NOMBRE_GRUPO].[PUBLICACION] ([PUB_STOCK], [PUB_PRECIO], [PUB_FECHA_INICIO], [PUB_FECHA_FINALIZACION], [PUB_DESCRIPCION], [PUB_VIS_ID], [PUB_USU_ID], [PUB_PERMITIR_PREGUNTAS], [PUB_ESTADO_ID], [PUB_TIPO_ID]) VALUES (@PUB_STOCK, @PUB_PRECIO, @PUB_FECHA_INICIO, @PUB_FECHA_FINALIZACION, @PUB_DESCRIPCION, @PUB_VIS_ID, @PUB_USU_ID, @PUB_PERMITIR_PREGUNTAS, @PUB_ESTADO_ID, @PUB_TIPO_ID);
+SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS, PUB_ESTADO_ID, PUB_TIPO_ID FROM STR_NOMBRE_GRUPO.PUBLICACION WHERE (PUB_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ES_SUBASTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_STOCK", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_PRECIO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PUB_PRECIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ESTADO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_FECHA_FINALIZACION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_FINALIZACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_DESCRIPCION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_VIS_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_VIS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ESTADO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_TIPO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [STR_NOMBRE_GRUPO].[PUBLICACION] SET [PUB_ES_SUBASTA] = @PUB_ES_SUBASTA, [" +
-                "PUB_STOCK] = @PUB_STOCK, [PUB_PRECIO] = @PUB_PRECIO, [PUB_ESTADO] = @PUB_ESTADO," +
-                " [PUB_FECHA_INICIO] = @PUB_FECHA_INICIO, [PUB_FECHA_FINALIZACION] = @PUB_FECHA_F" +
-                "INALIZACION, [PUB_DESCRIPCION] = @PUB_DESCRIPCION, [PUB_VIS_ID] = @PUB_VIS_ID, [" +
-                "PUB_USU_ID] = @PUB_USU_ID, [PUB_PERMITIR_PREGUNTAS] = @PUB_PERMITIR_PREGUNTAS WH" +
-                "ERE (([PUB_ID] = @Original_PUB_ID) AND ((@IsNull_PUB_ES_SUBASTA = 1 AND [PUB_ES_" +
-                "SUBASTA] IS NULL) OR ([PUB_ES_SUBASTA] = @Original_PUB_ES_SUBASTA)) AND ((@IsNul" +
-                "l_PUB_STOCK = 1 AND [PUB_STOCK] IS NULL) OR ([PUB_STOCK] = @Original_PUB_STOCK))" +
-                " AND ((@IsNull_PUB_PRECIO = 1 AND [PUB_PRECIO] IS NULL) OR ([PUB_PRECIO] = @Orig" +
-                "inal_PUB_PRECIO)) AND ((@IsNull_PUB_ESTADO = 1 AND [PUB_ESTADO] IS NULL) OR ([PU" +
-                "B_ESTADO] = @Original_PUB_ESTADO)) AND ((@IsNull_PUB_FECHA_INICIO = 1 AND [PUB_F" +
-                "ECHA_INICIO] IS NULL) OR ([PUB_FECHA_INICIO] = @Original_PUB_FECHA_INICIO)) AND " +
-                "((@IsNull_PUB_FECHA_FINALIZACION = 1 AND [PUB_FECHA_FINALIZACION] IS NULL) OR ([" +
-                "PUB_FECHA_FINALIZACION] = @Original_PUB_FECHA_FINALIZACION)) AND ((@IsNull_PUB_D" +
-                "ESCRIPCION = 1 AND [PUB_DESCRIPCION] IS NULL) OR ([PUB_DESCRIPCION] = @Original_" +
-                "PUB_DESCRIPCION)) AND ((@IsNull_PUB_VIS_ID = 1 AND [PUB_VIS_ID] IS NULL) OR ([PU" +
-                "B_VIS_ID] = @Original_PUB_VIS_ID)) AND ((@IsNull_PUB_USU_ID = 1 AND [PUB_USU_ID]" +
-                " IS NULL) OR ([PUB_USU_ID] = @Original_PUB_USU_ID)) AND ((@IsNull_PUB_PERMITIR_P" +
-                "REGUNTAS = 1 AND [PUB_PERMITIR_PREGUNTAS] IS NULL) OR ([PUB_PERMITIR_PREGUNTAS] " +
-                "= @Original_PUB_PERMITIR_PREGUNTAS)));\r\nSELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK" +
-                ", PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPC" +
-                "ION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS FROM STR_NOMBRE_GRUPO.PUBLIC" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [STR_NOMBRE_GRUPO].[PUBLICACION] SET [PUB_STOCK] = @PUB_STOCK, [PUB_PRECIO" +
+                "] = @PUB_PRECIO, [PUB_FECHA_INICIO] = @PUB_FECHA_INICIO, [PUB_FECHA_FINALIZACION" +
+                "] = @PUB_FECHA_FINALIZACION, [PUB_DESCRIPCION] = @PUB_DESCRIPCION, [PUB_VIS_ID] " +
+                "= @PUB_VIS_ID, [PUB_USU_ID] = @PUB_USU_ID, [PUB_PERMITIR_PREGUNTAS] = @PUB_PERMI" +
+                "TIR_PREGUNTAS, [PUB_ESTADO_ID] = @PUB_ESTADO_ID, [PUB_TIPO_ID] = @PUB_TIPO_ID WH" +
+                "ERE (([PUB_ID] = @Original_PUB_ID) AND ((@IsNull_PUB_STOCK = 1 AND [PUB_STOCK] I" +
+                "S NULL) OR ([PUB_STOCK] = @Original_PUB_STOCK)) AND ((@IsNull_PUB_PRECIO = 1 AND" +
+                " [PUB_PRECIO] IS NULL) OR ([PUB_PRECIO] = @Original_PUB_PRECIO)) AND ((@IsNull_P" +
+                "UB_FECHA_INICIO = 1 AND [PUB_FECHA_INICIO] IS NULL) OR ([PUB_FECHA_INICIO] = @Or" +
+                "iginal_PUB_FECHA_INICIO)) AND ((@IsNull_PUB_FECHA_FINALIZACION = 1 AND [PUB_FECH" +
+                "A_FINALIZACION] IS NULL) OR ([PUB_FECHA_FINALIZACION] = @Original_PUB_FECHA_FINA" +
+                "LIZACION)) AND ((@IsNull_PUB_DESCRIPCION = 1 AND [PUB_DESCRIPCION] IS NULL) OR (" +
+                "[PUB_DESCRIPCION] = @Original_PUB_DESCRIPCION)) AND ((@IsNull_PUB_VIS_ID = 1 AND" +
+                " [PUB_VIS_ID] IS NULL) OR ([PUB_VIS_ID] = @Original_PUB_VIS_ID)) AND ((@IsNull_P" +
+                "UB_USU_ID = 1 AND [PUB_USU_ID] IS NULL) OR ([PUB_USU_ID] = @Original_PUB_USU_ID)" +
+                ") AND ((@IsNull_PUB_PERMITIR_PREGUNTAS = 1 AND [PUB_PERMITIR_PREGUNTAS] IS NULL)" +
+                " OR ([PUB_PERMITIR_PREGUNTAS] = @Original_PUB_PERMITIR_PREGUNTAS)) AND ((@IsNull" +
+                "_PUB_ESTADO_ID = 1 AND [PUB_ESTADO_ID] IS NULL) OR ([PUB_ESTADO_ID] = @Original_" +
+                "PUB_ESTADO_ID)) AND ((@IsNull_PUB_TIPO_ID = 1 AND [PUB_TIPO_ID] IS NULL) OR ([PU" +
+                "B_TIPO_ID] = @Original_PUB_TIPO_ID)));\r\nSELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PU" +
+                "B_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID," +
+                " PUB_PERMITIR_PREGUNTAS, PUB_ESTADO_ID, PUB_TIPO_ID FROM STR_NOMBRE_GRUPO.PUBLIC" +
                 "ACION WHERE (PUB_ID = @PUB_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ES_SUBASTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_STOCK", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_PRECIO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PUB_PRECIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ESTADO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_FECHA_FINALIZACION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_FINALIZACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_DESCRIPCION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_VIS_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_VIS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ESTADO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_TIPO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ES_SUBASTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ES_SUBASTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ES_SUBASTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_STOCK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_STOCK", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_STOCK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_PRECIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PRECIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_PRECIO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PUB_PRECIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ESTADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ESTADO", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_FECHA_INICIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_INICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_FECHA_FINALIZACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_FECHA_FINALIZACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -17975,6 +18032,10 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_PERMITIR_PREGUNTAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_PERMITIR_PREGUNTAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_ESTADO_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_ESTADO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_ESTADO_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PUB_TIPO_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUB_TIPO_ID", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_TIPO_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ID", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -17989,9 +18050,9 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INICI" +
-                "O, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR" +
-                "_PREGUNTAS, PUB_ESTADO_ID, PUB_TIPO_ID FROM STR_NOMBRE_GRUPO.PUBLICACION";
+            this._commandCollection[0].CommandText = "SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, P" +
+                "UB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS, PUB_ESTADO_ID, P" +
+                "UB_TIPO_ID FROM STR_NOMBRE_GRUPO.PUBLICACION";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18045,87 +18106,87 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_PUB_ID, global::System.Nullable<bool> Original_PUB_ES_SUBASTA, global::System.Nullable<decimal> Original_PUB_STOCK, global::System.Nullable<decimal> Original_PUB_PRECIO, string Original_PUB_ESTADO, global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_INICIO, global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_FINALIZACION, string Original_PUB_DESCRIPCION, global::System.Nullable<decimal> Original_PUB_VIS_ID, global::System.Nullable<int> Original_PUB_USU_ID, global::System.Nullable<bool> Original_PUB_PERMITIR_PREGUNTAS) {
+        public virtual int Delete(decimal Original_PUB_ID, global::System.Nullable<decimal> Original_PUB_STOCK, global::System.Nullable<decimal> Original_PUB_PRECIO, global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_INICIO, global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_FINALIZACION, string Original_PUB_DESCRIPCION, global::System.Nullable<decimal> Original_PUB_VIS_ID, global::System.Nullable<int> Original_PUB_USU_ID, global::System.Nullable<bool> Original_PUB_PERMITIR_PREGUNTAS, string Original_PUB_ESTADO_ID, string Original_PUB_TIPO_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_PUB_ID));
-            if ((Original_PUB_ES_SUBASTA.HasValue == true)) {
+            if ((Original_PUB_STOCK.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((bool)(Original_PUB_ES_SUBASTA.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_PUB_STOCK.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_STOCK.HasValue == true)) {
+            if ((Original_PUB_PRECIO.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_PUB_STOCK.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_PUB_PRECIO.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_PRECIO.HasValue == true)) {
+            if ((Original_PUB_FECHA_INICIO.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_PUB_PRECIO.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_PUB_FECHA_INICIO.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_ESTADO == null)) {
+            if ((Original_PUB_FECHA_FINALIZACION.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_PUB_FECHA_FINALIZACION.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_PUB_ESTADO));
-            }
-            if ((Original_PUB_FECHA_INICIO.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_PUB_FECHA_INICIO.Value));
-            }
-            else {
+            if ((Original_PUB_DESCRIPCION == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_FECHA_FINALIZACION.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_PUB_DESCRIPCION));
+            }
+            if ((Original_PUB_VIS_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_PUB_FECHA_FINALIZACION.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_PUB_VIS_ID.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_DESCRIPCION == null)) {
+            if ((Original_PUB_USU_ID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_PUB_USU_ID.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_PUB_DESCRIPCION));
-            }
-            if ((Original_PUB_VIS_ID.HasValue == true)) {
+            if ((Original_PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_PUB_VIS_ID.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_PUB_PERMITIR_PREGUNTAS.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_USU_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_PUB_USU_ID.Value));
-            }
-            else {
+            if ((Original_PUB_ESTADO_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((bool)(Original_PUB_PERMITIR_PREGUNTAS.Value));
-            }
             else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_PUB_ESTADO_ID));
+            }
+            if ((Original_PUB_TIPO_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_PUB_TIPO_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18146,66 +18207,66 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<bool> PUB_ES_SUBASTA, global::System.Nullable<decimal> PUB_STOCK, global::System.Nullable<decimal> PUB_PRECIO, string PUB_ESTADO, global::System.Nullable<global::System.DateTime> PUB_FECHA_INICIO, global::System.Nullable<global::System.DateTime> PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, global::System.Nullable<decimal> PUB_VIS_ID, global::System.Nullable<int> PUB_USU_ID, global::System.Nullable<bool> PUB_PERMITIR_PREGUNTAS) {
-            if ((PUB_ES_SUBASTA.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((bool)(PUB_ES_SUBASTA.Value));
+        public virtual int Insert(global::System.Nullable<decimal> PUB_STOCK, global::System.Nullable<decimal> PUB_PRECIO, global::System.Nullable<global::System.DateTime> PUB_FECHA_INICIO, global::System.Nullable<global::System.DateTime> PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, global::System.Nullable<decimal> PUB_VIS_ID, global::System.Nullable<int> PUB_USU_ID, global::System.Nullable<bool> PUB_PERMITIR_PREGUNTAS, string PUB_ESTADO_ID, string PUB_TIPO_ID) {
+            if ((PUB_STOCK.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(PUB_STOCK.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((PUB_STOCK.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(PUB_STOCK.Value));
+            if ((PUB_PRECIO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(PUB_PRECIO.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((PUB_PRECIO.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(PUB_PRECIO.Value));
+            if ((PUB_FECHA_INICIO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(PUB_FECHA_INICIO.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PUB_ESTADO == null)) {
+            if ((PUB_FECHA_FINALIZACION.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(PUB_FECHA_FINALIZACION.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PUB_ESTADO));
-            }
-            if ((PUB_FECHA_INICIO.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(PUB_FECHA_INICIO.Value));
-            }
-            else {
+            if ((PUB_DESCRIPCION == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((PUB_FECHA_FINALIZACION.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(PUB_FECHA_FINALIZACION.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PUB_DESCRIPCION));
+            }
+            if ((PUB_VIS_ID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(PUB_VIS_ID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((PUB_DESCRIPCION == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((PUB_USU_ID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(PUB_USU_ID.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(PUB_DESCRIPCION));
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((PUB_VIS_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(PUB_VIS_ID.Value));
+            if ((PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(PUB_PERMITIR_PREGUNTAS.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((PUB_USU_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(PUB_USU_ID.Value));
-            }
-            else {
+            if ((PUB_ESTADO_ID == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(PUB_PERMITIR_PREGUNTAS.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(PUB_ESTADO_ID));
+            }
+            if ((PUB_TIPO_ID == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(PUB_TIPO_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18227,168 +18288,168 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<bool> PUB_ES_SUBASTA, 
                     global::System.Nullable<decimal> PUB_STOCK, 
                     global::System.Nullable<decimal> PUB_PRECIO, 
-                    string PUB_ESTADO, 
                     global::System.Nullable<global::System.DateTime> PUB_FECHA_INICIO, 
                     global::System.Nullable<global::System.DateTime> PUB_FECHA_FINALIZACION, 
                     string PUB_DESCRIPCION, 
                     global::System.Nullable<decimal> PUB_VIS_ID, 
                     global::System.Nullable<int> PUB_USU_ID, 
                     global::System.Nullable<bool> PUB_PERMITIR_PREGUNTAS, 
+                    string PUB_ESTADO_ID, 
+                    string PUB_TIPO_ID, 
                     decimal Original_PUB_ID, 
-                    global::System.Nullable<bool> Original_PUB_ES_SUBASTA, 
                     global::System.Nullable<decimal> Original_PUB_STOCK, 
                     global::System.Nullable<decimal> Original_PUB_PRECIO, 
-                    string Original_PUB_ESTADO, 
                     global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_INICIO, 
                     global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_FINALIZACION, 
                     string Original_PUB_DESCRIPCION, 
                     global::System.Nullable<decimal> Original_PUB_VIS_ID, 
                     global::System.Nullable<int> Original_PUB_USU_ID, 
                     global::System.Nullable<bool> Original_PUB_PERMITIR_PREGUNTAS, 
+                    string Original_PUB_ESTADO_ID, 
+                    string Original_PUB_TIPO_ID, 
                     decimal PUB_ID) {
-            if ((PUB_ES_SUBASTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((bool)(PUB_ES_SUBASTA.Value));
+            if ((PUB_STOCK.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(PUB_STOCK.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((PUB_STOCK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(PUB_STOCK.Value));
+            if ((PUB_PRECIO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(PUB_PRECIO.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((PUB_PRECIO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(PUB_PRECIO.Value));
+            if ((PUB_FECHA_INICIO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(PUB_FECHA_INICIO.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PUB_ESTADO == null)) {
+            if ((PUB_FECHA_FINALIZACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(PUB_FECHA_FINALIZACION.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PUB_ESTADO));
-            }
-            if ((PUB_FECHA_INICIO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(PUB_FECHA_INICIO.Value));
-            }
-            else {
+            if ((PUB_DESCRIPCION == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((PUB_FECHA_FINALIZACION.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(PUB_FECHA_FINALIZACION.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PUB_DESCRIPCION));
+            }
+            if ((PUB_VIS_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(PUB_VIS_ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((PUB_DESCRIPCION == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((PUB_USU_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(PUB_USU_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(PUB_DESCRIPCION));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((PUB_VIS_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(PUB_VIS_ID.Value));
+            if ((PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(PUB_PERMITIR_PREGUNTAS.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((PUB_USU_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(PUB_USU_ID.Value));
-            }
-            else {
+            if ((PUB_ESTADO_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(PUB_PERMITIR_PREGUNTAS.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(PUB_ESTADO_ID));
+            }
+            if ((PUB_TIPO_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(PUB_TIPO_ID));
+            }
             this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_PUB_ID));
-            if ((Original_PUB_ES_SUBASTA.HasValue == true)) {
+            if ((Original_PUB_STOCK.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_PUB_ES_SUBASTA.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_PUB_STOCK.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_STOCK.HasValue == true)) {
+            if ((Original_PUB_PRECIO.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_PUB_STOCK.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_PUB_PRECIO.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_PRECIO.HasValue == true)) {
+            if ((Original_PUB_FECHA_INICIO.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_PUB_PRECIO.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_PUB_FECHA_INICIO.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_ESTADO == null)) {
+            if ((Original_PUB_FECHA_FINALIZACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_PUB_FECHA_FINALIZACION.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_PUB_ESTADO));
-            }
-            if ((Original_PUB_FECHA_INICIO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_PUB_FECHA_INICIO.Value));
-            }
-            else {
+            if ((Original_PUB_DESCRIPCION == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_FECHA_FINALIZACION.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_PUB_DESCRIPCION));
+            }
+            if ((Original_PUB_VIS_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_PUB_FECHA_FINALIZACION.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Original_PUB_VIS_ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_DESCRIPCION == null)) {
+            if ((Original_PUB_USU_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_PUB_USU_ID.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_PUB_DESCRIPCION));
-            }
-            if ((Original_PUB_VIS_ID.HasValue == true)) {
+            if ((Original_PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(Original_PUB_VIS_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((bool)(Original_PUB_PERMITIR_PREGUNTAS.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_USU_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_PUB_USU_ID.Value));
-            }
-            else {
+            if ((Original_PUB_ESTADO_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_PUB_PERMITIR_PREGUNTAS.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((bool)(Original_PUB_PERMITIR_PREGUNTAS.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_PUB_ESTADO_ID));
+            }
+            if ((Original_PUB_TIPO_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_PUB_TIPO_ID));
             }
             this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(PUB_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -18411,28 +18472,28 @@ SELECT PUB_ID, PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INIC
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<bool> PUB_ES_SUBASTA, 
                     global::System.Nullable<decimal> PUB_STOCK, 
                     global::System.Nullable<decimal> PUB_PRECIO, 
-                    string PUB_ESTADO, 
                     global::System.Nullable<global::System.DateTime> PUB_FECHA_INICIO, 
                     global::System.Nullable<global::System.DateTime> PUB_FECHA_FINALIZACION, 
                     string PUB_DESCRIPCION, 
                     global::System.Nullable<decimal> PUB_VIS_ID, 
                     global::System.Nullable<int> PUB_USU_ID, 
                     global::System.Nullable<bool> PUB_PERMITIR_PREGUNTAS, 
+                    string PUB_ESTADO_ID, 
+                    string PUB_TIPO_ID, 
                     decimal Original_PUB_ID, 
-                    global::System.Nullable<bool> Original_PUB_ES_SUBASTA, 
                     global::System.Nullable<decimal> Original_PUB_STOCK, 
                     global::System.Nullable<decimal> Original_PUB_PRECIO, 
-                    string Original_PUB_ESTADO, 
                     global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_INICIO, 
                     global::System.Nullable<global::System.DateTime> Original_PUB_FECHA_FINALIZACION, 
                     string Original_PUB_DESCRIPCION, 
                     global::System.Nullable<decimal> Original_PUB_VIS_ID, 
                     global::System.Nullable<int> Original_PUB_USU_ID, 
-                    global::System.Nullable<bool> Original_PUB_PERMITIR_PREGUNTAS) {
-            return this.Update(PUB_ES_SUBASTA, PUB_STOCK, PUB_PRECIO, PUB_ESTADO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS, Original_PUB_ID, Original_PUB_ES_SUBASTA, Original_PUB_STOCK, Original_PUB_PRECIO, Original_PUB_ESTADO, Original_PUB_FECHA_INICIO, Original_PUB_FECHA_FINALIZACION, Original_PUB_DESCRIPCION, Original_PUB_VIS_ID, Original_PUB_USU_ID, Original_PUB_PERMITIR_PREGUNTAS, Original_PUB_ID);
+                    global::System.Nullable<bool> Original_PUB_PERMITIR_PREGUNTAS, 
+                    string Original_PUB_ESTADO_ID, 
+                    string Original_PUB_TIPO_ID) {
+            return this.Update(PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, PUB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS, PUB_ESTADO_ID, PUB_TIPO_ID, Original_PUB_ID, Original_PUB_STOCK, Original_PUB_PRECIO, Original_PUB_FECHA_INICIO, Original_PUB_FECHA_FINALIZACION, Original_PUB_DESCRIPCION, Original_PUB_VIS_ID, Original_PUB_USU_ID, Original_PUB_PERMITIR_PREGUNTAS, Original_PUB_ESTADO_ID, Original_PUB_TIPO_ID, Original_PUB_ID);
         }
     }
     
@@ -24080,6 +24141,15 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateUpdatedRows(GD1C2014DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._eSTADOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._eSTADOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._vISIBILIDADTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.VISIBILIDAD.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -24095,6 +24165,15 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._uSUARIOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tIPOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tIPOTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24116,12 +24195,12 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pREGUNTATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._cALIFICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pREGUNTATableAdapter.Update(updatedRows));
+                    result = (result + this._cALIFICACIONTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24134,6 +24213,15 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._rUBROTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.RUBRO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -24143,12 +24231,12 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cALIFICACIONTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pREGUNTATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cALIFICACIONTableAdapter.Update(updatedRows));
+                    result = (result + this._pREGUNTATableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24161,84 +24249,12 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._eSTADOTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._eSTADOTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tIPOTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tIPOTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._iTEM_FACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._iTEM_FACTURATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._uSUARIO_ROLTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.USUARIO_ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._uSUARIO_ROLTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._eMPRESATableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.EMPRESA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._eMPRESATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._maestraTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._maestraTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cLIENTETableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cLIENTETableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cOMPRATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cOMPRATableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24251,21 +24267,39 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._cOMPRATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cOMPRATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._iTEM_FACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._iTEM_FACTURATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cLIENTETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cLIENTETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._rOL_FUNCIONALIDADTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ROL_FUNCIONALIDAD.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rOL_FUNCIONALIDADTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._oFERTATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.OFERTA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._oFERTATableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24278,6 +24312,33 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._oFERTATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.OFERTA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._oFERTATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._uSUARIO_ROLTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.USUARIO_ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._uSUARIO_ROLTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._maestraTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._maestraTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -24287,6 +24348,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateInsertedRows(GD1C2014DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._eSTADOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._eSTADOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._vISIBILIDADTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.VISIBILIDAD.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -24300,6 +24369,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._uSUARIOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tIPOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tIPOTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24319,11 +24396,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pREGUNTATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._cALIFICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pREGUNTATableAdapter.Update(addedRows));
+                    result = (result + this._cALIFICACIONTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24335,6 +24412,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._rUBROTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.RUBRO.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -24343,11 +24428,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cALIFICACIONTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pREGUNTATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cALIFICACIONTableAdapter.Update(addedRows));
+                    result = (result + this._pREGUNTATableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24359,75 +24444,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._eSTADOTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._eSTADOTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tIPOTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tIPOTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._iTEM_FACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._iTEM_FACTURATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._uSUARIO_ROLTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.USUARIO_ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._uSUARIO_ROLTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._eMPRESATableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.EMPRESA.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._eMPRESATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._maestraTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._maestraTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cLIENTETableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cLIENTETableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cOMPRATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cOMPRATableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24439,11 +24460,43 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._cOMPRATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cOMPRATableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._iTEM_FACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._iTEM_FACTURATableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cLIENTETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cLIENTETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._rOL_FUNCIONALIDADTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ROL_FUNCIONALIDAD.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._rOL_FUNCIONALIDADTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pUBLICACION_RUBROTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PUBLICACION_RUBRO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pUBLICACION_RUBROTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24455,11 +24508,19 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pUBLICACION_RUBROTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PUBLICACION_RUBRO.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._uSUARIO_ROLTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.USUARIO_ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pUBLICACION_RUBROTableAdapter.Update(addedRows));
+                    result = (result + this._uSUARIO_ROLTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._maestraTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._maestraTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24472,67 +24533,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateDeletedRows(GD1C2014DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._pUBLICACION_RUBROTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PUBLICACION_RUBRO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pUBLICACION_RUBROTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._oFERTATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.OFERTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._oFERTATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rOL_FUNCIONALIDADTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ROL_FUNCIONALIDAD.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rOL_FUNCIONALIDADTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rESPUESTATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RESPUESTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rESPUESTATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cOMPRATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cOMPRATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cLIENTETableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cLIENTETableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._maestraTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._maestraTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._eMPRESATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.EMPRESA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._eMPRESATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24544,6 +24549,38 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._oFERTATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.OFERTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oFERTATableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pUBLICACION_RUBROTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PUBLICACION_RUBRO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pUBLICACION_RUBROTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rOL_FUNCIONALIDADTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ROL_FUNCIONALIDAD.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rOL_FUNCIONALIDADTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cLIENTETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cLIENTETableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._iTEM_FACTURATableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24552,27 +24589,27 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tIPOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cOMPRATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.COMPRA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tIPOTableAdapter.Update(deletedRows));
+                    result = (result + this._cOMPRATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._eSTADOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._rESPUESTATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RESPUESTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._eSTADOTableAdapter.Update(deletedRows));
+                    result = (result + this._rESPUESTATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._eMPRESATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EMPRESA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(deletedRows));
+                    result = (result + this._eMPRESATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24584,11 +24621,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cALIFICACIONTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pREGUNTATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cALIFICACIONTableAdapter.Update(deletedRows));
+                    result = (result + this._pREGUNTATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24600,6 +24637,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._rOLTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24608,11 +24653,11 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pREGUNTATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PREGUNTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cALIFICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CALIFICACION.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pREGUNTATableAdapter.Update(deletedRows));
+                    result = (result + this._cALIFICACIONTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24632,6 +24677,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._tIPOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TIPO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tIPOTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._uSUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24645,6 +24698,14 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._vISIBILIDADTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._eSTADOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ESTADO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._eSTADOTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
