@@ -38,11 +38,7 @@ namespace FrbaCommerce.Abm_Rubro
             DataRow FilaAModificar = gD1C2014DataSet1.RUBRO.NewRow();
 
             FilaAModificar = gD1C2014DataSet1.RUBRO.FindByRUBRO_ID(codigo);
-            /*
-                 DataRow ModifFila = gD2C2013DataSet1.PERSONAL_DATOS.NewRow(); 
-             * ModifFila = gD2C2013DataSet1.PERSONAL_DATOS.FindByPERSDAT_CODIGO(profesional.codigo); 
-             * ModifFila["PERSDAT_TIPO_DOC"] = textBox3.Text;
-            */
+         
             MessageBox.Show(Convert.ToString(FilaAModificar["RUBRO_ID"]) + " 2");
 
            
@@ -53,22 +49,6 @@ namespace FrbaCommerce.Abm_Rubro
             rubroTableAdapter1.Update(gD1C2014DataSet1.RUBRO);
         }
      
-        private bool esInteger(TextBox txt)
-        {
-            int number;
-
-            bool result = Int32.TryParse(txt.Text, out number);
-            if (result)
-            {
-                return true;
-            }
-            else
-            {
-                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
-                MessageBox.Show(errores);
-                return false;
-            }
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {

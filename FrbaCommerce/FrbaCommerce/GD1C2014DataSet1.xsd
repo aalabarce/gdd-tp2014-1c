@@ -1130,7 +1130,7 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
               <Mapping SourceColumn="RUBRO_BAJA" DataSetColumn="RUBRO_BAJA" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.RUBRO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="BuscarFila" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="BuscarFila" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BuscarFila">
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.RUBRO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="BuscarFila" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="BuscarFila" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BuscarFila">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT * FROM STR_NOMBRE_GRUPO.RUBRO WHERE RUBRO_ID = @codigo</CommandText>
@@ -1150,7 +1150,7 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.RUBRO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltroRubro" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FiltroRubro" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FiltroRubro">
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.RUBRO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltroRubro" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FiltroRubro" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FiltroRubro">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT * FROM STR_NOMBRE_GRUPO.Rubro WHERE (@codigo is null or RUBRO_ID = @codigo)</CommandText>
@@ -1416,8 +1416,10 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BAJA, VIS_CODIGO FROM STR_NOMBRE_GRUPO.VISIBILIDAD</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BAJA, VIS_CODIGO 
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE VIS_BAJA=0</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1460,7 +1462,78 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
               <Mapping SourceColumn="VIS_BAJA" DataSetColumn="VIS_BAJA" />
               <Mapping SourceColumn="VIS_CODIGO" DataSetColumn="VIS_CODIGO" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="BuscarID" Modifier="Public" Name="BuscarID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="BuscarID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT VIS_ID
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE @codigo=VIS_CODIGO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="codigo" ColumnName="VIS_CODIGO" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@codigo" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="VIS_CODIGO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="BuscarXCod" GeneratorSourceName="BuscarID" GetMethodModifier="Public" GetMethodName="BuscarXCod" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="BuscarXCod" UserSourceName="BuscarXCod">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT VIS_BAJA, VIS_CODIGO, VIS_DESCRIPCION, VIS_DURACION, VIS_ID, VIS_PORCENTAJE, VIS_PRECIO FROM STR_NOMBRE_GRUPO.VISIBILIDAD WHERE (VIS_CODIGO = @codigo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="codigo" ColumnName="VIS_CODIGO" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@codigo" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="VIS_CODIGO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltrarCod" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FiltrarCod" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FiltrarCod">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE @cod=VIS_CODIGO AND VIS_BAJA=0</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cod" ColumnName="VIS_CODIGO" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@cod" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="VIS_CODIGO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltrarDes" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FiltrarDes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FiltrarDes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE VIS_DESCRIPCION = @des AND VIS_BAJA=0</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="des" ColumnName="VIS_DESCRIPCION" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="nvarchar(255)" DbType="String" Direction="Input" ParameterName="@des" Precision="0" ProviderType="NVarChar" Scale="0" Size="255" SourceColumn="VIS_DESCRIPCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltrarPor" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FiltrarPor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FiltrarPor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE VIS_PORCENTAJE=@por AND VIS_BAJA=0</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="por" ColumnName="VIS_PORCENTAJE" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@por" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="VIS_PORCENTAJE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FiltrarPre" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FiltrarPre" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FiltrarPre">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM STR_NOMBRE_GRUPO.VISIBILIDAD
+WHERE VIS_PRECIO=@pre AND VIS_BAJA=0</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="pre" ColumnName="VIS_PRECIO" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.VISIBILIDAD" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@pre" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="VIS_PRECIO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ESTADOTableAdapter" GeneratorDataComponentClassName="ESTADOTableAdapter" Name="ESTADO" UserDataComponentName="ESTADOTableAdapter">
             <MainSource>
@@ -2330,7 +2403,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ESTADO" msprop:Generator_UserTableName="ESTADO" msprop:Generator_RowDeletedName="ESTADORowDeleted" msprop:Generator_TableClassName="ESTADODataTable" msprop:Generator_RowChangedName="ESTADORowChanged" msprop:Generator_RowClassName="ESTADORow" msprop:Generator_RowChangingName="ESTADORowChanging" msprop:Generator_RowEvArgName="ESTADORowChangeEvent" msprop:Generator_RowEvHandlerName="ESTADORowChangeEventHandler" msprop:Generator_TablePropName="ESTADO" msprop:Generator_TableVarName="tableESTADO" msprop:Generator_RowDeletingName="ESTADORowDeleting">
+        <xs:element name="ESTADO" msprop:Generator_UserTableName="ESTADO" msprop:Generator_RowDeletedName="ESTADORowDeleted" msprop:Generator_RowChangedName="ESTADORowChanged" msprop:Generator_RowClassName="ESTADORow" msprop:Generator_RowChangingName="ESTADORowChanging" msprop:Generator_RowEvArgName="ESTADORowChangeEvent" msprop:Generator_RowEvHandlerName="ESTADORowChangeEventHandler" msprop:Generator_TableClassName="ESTADODataTable" msprop:Generator_TableVarName="tableESTADO" msprop:Generator_RowDeletingName="ESTADORowDeleting" msprop:Generator_TablePropName="ESTADO">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ESTADO_ID" msprop:Generator_UserColumnName="ESTADO_ID" msprop:Generator_ColumnPropNameInRow="ESTADO_ID" msprop:Generator_ColumnVarNameInTable="columnESTADO_ID" msprop:Generator_ColumnPropNameInTable="ESTADO_IDColumn">
@@ -2350,7 +2423,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FACTURA" msprop:Generator_UserTableName="FACTURA" msprop:Generator_RowDeletedName="FACTURARowDeleted" msprop:Generator_TableClassName="FACTURADataTable" msprop:Generator_RowChangedName="FACTURARowChanged" msprop:Generator_RowClassName="FACTURARow" msprop:Generator_RowChangingName="FACTURARowChanging" msprop:Generator_RowEvArgName="FACTURARowChangeEvent" msprop:Generator_RowEvHandlerName="FACTURARowChangeEventHandler" msprop:Generator_TablePropName="FACTURA" msprop:Generator_TableVarName="tableFACTURA" msprop:Generator_RowDeletingName="FACTURARowDeleting">
+        <xs:element name="FACTURA" msprop:Generator_UserTableName="FACTURA" msprop:Generator_RowDeletedName="FACTURARowDeleted" msprop:Generator_RowChangedName="FACTURARowChanged" msprop:Generator_RowClassName="FACTURARow" msprop:Generator_RowChangingName="FACTURARowChanging" msprop:Generator_RowEvArgName="FACTURARowChangeEvent" msprop:Generator_RowEvHandlerName="FACTURARowChangeEventHandler" msprop:Generator_TableClassName="FACTURADataTable" msprop:Generator_TableVarName="tableFACTURA" msprop:Generator_RowDeletingName="FACTURARowDeleting" msprop:Generator_TablePropName="FACTURA">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FAC_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="FAC_ID" msprop:Generator_ColumnPropNameInRow="FAC_ID" msprop:Generator_ColumnVarNameInTable="columnFAC_ID" msprop:Generator_ColumnPropNameInTable="FAC_IDColumn" type="xs:decimal" />
@@ -2361,7 +2434,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FORMA_PAGO" msprop:Generator_UserTableName="FORMA_PAGO" msprop:Generator_RowDeletedName="FORMA_PAGORowDeleted" msprop:Generator_TableClassName="FORMA_PAGODataTable" msprop:Generator_RowChangedName="FORMA_PAGORowChanged" msprop:Generator_RowClassName="FORMA_PAGORow" msprop:Generator_RowChangingName="FORMA_PAGORowChanging" msprop:Generator_RowEvArgName="FORMA_PAGORowChangeEvent" msprop:Generator_RowEvHandlerName="FORMA_PAGORowChangeEventHandler" msprop:Generator_TablePropName="FORMA_PAGO" msprop:Generator_TableVarName="tableFORMA_PAGO" msprop:Generator_RowDeletingName="FORMA_PAGORowDeleting">
+        <xs:element name="FORMA_PAGO" msprop:Generator_UserTableName="FORMA_PAGO" msprop:Generator_RowDeletedName="FORMA_PAGORowDeleted" msprop:Generator_RowChangedName="FORMA_PAGORowChanged" msprop:Generator_RowClassName="FORMA_PAGORow" msprop:Generator_RowChangingName="FORMA_PAGORowChanging" msprop:Generator_RowEvArgName="FORMA_PAGORowChangeEvent" msprop:Generator_RowEvHandlerName="FORMA_PAGORowChangeEventHandler" msprop:Generator_TableClassName="FORMA_PAGODataTable" msprop:Generator_TableVarName="tableFORMA_PAGO" msprop:Generator_RowDeletingName="FORMA_PAGORowDeleting" msprop:Generator_TablePropName="FORMA_PAGO">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FORMA_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="FORMA_ID" msprop:Generator_ColumnPropNameInRow="FORMA_ID" msprop:Generator_ColumnVarNameInTable="columnFORMA_ID" msprop:Generator_ColumnPropNameInTable="FORMA_IDColumn" type="xs:int" />
@@ -2375,7 +2448,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ITEM_FACTURA" msprop:Generator_UserTableName="ITEM_FACTURA" msprop:Generator_RowDeletedName="ITEM_FACTURARowDeleted" msprop:Generator_TableClassName="ITEM_FACTURADataTable" msprop:Generator_RowChangedName="ITEM_FACTURARowChanged" msprop:Generator_RowClassName="ITEM_FACTURARow" msprop:Generator_RowChangingName="ITEM_FACTURARowChanging" msprop:Generator_RowEvArgName="ITEM_FACTURARowChangeEvent" msprop:Generator_RowEvHandlerName="ITEM_FACTURARowChangeEventHandler" msprop:Generator_TablePropName="ITEM_FACTURA" msprop:Generator_TableVarName="tableITEM_FACTURA" msprop:Generator_RowDeletingName="ITEM_FACTURARowDeleting">
+        <xs:element name="ITEM_FACTURA" msprop:Generator_UserTableName="ITEM_FACTURA" msprop:Generator_RowDeletedName="ITEM_FACTURARowDeleted" msprop:Generator_RowChangedName="ITEM_FACTURARowChanged" msprop:Generator_RowClassName="ITEM_FACTURARow" msprop:Generator_RowChangingName="ITEM_FACTURARowChanging" msprop:Generator_RowEvArgName="ITEM_FACTURARowChangeEvent" msprop:Generator_RowEvHandlerName="ITEM_FACTURARowChangeEventHandler" msprop:Generator_TableClassName="ITEM_FACTURADataTable" msprop:Generator_TableVarName="tableITEM_FACTURA" msprop:Generator_RowDeletingName="ITEM_FACTURARowDeleting" msprop:Generator_TablePropName="ITEM_FACTURA">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ITEM_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ITEM_ID" msprop:Generator_ColumnPropNameInRow="ITEM_ID" msprop:Generator_ColumnVarNameInTable="columnITEM_ID" msprop:Generator_ColumnPropNameInTable="ITEM_IDColumn" type="xs:int" />
@@ -2386,7 +2459,7 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TIPO" msprop:Generator_UserTableName="TIPO" msprop:Generator_RowDeletedName="TIPORowDeleted" msprop:Generator_TableClassName="TIPODataTable" msprop:Generator_RowChangedName="TIPORowChanged" msprop:Generator_RowClassName="TIPORow" msprop:Generator_RowChangingName="TIPORowChanging" msprop:Generator_RowEvArgName="TIPORowChangeEvent" msprop:Generator_RowEvHandlerName="TIPORowChangeEventHandler" msprop:Generator_TablePropName="TIPO" msprop:Generator_TableVarName="tableTIPO" msprop:Generator_RowDeletingName="TIPORowDeleting">
+        <xs:element name="TIPO" msprop:Generator_UserTableName="TIPO" msprop:Generator_RowDeletedName="TIPORowDeleted" msprop:Generator_RowChangedName="TIPORowChanged" msprop:Generator_RowClassName="TIPORow" msprop:Generator_RowChangingName="TIPORowChanging" msprop:Generator_RowEvArgName="TIPORowChangeEvent" msprop:Generator_RowEvHandlerName="TIPORowChangeEventHandler" msprop:Generator_TableClassName="TIPODataTable" msprop:Generator_TableVarName="tableTIPO" msprop:Generator_RowDeletingName="TIPORowDeleting" msprop:Generator_TablePropName="TIPO">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TIPO_ID" msprop:Generator_UserColumnName="TIPO_ID" msprop:Generator_ColumnPropNameInRow="TIPO_ID" msprop:Generator_ColumnVarNameInTable="columnTIPO_ID" msprop:Generator_ColumnPropNameInTable="TIPO_IDColumn">

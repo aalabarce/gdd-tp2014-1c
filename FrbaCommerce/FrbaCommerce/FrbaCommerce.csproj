@@ -96,6 +96,24 @@
     <Compile Include="Abm Visibilidad\AltaVi.designer.cs">
       <DependentUpon>AltaVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Visibilidad\BorrarVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BorrarVi.Designer.cs">
+      <DependentUpon>BorrarVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVi.Designer.cs">
+      <DependentUpon>BuscarVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\ModVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\ModVi.Designer.cs">
+      <DependentUpon>ModVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Visibilidad\AltaVi.resx">
       <DependentUpon>AltaVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\BorrarVi.resx">
+      <DependentUpon>BorrarVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\BuscarVi.resx">
+      <DependentUpon>BuscarVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\ModVi.resx">
+      <DependentUpon>ModVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

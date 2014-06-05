@@ -39,6 +39,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +90,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(138, 110);
+            this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 5;
@@ -122,6 +126,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Confirmar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -131,6 +136,16 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // gD1C2014DataSet1
+            // 
+            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // visibilidadTableAdapter1
+            // 
+            this.visibilidadTableAdapter1.ClearBeforeFill = true;
             // 
             // AltaVi
             // 
@@ -150,6 +165,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AltaVi";
             this.Text = "Frba Commerce";
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +184,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private GD1C2014DataSet gD1C2014DataSet1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter visibilidadTableAdapter1;
     }
 }

@@ -44,7 +44,10 @@ namespace FrbaCommerce.Abm_Rubro
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            new FrbaCommerce.Abm_Rubro.ModRubro(e.RowIndex).Show();         
+
+            DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+            int cod = Convert.ToInt32(fila.Cells[0].Value);
+            new FrbaCommerce.Abm_Rubro.ModRubro(cod).Show();         
         }
     }
 }
