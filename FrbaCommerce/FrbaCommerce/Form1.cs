@@ -10,17 +10,21 @@ using System.Windows.Forms;
 namespace FrbaCommerce
 {
     public partial class Form1 : Form
+
     {
-        public Form1(string usuario, string rol)
+        public string usuario { get; set; }
+        public string rol { get; set; }
+        public Form1()
         {
+            
             InitializeComponent();
-            label1.Text = "Usuario: " + usuario;
-            label2.Text = "    Rol: " + rol;
+            label1.Text = "Usuario: " + Global.usuario;
+            label2.Text = "    Rol: " + Global.rol;
+               
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-      
 
         }
 
@@ -39,5 +43,7 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show(); 
         }
+
+
     }
 }

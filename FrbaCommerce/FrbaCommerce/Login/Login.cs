@@ -23,6 +23,7 @@ namespace FrbaCommerce.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
             exito = false;
             if (textBox1.Text == "" || textBox2.Text == "")
             {
