@@ -97,6 +97,7 @@
             this.radTipoCompra.TabStop = true;
             this.radTipoCompra.Text = "Compra directa";
             this.radTipoCompra.UseVisualStyleBackColor = false;
+            this.radTipoCompra.CheckedChanged += new System.EventHandler(this.radTipoCompra_CheckedChanged);
             // 
             // radTipoSubasta
             // 
@@ -220,6 +221,7 @@
             // 
             // chkRubros
             // 
+            this.chkRubros.CheckOnClick = true;
             this.chkRubros.FormattingEnabled = true;
             this.chkRubros.Location = new System.Drawing.Point(198, 301);
             this.chkRubros.Name = "chkRubros";
