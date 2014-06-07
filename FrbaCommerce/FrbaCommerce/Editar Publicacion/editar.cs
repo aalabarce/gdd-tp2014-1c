@@ -21,9 +21,15 @@ namespace FrbaCommerce.Editar_Publicacion
         private void editar_Load(object sender, EventArgs e)
         {
             this.publicacionTableAdapter1.Fill(this.gD1C2014DataSet1.PUBLICACION);
-            DataRow FilaAModificar = gD1C2014DataSet1.PUBLICACION.NewRow();
-            FilaAModificar = gD1C2014DataSet1.PUBLICACION.FindByPUB_ID(codigo);
-            MessageBox.Show(Convert.ToString(FilaAModificar["PUB_DESCRIPCION"]));  
+            DataRow fila = gD1C2014DataSet1.PUBLICACION.NewRow();
+            fila = gD1C2014DataSet1.PUBLICACION.FindByPUB_ID(codigo);
+            txtDescripcion.Text = fila["PUB_DESCRIPCION"].ToString();
+            txtPrecio.Text = fila["PUB_PRECIO"].ToString();
+            txtStock.Text = fila["PUB_STOCK"].ToString();
+
+            
         }
+
+      
     }
 }

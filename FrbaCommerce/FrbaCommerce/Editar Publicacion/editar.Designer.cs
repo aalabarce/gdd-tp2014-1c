@@ -44,12 +44,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.radTipoSubasta = new System.Windows.Forms.RadioButton();
-            this.radTipoCompra = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,30 +200,6 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Descripción:";
             // 
-            // radTipoSubasta
-            // 
-            this.radTipoSubasta.AutoSize = true;
-            this.radTipoSubasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radTipoSubasta.Location = new System.Drawing.Point(187, 92);
-            this.radTipoSubasta.Name = "radTipoSubasta";
-            this.radTipoSubasta.Size = new System.Drawing.Size(76, 20);
-            this.radTipoSubasta.TabIndex = 30;
-            this.radTipoSubasta.TabStop = true;
-            this.radTipoSubasta.Text = "Subasta";
-            this.radTipoSubasta.UseVisualStyleBackColor = false;
-            // 
-            // radTipoCompra
-            // 
-            this.radTipoCompra.AutoSize = true;
-            this.radTipoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radTipoCompra.Location = new System.Drawing.Point(187, 66);
-            this.radTipoCompra.Name = "radTipoCompra";
-            this.radTipoCompra.Size = new System.Drawing.Size(118, 20);
-            this.radTipoCompra.TabIndex = 29;
-            this.radTipoCompra.TabStop = true;
-            this.radTipoCompra.Text = "Compra directa";
-            this.radTipoCompra.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -254,11 +229,22 @@
             this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(194, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 16);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "Subasta";
+            // 
             // editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 518);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lblAclaracionSubasta);
             this.Controls.Add(this.cmbVisibilidad);
             this.Controls.Add(this.label7);
@@ -275,8 +261,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radTipoSubasta);
-            this.Controls.Add(this.radTipoCompra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "editar";
@@ -306,11 +290,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radTipoSubasta;
-        private System.Windows.Forms.RadioButton radTipoCompra;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter publicacionTableAdapter1;
         private GD1C2014DataSet gD1C2014DataSet1;
+        private System.Windows.Forms.Label label9;
     }
 }
