@@ -18,7 +18,7 @@ namespace FrbaCommerce
         {
             
             InitializeComponent();
-            label1.Text = "Usuario: " + Global.usuario;
+            label1.Text = "Usuario: " + Global.usuario_id;
             label2.Text = "    Rol: " + Global.rol;
                
         }

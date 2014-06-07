@@ -13,6 +13,7 @@ namespace FrbaCommerce.Login
     {
         public bool exito { get; set; }
         public string usuario { get; set; }
+        public int? usuario_id { get; set; }
         public string rol { get; set; }
 
         
@@ -42,6 +43,7 @@ namespace FrbaCommerce.Login
                     {
                         MessageBox.Show("Contraseña coincide");
                         usuarioTableAdapter1.resetearIntentosFallidos(usuario);
+                        usuario_id=usuarioTableAdapter1.get_id_by_username(usuario);
                         if (usuariO_ROLTableAdapter1.cantidadRoles(usuario) > 1)
                         {
 
@@ -60,7 +62,7 @@ namespace FrbaCommerce.Login
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña NO coincide, se te agrega intento fallido. Cabió");
+                        MessageBox.Show("Contraseña NO coincide, se te agrega intento fallido.");
                         usuarioTableAdapter1.agregaIntentoFallido(usuario);
                     }
                     
@@ -89,8 +91,9 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //new FrbaCommerce.Abm_Empresa.Alta().Show();
-            new FrbaCommerce.ABM_Rol.AltaRol().Show();
+            new FrbaCommerce.Abm_Empresa.Baja().Show();
+            //new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show();
+            //new FrbaCommerce.ABM_Rol.AltaRol().Show();
             this.Hide();
             
         }

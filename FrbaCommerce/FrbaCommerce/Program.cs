@@ -12,7 +12,7 @@ namespace FrbaCommerce
 {
     public class Global
     {
-        public static string usuario;
+        public static int? usuario_id;
         public static string rol;
     }
 
@@ -32,7 +32,7 @@ namespace FrbaCommerce
             Application.SetCompatibleTextRenderingDefault(false);
             FrbaCommerce.Login.Login login = new Login.Login();
             Application.Run(login);
-            Global.usuario = login.usuario;
+            Global.usuario_id = login.usuario_id;
             Global.rol = login.rol;
             Application.Run(new Form1());
 
