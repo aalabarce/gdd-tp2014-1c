@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text;
-
+using System.Security.Cryptography;
 
 
 
@@ -56,6 +56,18 @@ namespace FrbaCommerce
                 MessageBox.Show(errores);
                 return false;
             }
+        }
+
+        public static string sha256(string password)
+        {
+            SHA256Managed crypt = new SHA256Managed();
+            string hash = String.Empty;
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
+            foreach (byte bit in crypto)
+            {
+                hash += bit.ToString("x2");
+            }
+            return hash;
         }
     }
 }

@@ -32,7 +32,10 @@ namespace FrbaCommerce.Login
                 return;                
             }
             usuario = textBox1.Text;
-            string contraseña = textBox2.Text;
+            string password = textBox2.Text;
+            // LE AGREGO LA VERIFICACION DE SHA 256
+            string contraseña = MetodosGlobales.sha256(password);
+
             if (usuarioTableAdapter1.existeUsuario(usuario)==1) //Le mando a usuarioTableAdaapter el mensaje "Existe Usuario", que me devuelve 0 o 1
             {
                 MessageBox.Show("Existe!!");
@@ -91,7 +94,8 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FrbaCommerce.Abm_Empresa.Baja().Show();
+            //new FrbaCommerce.Abm_Empresa.Alta(-1).Show();
+            new FrbaCommerce.Registro_de_Usuario.Alta().Show();
             //new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show();
             //new FrbaCommerce.ABM_Rol.AltaRol().Show();
             this.Hide();
