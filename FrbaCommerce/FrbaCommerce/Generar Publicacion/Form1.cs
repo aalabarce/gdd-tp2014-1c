@@ -13,6 +13,8 @@ namespace FrbaCommerce.Generar_Publicacion
 {
     public partial class Generar_Publicacion : Form
     {
+        public int duracion { get; set; }
+
         public Generar_Publicacion()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace FrbaCommerce.Generar_Publicacion
 
             cmbVisibilidad.DataSource = this.gD1C2014DataSet1.VISIBILIDAD;
             cmbVisibilidad.DisplayMember = "VIS_DESCRIPCION";
+         
             cmbVisibilidad.ValueMember = "VIS_ID";
 
             pub_rubro_TableAdapter.Fill(gD1C2014DataSet1.PUBLICACION_RUBRO);
@@ -73,11 +76,11 @@ namespace FrbaCommerce.Generar_Publicacion
             publicacion["PUB_STOCK"] = txtStock.Text;
             publicacion["PUB_PRECIO"] = txtPrecio.Text;
             publicacion["PUB_ESTADO_ID"] = estado;
-            publicacion["PUB_FECHA_INICIO"] = dateFechaInicio.Value;
-            publicacion["PUB_FECHA_FINALIZACION"] = dateFechaVenc.Value;
+            publicacion["PUB_FECHA_INICIO"] = DateTime.Now;
+            publicacion["PUB_FECHA_FINALIZACION"] = DateTime.Now.AddDays(duracion);
             publicacion["PUB_DESCRIPCION"] = txtDescripcion.Text;
             publicacion["PUB_VIS_ID"] = cmbVisibilidad.SelectedValue;
-            publicacion["PUB_USU_ID"] = 1/*Convert.ToInt32(Global.usuario)*/; //TODO: GLOBAL TIENE QUE ESTAR EL ID del usuario.
+            publicacion["PUB_USU_ID"] = Global.usuario_id;
             publicacion["PUB_PERMITIR_PREGUNTAS"] = chkPreguntas.Checked;
 
             gD1C2014DataSet1.PUBLICACION.Rows.Add(publicacion);
@@ -120,11 +123,13 @@ namespace FrbaCommerce.Generar_Publicacion
         private void radTipoSubasta_CheckedChanged(object sender, EventArgs e)
         {
             lblAclaracionSubasta.Visible = true;
+            lblPrecio.Text = "Precio (lote)";
         }
 
         private void radTipoCompra_CheckedChanged(object sender, EventArgs e)
         {
             lblAclaracionSubasta.Visible = false;
+            lblPrecio.Text = "Precio (por unidad)";
         }
 
         public bool validateCampos()
@@ -137,21 +142,8 @@ namespace FrbaCommerce.Generar_Publicacion
             }
 
             //Valido que los tipos de datos sean correctos
-            if (!esInteger(txtStock))
+            if (!MetodosGlobales.esInteger(txtStock))
             {
-                return false;
-            }
-
-            //valido que la fecha inicio sea mayor o igual a hoy.
-            /*if (dateFechaInicio.Value < DateTime.Now) {
-                MessageBox.Show("La fecha de inicio no puede ser anterior a hoy.");
-                return false;
-            }*/ //TODO: lo comento porque cuando es igual a hoy me tira como que es anterior.
-
-            //valido que la fecha inicio sea menor a la fecha de vencimiento.
-            if (dateFechaInicio.Value > dateFechaVenc.Value)
-            {
-                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de vencimiento.");
                 return false;
             }
 
@@ -165,21 +157,11 @@ namespace FrbaCommerce.Generar_Publicacion
             return true;
         }
 
-        public static bool esInteger(TextBox txt)
+        private void cmbVisibilidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int number;
-
-            bool result = Int32.TryParse(txt.Text, out number);
-            if (result)
-            {
-                return true;
-            }
-            else
-            {
-                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
-                MessageBox.Show(errores);
-                return false;
-            }
+            
+            DataRowView visibilidad = (DataRowView)cmbVisibilidad.SelectedItem;
+            duracion = Convert.ToInt32(visibilidad["VIS_DURACION"]);
         }
     }
 }
