@@ -20,4 +20,23 @@ namespace FrbaCommerce
             Application.Run(new Form1(login.usuario,login.rol));
         }
     }
+    static class MetodosGlobales
+    {
+        public static bool esInteger(TextBox txt)
+        {
+            int number;
+
+            bool result = Int32.TryParse(txt.Text, out number);
+            if (result)
+            {
+                return true;
+            }
+            else
+            {
+                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
+                MessageBox.Show(errores);
+                return false;
+            }
+        }
+    }
 }

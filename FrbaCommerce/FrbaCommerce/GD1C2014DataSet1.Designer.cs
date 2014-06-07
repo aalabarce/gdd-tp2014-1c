@@ -21295,7 +21295,7 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BAJ" +
@@ -21303,7 +21303,8 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT VIS_ID\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE @codigo=VIS_CODIGO";
+            this._commandCollection[1].CommandText = "SELECT VIS_ID\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE @codigo=VIS_CODIGO AND VI" +
+                "S_BAJA=0";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "VIS_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -21314,28 +21315,20 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "VIS_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE @cod=VIS_CODIGO AND VIS_BAJA=0" +
-                "";
+            this._commandCollection[3].CommandText = "SELECT COUNT(*) \r\nFROM  STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE @cod=VIS_CODIGO AND V" +
+                "IS_BAJA=0";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "VIS_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE VIS_DESCRIPCION = @des AND VIS" +
-                "_BAJA=0";
+            this._commandCollection[4].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE VIS_BAJA = 0 AND (@cod=VIS_COD" +
+                "IGO or @cod is null) AND (@des=VIS_DESCRIPCION or @des is null) AND ( @pre=VIS_P" +
+                "RECIO or @pre is null) AND (@por is null or @por=VIS_PORCENTAJE) ";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "VIS_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@des", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "VIS_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE VIS_PORCENTAJE=@por AND VIS_BA" +
-                "JA=0";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@por", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "VIS_PORCENTAJE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.VISIBILIDAD\r\nWHERE VIS_PRECIO=@pre AND VIS_BAJA=0" +
-                "";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pre", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "VIS_PRECIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pre", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "VIS_PRECIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@por", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "VIS_PORCENTAJE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21379,67 +21372,31 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltrarCod(GD1C2014DataSet.VISIBILIDADDataTable dataTable, global::System.Nullable<decimal> cod) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+        public virtual int Filtrar(GD1C2014DataSet.VISIBILIDADDataTable dataTable, global::System.Nullable<decimal> cod, string des, global::System.Nullable<decimal> pre, global::System.Nullable<decimal> por) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((cod.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(cod.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltrarDes(GD1C2014DataSet.VISIBILIDADDataTable dataTable, string des) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((des == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(des));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(des));
             }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltrarPor(GD1C2014DataSet.VISIBILIDADDataTable dataTable, global::System.Nullable<decimal> por) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((por.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(por.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltrarPre(GD1C2014DataSet.VISIBILIDADDataTable dataTable, global::System.Nullable<decimal> pre) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((pre.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(pre.Value));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(pre.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((por.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((decimal)(por.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -21713,7 +21670,7 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<decimal> BuscarID(global::System.Nullable<decimal> codigo) {
+        public virtual object BuscarID(global::System.Nullable<decimal> codigo) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((codigo.HasValue == true)) {
                 command.Parameters[0].Value = ((decimal)(codigo.Value));
@@ -21737,10 +21694,43 @@ SELECT VIS_ID, VIS_DESCRIPCION, VIS_PRECIO, VIS_PORCENTAJE, VIS_DURACION, VIS_BA
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<decimal>();
+                return null;
             }
             else {
-                return new global::System.Nullable<decimal>(((decimal)(returnValue)));
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object existeCod(global::System.Nullable<decimal> cod) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((cod.HasValue == true)) {
+                command.Parameters[0].Value = ((decimal)(cod.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
             }
         }
     }

@@ -47,3 +47,4 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\Frba
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.BuscarVi.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.ModVi.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.Generar_Publicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.AltaRol.resources

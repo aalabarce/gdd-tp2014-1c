@@ -39,27 +39,26 @@ namespace FrbaCommerce.Abm_Visibilidad
         private void button1_Click(object sender, EventArgs e)
         {
             //Valido que no dejen campos vacios
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
             {
-                MessageBox.Show("Debe completar todos los campos");
+                MessageBox.Show("Debe completar por lo menos 1 campo");
                 return;
             }
 
 
 
             //Valido que los tipos de datos sean correctos
-      /*      if (!AltaVi.esInteger(textBox1.Text))               
-            {
-                return;
-            }
+            //LOS 3 NUMERIC
 
-*/
-                    //Valido que el codigo no exista
-        /* if (Convert.ToInt32(visibilidadTableAdapter1.existeCodigo(Convert.ToInt32(textBox1.Text))) == 1)
+
+
+
+         //Valido que el codigo no exista
+         if (textBox1.Text !="" && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) >0)
          {
              MessageBox.Show("Ese codigo de rubro ya existe");
              return;
-         }*/
+         }
 
 
             //Si hay errores, agrego a la base de datos
@@ -69,22 +68,24 @@ namespace FrbaCommerce.Abm_Visibilidad
       
         private void modificar()
         {
-            DataRow nuevo = gD1C2014DataSet1.VISIBILIDAD.NewRow();
-            if(textBox1.Text != "")
-            nuevo["VIS_CODIGO"] = textBox1.Text;
-            if (textBox2.Text != "")
-            nuevo["VIS_DESCRIPCION"] = textBox2.Text;
-            if (textBox3.Text != "")
-            nuevo["VIS_PRECIO"] = textBox3.Text;
-            if (textBox4.Text != "")
-            nuevo["VIS_PORCENTAJE"] = textBox4.Text;
+            decimal id = Convert.ToDecimal(visibilidadTableAdapter1.BuscarID(codigo));
+            DataRow FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.NewRow();
+            FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.FindByVIS_ID(id);
 
-            gD1C2014DataSet1.VISIBILIDAD.Rows.Add(nuevo);
+            if(textBox1.Text != "")
+                FilaAModificar["VIS_CODIGO"] = textBox1.Text;
+            if (textBox2.Text != "")
+                FilaAModificar["VIS_DESCRIPCION"] = textBox2.Text;
+            if (textBox3.Text != "")
+                FilaAModificar["VIS_PRECIO"] = textBox3.Text;
+            if (textBox4.Text != "")
+                FilaAModificar["VIS_PORCENTAJE"] = textBox4.Text;
 
             visibilidadTableAdapter1.Update(gD1C2014DataSet1.VISIBILIDAD);
 
-            MessageBox.Show("La visibilidad " + textBox1.Text + " ha sido dada de alta");
-
+            MessageBox.Show("La visibilidad " + textBox1.Text + " ha sido modificada");
+            visibilidadTableAdapter1.Fill(gD1C2014DataSet1.VISIBILIDAD);
+            new FrbaCommerce.Abm_Visibilidad.BuscarVi().Show();
             this.Close();
 
         }
