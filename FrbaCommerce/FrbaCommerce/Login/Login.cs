@@ -90,7 +90,7 @@ namespace FrbaCommerce.Login
         private void button2_Click(object sender, EventArgs e)
         {
             //new FrbaCommerce.Abm_Empresa.Alta().Show();
-            new FrbaCommerce.Abm_Visibilidad.BorrarVi().Show();
+            new FrbaCommerce.ABM_Rol.AltaRol().Show();
             this.Hide();
             
         }

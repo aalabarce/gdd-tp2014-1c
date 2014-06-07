@@ -34,17 +34,21 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GD1C2014DataSet.VISIBILIDADDataTable filtrada = gD1C2014DataSet.VISIBILIDAD;
-            
-            if (textBox1.Text != "")
-                visibilidadTableAdapter1.FiltrarCod(filtrada, Convert.ToDecimal(textBox1.Text));
-            if (textBox2.Text!="")
-                visibilidadTableAdapter1.FiltrarDes(filtrada,textBox2.Text);
-            if (textBox3.Text != "")
-                visibilidadTableAdapter1.FiltrarPre(filtrada, Convert.ToDecimal(textBox3.Text));
-            if (textBox4.Text != "")
-                visibilidadTableAdapter1.FiltrarPor(filtrada, Convert.ToDecimal(textBox4.Text));
+            decimal? cod = null;
+            string des = null;
+            decimal? pre = null;
+            decimal? por = null;
 
+            if (textBox1.Text != "")
+                cod = Convert.ToDecimal(textBox1.Text);
+            if (textBox2.Text != "")
+                des = textBox2.Text;
+            if (textBox3.Text != "")
+                pre = Convert.ToDecimal(textBox3.Text);
+            if (textBox4.Text != "")
+                por = Convert.ToDecimal(textBox4.Text);
+
+            visibilidadTableAdapter1.Filtrar(gD1C2014DataSet.VISIBILIDAD, cod, des, pre, por);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

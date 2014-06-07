@@ -33,23 +33,34 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
             DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
             int codigo = Convert.ToInt32(fila.Cells[0].Value);
-            new FrbaCommerce.Abm_Visibilidad.ModVi(codigo);
-            dataGridView1.Refresh();
+            new FrbaCommerce.Abm_Visibilidad.ModVi(codigo).Show();
+            this.Close();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            GD1C2014DataSet.VISIBILIDADDataTable filtrada = gD1C2014DataSet.VISIBILIDAD;
+            decimal? cod = null; 
+            string des = null; 
+            decimal? pre = null; 
+            decimal? por = null;
 
             if (textBox1.Text != "")
-                vISIBILIDADTableAdapter.FiltrarCod(filtrada, Convert.ToDecimal(textBox1.Text));
+                cod = Convert.ToDecimal(textBox1.Text);
             if (textBox2.Text != "")
-                vISIBILIDADTableAdapter.FiltrarDes(filtrada, textBox2.Text);
+                des = textBox2.Text;
             if (textBox3.Text != "")
-                vISIBILIDADTableAdapter.FiltrarPre(filtrada, Convert.ToDecimal(textBox3.Text));
+                pre = Convert.ToDecimal(textBox3.Text);
             if (textBox4.Text != "")
-                vISIBILIDADTableAdapter.FiltrarPor(filtrada, Convert.ToDecimal(textBox4.Text));
+                por = Convert.ToDecimal(textBox4.Text);
 
+            vISIBILIDADTableAdapter.Filtrar(gD1C2014DataSet.VISIBILIDAD, cod, des, pre, por);
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            vISIBILIDADTableAdapter.Fill(gD1C2014DataSet.VISIBILIDAD);
+        }
+
+ 
     }
 }

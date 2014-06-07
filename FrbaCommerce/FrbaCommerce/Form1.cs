@@ -23,11 +23,6 @@ namespace FrbaCommerce
                
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -44,6 +39,34 @@ namespace FrbaCommerce
             new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show(); 
         }
 
+        private void crearVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Visibilidad.AltaVi().Show();
+        }
 
+        private void modificarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Visibilidad.BuscarVi().Show();
+        }
+
+        private void eliminarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Visibilidad.BorrarVi().Show();
+        }
+
+        private void crearRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Rubro.AltaRubro().Show();
+        }
+
+        private void modificiarRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Rubro.BuscarRubro().Show();
+        }
+
+        private void eliminarRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Rubro.BajaRubro().Show();
+        }
     }
 }
