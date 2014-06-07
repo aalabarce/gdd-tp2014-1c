@@ -190,8 +190,9 @@ GO
 	INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[VISIBILIDAD]
 			   ([VIS_CODIGO], [VIS_DESCRIPCION]
 			   ,[VIS_PRECIO]
-			   ,[VIS_PORCENTAJE])
-	select distinct Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Precio,Publicacion_Visibilidad_Porcentaje
+			   ,[VIS_PORCENTAJE], [VIS_DURACION])
+	select distinct Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Precio,Publicacion_Visibilidad_Porcentaje,
+				DATEDIFF ( d , Publicacion_Fecha , Publicacion_Fecha_Venc )
 				FROM gd_esquema.Maestra
 				where Publicacion_Visibilidad_Cod is not NULL
 	GO

@@ -19,7 +19,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         private void BuscarVi_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.VISIBILIDAD' Puede moverla o quitarla según sea necesario.
-            this.vISIBILIDADTableAdapter.Fill(this.gD1C2014DataSet.VISIBILIDAD);
+            this.vISIBILIDADTableAdapter.getOrdenados(this.gD1C2014DataSet.VISIBILIDAD);
             dataGridView1.Columns[4].DefaultCellStyle.NullValue = "Modificar";
 
         }
