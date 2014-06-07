@@ -68,5 +68,10 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Abm_Rubro.BajaRubro().Show();
         }
+
+        private void editarPublicaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+        }
     }
 }

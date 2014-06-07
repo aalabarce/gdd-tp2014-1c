@@ -44,6 +44,7 @@
             this.crearRubroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificiarRubroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarRubroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.visibilidadToolStripMenuItem,
             this.rubroToolStripMenuItem});
             this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
-            this.tareasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.tareasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.tareasToolStripMenuItem.Text = "Tareas";
             // 
             // clienteToolStripMenuItem
@@ -91,28 +92,29 @@
             this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarClienteToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             // 
             // modificarClienteToolStripMenuItem
             // 
             this.modificarClienteToolStripMenuItem.Name = "modificarClienteToolStripMenuItem";
-            this.modificarClienteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.modificarClienteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modificarClienteToolStripMenuItem.Text = "Modificar Cliente";
             this.modificarClienteToolStripMenuItem.Click += new System.EventHandler(this.modificarClienteToolStripMenuItem_Click);
             // 
             // publicaciónToolStripMenuItem
             // 
             this.publicaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generarNuevaToolStripMenuItem});
+            this.generarNuevaToolStripMenuItem,
+            this.editarPublicaciónToolStripMenuItem});
             this.publicaciónToolStripMenuItem.Name = "publicaciónToolStripMenuItem";
-            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.publicaciónToolStripMenuItem.Text = "Publicación";
             // 
             // generarNuevaToolStripMenuItem
             // 
             this.generarNuevaToolStripMenuItem.Name = "generarNuevaToolStripMenuItem";
-            this.generarNuevaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.generarNuevaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.generarNuevaToolStripMenuItem.Text = "Generar nueva";
             this.generarNuevaToolStripMenuItem.Click += new System.EventHandler(this.generarNuevaToolStripMenuItem_Click);
             // 
@@ -123,27 +125,27 @@
             this.modificarVisibilidadToolStripMenuItem,
             this.eliminarVisibilidadToolStripMenuItem});
             this.visibilidadToolStripMenuItem.Name = "visibilidadToolStripMenuItem";
-            this.visibilidadToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.visibilidadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.visibilidadToolStripMenuItem.Text = "Visibilidad";
             // 
             // crearVisibilidadToolStripMenuItem
             // 
             this.crearVisibilidadToolStripMenuItem.Name = "crearVisibilidadToolStripMenuItem";
-            this.crearVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.crearVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.crearVisibilidadToolStripMenuItem.Text = "Crear Visibilidad";
             this.crearVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.crearVisibilidadToolStripMenuItem_Click);
             // 
             // modificarVisibilidadToolStripMenuItem
             // 
             this.modificarVisibilidadToolStripMenuItem.Name = "modificarVisibilidadToolStripMenuItem";
-            this.modificarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.modificarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.modificarVisibilidadToolStripMenuItem.Text = "Modificar Visibilidad";
             this.modificarVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.modificarVisibilidadToolStripMenuItem_Click);
             // 
             // eliminarVisibilidadToolStripMenuItem
             // 
             this.eliminarVisibilidadToolStripMenuItem.Name = "eliminarVisibilidadToolStripMenuItem";
-            this.eliminarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.eliminarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.eliminarVisibilidadToolStripMenuItem.Text = "Eliminar Visibilidad";
             this.eliminarVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.eliminarVisibilidadToolStripMenuItem_Click);
             // 
@@ -154,29 +156,36 @@
             this.modificiarRubroToolStripMenuItem,
             this.eliminarRubroToolStripMenuItem});
             this.rubroToolStripMenuItem.Name = "rubroToolStripMenuItem";
-            this.rubroToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.rubroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rubroToolStripMenuItem.Text = "Rubro";
             // 
             // crearRubroToolStripMenuItem
             // 
             this.crearRubroToolStripMenuItem.Name = "crearRubroToolStripMenuItem";
-            this.crearRubroToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.crearRubroToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.crearRubroToolStripMenuItem.Text = "Crear Rubro";
             this.crearRubroToolStripMenuItem.Click += new System.EventHandler(this.crearRubroToolStripMenuItem_Click);
             // 
             // modificiarRubroToolStripMenuItem
             // 
             this.modificiarRubroToolStripMenuItem.Name = "modificiarRubroToolStripMenuItem";
-            this.modificiarRubroToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.modificiarRubroToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.modificiarRubroToolStripMenuItem.Text = "Modificiar Rubro";
             this.modificiarRubroToolStripMenuItem.Click += new System.EventHandler(this.modificiarRubroToolStripMenuItem_Click);
             // 
             // eliminarRubroToolStripMenuItem
             // 
             this.eliminarRubroToolStripMenuItem.Name = "eliminarRubroToolStripMenuItem";
-            this.eliminarRubroToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.eliminarRubroToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.eliminarRubroToolStripMenuItem.Text = "Eliminar Rubro";
             this.eliminarRubroToolStripMenuItem.Click += new System.EventHandler(this.eliminarRubroToolStripMenuItem_Click);
+            // 
+            // editarPublicaciónToolStripMenuItem
+            // 
+            this.editarPublicaciónToolStripMenuItem.Name = "editarPublicaciónToolStripMenuItem";
+            this.editarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.editarPublicaciónToolStripMenuItem.Text = "Editar Publicación";
+            this.editarPublicaciónToolStripMenuItem.Click += new System.EventHandler(this.editarPublicaciónToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -214,6 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem crearRubroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificiarRubroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarRubroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarPublicaciónToolStripMenuItem;
     }
 }
 
