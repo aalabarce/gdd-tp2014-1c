@@ -32,11 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.VIS_CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.vISIBILIDADBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.VIS_CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIS_DURACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vISIBILIDADBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -82,6 +85,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VIS_CODIGO,
+            this.VIS_DURACION,
             this.vISDESCRIPCIONDataGridViewTextBoxColumn,
             this.vISPRECIODataGridViewTextBoxColumn,
             this.vISPORCENTAJEDataGridViewTextBoxColumn,
@@ -94,12 +98,123 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // vISIBILIDADBindingSource
+            // 
+            this.vISIBILIDADBindingSource.DataMember = "VISIBILIDAD";
+            this.vISIBILIDADBindingSource.DataSource = this.gD1C2014DataSet;
+            // 
+            // gD1C2014DataSet
+            // 
+            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(163, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Inserte los campos para realizar la busqueda";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(166, 148);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(166, 122);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(166, 96);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(166, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(69, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Porcentaje";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(69, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Precio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(69, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Descripción";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Código";
+            // 
+            // visibilidadTableAdapter1
+            // 
+            this.visibilidadTableAdapter1.ClearBeforeFill = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(166, 174);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Duracion";
+            // 
             // VIS_CODIGO
             // 
             this.VIS_CODIGO.DataPropertyName = "VIS_CODIGO";
             this.VIS_CODIGO.HeaderText = "Codigo";
             this.VIS_CODIGO.Name = "VIS_CODIGO";
             this.VIS_CODIGO.ReadOnly = true;
+            // 
+            // VIS_DURACION
+            // 
+            this.VIS_DURACION.DataPropertyName = "VIS_DURACION";
+            this.VIS_DURACION.HeaderText = "Duracion";
+            this.VIS_DURACION.Name = "VIS_DURACION";
+            this.VIS_DURACION.ReadOnly = true;
             // 
             // vISDESCRIPCIONDataGridViewTextBoxColumn
             // 
@@ -128,99 +243,13 @@
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             // 
-            // vISIBILIDADBindingSource
-            // 
-            this.vISIBILIDADBindingSource.DataMember = "VISIBILIDAD";
-            this.vISIBILIDADBindingSource.DataSource = this.gD1C2014DataSet;
-            // 
-            // gD1C2014DataSet
-            // 
-            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Inserte los campos para realizar la busqueda";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(166, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(166, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(166, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(166, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 159);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Porcentaje";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Precio";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Descripción";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Código";
-            // 
-            // visibilidadTableAdapter1
-            // 
-            this.visibilidadTableAdapter1.ClearBeforeFill = true;
-            // 
             // BorrarVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 373);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -262,7 +291,10 @@
         private System.Windows.Forms.BindingSource vISIBILIDADBindingSource;
         private GD1C2014DataSet gD1C2014DataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn VIS_CODIGO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VIS_DURACION;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISDESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISPRECIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISPORCENTAJEDataGridViewTextBoxColumn;

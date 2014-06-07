@@ -39,16 +39,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vISIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.vISIBILIDADBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.vISIBILIDADTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
+            this.vISIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIS_DURACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vISIBILIDADBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -56,21 +59,21 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(166, 161);
+            this.textBox4.Location = new System.Drawing.Point(166, 147);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 27;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 135);
+            this.textBox3.Location = new System.Drawing.Point(166, 121);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 26;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(166, 109);
+            this.textBox2.Location = new System.Drawing.Point(166, 95);
             this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
@@ -78,7 +81,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 83);
+            this.textBox1.Location = new System.Drawing.Point(166, 69);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 24;
@@ -86,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 161);
+            this.label4.Location = new System.Drawing.Point(69, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 23;
@@ -95,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 135);
+            this.label3.Location = new System.Drawing.Point(69, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 22;
@@ -104,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 109);
+            this.label2.Location = new System.Drawing.Point(69, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 21;
@@ -113,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 83);
+            this.label5.Location = new System.Drawing.Point(69, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 20;
@@ -136,6 +139,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vISIDDataGridViewTextBoxColumn,
+            this.VIS_DURACION,
             this.vISDESCRIPCIONDataGridViewTextBoxColumn,
             this.vISPRECIODataGridViewTextBoxColumn,
             this.vISPORCENTAJEDataGridViewTextBoxColumn,
@@ -147,40 +151,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(527, 150);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // vISIDDataGridViewTextBoxColumn
-            // 
-            this.vISIDDataGridViewTextBoxColumn.DataPropertyName = "VIS_CODIGO";
-            this.vISIDDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.vISIDDataGridViewTextBoxColumn.Name = "vISIDDataGridViewTextBoxColumn";
-            this.vISIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vISDESCRIPCIONDataGridViewTextBoxColumn
-            // 
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vISPRECIODataGridViewTextBoxColumn
-            // 
-            this.vISPRECIODataGridViewTextBoxColumn.DataPropertyName = "VIS_PRECIO";
-            this.vISPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.vISPRECIODataGridViewTextBoxColumn.Name = "vISPRECIODataGridViewTextBoxColumn";
-            this.vISPRECIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vISPORCENTAJEDataGridViewTextBoxColumn
-            // 
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.DataPropertyName = "VIS_PORCENTAJE";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.HeaderText = "Porcentaje";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.Name = "vISPORCENTAJEDataGridViewTextBoxColumn";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
             // 
             // vISIBILIDADBindingSource
             // 
@@ -216,11 +186,70 @@
             // 
             this.vISIBILIDADTableAdapter.ClearBeforeFill = true;
             // 
+            // vISIDDataGridViewTextBoxColumn
+            // 
+            this.vISIDDataGridViewTextBoxColumn.DataPropertyName = "VIS_CODIGO";
+            this.vISIDDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.vISIDDataGridViewTextBoxColumn.Name = "vISIDDataGridViewTextBoxColumn";
+            this.vISIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // VIS_DURACION
+            // 
+            this.VIS_DURACION.DataPropertyName = "VIS_DURACION";
+            this.VIS_DURACION.HeaderText = "Duracion";
+            this.VIS_DURACION.Name = "VIS_DURACION";
+            this.VIS_DURACION.ReadOnly = true;
+            // 
+            // vISDESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vISPRECIODataGridViewTextBoxColumn
+            // 
+            this.vISPRECIODataGridViewTextBoxColumn.DataPropertyName = "VIS_PRECIO";
+            this.vISPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.vISPRECIODataGridViewTextBoxColumn.Name = "vISPRECIODataGridViewTextBoxColumn";
+            this.vISPRECIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vISPORCENTAJEDataGridViewTextBoxColumn
+            // 
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.DataPropertyName = "VIS_PORCENTAJE";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.HeaderText = "Porcentaje";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.Name = "vISPORCENTAJEDataGridViewTextBoxColumn";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(166, 174);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Duracion";
+            // 
             // BuscarVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 376);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -262,9 +291,12 @@
         private System.Windows.Forms.BindingSource vISIBILIDADBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter vISIBILIDADTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VIS_DURACION;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISDESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISPRECIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vISPORCENTAJEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label6;
     }
 }
