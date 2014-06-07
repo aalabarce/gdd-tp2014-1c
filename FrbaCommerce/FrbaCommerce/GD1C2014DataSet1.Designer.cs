@@ -15541,19 +15541,16 @@ SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, 
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, E" +
                 "MP_CALLE_NRO, EMP_PISO, EMP_DPTO, EMP_LOCALIDAD, EMP_COD_POSTAL, EMP_CIUDAD, EMP" +
-
-                "_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION \r\nFROM STR_NOMBRE_GRUPO.EMPRESA";
+                "_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION, EMP_BAJA FROM STR_NOMBRE_GRUPO.EMPR" +
+                "ESA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.EMPRESA\r\nWHERE EMP_BAJA=0";
-
+            this._commandCollection[1].CommandText = @"SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, EMP_CALLE_NRO, EMP_PISO, EMP_DPTO, EMP_LOCALIDAD, EMP_COD_POSTAL, EMP_CIUDAD, EMP_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION, EMP_BAJA FROM STR_NOMBRE_GRUPO.EMPRESA WHERE (EMP_BAJA = 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.EMPRESA \r\nWHERE (EMP_RAZON_SOCIAL LIKE \'%\' + @ra" +
-                "zonSocial + \'%\' or @razonSocial is null) \r\nAND (EMP_CUIT = @cuit or @cuit is nul" +
-                "l) \r\nAND (EMP_MAIL = @email or @email is null) \r\nAND (EMP_BAJA = 0)  \r\n\r\n";
+            this._commandCollection[2].CommandText = @"SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, EMP_CALLE_NRO, EMP_PISO, EMP_DPTO, EMP_LOCALIDAD, EMP_COD_POSTAL, EMP_CIUDAD, EMP_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION, EMP_BAJA FROM STR_NOMBRE_GRUPO.EMPRESA WHERE (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_CUIT = @cuit) AND (EMP_MAIL = @email) AND (EMP_BAJA = 0) OR (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_MAIL = @email) AND (EMP_BAJA = 0) AND (@cuit IS NULL) OR (EMP_CUIT = @cuit) AND (EMP_MAIL = @email) AND (EMP_BAJA = 0) AND (@razonSocial IS NULL) OR (EMP_MAIL = @email) AND (EMP_BAJA = 0) AND (@cuit IS NULL) AND (@razonSocial IS NULL) OR (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_CUIT = @cuit) AND (EMP_BAJA = 0) AND (@email IS NULL) OR (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_BAJA = 0) AND (@cuit IS NULL) AND (@email IS NULL) OR (EMP_CUIT = @cuit) AND (EMP_BAJA = 0) AND (@razonSocial IS NULL) AND (@email IS NULL) OR (EMP_BAJA = 0) AND (@cuit IS NULL) AND (@razonSocial IS NULL) AND (@email IS NULL)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razonSocial", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_RAZON_SOCIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_CUIT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
