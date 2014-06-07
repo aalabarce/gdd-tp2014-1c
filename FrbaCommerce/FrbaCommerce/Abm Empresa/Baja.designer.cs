@@ -38,11 +38,13 @@
             this.empresaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.EMPRESATableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eMPMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eMPTELEFONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMPRESABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMP_CUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMP_MAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.EMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPRESABindingSource)).BeginInit();
@@ -107,35 +109,23 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eMPRAZONSOCIALDataGridViewTextBoxColumn,
-            this.eMPMAILDataGridViewTextBoxColumn,
-            this.eMPTELEFONODataGridViewTextBoxColumn});
+            this.EMP_CUIT,
+            this.EMP_MAIL,
+            this.Eliminar,
+            this.EMP_ID});
             this.dataGridView1.DataSource = this.eMPRESABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(29, 164);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(539, 150);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // eMPRAZONSOCIALDataGridViewTextBoxColumn
-            // 
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.DataPropertyName = "EMP_RAZON_SOCIAL";
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.HeaderText = "Razón Social";
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.Name = "eMPRAZONSOCIALDataGridViewTextBoxColumn";
-            // 
-            // eMPMAILDataGridViewTextBoxColumn
-            // 
-            this.eMPMAILDataGridViewTextBoxColumn.DataPropertyName = "EMP_MAIL";
-            this.eMPMAILDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.eMPMAILDataGridViewTextBoxColumn.Name = "eMPMAILDataGridViewTextBoxColumn";
-            // 
-            // eMPTELEFONODataGridViewTextBoxColumn
-            // 
-            this.eMPTELEFONODataGridViewTextBoxColumn.DataPropertyName = "EMP_TELEFONO";
-            this.eMPTELEFONODataGridViewTextBoxColumn.HeaderText = "Teléfono";
-            this.eMPTELEFONODataGridViewTextBoxColumn.Name = "eMPTELEFONODataGridViewTextBoxColumn";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // eMPRESABindingSource
             // 
@@ -151,6 +141,41 @@
             this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // eMPRAZONSOCIALDataGridViewTextBoxColumn
+            // 
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.DataPropertyName = "EMP_RAZON_SOCIAL";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.HeaderText = "Razón Social";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.Name = "eMPRAZONSOCIALDataGridViewTextBoxColumn";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // EMP_CUIT
+            // 
+            this.EMP_CUIT.DataPropertyName = "EMP_CUIT";
+            this.EMP_CUIT.HeaderText = "CUIT";
+            this.EMP_CUIT.Name = "EMP_CUIT";
+            this.EMP_CUIT.ReadOnly = true;
+            // 
+            // EMP_MAIL
+            // 
+            this.EMP_MAIL.DataPropertyName = "EMP_MAIL";
+            this.EMP_MAIL.HeaderText = "Email";
+            this.EMP_MAIL.Name = "EMP_MAIL";
+            this.EMP_MAIL.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Seleccione";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            // 
+            // EMP_ID
+            // 
+            this.EMP_ID.DataPropertyName = "EMP_ID";
+            this.EMP_ID.HeaderText = "EMP_ID";
+            this.EMP_ID.Name = "EMP_ID";
+            this.EMP_ID.ReadOnly = true;
+            this.EMP_ID.Visible = false;
             // 
             // Baja
             // 
@@ -187,10 +212,12 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.EMPRESATableAdapter empresaTableAdapter1;
         private GD1C2014DataSet gD1C2014DataSet1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eMPRAZONSOCIALDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eMPMAILDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eMPTELEFONODataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource eMPRESABindingSource;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMPRAZONSOCIALDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMP_CUIT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMP_MAIL;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMP_ID;
     }
 }

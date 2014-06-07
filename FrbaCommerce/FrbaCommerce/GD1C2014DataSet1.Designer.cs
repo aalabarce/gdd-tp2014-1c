@@ -15536,21 +15536,28 @@ SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, E" +
                 "MP_CALLE_NRO, EMP_PISO, EMP_DPTO, EMP_LOCALIDAD, EMP_COD_POSTAL, EMP_CIUDAD, EMP" +
-                "_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION, EMP_BAJA FROM STR_NOMBRE_GRUPO.EMPR" +
-                "ESA";
+
+                "_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION \r\nFROM STR_NOMBRE_GRUPO.EMPRESA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, EMP_CALLE_NRO, EMP_PISO, EMP_DPTO, EMP_LOCALIDAD, EMP_COD_POSTAL, EMP_CIUDAD, EMP_CUIT, EMP_NOM_CONTACTO, EMP_FECHA_CREACION, EMP_BAJA FROM STR_NOMBRE_GRUPO.EMPRESA WHERE (1 = 1) AND (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_CUIT LIKE '%' + @cuit + '%') AND (EMP_TELEFONO = @telefono) OR (1 = 1) AND (EMP_CUIT LIKE '%' + @cuit + '%') AND (EMP_TELEFONO = @telefono) AND (@razonSocial IS NULL) OR (1 = 1) AND (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_TELEFONO = @telefono) AND (@cuit IS NULL) OR (1 = 1) AND (EMP_TELEFONO = @telefono) AND (@razonSocial IS NULL) AND (@cuit IS NULL) OR (1 = 1) AND (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (EMP_CUIT LIKE '%' + @cuit + '%') AND (@telefono IS NULL) OR (1 = 1) AND (EMP_CUIT LIKE '%' + @cuit + '%') AND (@razonSocial IS NULL) AND (@telefono IS NULL) OR (1 = 1) AND (EMP_RAZON_SOCIAL LIKE '%' + @razonSocial + '%') AND (@cuit IS NULL) AND (@telefono IS NULL) OR (1 = 1) AND (@razonSocial IS NULL) AND (@cuit IS NULL) AND (@telefono IS NULL)";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.EMPRESA\r\nWHERE EMP_BAJA=0";
+
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razonSocial", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_RAZON_SOCIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_CUIT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@telefono", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_TELEFONO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.EMPRESA \r\nWHERE (EMP_RAZON_SOCIAL LIKE \'%\' + @ra" +
+                "zonSocial + \'%\' or @razonSocial is null) \r\nAND (EMP_CUIT = @cuit or @cuit is nul" +
+                "l) \r\nAND (EMP_MAIL = @email or @email is null) \r\nAND (EMP_BAJA = 0)  \r\n\r\n";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razonSocial", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_RAZON_SOCIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_CUIT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EMP_MAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15578,8 +15585,20 @@ SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltroEmpresa(GD1C2014DataSet.EMPRESADataTable dataTable, string razonSocial, string cuit, global::System.Nullable<int> telefono) {
+        public virtual int FiltrarBaja(GD1C2014DataSet.EMPRESADataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FiltroEmpresa(GD1C2014DataSet.EMPRESADataTable dataTable, string razonSocial, string cuit, string email) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((razonSocial == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15592,11 +15611,11 @@ SELECT EMP_ID, EMP_USU_ID, EMP_RAZON_SOCIAL, EMP_MAIL, EMP_TELEFONO, EMP_CALLE, 
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cuit));
             }
-            if ((telefono.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(telefono.Value));
+            if ((email == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(email));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
