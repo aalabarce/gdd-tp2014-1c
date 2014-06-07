@@ -57,5 +57,10 @@ namespace FrbaCommerce.Abm_Empresa
             empresaTableAdapter1.FiltrarBaja(gD1C2014DataSet1.EMPRESA);
         
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            empresaTableAdapter1.FiltrarBaja(gD1C2014DataSet1.EMPRESA);
+        }
     }
 }

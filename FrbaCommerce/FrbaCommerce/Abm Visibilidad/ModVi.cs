@@ -39,7 +39,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         private void button1_Click(object sender, EventArgs e)
         {
             //Valido que no dejen campos vacios
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "")
             {
                 MessageBox.Show("Debe completar por lo menos 1 campo");
                 return;
@@ -80,6 +80,8 @@ namespace FrbaCommerce.Abm_Visibilidad
                 FilaAModificar["VIS_PRECIO"] = textBox3.Text;
             if (textBox4.Text != "")
                 FilaAModificar["VIS_PORCENTAJE"] = textBox4.Text;
+            if (textBox5.Text != "")
+                FilaAModificar["VIS_DURACION"] = textBox5.Text;
 
             visibilidadTableAdapter1.Update(gD1C2014DataSet1.VISIBILIDAD);
 

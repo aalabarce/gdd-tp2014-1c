@@ -14,11 +14,13 @@ namespace FrbaCommerce.Abm_Empresa
     
     public partial class Alta : Form
     {
-
+        public int? usuarioId { get; set; }
+       
         
-        public Alta()
+        public Alta(int? user)
         {
             InitializeComponent();
+            usuarioId = user;
         }
 
         private void gD1C2014DataSetBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -73,6 +75,8 @@ namespace FrbaCommerce.Abm_Empresa
            empresa["EMP_CUIT"] = textBox11.Text;
            empresa["EMP_NOM_CONTACTO"] = textBox12.Text;
            empresa["EMP_FECHA_CREACION"] = DateTime.Now;
+           empresa["EMP_USU_ID"] = usuarioId;
+           empresa["EMP_BAJA"] = 0;
 
            gD1C2014DataSet1.EMPRESA.Rows.Add(empresa);
 
@@ -80,6 +84,7 @@ namespace FrbaCommerce.Abm_Empresa
 
            string mensaje = "La empresa " + textBox1.Text + " ha sido dada de alta";
            MessageBox.Show(mensaje);
+           this.Close();
             
         }
 

@@ -27,7 +27,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
 
            //Valido que no dejen campos vacios
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
             {
                 MessageBox.Show("Debe completar todos los campos");
                 return;
@@ -64,7 +64,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             nuevo["VIS_DESCRIPCION"] = textBox2.Text;
             nuevo["VIS_PRECIO"] = textBox3.Text;
             nuevo["VIS_PORCENTAJE"] = textBox4.Text;
-          //  nuevo["VIS_DURACION"] = DBNull;
+            nuevo["VIS_DURACION"] = textBox5.Text;
             nuevo["VIS_BAJA"] = 0;
 
             gD1C2014DataSet1.VISIBILIDAD.Rows.Add(nuevo);
