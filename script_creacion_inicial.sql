@@ -432,6 +432,17 @@ from [GD1C2014].[gd_esquema].[Maestra]
 where factura_nro is not null
 GO
 
+--Creo la vista de la publicacion
+create view [STR_NOMBRE_GRUPO].[PUBLICACION_COMPLETA]
+as
+select *
+from STR_NOMBRE_GRUPO.PUBLICACION
+join STR_NOMBRE_GRUPO.VISIBILIDAD V on V.VIS_ID=PUB_VIS_ID
+join STR_NOMBRE_GRUPO.TIPO on TIPO_ID=PUB_TIPO_ID
+join STR_NOMBRE_GRUPO.ESTADO on ESTADO_ID=PUB_ESTADO_ID
+
+
+GO
 
 
 	
