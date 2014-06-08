@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 
 
@@ -56,6 +57,19 @@ namespace FrbaCommerce
                 MessageBox.Show(errores);
                 return false;
             }
+        }
+
+        public static bool esNumericConDosDecimales(TextBox txt)
+        {
+            string sValue = txt.Text;
+
+            if (sValue.IndexOf(',') > -1)
+            {
+                MessageBox.Show("El campo "+txt.Tag+" debe tener . y 2 decimales");
+                return false;
+            }
+            MessageBox.Show("El campo " + txt.Tag + " debe tener . y 2 decimales");
+            return Regex.IsMatch(sValue, "(^[0-9]{1,16}(.[0-9]{2})$)");
         }
 
         public static string sha256(string password)

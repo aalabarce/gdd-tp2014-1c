@@ -35,15 +35,11 @@ namespace FrbaCommerce.Abm_Visibilidad
 
             
             //Valido que los tipos de datos sean correctos
-            if(!MetodosGlobales.esInteger(textBox1))
+            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esNumericConDosDecimales(textBox3) || !MetodosGlobales.esNumericConDosDecimales(textBox4))
             {
                 return;
             }
-            if (!MetodosGlobales.esInteger(textBox5))
-            {
-                return;
-            }
-            
+
 
 
 

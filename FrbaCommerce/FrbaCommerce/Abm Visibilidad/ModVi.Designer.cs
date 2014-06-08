@@ -79,6 +79,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(140, 160);
+            this.textBox4.MaxLength = 21;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 18;
@@ -87,6 +88,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(140, 134);
+            this.textBox3.MaxLength = 21;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 17;

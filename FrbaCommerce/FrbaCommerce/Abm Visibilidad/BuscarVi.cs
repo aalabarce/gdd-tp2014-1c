@@ -45,6 +45,14 @@ namespace FrbaCommerce.Abm_Visibilidad
             {
                 return;
             }
+            if (textBox3.Text != "" && !MetodosGlobales.esNumericConDosDecimales(textBox3))
+            {
+                return;
+            }
+            if (textBox4.Text != "" && !MetodosGlobales.esNumericConDosDecimales(textBox4))
+            {
+                return;
+            }
             if (textBox5.Text != "" && !MetodosGlobales.esInteger(textBox5))
             {
                 return;

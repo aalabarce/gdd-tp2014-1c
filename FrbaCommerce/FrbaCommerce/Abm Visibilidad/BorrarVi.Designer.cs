@@ -162,16 +162,20 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(166, 148);
+            this.textBox4.MaxLength = 21;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 15;
+            this.textBox4.Tag = "porcentaje";
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(166, 122);
+            this.textBox3.MaxLength = 21;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 14;
+            this.textBox3.Tag = "precio";
             // 
             // textBox2
             // 
@@ -180,6 +184,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 13;
+            this.textBox2.Tag = "descripcion";
             // 
             // textBox1
             // 

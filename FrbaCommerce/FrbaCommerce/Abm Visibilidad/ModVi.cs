@@ -58,7 +58,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             
 
             //Valido que los tipos de datos sean correctos
-            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5))
+            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esNumericConDosDecimales(textBox3) || !MetodosGlobales.esNumericConDosDecimales(textBox4))
             {
                 return;
             }
@@ -67,12 +67,12 @@ namespace FrbaCommerce.Abm_Visibilidad
 
 
 
-         //Valido que el codigo no exista
-         if (Convert.ToInt32(textBox1.Text)!= codigo && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) >0)
-         {
-             MessageBox.Show("Ese codigo de rubro ya existe");
-             return;
-         }
+            //Valido que el codigo no exista
+            if (Convert.ToInt32(textBox1.Text)!= codigo && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) >0)
+            {
+                MessageBox.Show("Ese codigo de rubro ya existe");
+                return;
+            }
 
 
             //Si hay errores, agrego a la base de datos
