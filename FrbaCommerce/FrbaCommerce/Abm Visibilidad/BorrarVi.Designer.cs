@@ -32,6 +32,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.VIS_CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIS_DURACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.vISIBILIDADBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,12 +52,6 @@
             this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.VIS_CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VIS_DURACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vISPORCENTAJEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vISIBILIDADBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -98,6 +98,47 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // VIS_CODIGO
+            // 
+            this.VIS_CODIGO.DataPropertyName = "VIS_CODIGO";
+            this.VIS_CODIGO.HeaderText = "Codigo";
+            this.VIS_CODIGO.Name = "VIS_CODIGO";
+            this.VIS_CODIGO.ReadOnly = true;
+            // 
+            // VIS_DURACION
+            // 
+            this.VIS_DURACION.DataPropertyName = "VIS_DURACION";
+            this.VIS_DURACION.HeaderText = "Duracion";
+            this.VIS_DURACION.Name = "VIS_DURACION";
+            this.VIS_DURACION.ReadOnly = true;
+            // 
+            // vISDESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vISPRECIODataGridViewTextBoxColumn
+            // 
+            this.vISPRECIODataGridViewTextBoxColumn.DataPropertyName = "VIS_PRECIO";
+            this.vISPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.vISPRECIODataGridViewTextBoxColumn.Name = "vISPRECIODataGridViewTextBoxColumn";
+            this.vISPRECIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vISPORCENTAJEDataGridViewTextBoxColumn
+            // 
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.DataPropertyName = "VIS_PORCENTAJE";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.HeaderText = "Porcentaje";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.Name = "vISPORCENTAJEDataGridViewTextBoxColumn";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
             // vISIBILIDADBindingSource
             // 
             this.vISIBILIDADBindingSource.DataMember = "VISIBILIDAD";
@@ -135,6 +176,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(166, 96);
+            this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 13;
@@ -142,9 +184,11 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(166, 70);
+            this.textBox1.MaxLength = 18;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 12;
+            this.textBox1.Tag = "codigo";
             // 
             // label4
             // 
@@ -192,6 +236,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 17;
+            this.textBox5.Tag = "duracion";
             // 
             // label6
             // 
@@ -201,47 +246,6 @@
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Duracion";
-            // 
-            // VIS_CODIGO
-            // 
-            this.VIS_CODIGO.DataPropertyName = "VIS_CODIGO";
-            this.VIS_CODIGO.HeaderText = "Codigo";
-            this.VIS_CODIGO.Name = "VIS_CODIGO";
-            this.VIS_CODIGO.ReadOnly = true;
-            // 
-            // VIS_DURACION
-            // 
-            this.VIS_DURACION.DataPropertyName = "VIS_DURACION";
-            this.VIS_DURACION.HeaderText = "Duracion";
-            this.VIS_DURACION.Name = "VIS_DURACION";
-            this.VIS_DURACION.ReadOnly = true;
-            // 
-            // vISDESCRIPCIONDataGridViewTextBoxColumn
-            // 
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vISPRECIODataGridViewTextBoxColumn
-            // 
-            this.vISPRECIODataGridViewTextBoxColumn.DataPropertyName = "VIS_PRECIO";
-            this.vISPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.vISPRECIODataGridViewTextBoxColumn.Name = "vISPRECIODataGridViewTextBoxColumn";
-            this.vISPRECIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vISPORCENTAJEDataGridViewTextBoxColumn
-            // 
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.DataPropertyName = "VIS_PORCENTAJE";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.HeaderText = "Porcentaje";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.Name = "vISPORCENTAJEDataGridViewTextBoxColumn";
-            this.vISPORCENTAJEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
             // 
             // BorrarVi
             // 

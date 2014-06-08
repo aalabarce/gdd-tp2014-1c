@@ -34,27 +34,41 @@ namespace FrbaCommerce.Abm_Visibilidad
         private void ModVi_Load(object sender, EventArgs e)
         {
             this.visibilidadTableAdapter1.Fill(this.gD1C2014DataSet1.VISIBILIDAD);
+            decimal id = Convert.ToDecimal(visibilidadTableAdapter1.BuscarID(codigo));
+            DataRow FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.NewRow();
+            FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.FindByVIS_ID(id);
+            
+            textBox1.Text = Convert.ToString(FilaAModificar["VIS_CODIGO"]);
+            textBox2.Text = Convert.ToString(FilaAModificar["VIS_DESCRIPCION"]);
+            textBox3.Text = Convert.ToString(FilaAModificar["VIS_PRECIO"]);
+            textBox4.Text = Convert.ToString(FilaAModificar["VIS_PORCENTAJE"]);
+            textBox5.Text = Convert.ToString(FilaAModificar["VIS_DURACION"]);
+           
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Valido que no dejen campos vacios
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
             {
                 MessageBox.Show("Debe completar por lo menos 1 campo");
                 return;
             }
-
-
+            
 
             //Valido que los tipos de datos sean correctos
-            //LOS 3 NUMERIC
+            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5))
+            {
+                return;
+            }
 
+            
 
 
 
          //Valido que el codigo no exista
-         if (textBox1.Text !="" && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) >0)
+         if (Convert.ToInt32(textBox1.Text)!= codigo && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) >0)
          {
              MessageBox.Show("Ese codigo de rubro ya existe");
              return;
@@ -71,17 +85,12 @@ namespace FrbaCommerce.Abm_Visibilidad
             decimal id = Convert.ToDecimal(visibilidadTableAdapter1.BuscarID(codigo));
             DataRow FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.NewRow();
             FilaAModificar = gD1C2014DataSet1.VISIBILIDAD.FindByVIS_ID(id);
-
-            if(textBox1.Text != "")
-                FilaAModificar["VIS_CODIGO"] = textBox1.Text;
-            if (textBox2.Text != "")
-                FilaAModificar["VIS_DESCRIPCION"] = textBox2.Text;
-            if (textBox3.Text != "")
-                FilaAModificar["VIS_PRECIO"] = textBox3.Text;
-            if (textBox4.Text != "")
-                FilaAModificar["VIS_PORCENTAJE"] = textBox4.Text;
-            if (textBox5.Text != "")
-                FilaAModificar["VIS_DURACION"] = textBox5.Text;
+            
+            FilaAModificar["VIS_CODIGO"] = textBox1.Text;
+            FilaAModificar["VIS_DESCRIPCION"] = textBox2.Text;
+            FilaAModificar["VIS_PRECIO"] = textBox3.Text;
+            FilaAModificar["VIS_PORCENTAJE"] = textBox4.Text;
+            FilaAModificar["VIS_DURACION"] = textBox5.Text;
 
             visibilidadTableAdapter1.Update(gD1C2014DataSet1.VISIBILIDAD);
 

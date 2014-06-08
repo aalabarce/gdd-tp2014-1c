@@ -85,9 +85,11 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(138, 84);
+            this.textBox1.MaxLength = 18;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.Tag = "codigo";
             // 
             // textBox2
             // 
@@ -103,6 +105,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
+            this.textBox3.Tag = "precio";
             // 
             // textBox4
             // 
@@ -110,6 +113,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 7;
+            this.textBox4.Tag = "porcentaje";
             // 
             // label5
             // 
@@ -155,6 +159,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 11;
+            this.textBox5.Tag = "duracion";
             // 
             // label6
             // 

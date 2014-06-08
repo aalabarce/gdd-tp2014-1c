@@ -39,6 +39,21 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+            //VALIDO LOS TIPOS DE LOS CAMPOS
+            if (textBox1.Text != "" && !MetodosGlobales.esInteger(textBox1))
+            {
+                return;
+            }
+            if (textBox5.Text != "" && !MetodosGlobales.esInteger(textBox5))
+            {
+                return;
+            }
+
+
+
+
+            //Filtro
             decimal? cod = null; 
             string des = null; 
             decimal? pre = null; 

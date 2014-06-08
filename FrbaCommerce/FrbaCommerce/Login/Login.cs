@@ -94,14 +94,9 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //new FrbaCommerce.Abm_Empresa.Alta(-1).Show();
+         //   new FrbaCommerce.Abm_Visibilidad.BuscarVi().Show();
             new FrbaCommerce.Registro_de_Usuario.Alta().Show();
-            //new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Show();
-            //new FrbaCommerce.ABM_Rol.AltaRol().Show();
             this.Hide();
-            
         }
-
-
     }
 }
