@@ -156,12 +156,6 @@
     <Compile Include="Editar Publicacion\editar.Designer.cs">
       <DependentUpon>editar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editar Publicacion\Publicaciones.cs">
       <SubType>Form</SubType>
     </Compile>

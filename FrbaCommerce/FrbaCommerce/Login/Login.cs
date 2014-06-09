@@ -94,8 +94,8 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FrbaCommerce.ABM_Rol.AltaRol().Show();
-        //    new FrbaCommerce.Registro_de_Usuario.Alta().Show();
+            //new FrbaCommerce.Abm_Rol.ModRol("Pato").Show();
+            new FrbaCommerce.Registro_de_Usuario.Alta().Show();
             this.Hide();
         }
     }
