@@ -59,6 +59,7 @@
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
@@ -317,6 +318,10 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "Número";
             // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
             // Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,5 +395,6 @@
         private GD1C2014DataSet gD1C2014DataSet1;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label13;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
     }
 }

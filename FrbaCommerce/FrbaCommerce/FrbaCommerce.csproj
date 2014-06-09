@@ -66,6 +66,18 @@
     <Compile Include="Abm Empresa\Baja.designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Empresa\Modificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\Modificacion.Designer.cs">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\PopupModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\PopupModificacion.Designer.cs">
+      <DependentUpon>PopupModificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +229,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\Modificacion.resx">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\PopupModificacion.resx">
+      <DependentUpon>PopupModificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
