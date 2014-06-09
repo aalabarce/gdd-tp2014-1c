@@ -38,6 +38,7 @@
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.rolTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
             this.funcionalidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.FUNCIONALIDADTableAdapter();
+            this.roL_FUNCIONALIDADTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,10 @@
             // 
             this.funcionalidadTableAdapter1.ClearBeforeFill = true;
             // 
+            // roL_FUNCIONALIDADTableAdapter1
+            // 
+            this.roL_FUNCIONALIDADTableAdapter1.ClearBeforeFill = true;
+            // 
             // AltaRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +156,6 @@
         private GD1C2014DataSet gD1C2014DataSet1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.FUNCIONALIDADTableAdapter funcionalidadTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter roL_FUNCIONALIDADTableAdapter1;
     }
 }

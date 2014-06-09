@@ -23,49 +23,81 @@ namespace FrbaCommerce.ABM_Rol
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-
-
-
- /*           List<string> checkedItems = new List<string>();
-            foreach (var item in checkedListBox1.CheckedItems)
-                checkedItems.Add(item.ToString());
-            MessageBox.Show("" + checkedItems);
-            
-
-            if (e.NewValue == CheckState.Checked)
-                checkedItems.Add(checkedListBox1.Items[e.Index].ToString());
-*/
-          /*DataGridViewCheckBoxCell cellSelecion = row.Cells["Seleccion"] as DataGridViewCheckBoxCell;
-
-            // Se valida si esta checkeada
-            //
-            if (Convert.ToBoolean(cellSelecion.Value)) {
-
-            string mensaje = string.Format("Evento CellValueChanged.\n\nSe ha seccionado, \nDescripcion: '{0}', \nPrecio Unitario: '{1}', \nMedida: '{2}'",
-            row.Cells["Descripcion"].Value,
-            row.Cells["PrecioUnitario"].Value,
-            row.Cells["UnidadMedida"].Value);
-             
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          */
+               
         }
 
         private void AltaRol_Load(object sender, EventArgs e)
         {
-            rolTableAdapter1.Fill(gD1C2014DataSet1.ROL);
-            checkedListBox1.DataSource = gD1C2014DataSet1.ROL;
-            checkedListBox1.DisplayMember = "ROL_NOMBRE";
-            checkedListBox1.ValueMember = "ROL_NOMBRE";
+            funcionalidadTableAdapter1.Fill(gD1C2014DataSet1.FUNCIONALIDAD);
+            checkedListBox1.DataSource = gD1C2014DataSet1.FUNCIONALIDAD;
+            checkedListBox1.DisplayMember = "FUN_NOMBRE";
+            checkedListBox1.ValueMember = "FUN_ID";
            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(checkedListBox1.CheckedItems.ToString());
+         
+            //VALIDO
+            if (checkedListBox1.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar por lo menos 1 funcionalidad");
+                return;
+            }
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Debe completar el campo nombre");
+                return;
+            }
+            if (rolTableAdapter1.existeRol(textBox1.Text) >0 )
+            {
+                MessageBox.Show("Ya existe un rol con ese nombre");
+                return;
+            }
 
-           
+
+            //Doy el alta al rol
+            altaRol();
+
+            this.Close();
+            
+        }
+
+        private void altaRol()
+        {
+            DataRow nuevo = gD1C2014DataSet1.ROL.NewRow();
+
+            nuevo["ROL_NOMBRE"] = textBox1.Text;
+            nuevo["ROL_BAJA"]= 0;
+
+            gD1C2014DataSet1.ROL.Rows.Add(nuevo);
+            rolTableAdapter1.Update(gD1C2014DataSet1.ROL);
+
+            int rol_id = Convert.ToInt32(rolTableAdapter1.buscarID(textBox1.Text));
+            altaRolXFun(rol_id);
+        }
+
+        private void altaRolXFun(int rol_id)
+        {
+            DataRowView drv;
+            int fun_Id;
+            DataRow rol_funcionalidad;
+            foreach (object funcionalidad in checkedListBox1.CheckedItems)
+            {
+                drv = (DataRowView)funcionalidad;
+                fun_Id = Convert.ToInt32(drv["FUN_ID"]);
+
+                rol_funcionalidad = gD1C2014DataSet1.ROL_FUNCIONALIDAD.NewRow();
+
+                rol_funcionalidad["ROL_FUN_ROL"] = rol_id;
+                rol_funcionalidad["ROL_FUN_FUN"] = fun_Id;
+
+                gD1C2014DataSet1.ROL_FUNCIONALIDAD.Rows.Add(rol_funcionalidad);
+            }
+
+            roL_FUNCIONALIDADTableAdapter1.Update(gD1C2014DataSet1.ROL_FUNCIONALIDAD);
+            MessageBox.Show("Se asociaron al rol " + checkedListBox1.CheckedItems.Count.ToString() + " funcionalidades");
+        
         }
     }
 }
