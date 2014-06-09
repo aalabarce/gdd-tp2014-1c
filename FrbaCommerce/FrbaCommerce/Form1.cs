@@ -88,5 +88,21 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Abm_Empresa.Modificacion().Show();
         }
+
+        private void crearRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.ABM_Rol.AltaRol().Show();
+        }
+
+        private void modificarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Rol.BuscarRol().Show();
+        }
+
+        private void eliminarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Rol.BorrarRol().Show();
+
+        }
     }
 }

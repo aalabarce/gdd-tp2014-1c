@@ -84,6 +84,18 @@
     <Compile Include="Abm Rol\AltaRol.Designer.cs">
       <DependentUpon>AltaRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\BorrarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\BorrarRol.Designer.cs">
+      <DependentUpon>BorrarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\BuscarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\BuscarRol.Designer.cs">
+      <DependentUpon>BuscarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\ModRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\BorrarRol.resx">
+      <DependentUpon>BorrarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\BuscarRol.resx">
+      <DependentUpon>BuscarRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\ModRol.resx">
       <DependentUpon>ModRol.cs</DependentUpon>

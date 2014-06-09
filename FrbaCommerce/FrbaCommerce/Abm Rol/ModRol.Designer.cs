@@ -42,12 +42,14 @@
             this.rolTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
             this.roL_FUNCIONALIDADTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
             this.funcionalidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.FUNCIONALIDADTableAdapter();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 149);
+            this.textBox1.Location = new System.Drawing.Point(139, 173);
+            this.textBox1.MaxLength = 50;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
@@ -55,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 152);
+            this.label1.Location = new System.Drawing.Point(55, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 1;
@@ -64,7 +66,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(81, 91);
+            this.radioButton2.Location = new System.Drawing.Point(81, 83);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(119, 17);
             this.radioButton2.TabIndex = 3;
@@ -76,7 +78,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(81, 114);
+            this.radioButton3.Location = new System.Drawing.Point(81, 106);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(128, 17);
             this.radioButton3.TabIndex = 4;
@@ -88,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 175);
+            this.label2.Location = new System.Drawing.Point(49, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 5;
@@ -107,7 +109,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 175);
+            this.comboBox1.Location = new System.Drawing.Point(139, 176);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
@@ -115,7 +117,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(73, 221);
+            this.button1.Location = new System.Drawing.Point(70, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -125,7 +127,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(161, 221);
+            this.button2.Location = new System.Drawing.Point(158, 259);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -136,7 +138,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(81, 68);
+            this.radioButton1.Location = new System.Drawing.Point(81, 60);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(101, 17);
             this.radioButton1.TabIndex = 10;
@@ -162,11 +164,24 @@
             // 
             this.funcionalidadTableAdapter1.ClearBeforeFill = true;
             // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(81, 129);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(77, 17);
+            this.radioButton4.TabIndex = 11;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Habilitar rol";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
             // ModRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ClientSize = new System.Drawing.Size(292, 294);
+            this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -202,5 +217,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter roL_FUNCIONALIDADTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.FUNCIONALIDADTableAdapter funcionalidadTableAdapter1;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
