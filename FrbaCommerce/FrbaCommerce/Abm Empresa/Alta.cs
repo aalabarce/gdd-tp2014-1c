@@ -33,8 +33,23 @@ namespace FrbaCommerce.Abm_Empresa
 
             if (MessageBox.Show("¿Está seguro que desea volver? Perdera todos los datos cargados hasta ahora", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // Borro el usuario creado en la tabla usuario
+
+                // Si me llego -1 es porque esta creando una empresa a manopla, entonces no tengo ningun usuario que borrar
+
+                if (usuarioId != -1)
+                {
+                    DataRow FilaAModificar = gD1C2014DataSet1.USUARIO.NewRow();
+                    FilaAModificar = gD1C2014DataSet1.USUARIO.FindByUSU_ID((int)usuarioId);
+
+                    FilaAModificar["USU_BAJA"] = 1;
+                    usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+                }
+                
+                
+                
                 this.Close();
-                // TODO: Volver a la pantalla anterior (no está hecha)
+                
             }
             
         }

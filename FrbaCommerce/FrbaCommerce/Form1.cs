@@ -73,5 +73,20 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
         }
+
+        private void altaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Empresa.Alta(-1).Show();
+        }
+
+        private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Empresa.Baja().Show();
+        }
+
+        private void modificacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Empresa.Modificacion().Show();
+        }
     }
 }
