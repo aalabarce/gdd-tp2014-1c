@@ -66,23 +66,17 @@
     <Compile Include="Abm Empresa\Baja.designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Empresa\Modificacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Empresa\Modificacion.Designer.cs">
-      <DependentUpon>Modificacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Empresa\PopupModificacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Empresa\PopupModificacion.Designer.cs">
-      <DependentUpon>PopupModificacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Rol\AltaRol.Designer.cs">
       <DependentUpon>AltaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\ModRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\ModRol.Designer.cs">
+      <DependentUpon>ModRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rubro\AltaRubro.cs">
       <SubType>Form</SubType>
@@ -230,14 +224,11 @@
     <EmbeddedResource Include="Abm Empresa\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Empresa\Modificacion.resx">
-      <DependentUpon>Modificacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Empresa\PopupModificacion.resx">
-      <DependentUpon>PopupModificacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\ModRol.resx">
+      <DependentUpon>ModRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\AltaRubro.resx">
       <DependentUpon>AltaRubro.cs</DependentUpon>

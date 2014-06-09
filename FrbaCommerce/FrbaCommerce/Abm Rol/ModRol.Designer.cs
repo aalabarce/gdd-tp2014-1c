@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ModRol
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ModRol";
+            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Name = "ModRol";
+            this.Text = "Frba Commerce";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
