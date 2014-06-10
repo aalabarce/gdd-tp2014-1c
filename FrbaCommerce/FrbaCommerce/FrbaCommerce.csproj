@@ -207,11 +207,11 @@
     <Compile Include="Gestion de Preguntas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Historial Cliente\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Historial Cliente\Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -296,8 +296,8 @@
     <EmbeddedResource Include="Generar Publicacion\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Historial Cliente\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Historial Cliente\Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
