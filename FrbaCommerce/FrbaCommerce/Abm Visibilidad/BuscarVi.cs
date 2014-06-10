@@ -31,10 +31,13 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-            int codigo = Convert.ToInt32(fila.Cells[0].Value);
-            new FrbaCommerce.Abm_Visibilidad.ModVi(codigo).Show();
-            this.Close();
+            if (e.ColumnIndex == 5)
+            {
+                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                int codigo = Convert.ToInt32(fila.Cells[0].Value);
+                new FrbaCommerce.Abm_Visibilidad.ModVi(codigo).Show();
+                this.Close();
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)

@@ -28,6 +28,7 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button2_Click(object sender, EventArgs e)
         {
+            new FrbaCommerce.Abm_Visibilidad.BuscarVi().Show();
             this.Close();
         }
 
