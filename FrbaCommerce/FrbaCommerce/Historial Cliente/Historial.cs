@@ -23,6 +23,7 @@ namespace FrbaCommerce.Historial_Cliente
         {
             sUBASTAS_USUARIOSTableAdapter.FillByUsuario(gD1C2014DataSet1.SUBASTAS_USUARIOS,usuario);
             cOMPRAS_DIRECTAS_USUARIOSTableAdapter.FillByUsuario(gD1C2014DataSet1.COMPRAS_DIRECTAS_USUARIOS, usuario);
+
             dataGridView2.Visible = false;
             comboBox1.Items.Add("Compras directas");
             comboBox1.Items.Add("Subastas");

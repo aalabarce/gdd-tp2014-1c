@@ -28,3 +28,6 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\Frba
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Editar_Publicacion.editar.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Editar_Publicacion.Publicaciones.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Registro_de_Usuario.Alta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Abm_Rol.BorrarRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Abm_Rol.BuscarRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Historial_Cliente.Historial.resources

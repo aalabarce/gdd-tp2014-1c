@@ -9256,7 +9256,9 @@ namespace FrbaCommerce {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SUBASTAS_USUARIOSDataTable : global::System.Data.TypedTableBase<SUBASTAS_USUARIOSRow> {
             
-            private global::System.Data.DataColumn columnUsuario;
+            private global::System.Data.DataColumn columnVendedor;
+            
+            private global::System.Data.DataColumn columnComprador;
             
             private global::System.Data.DataColumn columnPublicacion;
             
@@ -9297,9 +9299,16 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn UsuarioColumn {
+            public global::System.Data.DataColumn VendedorColumn {
                 get {
-                    return this.columnUsuario;
+                    return this.columnVendedor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CompradorColumn {
+                get {
+                    return this.columnComprador;
                 }
             }
             
@@ -9360,10 +9369,11 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_USUARIOSRow AddSUBASTAS_USUARIOSRow(string Usuario, string Publicacion, System.DateTime Fecha, decimal Calificacion, decimal Monto) {
+            public SUBASTAS_USUARIOSRow AddSUBASTAS_USUARIOSRow(string Vendedor, string Comprador, string Publicacion, System.DateTime Fecha, decimal Calificacion, decimal Monto) {
                 SUBASTAS_USUARIOSRow rowSUBASTAS_USUARIOSRow = ((SUBASTAS_USUARIOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Usuario,
+                        Vendedor,
+                        Comprador,
                         Publicacion,
                         Fecha,
                         Calificacion,
@@ -9387,7 +9397,8 @@ namespace FrbaCommerce {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columnUsuario = base.Columns["Usuario"];
+                this.columnVendedor = base.Columns["Vendedor"];
+                this.columnComprador = base.Columns["Comprador"];
                 this.columnPublicacion = base.Columns["Publicacion"];
                 this.columnFecha = base.Columns["Fecha"];
                 this.columnCalificacion = base.Columns["Calificacion"];
@@ -9396,8 +9407,10 @@ namespace FrbaCommerce {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsuario);
+                this.columnVendedor = new global::System.Data.DataColumn("Vendedor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVendedor);
+                this.columnComprador = new global::System.Data.DataColumn("Comprador", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComprador);
                 this.columnPublicacion = new global::System.Data.DataColumn("Publicacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPublicacion);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -9406,7 +9419,8 @@ namespace FrbaCommerce {
                 base.Columns.Add(this.columnCalificacion);
                 this.columnMonto = new global::System.Data.DataColumn("Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMonto);
-                this.columnUsuario.MaxLength = 255;
+                this.columnVendedor.MaxLength = 255;
+                this.columnComprador.MaxLength = 255;
                 this.columnPublicacion.MaxLength = 255;
             }
             
@@ -14802,17 +14816,32 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string Usuario {
+            public string Vendedor {
                 get {
                     try {
-                        return ((string)(this[this.tableSUBASTAS_USUARIOS.UsuarioColumn]));
+                        return ((string)(this[this.tableSUBASTAS_USUARIOS.VendedorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Usuario\' de la tabla \'SUBASTAS_USUARIOS\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Vendedor\' de la tabla \'SUBASTAS_USUARIOS\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSUBASTAS_USUARIOS.UsuarioColumn] = value;
+                    this[this.tableSUBASTAS_USUARIOS.VendedorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Comprador {
+                get {
+                    try {
+                        return ((string)(this[this.tableSUBASTAS_USUARIOS.CompradorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Comprador\' de la tabla \'SUBASTAS_USUARIOS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSUBASTAS_USUARIOS.CompradorColumn] = value;
                 }
             }
             
@@ -14877,13 +14906,23 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsUsuarioNull() {
-                return this.IsNull(this.tableSUBASTAS_USUARIOS.UsuarioColumn);
+            public bool IsVendedorNull() {
+                return this.IsNull(this.tableSUBASTAS_USUARIOS.VendedorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetUsuarioNull() {
-                this[this.tableSUBASTAS_USUARIOS.UsuarioColumn] = global::System.Convert.DBNull;
+            public void SetVendedorNull() {
+                this[this.tableSUBASTAS_USUARIOS.VendedorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCompradorNull() {
+                return this.IsNull(this.tableSUBASTAS_USUARIOS.CompradorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCompradorNull() {
+                this[this.tableSUBASTAS_USUARIOS.CompradorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26745,10 +26784,10 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.COMPRAS_DIRECTAS_USUARIOS\r\nWHERE @usu=Vendedor or" +
-                " @usu=Comprador";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.COMPRAS_DIRECTAS_USUARIOS\r\nWHERE @usu=Comprador o" +
+                "r  @usu=Vendedor\r\nORDER BY Fecha desc";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Vendedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Comprador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26907,7 +26946,8 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SUBASTAS_USUARIOS";
-            tableMapping.ColumnMappings.Add("Usuario", "Usuario");
+            tableMapping.ColumnMappings.Add("Vendedor", "Vendedor");
+            tableMapping.ColumnMappings.Add("Comprador", "Comprador");
             tableMapping.ColumnMappings.Add("Publicacion", "Publicacion");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("Calificacion", "Calificacion");
@@ -26926,15 +26966,15 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Usuario, Publicacion, Fecha, Calificacion, Monto FROM STR_NOMBRE_GRUPO.SUB" +
-                "ASTAS_USUARIOS";
+            this._commandCollection[0].CommandText = "SELECT Vendedor, Comprador, Publicacion, Fecha, Calificacion, Monto FROM STR_NOMB" +
+                "RE_GRUPO.SUBASTAS_USUARIOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Usuario, Publicacion, Fecha, Calificacion, Monto \r\nFROM STR_NOMBRE_GRUPO.S" +
-                "UBASTAS_USUARIOS\r\nWHERE @usu=Usuario";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.SUBASTAS_USUARIOS\r\nWHERE @usu=Vendedor or @usu=Co" +
+                "mprador\r\nORDER BY Fecha desc";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Vendedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
