@@ -9,11 +9,13 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Calificar_Vendedor
 {
-    public partial class Form1 : Form
+    public partial class BuscarCalificar : Form
     {
-        public Form1()
+        public BuscarCalificar()
         {
             InitializeComponent();
         }
+
+
     }
 }
