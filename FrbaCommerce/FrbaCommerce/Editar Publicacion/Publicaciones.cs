@@ -35,11 +35,11 @@ namespace FrbaCommerce.Editar_Publicacion
             if (e.ColumnIndex == 0) //Boton modificar
             {
                 DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-                //if (fila.Cells["PUB_ESTADO_ID"].Value == "F")
-                //{
-                //    MessageBox.Show("No se puede editar una publicaciòn finalizada.");
-                //    return;
-                //}
+                if (Convert.ToChar(fila.Cells[5].Value) == 'F' || Convert.ToChar(fila.Cells[5].Value) == 'P')
+                    {
+                    MessageBox.Show("No se puede editar una publicación pausada o finalizada.");
+                    return;
+                }
                 int codigo = Convert.ToInt32(fila.Cells[1].Value);
                 new FrbaCommerce.Editar_Publicacion.editar(codigo).Show();
                 this.Close();

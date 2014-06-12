@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pUBLICACIONCOMPLETABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
+            this.pUBLICACION_COMPLETATableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pUBIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBTIPOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,9 +57,6 @@
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eSTADOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pUBLICACIONCOMPLETABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
-            this.pUBLICACION_COMPLETATableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONCOMPLETABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -92,11 +93,35 @@
             this.eSTADOIDDataGridViewTextBoxColumn,
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.pUBLICACIONCOMPLETABindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 77);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(521, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(878, 335);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // pUBLICACIONCOMPLETABindingSource
+            // 
+            this.pUBLICACIONCOMPLETABindingSource.DataMember = "PUBLICACION_COMPLETA";
+            this.pUBLICACIONCOMPLETABindingSource.DataSource = this.gD1C2014DataSet;
+            // 
+            // gD1C2014DataSet
+            // 
+            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pUBLICACION_COMPLETATableAdapter
+            // 
+            this.pUBLICACION_COMPLETATableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(350, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Mis Publicaciones";
             // 
             // Modificar
             // 
@@ -107,7 +132,7 @@
             // pUBIDDataGridViewTextBoxColumn
             // 
             this.pUBIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_ID";
-            this.pUBIDDataGridViewTextBoxColumn.HeaderText = "PUB_ID";
+            this.pUBIDDataGridViewTextBoxColumn.HeaderText = "Código";
             this.pUBIDDataGridViewTextBoxColumn.Name = "pUBIDDataGridViewTextBoxColumn";
             // 
             // pUBTIPOIDDataGridViewTextBoxColumn
@@ -120,13 +145,13 @@
             // pUBSTOCKDataGridViewTextBoxColumn
             // 
             this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
-            this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "PUB_STOCK";
+            this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "Stock";
             this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
             // 
             // pUBPRECIODataGridViewTextBoxColumn
             // 
             this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
-            this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "PUB_PRECIO";
+            this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
             this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
             // 
             // pUBESTADOIDDataGridViewTextBoxColumn
@@ -139,19 +164,19 @@
             // pUBFECHAINICIODataGridViewTextBoxColumn
             // 
             this.pUBFECHAINICIODataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_INICIO";
-            this.pUBFECHAINICIODataGridViewTextBoxColumn.HeaderText = "PUB_FECHA_INICIO";
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.HeaderText = "Fecha Inicio";
             this.pUBFECHAINICIODataGridViewTextBoxColumn.Name = "pUBFECHAINICIODataGridViewTextBoxColumn";
             // 
             // pUBFECHAFINALIZACIONDataGridViewTextBoxColumn
             // 
             this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_FINALIZACION";
-            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.HeaderText = "PUB_FECHA_FINALIZACION";
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.HeaderText = "Fecha Finalización";
             this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.Name = "pUBFECHAFINALIZACIONDataGridViewTextBoxColumn";
             // 
             // pUBDESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "PUB_DESCRIPCION";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
             // 
             // pUBVISIDDataGridViewTextBoxColumn
@@ -171,7 +196,7 @@
             // pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn
             // 
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.DataPropertyName = "PUB_PERMITIR_PREGUNTAS";
-            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.HeaderText = "PUB_PERMITIR_PREGUNTAS";
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.HeaderText = "Permitir Preguntas?";
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.Name = "pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn";
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -193,7 +218,7 @@
             // vISDESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
-            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "VIS_DESCRIPCION";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Visibilidad";
             this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
             // 
             // vISPRECIODataGridViewTextBoxColumn
@@ -234,7 +259,7 @@
             // tIPODESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "TIPO_DESCRIPCION";
-            this.tIPODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "TIPO_DESCRIPCION";
+            this.tIPODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn.Name = "tIPODESCRIPCIONDataGridViewTextBoxColumn";
             // 
             // eSTADOIDDataGridViewTextBoxColumn
@@ -247,28 +272,15 @@
             // eSTADODESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "ESTADO_DESCRIPCION";
-            this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "ESTADO_DESCRIPCION";
+            this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.Name = "eSTADODESCRIPCIONDataGridViewTextBoxColumn";
-            // 
-            // pUBLICACIONCOMPLETABindingSource
-            // 
-            this.pUBLICACIONCOMPLETABindingSource.DataMember = "PUBLICACION_COMPLETA";
-            this.pUBLICACIONCOMPLETABindingSource.DataSource = this.gD1C2014DataSet;
-            // 
-            // gD1C2014DataSet
-            // 
-            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pUBLICACION_COMPLETATableAdapter
-            // 
-            this.pUBLICACION_COMPLETATableAdapter.ClearBeforeFill = true;
             // 
             // Publicaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 321);
+            this.ClientSize = new System.Drawing.Size(902, 424);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Publicaciones";
             this.Text = "Frba Commerce";
@@ -277,6 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONCOMPLETABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -286,6 +299,7 @@
         private GD1C2014DataSet gD1C2014DataSet;
         private System.Windows.Forms.BindingSource pUBLICACIONCOMPLETABindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter pUBLICACION_COMPLETATableAdapter;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewButtonColumn Modificar;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBTIPOIDDataGridViewTextBoxColumn;

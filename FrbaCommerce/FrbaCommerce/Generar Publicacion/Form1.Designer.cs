@@ -172,6 +172,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 15;
+            this.txtStock.Tag = "Stock";
             // 
             // txtPrecio
             // 
@@ -179,6 +180,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 16;
+            this.txtPrecio.Tag = "Precio";
             // 
             // chkRubros
             // 

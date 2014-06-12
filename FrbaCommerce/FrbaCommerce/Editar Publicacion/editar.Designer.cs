@@ -31,8 +31,8 @@
             this.lblAclaracionSubasta = new System.Windows.Forms.Label();
             this.cmbVisibilidad = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnPublicar = new System.Windows.Forms.Button();
-            this.btnBorrador = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.RichTextBox();
             this.chkPreguntas = new System.Windows.Forms.CheckBox();
             this.chkRubros = new System.Windows.Forms.CheckedListBox();
@@ -46,9 +46,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radTipoSubasta = new System.Windows.Forms.RadioButton();
+            this.radTipoCompra = new System.Windows.Forms.RadioButton();
             this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
-            this.label9 = new System.Windows.Forms.Label();
+            this.rubroTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
+            this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
+            this.pub_rubro_TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter();
+            this.rubroTableAdapter2 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,25 +86,26 @@
             this.label7.TabIndex = 44;
             this.label7.Text = "Visibilidad:";
             // 
-            // btnPublicar
+            // btnVolver
             // 
-            this.btnPublicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPublicar.Location = new System.Drawing.Point(305, 478);
-            this.btnPublicar.Name = "btnPublicar";
-            this.btnPublicar.Size = new System.Drawing.Size(95, 23);
-            this.btnPublicar.TabIndex = 43;
-            this.btnPublicar.Text = "Publicar";
-            this.btnPublicar.UseVisualStyleBackColor = true;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(469, 478);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(95, 23);
+            this.btnVolver.TabIndex = 43;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
             // 
-            // btnBorrador
+            // btnModificar
             // 
-            this.btnBorrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrador.Location = new System.Drawing.Point(140, 478);
-            this.btnBorrador.Name = "btnBorrador";
-            this.btnBorrador.Size = new System.Drawing.Size(147, 23);
-            this.btnBorrador.TabIndex = 42;
-            this.btnBorrador.Text = "Guardar borrador";
-            this.btnBorrador.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(351, 478);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(104, 23);
+            this.btnModificar.TabIndex = 42;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtDescripcion
             // 
@@ -141,6 +148,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 37;
+            this.txtStock.Tag = "Stock";
             // 
             // lblPrecio
             // 
@@ -214,11 +222,46 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(183, 26);
+            this.label1.Location = new System.Drawing.Point(183, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 24);
             this.label1.TabIndex = 27;
             this.label1.Text = "Editar publicación";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(194, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 16);
+            this.label9.TabIndex = 47;
+            // 
+            // radTipoSubasta
+            // 
+            this.radTipoSubasta.AutoSize = true;
+            this.radTipoSubasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTipoSubasta.Location = new System.Drawing.Point(187, 92);
+            this.radTipoSubasta.Name = "radTipoSubasta";
+            this.radTipoSubasta.Size = new System.Drawing.Size(76, 20);
+            this.radTipoSubasta.TabIndex = 49;
+            this.radTipoSubasta.TabStop = true;
+            this.radTipoSubasta.Text = "Subasta";
+            this.radTipoSubasta.UseVisualStyleBackColor = false;
+            this.radTipoSubasta.CheckedChanged += new System.EventHandler(this.radTipoSubasta_CheckedChanged_1);
+            // 
+            // radTipoCompra
+            // 
+            this.radTipoCompra.AutoSize = true;
+            this.radTipoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTipoCompra.Location = new System.Drawing.Point(187, 66);
+            this.radTipoCompra.Name = "radTipoCompra";
+            this.radTipoCompra.Size = new System.Drawing.Size(118, 20);
+            this.radTipoCompra.TabIndex = 48;
+            this.radTipoCompra.TabStop = true;
+            this.radTipoCompra.Text = "Compra directa";
+            this.radTipoCompra.UseVisualStyleBackColor = false;
+            this.radTipoCompra.CheckedChanged += new System.EventHandler(this.radTipoCompra_CheckedChanged_1);
             // 
             // publicacionTableAdapter1
             // 
@@ -229,27 +272,35 @@
             this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label9
+            // rubroTableAdapter1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(194, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 16);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "Subasta";
+            this.rubroTableAdapter1.ClearBeforeFill = true;
+            // 
+            // visibilidadTableAdapter1
+            // 
+            this.visibilidadTableAdapter1.ClearBeforeFill = true;
+            // 
+            // pub_rubro_TableAdapter
+            // 
+            this.pub_rubro_TableAdapter.ClearBeforeFill = true;
+            // 
+            // rubroTableAdapter2
+            // 
+            this.rubroTableAdapter2.ClearBeforeFill = true;
             // 
             // editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 518);
+            this.Controls.Add(this.radTipoSubasta);
+            this.Controls.Add(this.radTipoCompra);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblAclaracionSubasta);
             this.Controls.Add(this.cmbVisibilidad);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnPublicar);
-            this.Controls.Add(this.btnBorrador);
+            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.chkPreguntas);
             this.Controls.Add(this.chkRubros);
@@ -277,8 +328,8 @@
         private System.Windows.Forms.Label lblAclaracionSubasta;
         private System.Windows.Forms.ComboBox cmbVisibilidad;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnPublicar;
-        private System.Windows.Forms.Button btnBorrador;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.RichTextBox txtDescripcion;
         private System.Windows.Forms.CheckBox chkPreguntas;
         private System.Windows.Forms.CheckedListBox chkRubros;
@@ -295,5 +346,11 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter publicacionTableAdapter1;
         private GD1C2014DataSet gD1C2014DataSet1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton radTipoSubasta;
+        private System.Windows.Forms.RadioButton radTipoCompra;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter visibilidadTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter pub_rubro_TableAdapter;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter2;
     }
 }
