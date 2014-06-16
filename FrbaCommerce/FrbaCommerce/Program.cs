@@ -35,7 +35,7 @@ namespace FrbaCommerce
             Application.Run(login);
             Global.usuario_id = login.usuario_id;
             Global.rol = login.rol;
-            Application.Run(new Form1());
+            Application.Run(new Menu());
 
             
         }

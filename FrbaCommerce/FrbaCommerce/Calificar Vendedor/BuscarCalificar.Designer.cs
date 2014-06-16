@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cOMPRAS_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter();
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+            this.subastas_ganadoresTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_GANADORESTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -100,6 +101,10 @@
             // 
             this.compraTableAdapter1.ClearBeforeFill = true;
             // 
+            // subastas_ganadoresTableAdapter1
+            // 
+            this.subastas_ganadoresTableAdapter1.ClearBeforeFill = true;
+            // 
             // BuscarCalificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +133,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_GANADORESTableAdapter subastas_ganadoresTableAdapter1;
     }
 }

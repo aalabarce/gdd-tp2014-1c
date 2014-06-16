@@ -14,10 +14,10 @@ namespace FrbaCommerce.Calificar_Vendedor
         public int compra_id {get;set;}
         public char tipo_compra { get; set; }
         
-        public Calificar(int? id, char tipo)
+        public Calificar(int id, char tipo)
         {
             InitializeComponent();
-            compra_id = (int) id;
+            compra_id = id;
             tipo_compra = tipo;
         }
 

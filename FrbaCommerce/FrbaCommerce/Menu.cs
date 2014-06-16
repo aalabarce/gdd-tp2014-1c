@@ -9,18 +9,19 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
         public string usuario { get; set; }
         public string rol { get; set; }
 
-        public Form1()
-        {
-            
+        public Menu()
+        {            
             InitializeComponent();
-            label1.Text = "Usuario: " + Global.usuario_id;
-            label2.Text = "    Rol: " + Global.rol;
-               
+
+            usuario = usuarioTableAdapter1.get_username_by_id((int)Global.usuario_id);
+
+            label1.Text = "Usuario: " + usuario;
+            label2.Text = "    Rol: " + Global.rol;                        
         }
 
         private void button1_Click(object sender, EventArgs e)
