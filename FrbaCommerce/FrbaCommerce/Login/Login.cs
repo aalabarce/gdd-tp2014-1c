@@ -94,8 +94,9 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
+            new FrbaCommerce.Historial_Cliente.Historial("10593988").Show();
             //new FrbaCommerce.Calificar_Vendedor.Calificar().Show();
-            new FrbaCommerce.Registro_de_Usuario.Alta().Show();
+            //new FrbaCommerce.Registro_de_Usuario.Alta().Show();
             this.Hide();
         }
     }

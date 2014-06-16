@@ -33,11 +33,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.sUBASTASUSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
-            this.cOMPRASDIRECTASUSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cOMPRAS_DIRECTAS_USUARIOSTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_DIRECTAS_USUARIOSTableAdapter();
-            this.sUBASTAS_USUARIOSTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_USUARIOSTableAdapter();
             this.vendedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.compradorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,17 +40,22 @@
             this.calificacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoUnitarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOMPRASDIRECTASUSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.cOMPRAS_DIRECTAS_USUARIOSTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_DIRECTAS_USUARIOSTableAdapter();
+            this.sUBASTAS_USUARIOSTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_USUARIOSTableAdapter();
+            this.sUBASTASUSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendedorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.compradorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calificacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sUBASTASUSUARIOSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASDIRECTASUSUARIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sUBASTASUSUARIOSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -83,7 +83,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(287, 40);
+            this.comboBox1.Location = new System.Drawing.Point(285, 40);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
@@ -111,36 +111,13 @@
             this.publicacionDataGridViewTextBoxColumn1,
             this.fechaDataGridViewTextBoxColumn1,
             this.calificacionDataGridViewTextBoxColumn1,
-            this.montoDataGridViewTextBoxColumn});
+            this.Gano});
             this.dataGridView2.DataSource = this.sUBASTASUSUARIOSBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(12, 84);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(667, 303);
             this.dataGridView2.TabIndex = 3;
-            // 
-            // sUBASTASUSUARIOSBindingSource
-            // 
-            this.sUBASTASUSUARIOSBindingSource.DataMember = "SUBASTAS_USUARIOS";
-            this.sUBASTASUSUARIOSBindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
-            // gD1C2014DataSet1
-            // 
-            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cOMPRASDIRECTASUSUARIOSBindingSource
-            // 
-            this.cOMPRASDIRECTASUSUARIOSBindingSource.DataMember = "COMPRAS_DIRECTAS_USUARIOS";
-            this.cOMPRASDIRECTASUSUARIOSBindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
-            // cOMPRAS_DIRECTAS_USUARIOSTableAdapter
-            // 
-            this.cOMPRAS_DIRECTAS_USUARIOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // sUBASTAS_USUARIOSTableAdapter
-            // 
-            this.sUBASTAS_USUARIOSTableAdapter.ClearBeforeFill = true;
             // 
             // vendedorDataGridViewTextBoxColumn
             // 
@@ -202,6 +179,29 @@
             this.montoUnitarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.montoUnitarioDataGridViewTextBoxColumn.Width = 60;
             // 
+            // cOMPRASDIRECTASUSUARIOSBindingSource
+            // 
+            this.cOMPRASDIRECTASUSUARIOSBindingSource.DataMember = "COMPRAS_DIRECTAS_USUARIOS";
+            this.cOMPRASDIRECTASUSUARIOSBindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // gD1C2014DataSet1
+            // 
+            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cOMPRAS_DIRECTAS_USUARIOSTableAdapter
+            // 
+            this.cOMPRAS_DIRECTAS_USUARIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // sUBASTAS_USUARIOSTableAdapter
+            // 
+            this.sUBASTAS_USUARIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // sUBASTASUSUARIOSBindingSource
+            // 
+            this.sUBASTASUSUARIOSBindingSource.DataMember = "SUBASTAS_USUARIOS";
+            this.sUBASTASUSUARIOSBindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
             // vendedorDataGridViewTextBoxColumn1
             // 
             this.vendedorDataGridViewTextBoxColumn1.DataPropertyName = "Vendedor";
@@ -243,14 +243,13 @@
             this.calificacionDataGridViewTextBoxColumn1.ReadOnly = true;
             this.calificacionDataGridViewTextBoxColumn1.Width = 86;
             // 
-            // montoDataGridViewTextBoxColumn
+            // Gano
             // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn.Width = 62;
+            this.Gano.DataPropertyName = "Gano";
+            this.Gano.HeaderText = "Gano";
+            this.Gano.Name = "Gano";
+            this.Gano.ReadOnly = true;
+            this.Gano.Width = 62;
             // 
             // Historial
             // 
@@ -266,9 +265,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sUBASTASUSUARIOSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASDIRECTASUSUARIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sUBASTASUSUARIOSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,7 +283,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_DIRECTAS_USUARIOSTableAdapter cOMPRAS_DIRECTAS_USUARIOSTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView2;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_USUARIOSTableAdapter sUBASTAS_USUARIOSTableAdapter;
-        private System.Windows.Forms.BindingSource sUBASTASUSUARIOSBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn compradorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
@@ -292,11 +290,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn calificacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoUnitarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource sUBASTASUSUARIOSBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendedorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn compradorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn calificacionDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gano;
     }
 }
