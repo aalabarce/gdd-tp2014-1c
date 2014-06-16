@@ -1,7 +1,8 @@
 ﻿namespace FrbaCommerce {
     
     
-    public partial class GD1C2014DataSet {
+    public partial class GD1C2014DataSet 
+    {
     }
 }
 

@@ -71,13 +71,13 @@ namespace FrbaCommerce {
         
         private COMPRAS_DIRECTAS_USUARIOSDataTable tableCOMPRAS_DIRECTAS_USUARIOS;
         
-        private SUBASTAS_GANADORESDataTable tableSUBASTAS_GANADORES;
-        
         private ROL_FUNCIONALIDADDataTable tableROL_FUNCIONALIDAD;
         
         private SUBASTAS_USUARIOSDataTable tableSUBASTAS_USUARIOS;
         
         private COMPRAS_SIN_CALIFICARDataTable tableCOMPRAS_SIN_CALIFICAR;
+        
+        private SUBASTAS_GANADORESDataTable tableSUBASTAS_GANADORES;
         
         private global::System.Data.DataRelation relationFK__CLIENTE__CLI_USU__1B0907CE;
         
@@ -224,9 +224,6 @@ namespace FrbaCommerce {
                 if ((ds.Tables["COMPRAS_DIRECTAS_USUARIOS"] != null)) {
                     base.Tables.Add(new COMPRAS_DIRECTAS_USUARIOSDataTable(ds.Tables["COMPRAS_DIRECTAS_USUARIOS"]));
                 }
-                if ((ds.Tables["SUBASTAS_GANADORES"] != null)) {
-                    base.Tables.Add(new SUBASTAS_GANADORESDataTable(ds.Tables["SUBASTAS_GANADORES"]));
-                }
                 if ((ds.Tables["ROL_FUNCIONALIDAD"] != null)) {
                     base.Tables.Add(new ROL_FUNCIONALIDADDataTable(ds.Tables["ROL_FUNCIONALIDAD"]));
                 }
@@ -235,6 +232,9 @@ namespace FrbaCommerce {
                 }
                 if ((ds.Tables["COMPRAS_SIN_CALIFICAR"] != null)) {
                     base.Tables.Add(new COMPRAS_SIN_CALIFICARDataTable(ds.Tables["COMPRAS_SIN_CALIFICAR"]));
+                }
+                if ((ds.Tables["SUBASTAS_GANADORES"] != null)) {
+                    base.Tables.Add(new SUBASTAS_GANADORESDataTable(ds.Tables["SUBASTAS_GANADORES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -464,15 +464,6 @@ namespace FrbaCommerce {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SUBASTAS_GANADORESDataTable SUBASTAS_GANADORES {
-            get {
-                return this.tableSUBASTAS_GANADORES;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public ROL_FUNCIONALIDADDataTable ROL_FUNCIONALIDAD {
             get {
                 return this.tableROL_FUNCIONALIDAD;
@@ -494,6 +485,15 @@ namespace FrbaCommerce {
         public COMPRAS_SIN_CALIFICARDataTable COMPRAS_SIN_CALIFICAR {
             get {
                 return this.tableCOMPRAS_SIN_CALIFICAR;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SUBASTAS_GANADORESDataTable SUBASTAS_GANADORES {
+            get {
+                return this.tableSUBASTAS_GANADORES;
             }
         }
         
@@ -625,9 +625,6 @@ namespace FrbaCommerce {
                 if ((ds.Tables["COMPRAS_DIRECTAS_USUARIOS"] != null)) {
                     base.Tables.Add(new COMPRAS_DIRECTAS_USUARIOSDataTable(ds.Tables["COMPRAS_DIRECTAS_USUARIOS"]));
                 }
-                if ((ds.Tables["SUBASTAS_GANADORES"] != null)) {
-                    base.Tables.Add(new SUBASTAS_GANADORESDataTable(ds.Tables["SUBASTAS_GANADORES"]));
-                }
                 if ((ds.Tables["ROL_FUNCIONALIDAD"] != null)) {
                     base.Tables.Add(new ROL_FUNCIONALIDADDataTable(ds.Tables["ROL_FUNCIONALIDAD"]));
                 }
@@ -636,6 +633,9 @@ namespace FrbaCommerce {
                 }
                 if ((ds.Tables["COMPRAS_SIN_CALIFICAR"] != null)) {
                     base.Tables.Add(new COMPRAS_SIN_CALIFICARDataTable(ds.Tables["COMPRAS_SIN_CALIFICAR"]));
+                }
+                if ((ds.Tables["SUBASTAS_GANADORES"] != null)) {
+                    base.Tables.Add(new SUBASTAS_GANADORESDataTable(ds.Tables["SUBASTAS_GANADORES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -805,12 +805,6 @@ namespace FrbaCommerce {
                     this.tableCOMPRAS_DIRECTAS_USUARIOS.InitVars();
                 }
             }
-            this.tableSUBASTAS_GANADORES = ((SUBASTAS_GANADORESDataTable)(base.Tables["SUBASTAS_GANADORES"]));
-            if ((initTable == true)) {
-                if ((this.tableSUBASTAS_GANADORES != null)) {
-                    this.tableSUBASTAS_GANADORES.InitVars();
-                }
-            }
             this.tableROL_FUNCIONALIDAD = ((ROL_FUNCIONALIDADDataTable)(base.Tables["ROL_FUNCIONALIDAD"]));
             if ((initTable == true)) {
                 if ((this.tableROL_FUNCIONALIDAD != null)) {
@@ -827,6 +821,12 @@ namespace FrbaCommerce {
             if ((initTable == true)) {
                 if ((this.tableCOMPRAS_SIN_CALIFICAR != null)) {
                     this.tableCOMPRAS_SIN_CALIFICAR.InitVars();
+                }
+            }
+            this.tableSUBASTAS_GANADORES = ((SUBASTAS_GANADORESDataTable)(base.Tables["SUBASTAS_GANADORES"]));
+            if ((initTable == true)) {
+                if ((this.tableSUBASTAS_GANADORES != null)) {
+                    this.tableSUBASTAS_GANADORES.InitVars();
                 }
             }
             this.relationFK__CLIENTE__CLI_USU__1B0907CE = this.Relations["FK__CLIENTE__CLI_USU__1B0907CE"];
@@ -909,14 +909,14 @@ namespace FrbaCommerce {
             base.Tables.Add(this.tablePUBLICACION_COMPLETA);
             this.tableCOMPRAS_DIRECTAS_USUARIOS = new COMPRAS_DIRECTAS_USUARIOSDataTable();
             base.Tables.Add(this.tableCOMPRAS_DIRECTAS_USUARIOS);
-            this.tableSUBASTAS_GANADORES = new SUBASTAS_GANADORESDataTable();
-            base.Tables.Add(this.tableSUBASTAS_GANADORES);
             this.tableROL_FUNCIONALIDAD = new ROL_FUNCIONALIDADDataTable();
             base.Tables.Add(this.tableROL_FUNCIONALIDAD);
             this.tableSUBASTAS_USUARIOS = new SUBASTAS_USUARIOSDataTable();
             base.Tables.Add(this.tableSUBASTAS_USUARIOS);
             this.tableCOMPRAS_SIN_CALIFICAR = new COMPRAS_SIN_CALIFICARDataTable();
             base.Tables.Add(this.tableCOMPRAS_SIN_CALIFICAR);
+            this.tableSUBASTAS_GANADORES = new SUBASTAS_GANADORESDataTable();
+            base.Tables.Add(this.tableSUBASTAS_GANADORES);
             this.relationFK__CLIENTE__CLI_USU__1B0907CE = new global::System.Data.DataRelation("FK__CLIENTE__CLI_USU__1B0907CE", new global::System.Data.DataColumn[] {
                         this.tableUSUARIO.USU_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableCLIENTE.CLI_USU_IDColumn}, false);
@@ -1135,11 +1135,6 @@ namespace FrbaCommerce {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeSUBASTAS_GANADORES() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeROL_FUNCIONALIDAD() {
             return false;
         }
@@ -1151,6 +1146,11 @@ namespace FrbaCommerce {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeCOMPRAS_SIN_CALIFICAR() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeSUBASTAS_GANADORES() {
             return false;
         }
         
@@ -1253,13 +1253,13 @@ namespace FrbaCommerce {
         
         public delegate void COMPRAS_DIRECTAS_USUARIOSRowChangeEventHandler(object sender, COMPRAS_DIRECTAS_USUARIOSRowChangeEvent e);
         
-        public delegate void SUBASTAS_GANADORESRowChangeEventHandler(object sender, SUBASTAS_GANADORESRowChangeEvent e);
-        
         public delegate void ROL_FUNCIONALIDADRowChangeEventHandler(object sender, ROL_FUNCIONALIDADRowChangeEvent e);
         
         public delegate void SUBASTAS_USUARIOSRowChangeEventHandler(object sender, SUBASTAS_USUARIOSRowChangeEvent e);
         
         public delegate void COMPRAS_SIN_CALIFICARRowChangeEventHandler(object sender, COMPRAS_SIN_CALIFICARRowChangeEvent e);
+        
+        public delegate void SUBASTAS_GANADORESRowChangeEventHandler(object sender, SUBASTAS_GANADORESRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9064,252 +9064,6 @@ namespace FrbaCommerce {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SUBASTAS_GANADORESDataTable : global::System.Data.TypedTableBase<SUBASTAS_GANADORESRow> {
-            
-            private global::System.Data.DataColumn columnPublicacion;
-            
-            private global::System.Data.DataColumn columnGanador;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESDataTable() {
-                this.TableName = "SUBASTAS_GANADORES";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal SUBASTAS_GANADORESDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected SUBASTAS_GANADORESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PublicacionColumn {
-                get {
-                    return this.columnPublicacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn GanadorColumn {
-                get {
-                    return this.columnGanador;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRow this[int index] {
-                get {
-                    return ((SUBASTAS_GANADORESRow)(this.Rows[index]));
-                }
-            }
-            
-            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowChanging;
-            
-            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowChanged;
-            
-            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowDeleting;
-            
-            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddSUBASTAS_GANADORESRow(SUBASTAS_GANADORESRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRow AddSUBASTAS_GANADORESRow(decimal Publicacion, int Ganador) {
-                SUBASTAS_GANADORESRow rowSUBASTAS_GANADORESRow = ((SUBASTAS_GANADORESRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Publicacion,
-                        Ganador};
-                rowSUBASTAS_GANADORESRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSUBASTAS_GANADORESRow);
-                return rowSUBASTAS_GANADORESRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRow FindByPublicacion(decimal Publicacion) {
-                return ((SUBASTAS_GANADORESRow)(this.Rows.Find(new object[] {
-                            Publicacion})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                SUBASTAS_GANADORESDataTable cln = ((SUBASTAS_GANADORESDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SUBASTAS_GANADORESDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnPublicacion = base.Columns["Publicacion"];
-                this.columnGanador = base.Columns["Ganador"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnPublicacion = new global::System.Data.DataColumn("Publicacion", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPublicacion);
-                this.columnGanador = new global::System.Data.DataColumn("Ganador", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGanador);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPublicacion}, true));
-                this.columnPublicacion.AllowDBNull = false;
-                this.columnPublicacion.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRow NewSUBASTAS_GANADORESRow() {
-                return ((SUBASTAS_GANADORESRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SUBASTAS_GANADORESRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(SUBASTAS_GANADORESRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SUBASTAS_GANADORESRowChanged != null)) {
-                    this.SUBASTAS_GANADORESRowChanged(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SUBASTAS_GANADORESRowChanging != null)) {
-                    this.SUBASTAS_GANADORESRowChanging(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SUBASTAS_GANADORESRowDeleted != null)) {
-                    this.SUBASTAS_GANADORESRowDeleted(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SUBASTAS_GANADORESRowDeleting != null)) {
-                    this.SUBASTAS_GANADORESRowDeleting(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveSUBASTAS_GANADORESRow(SUBASTAS_GANADORESRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GD1C2014DataSet ds = new GD1C2014DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SUBASTAS_GANADORESDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ROL_FUNCIONALIDADDataTable : global::System.Data.TypedTableBase<ROL_FUNCIONALIDADRow> {
             
             private global::System.Data.DataColumn columnROL_FUN_ROL_ID;
@@ -9936,7 +9690,7 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public COMPRAS_SIN_CALIFICARRow AddCOMPRAS_SIN_CALIFICARRow(string Publicacion, int Comprador) {
+            public COMPRAS_SIN_CALIFICARRow AddCOMPRAS_SIN_CALIFICARRow(string Publicacion, string Comprador) {
                 COMPRAS_SIN_CALIFICARRow rowCOMPRAS_SIN_CALIFICARRow = ((COMPRAS_SIN_CALIFICARRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Publicacion,
@@ -9968,9 +9722,10 @@ namespace FrbaCommerce {
             private void InitClass() {
                 this.columnPublicacion = new global::System.Data.DataColumn("Publicacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPublicacion);
-                this.columnComprador = new global::System.Data.DataColumn("Comprador", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnComprador = new global::System.Data.DataColumn("Comprador", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComprador);
                 this.columnPublicacion.MaxLength = 255;
+                this.columnComprador.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10048,6 +9803,252 @@ namespace FrbaCommerce {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "COMPRAS_SIN_CALIFICARDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SUBASTAS_GANADORESDataTable : global::System.Data.TypedTableBase<SUBASTAS_GANADORESRow> {
+            
+            private global::System.Data.DataColumn columnPublicacion;
+            
+            private global::System.Data.DataColumn columnGanador;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESDataTable() {
+                this.TableName = "SUBASTAS_GANADORES";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SUBASTAS_GANADORESDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected SUBASTAS_GANADORESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PublicacionColumn {
+                get {
+                    return this.columnPublicacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn GanadorColumn {
+                get {
+                    return this.columnGanador;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRow this[int index] {
+                get {
+                    return ((SUBASTAS_GANADORESRow)(this.Rows[index]));
+                }
+            }
+            
+            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowChanging;
+            
+            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowChanged;
+            
+            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowDeleting;
+            
+            public event SUBASTAS_GANADORESRowChangeEventHandler SUBASTAS_GANADORESRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddSUBASTAS_GANADORESRow(SUBASTAS_GANADORESRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRow AddSUBASTAS_GANADORESRow(decimal Publicacion, int Ganador) {
+                SUBASTAS_GANADORESRow rowSUBASTAS_GANADORESRow = ((SUBASTAS_GANADORESRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Publicacion,
+                        Ganador};
+                rowSUBASTAS_GANADORESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSUBASTAS_GANADORESRow);
+                return rowSUBASTAS_GANADORESRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRow FindByPublicacion(decimal Publicacion) {
+                return ((SUBASTAS_GANADORESRow)(this.Rows.Find(new object[] {
+                            Publicacion})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                SUBASTAS_GANADORESDataTable cln = ((SUBASTAS_GANADORESDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SUBASTAS_GANADORESDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnPublicacion = base.Columns["Publicacion"];
+                this.columnGanador = base.Columns["Ganador"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnPublicacion = new global::System.Data.DataColumn("Publicacion", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPublicacion);
+                this.columnGanador = new global::System.Data.DataColumn("Ganador", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGanador);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPublicacion}, true));
+                this.columnPublicacion.AllowDBNull = false;
+                this.columnPublicacion.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRow NewSUBASTAS_GANADORESRow() {
+                return ((SUBASTAS_GANADORESRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SUBASTAS_GANADORESRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(SUBASTAS_GANADORESRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SUBASTAS_GANADORESRowChanged != null)) {
+                    this.SUBASTAS_GANADORESRowChanged(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SUBASTAS_GANADORESRowChanging != null)) {
+                    this.SUBASTAS_GANADORESRowChanging(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SUBASTAS_GANADORESRowDeleted != null)) {
+                    this.SUBASTAS_GANADORESRowDeleted(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SUBASTAS_GANADORESRowDeleting != null)) {
+                    this.SUBASTAS_GANADORESRowDeleting(this, new SUBASTAS_GANADORESRowChangeEvent(((SUBASTAS_GANADORESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveSUBASTAS_GANADORESRow(SUBASTAS_GANADORESRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                GD1C2014DataSet ds = new GD1C2014DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SUBASTAS_GANADORESDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -15299,56 +15300,6 @@ namespace FrbaCommerce {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class SUBASTAS_GANADORESRow : global::System.Data.DataRow {
-            
-            private SUBASTAS_GANADORESDataTable tableSUBASTAS_GANADORES;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal SUBASTAS_GANADORESRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSUBASTAS_GANADORES = ((SUBASTAS_GANADORESDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal Publicacion {
-                get {
-                    return ((decimal)(this[this.tableSUBASTAS_GANADORES.PublicacionColumn]));
-                }
-                set {
-                    this[this.tableSUBASTAS_GANADORES.PublicacionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int Ganador {
-                get {
-                    try {
-                        return ((int)(this[this.tableSUBASTAS_GANADORES.GanadorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ganador\' de la tabla \'SUBASTAS_GANADORES\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSUBASTAS_GANADORES.GanadorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsGanadorNull() {
-                return this.IsNull(this.tableSUBASTAS_GANADORES.GanadorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetGanadorNull() {
-                this[this.tableSUBASTAS_GANADORES.GanadorColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class ROL_FUNCIONALIDADRow : global::System.Data.DataRow {
             
             private ROL_FUNCIONALIDADDataTable tableROL_FUNCIONALIDAD;
@@ -15596,10 +15547,10 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int Comprador {
+            public string Comprador {
                 get {
                     try {
-                        return ((int)(this[this.tableCOMPRAS_SIN_CALIFICAR.CompradorColumn]));
+                        return ((string)(this[this.tableCOMPRAS_SIN_CALIFICAR.CompradorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Comprador\' de la tabla \'COMPRAS_SIN_CALIFICAR\' es DBNull." +
@@ -15629,6 +15580,56 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCompradorNull() {
                 this[this.tableCOMPRAS_SIN_CALIFICAR.CompradorColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class SUBASTAS_GANADORESRow : global::System.Data.DataRow {
+            
+            private SUBASTAS_GANADORESDataTable tableSUBASTAS_GANADORES;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SUBASTAS_GANADORESRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSUBASTAS_GANADORES = ((SUBASTAS_GANADORESDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal Publicacion {
+                get {
+                    return ((decimal)(this[this.tableSUBASTAS_GANADORES.PublicacionColumn]));
+                }
+                set {
+                    this[this.tableSUBASTAS_GANADORES.PublicacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int Ganador {
+                get {
+                    try {
+                        return ((int)(this[this.tableSUBASTAS_GANADORES.GanadorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ganador\' de la tabla \'SUBASTAS_GANADORES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSUBASTAS_GANADORES.GanadorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsGanadorNull() {
+                return this.IsNull(this.tableSUBASTAS_GANADORES.GanadorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetGanadorNull() {
+                this[this.tableSUBASTAS_GANADORES.GanadorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16349,37 +16350,6 @@ namespace FrbaCommerce {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class SUBASTAS_GANADORESRowChangeEvent : global::System.EventArgs {
-            
-            private SUBASTAS_GANADORESRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRowChangeEvent(SUBASTAS_GANADORESRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SUBASTAS_GANADORESRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class ROL_FUNCIONALIDADRowChangeEvent : global::System.EventArgs {
             
             private ROL_FUNCIONALIDADRow eventRow;
@@ -16456,6 +16426,37 @@ namespace FrbaCommerce {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public COMPRAS_SIN_CALIFICARRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class SUBASTAS_GANADORESRowChangeEvent : global::System.EventArgs {
+            
+            private SUBASTAS_GANADORESRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRowChangeEvent(SUBASTAS_GANADORESRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SUBASTAS_GANADORESRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -17912,12 +17913,18 @@ SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM S" +
                 "TR_NOMBRE_GRUPO.COMPRA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COM_ID \r\nFROM STR_NOMBRE_GRUPO.COMPRA\r\nJOIN STR_NOMBRE_GRUPO.PUBLICACION O" +
+                "N PUB_ID=COM_PUB_ID\r\nWHERE PUB_DESCRIPCION=@publi";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18175,6 +18182,39 @@ SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<decimal> COM_PUB_ID, global::System.Nullable<decimal> COM_CANTIDAD, global::System.Nullable<global::System.DateTime> COM_FECHA, global::System.Nullable<int> COM_USU_ID, global::System.Nullable<decimal> COM_CAL_ID, int Original_COM_ID, global::System.Nullable<decimal> Original_COM_PUB_ID, global::System.Nullable<decimal> Original_COM_CANTIDAD, global::System.Nullable<global::System.DateTime> Original_COM_FECHA, global::System.Nullable<int> Original_COM_USU_ID, global::System.Nullable<decimal> Original_COM_CAL_ID) {
             return this.Update(COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID, Original_COM_ID, Original_COM_PUB_ID, Original_COM_CANTIDAD, Original_COM_FECHA, Original_COM_USU_ID, Original_COM_CAL_ID, Original_COM_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> compraId(string publi) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((publi == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(publi));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -22551,8 +22591,8 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = "SELECT FUN_ID, FUN_NOMBRE\r\nFROM STR_NOMBRE_GRUPO.ROL \r\njoin STR_NOMBRE_GRUPO.ROL_" +
-                "FUNCIONALIDAD on ROL_FUN_ROL=ROL_ID\r\njoin STR_NOMBRE_GRUPO.FUNCIONALIDAD on ROL_" +
-                "FUN_FUN=FUN_ID\r\nWHERE @nom=ROL_NOMBRE";
+                "FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID\r\njoin STR_NOMBRE_GRUPO.FUNCIONALIDAD on R" +
+                "OL_FUN_FUN_ID=FUN_ID\r\nWHERE @nom=ROL_NOMBRE";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
@@ -22561,8 +22601,8 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
 FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD
 WHERE NOT FUN_ID IN (select  FUN_ID
 from STR_NOMBRE_GRUPO.ROL 
-join STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD on ROL_FUN_ROL=ROL_ID
-join STR_NOMBRE_GRUPO.FUNCIONALIDAD on ROL_FUN_FUN=FUN_ID
+join STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID
+join STR_NOMBRE_GRUPO.FUNCIONALIDAD on ROL_FUN_FUN_ID=FUN_ID
 WHERE ROL_NOMBRE = @nom)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27297,164 +27337,6 @@ SELECT TIPO_ID, TIPO_DESCRIPCION FROM STR_NOMBRE_GRUPO.TIPO WHERE (TIPO_ID = @TI
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SUBASTAS_GANADORESTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public SUBASTAS_GANADORESTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SUBASTAS_GANADORES";
-            tableMapping.ColumnMappings.Add("Publicacion", "Publicacion");
-            tableMapping.ColumnMappings.Add("Ganador", "Ganador");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaCommerce.Properties.Settings.Default.GD1C2014ConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Publicacion, Ganador FROM STR_NOMBRE_GRUPO.SUBASTAS_GANADORES";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GD1C2014DataSet.SUBASTAS_GANADORESDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GD1C2014DataSet.SUBASTAS_GANADORESDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            GD1C2014DataSet.SUBASTAS_GANADORESDataTable dataTable = new GD1C2014DataSet.SUBASTAS_GANADORESDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ROL_FUNCIONALIDADTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -28081,15 +27963,15 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.COMPRAS_SIN_CALIFICAR\r\nWHERE @usu=Comprador";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Comprador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Comprador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT PUB_TIPO_ID\r\nFROM STR_NOMBRE_GRUPO.COMPRAS_DIRECTAS_USUARIOS\r\nJOIN STR_NOM" +
                 "BRE_GRUPO.PUBLICACION ON PUB_ID=Publicacion\r\nJOIN STR_NOMBRE_GRUPO.USUARIO ON US" +
-                "U_USERNAME=Comprador\r\nWHERE @usu=USU_ID AND @pub=PUB_DESCRIPCION";
+                "U_USERNAME=Comprador\r\nWHERE @pub=PUB_DESCRIPCION AND @usu=USU_USERNAME";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28117,13 +27999,13 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUsuario(GD1C2014DataSet.COMPRAS_SIN_CALIFICARDataTable dataTable, global::System.Nullable<int> usu) {
+        public virtual int FillByUsuario(GD1C2014DataSet.COMPRAS_SIN_CALIFICARDataTable dataTable, string usu) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((usu.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(usu.Value));
+            if ((usu == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(usu));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -28134,14 +28016,217 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object tipoCompra(int usu, string pub) {
+        public virtual object tipoCompra(string pub, string usu) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((int)(usu));
             if ((pub == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(pub));
+            }
+            if ((usu == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = ((string)(pub));
+                command.Parameters[1].Value = ((string)(usu));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SUBASTAS_GANADORESTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public SUBASTAS_GANADORESTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SUBASTAS_GANADORES";
+            tableMapping.ColumnMappings.Add("Publicacion", "Publicacion");
+            tableMapping.ColumnMappings.Add("Ganador", "Ganador");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::FrbaCommerce.Properties.Settings.Default.GD1C2014ConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Publicacion, Ganador FROM STR_NOMBRE_GRUPO.SUBASTAS_GANADORES";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT OFE_ID\r\nFROM STR_NOMBRE_GRUPO.SUBASTAS_GANADORES\r\nJOIN STR_NOMBRE_GRUPO.OF" +
+                "ERTA ON (OFE_PUB_ID= Publicacion AND OFE_USU_ID=Ganador)\r\nJOIN STR_NOMBRE_GRUPO." +
+                "PUBLICACION ON OFE_PUB_ID=PUB_ID\r\nWHERE @publica=PUB_DESCRIPCION";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publica", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(GD1C2014DataSet.SUBASTAS_GANADORESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual GD1C2014DataSet.SUBASTAS_GANADORESDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD1C2014DataSet.SUBASTAS_GANADORESDataTable dataTable = new GD1C2014DataSet.SUBASTAS_GANADORESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object ofertaId(string publica) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((publica == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(publica));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

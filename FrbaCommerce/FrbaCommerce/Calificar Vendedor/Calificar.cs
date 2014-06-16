@@ -14,10 +14,10 @@ namespace FrbaCommerce.Calificar_Vendedor
         public int compra_id {get;set;}
         public char tipo_compra { get; set; }
         
-        public Calificar(int id, char tipo)
+        public Calificar(int? id, char tipo)
         {
             InitializeComponent();
-            compra_id = id;
+            compra_id = (int) id;
             tipo_compra = tipo;
         }
 
@@ -53,20 +53,20 @@ namespace FrbaCommerce.Calificar_Vendedor
             calificacionTableAdapter1.Update(gD1C2014DataSet1.CALIFICACION);
 
             int cal_id = Convert.ToInt32(nueva["CAL_ID"]);
-            int usuario=0;
+            string usuario;
 
             if (tipo_compra == 'O')
             {
                 DataRow fila = gD1C2014DataSet1.OFERTA.NewRow();
                 fila["OFE_CAL_ID"] = cal_id;
-                usuario =Convert.ToInt32(fila["OFE_USU_ID"]);
+                usuario =Convert.ToString(fila["OFE_USU_ID"]);
                 ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
             }
             else
             {
                 DataRow fila = gD1C2014DataSet1.COMPRA.NewRow();
                 fila["OFE_CAL_ID"] = cal_id;
-                usuario = Convert.ToInt32( fila["COM_USU_ID"]);
+                usuario = Convert.ToString( fila["COM_USU_ID"]);
                 compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
             }
 

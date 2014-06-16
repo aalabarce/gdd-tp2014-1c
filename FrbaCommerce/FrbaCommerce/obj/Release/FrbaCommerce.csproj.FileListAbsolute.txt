@@ -31,3 +31,5 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\Frba
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Abm_Rol.BorrarRol.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Abm_Rol.BuscarRol.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Historial_Cliente.Historial.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Calificar_Vendedor.BuscarCalificar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Calificar_Vendedor.Calificar.resources

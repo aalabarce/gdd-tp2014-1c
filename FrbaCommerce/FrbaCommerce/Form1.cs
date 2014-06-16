@@ -10,10 +10,10 @@ using System.Windows.Forms;
 namespace FrbaCommerce
 {
     public partial class Form1 : Form
-
     {
         public string usuario { get; set; }
         public string rol { get; set; }
+
         public Form1()
         {
             
@@ -103,6 +103,16 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Abm_Rol.BorrarRol().Show();
 
+        }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Historial_Cliente.Historial(usuario).Show();
+        }
+
+        private void calificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Calificar_Vendedor.BuscarCalificar(usuario).Show();
         }
     }
 }

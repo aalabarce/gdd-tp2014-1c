@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cOMPRASSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
+            this.label1 = new System.Windows.Forms.Label();
             this.cOMPRAS_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter();
+            this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -59,27 +60,18 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Elija la compra a calificar";
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            // 
             // publicacionDataGridViewTextBoxColumn
             // 
             this.publicacionDataGridViewTextBoxColumn.DataPropertyName = "Publicacion";
             this.publicacionDataGridViewTextBoxColumn.HeaderText = "Publicacion";
             this.publicacionDataGridViewTextBoxColumn.Name = "publicacionDataGridViewTextBoxColumn";
             this.publicacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
             // 
             // cOMPRASSINCALIFICARBindingSource
             // 
@@ -91,9 +83,22 @@
             this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Elija la compra a calificar";
+            // 
             // cOMPRAS_SIN_CALIFICARTableAdapter
             // 
             this.cOMPRAS_SIN_CALIFICARTableAdapter.ClearBeforeFill = true;
+            // 
+            // compraTableAdapter1
+            // 
+            this.compraTableAdapter1.ClearBeforeFill = true;
             // 
             // BuscarCalificar
             // 
@@ -122,5 +127,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter cOMPRAS_SIN_CALIFICARTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
     }
 }
