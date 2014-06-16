@@ -53,19 +53,25 @@ namespace FrbaCommerce.Calificar_Vendedor
             calificacionTableAdapter1.Update(gD1C2014DataSet1.CALIFICACION);
 
             int cal_id = Convert.ToInt32(nueva["CAL_ID"]);
+            int usuario=0;
 
             if (tipo_compra == 'O')
             {
                 DataRow fila = gD1C2014DataSet1.OFERTA.NewRow();
                 fila["OFE_CAL_ID"] = cal_id;
+                usuario =Convert.ToInt32(fila["OFE_USU_ID"]);
                 ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
             }
             else
             {
                 DataRow fila = gD1C2014DataSet1.COMPRA.NewRow();
                 fila["OFE_CAL_ID"] = cal_id;
+                usuario = Convert.ToInt32( fila["COM_USU_ID"]);
                 compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
             }
+
+            new FrbaCommerce.Calificar_Vendedor.BuscarCalificar(usuario).Show();
+            this.Close();
         }
     }
 }

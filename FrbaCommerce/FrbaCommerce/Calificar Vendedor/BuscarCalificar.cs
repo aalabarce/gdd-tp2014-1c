@@ -33,6 +33,7 @@ namespace FrbaCommerce.Calificar_Vendedor
                 string publicacion = Convert.ToString(fila.Cells[0].Value);
                 char tipo_compra = Convert.ToChar(cOMPRAS_SIN_CALIFICARTableAdapter.tipoCompra(usuario,publicacion));
                 new FrbaCommerce.Calificar_Vendedor.Calificar(usuario,tipo_compra).Show();
+                this.Close();
             }     
         }
     }
