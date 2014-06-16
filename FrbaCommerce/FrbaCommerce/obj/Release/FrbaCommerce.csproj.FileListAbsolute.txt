@@ -33,3 +33,6 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\Frba
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Calificar_Vendedor.BuscarCalificar.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Calificar_Vendedor.Calificar.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Menu.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Comprar_Ofertar.Comprar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Comprar_Ofertar.Form1.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Release\FrbaCommerce.Comprar_Ofertar.VerPublicacion.resources

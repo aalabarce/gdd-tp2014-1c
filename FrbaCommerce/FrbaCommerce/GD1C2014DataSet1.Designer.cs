@@ -21327,13 +21327,19 @@ SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, P" +
                 "UB_DESCRIPCION, PUB_VIS_ID, PUB_USU_ID, PUB_PERMITIR_PREGUNTAS, PUB_ESTADO_ID, P" +
                 "UB_TIPO_ID FROM STR_NOMBRE_GRUPO.PUBLICACION";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.PUBLICACION \r\nWHERE PUB_ESTADO_ID = \'A\' AND PUB_" +
+                "STOCK > 0 AND PUB_FECHA_FINALIZACION < GETDATE() AND PUB_TIPO_ID = \'C\' ORDER BY " +
+                "PUB_VIS_ID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21356,6 +21362,18 @@ SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, 
             GD1C2014DataSet.PUBLICACIONDataTable dataTable = new GD1C2014DataSet.PUBLICACIONDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int ComprasActivas(GD1C2014DataSet.PUBLICACIONDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23596,7 +23614,7 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJA" +
@@ -23626,23 +23644,28 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT case when usu_intentos_login < 3 then 1 else 0 end\r\nFROM STR_NOMBRE_GRUPO." +
-                "USUARIO\r\nwhere STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
+            this._commandCollection[5].CommandText = "SELECT USU_TIPO \r\nFROM STR_NOMBRE_GRUPO.USUARIO \r\nWHERE USU_ID = @usuarioId";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT COUNT(*)\r\nFROM STR_NOMBRE_GRUPO.USUARIO\r\nwhere USU_USERNAME=@username and " +
-                "USU_PASSWORD=@password";
+            this._commandCollection[6].CommandText = "SELECT case when usu_intentos_login < 3 then 1 else 0 end\r\nFROM STR_NOMBRE_GRUPO." +
+                "USUARIO\r\nwhere STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE STR_NOMBRE_GRUPO.USUARIO\r\nset USU_INTENTOS_LOGIN= 0\r\nwhere USU_USERNAME=@u" +
-                "sername";
+            this._commandCollection[7].CommandText = "SELECT COUNT(*)\r\nFROM STR_NOMBRE_GRUPO.USUARIO\r\nwhere USU_USERNAME=@username and " +
+                "USU_PASSWORD=@password";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "UPDATE STR_NOMBRE_GRUPO.USUARIO\r\nset USU_INTENTOS_LOGIN= 0\r\nwhere USU_USERNAME=@u" +
+                "sername";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24026,8 +24049,36 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> habilitadoUsuario(string username) {
+        public virtual string getTipoUsuarioPorId(int usuarioId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            command.Parameters[0].Value = ((int)(usuarioId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((string)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> habilitadoUsuario(string username) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((username == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -24060,7 +24111,7 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object passValido(string username, string password) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             if ((username == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -24100,7 +24151,7 @@ SELECT USU_ID, USU_USERNAME, USU_PASSWORD, USU_INTENTOS_LOGIN, USU_TIPO, USU_BAJ
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int resetearIntentosFallidos(string username) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             if ((username == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
