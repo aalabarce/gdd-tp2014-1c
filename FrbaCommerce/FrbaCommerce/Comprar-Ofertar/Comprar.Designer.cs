@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pUBSTOCKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pUBPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Compra = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PUB_USU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBLICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
@@ -45,6 +40,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.pUBSTOCKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Compra = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PUB_USU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
@@ -61,7 +62,8 @@
             this.pUBPRECIODataGridViewTextBoxColumn,
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn,
             this.Compra,
-            this.PUB_USU_ID});
+            this.PUB_USU_ID,
+            this.PUB_ID});
             this.dataGridView1.DataSource = this.pUBLICACIONBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 201);
             this.dataGridView1.Name = "dataGridView1";
@@ -69,43 +71,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(463, 214);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_2);
-            // 
-            // pUBSTOCKDataGridViewTextBoxColumn
-            // 
-            this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
-            this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "PUB_STOCK";
-            this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
-            this.pUBSTOCKDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pUBPRECIODataGridViewTextBoxColumn
-            // 
-            this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
-            this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "PUB_PRECIO";
-            this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
-            this.pUBPRECIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pUBDESCRIPCIONDataGridViewTextBoxColumn
-            // 
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "PUB_DESCRIPCION";
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
-            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Compra
-            // 
-            this.Compra.HeaderText = "Compra";
-            this.Compra.Name = "Compra";
-            this.Compra.ReadOnly = true;
-            this.Compra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Compra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // PUB_USU_ID
-            // 
-            this.PUB_USU_ID.DataPropertyName = "PUB_USU_ID";
-            this.PUB_USU_ID.HeaderText = "PUB_USU_ID";
-            this.PUB_USU_ID.Name = "PUB_USU_ID";
-            this.PUB_USU_ID.ReadOnly = true;
-            this.PUB_USU_ID.Visible = false;
             // 
             // pUBLICACIONBindingSource
             // 
@@ -175,6 +140,51 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
+            // pUBSTOCKDataGridViewTextBoxColumn
+            // 
+            this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
+            this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "PUB_STOCK";
+            this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
+            this.pUBSTOCKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBPRECIODataGridViewTextBoxColumn
+            // 
+            this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
+            this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "PUB_PRECIO";
+            this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
+            this.pUBPRECIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBDESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "PUB_DESCRIPCION";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Compra
+            // 
+            this.Compra.HeaderText = "Compra";
+            this.Compra.Name = "Compra";
+            this.Compra.ReadOnly = true;
+            this.Compra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Compra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // PUB_USU_ID
+            // 
+            this.PUB_USU_ID.DataPropertyName = "PUB_USU_ID";
+            this.PUB_USU_ID.HeaderText = "PUB_USU_ID";
+            this.PUB_USU_ID.Name = "PUB_USU_ID";
+            this.PUB_USU_ID.ReadOnly = true;
+            this.PUB_USU_ID.Visible = false;
+            // 
+            // PUB_ID
+            // 
+            this.PUB_ID.DataPropertyName = "PUB_ID";
+            this.PUB_ID.HeaderText = "PUB_ID";
+            this.PUB_ID.Name = "PUB_ID";
+            this.PUB_ID.ReadOnly = true;
+            this.PUB_ID.Visible = false;
+            // 
             // Comprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,11 +220,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBSTOCKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBPRECIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBDESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn PUB_USU_ID;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PUB_ID;
     }
 }

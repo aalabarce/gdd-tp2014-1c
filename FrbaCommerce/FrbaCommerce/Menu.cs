@@ -120,5 +120,10 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Abm_Cliente.AltaCliente(-1).Show();
         }
+
+        private void compraDirectaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Comprar_Ofertar.Comprar().Show();
+        }
     }
 }

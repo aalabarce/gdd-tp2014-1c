@@ -28,8 +28,9 @@ namespace FrbaCommerce.Comprar_Ofertar
             DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
             int usuarioId = Convert.ToInt32(fila.Cells[4].Value);           
             string tipo = usuarioTableAdapter1.getTipoUsuarioPorId(usuarioId);
+            int publicacionId = Convert.ToInt32(fila.Cells[5].Value);
 
-            new FrbaCommerce.Comprar_Ofertar.VerPublicacion(usuarioId, tipo).Show();
+            new FrbaCommerce.Comprar_Ofertar.VerPublicacion(usuarioId, tipo, publicacionId).Show();
         }
     }
 }

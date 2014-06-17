@@ -192,6 +192,12 @@
     <Compile Include="Comprar-Ofertar\VerPublicacion.designer.cs">
       <DependentUpon>VerPublicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Comprar-Ofertar\VerVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\VerVendedor.Designer.cs">
+      <DependentUpon>VerVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editar Publicacion\editar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comprar-Ofertar\VerPublicacion.resx">
       <DependentUpon>VerPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\VerVendedor.resx">
+      <DependentUpon>VerVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editar Publicacion\editar.resx">
       <DependentUpon>editar.cs</DependentUpon>
