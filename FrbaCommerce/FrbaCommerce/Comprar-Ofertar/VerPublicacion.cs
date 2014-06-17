@@ -14,35 +14,35 @@ namespace FrbaCommerce.Comprar_Ofertar
     {
         int usuarioId;
         string tipo;
+
         public VerPublicacion(int id1, string tipoUsuario)
         {
             InitializeComponent();
             usuarioId = id1;
             tipo = tipoUsuario;
-            DataRow usuario = gD1C2014DataSet1.USUARIO.NewRow();
-            //string nombre; 
 
+        }
 
-            if (tipoUsuario == "C")
+        private void VerPublicacion_Load(object sender, EventArgs e)
+        {
+            this.empresaTableAdapter1.Fill(this.gD1C2014DataSet1.EMPRESA);
+            this.clienteTableAdapter1.Fill(this.gD1C2014DataSet1.CLIENTE);
+
+            if (tipo == "C")
             {
-                usuario = gD1C2014DataSet1.CLIENTE.FindByCLI_ID(usuarioId);
-                label3.Text = (string) usuario["CLI_NOM"];
+                DataRow cliente = gD1C2014DataSet1.CLIENTE.NewRow();
+                cliente = gD1C2014DataSet1.CLIENTE.FindByCLI_ID(usuarioId);
+                label3.Text = (string)cliente["CLI_NOM"];
             }
             else
             {
-                int id = 32;
-                usuario = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(id);
-
-                DataRow gello = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(id);
-                // int? hola = 88;
-                //usuario = empresaTableAdapter1.BuscarPorUsuId(gD1C2014DataSet1.EMPRES, 5);
-                //empresaTableAdapter1.BuscarPorUsuId(gD1C2014DataSet1.EMPRESA, hola); 
+                int id =1;
+                DataRow empresa = gD1C2014DataSet1.EMPRESA.NewRow();
+                empresa = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(id);
 
                 DataRow[] foundRows = gD1C2014DataSet1.EMPRESA.Select("");
                 label3.Text = "HOLA";//(string)usuario["EMP_RAZON_SOCIAL"];
             }
-            
-
         }
     }
 }
