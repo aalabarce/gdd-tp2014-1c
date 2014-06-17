@@ -115,5 +115,10 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Calificar_Vendedor.BuscarCalificar(usuario).Show();
         }
+
+        private void nuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Cliente.AltaCliente(-1).Show();
+        }
     }
 }

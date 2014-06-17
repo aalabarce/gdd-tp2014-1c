@@ -17592,13 +17592,46 @@ SELECT CLI_ID, CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL,
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CLI_ID, CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL, " +
                 "CLI_TELEFONO, CLI_CALLE, CLI_PISO, CLI_DEPTO, CLI_LOCALIDAD, CLI_COD_POSTAL, CLI" +
                 "_FECHA_NAC, CLI_CALLE_NRO, CLI_BAJA FROM STR_NOMBRE_GRUPO.CLIENTE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) \r\nFROM STR_NOMBRE_GRUPO.CLIENTE\r\nWHERE CLI_DOC=@documento\r\nand CL" +
+                "I_TIPO_DOC=@tipoDoc";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documento", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "CLI_DOC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipoDoc", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_TIPO_DOC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) \r\nFROM STR_NOMBRE_GRUPO.CLIENTE\r\nWHERE CLI_TELEFONO=@telefono";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@telefono", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_TELEFONO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "select *\r\nfrom STR_NOMBRE_GRUPO.CLIENTE\r\nWHERE CLIENTE.CLI_BAJA=0";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT * 
+ FROM STR_NOMBRE_GRUPO.CLIENTE WHERE 
+((CLI_NOMBRE LIKE '%' + @nombre + '%') OR (@nombre  IS NULL)) 
+AND
+((CLI_APE LIKE '%' + @apellido + '%') OR (@apellido  IS NULL))
+AND
+((CLI_MAIL LIKE '%' + @email + '%') OR (@email  IS NULL))
+--AND
+--((CONVERT(varchar(10), CLI_DOC) LIKE '%' + @documento + '%') OR (@documento  IS NULL))
+AND
+CLI_BAJA=0";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_APE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_MAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17621,6 +17654,48 @@ SELECT CLI_ID, CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL,
             GD1C2014DataSet.CLIENTEDataTable dataTable = new GD1C2014DataSet.CLIENTEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillActivos(GD1C2014DataSet.CLIENTEDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FiltroCliente(GD1C2014DataSet.CLIENTEDataTable dataTable, string nombre, string apellido, string email) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nombre));
+            }
+            if ((apellido == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(apellido));
+            }
+            if ((email == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(email));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18215,6 +18290,78 @@ SELECT CLI_ID, CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL,
                     global::System.Nullable<decimal> Original_CLI_CALLE_NRO, 
                     global::System.Nullable<bool> Original_CLI_BAJA) {
             return this.Update(CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL, CLI_TELEFONO, CLI_CALLE, CLI_PISO, CLI_DEPTO, CLI_LOCALIDAD, CLI_COD_POSTAL, CLI_FECHA_NAC, CLI_CALLE_NRO, CLI_BAJA, Original_CLI_ID, Original_CLI_USU_ID, Original_CLI_NOMBRE, Original_CLI_APE, Original_CLI_DOC, Original_CLI_TIPO_DOC, Original_CLI_MAIL, Original_CLI_TELEFONO, Original_CLI_CALLE, Original_CLI_PISO, Original_CLI_DEPTO, Original_CLI_LOCALIDAD, Original_CLI_COD_POSTAL, Original_CLI_FECHA_NAC, Original_CLI_CALLE_NRO, Original_CLI_BAJA, Original_CLI_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object ExisteDoc(global::System.Nullable<decimal> documento, string tipoDoc) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((documento.HasValue == true)) {
+                command.Parameters[0].Value = ((decimal)(documento.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((tipoDoc == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(tipoDoc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ExisteTel(global::System.Nullable<int> telefono) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((telefono.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(telefono.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
