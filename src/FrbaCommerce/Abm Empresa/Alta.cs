@@ -90,17 +90,15 @@ namespace FrbaCommerce.Abm_Empresa
            empresa["EMP_CUIT"] = textBox11.Text;
            empresa["EMP_NOM_CONTACTO"] = textBox12.Text;
            empresa["EMP_FECHA_CREACION"] = DateTime.Now;
-           empresa["EMP_USU_ID"] = usuarioId;
+           
            empresa["EMP_BAJA"] = 0;
 
-           gD1C2014DataSet1.EMPRESA.Rows.Add(empresa);
-
-           empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
+           
 
            // Si creo la empresa a manopla (como admin) creo tambien un usuario genérico
            if (usuarioId == -1)
            {
-              DataRow usuarioGenerico = gD1C2014DataSet1.USUARIO.NewRow();
+               DataRow usuarioGenerico = gD1C2014DataSet1.USUARIO.NewRow();
                usuarioGenerico["USU_USERNAME"] = textBox11.Text;
                usuarioGenerico["USU_PASSWORD"] = MetodosGlobales.sha256("1234");
                usuarioGenerico["USU_INTENTOS_LOGIN"] = 0;
@@ -108,8 +106,15 @@ namespace FrbaCommerce.Abm_Empresa
 
                gD1C2014DataSet1.USUARIO.Rows.Add(usuarioGenerico);
                usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+               empresa["EMP_USU_ID"] = usuarioGenerico["USU_ID"];
            }
-    
+           else
+           {
+               empresa["EMP_USU_ID"] = usuarioId;
+           }
+           gD1C2014DataSet1.EMPRESA.Rows.Add(empresa);
+
+           empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
 
            string mensaje = "La empresa " + textBox1.Text + " ha sido dada de alta";
            MessageBox.Show(mensaje);

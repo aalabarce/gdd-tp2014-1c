@@ -29,6 +29,10 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text == "" || textBox2.Text == ""){
+                MessageBox.Show("Ingrese usuario y password");
+                return;
+            }
             string usuario = textBox1.Text;
             string password = textBox2.Text;
             char tipo;
