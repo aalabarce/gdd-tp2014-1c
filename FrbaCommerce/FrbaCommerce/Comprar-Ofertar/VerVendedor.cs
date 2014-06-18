@@ -50,5 +50,17 @@ namespace FrbaCommerce.Comprar_Ofertar
                 label7.Text = Convert.ToString(empresa["EMP_MAIL"]);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Comprar_Ofertar.Comprar().Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Menu().Show();
+            this.Close();
+        }
     }
 }

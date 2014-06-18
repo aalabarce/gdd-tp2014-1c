@@ -32,5 +32,17 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             new FrbaCommerce.Comprar_Ofertar.VerPublicacion(usuarioId, tipo, publicacionId).Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // FILTRAR
+            MessageBox.Show("EN DESARROLLO");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // LIMPIAR
+            MessageBox.Show("EN DESARROLLO");
+        }
     }
 }
