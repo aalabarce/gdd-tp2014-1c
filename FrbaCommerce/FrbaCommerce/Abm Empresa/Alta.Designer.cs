@@ -356,6 +356,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Alta";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Alta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
             this.ResumeLayout(false);

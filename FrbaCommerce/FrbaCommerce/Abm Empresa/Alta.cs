@@ -97,6 +97,20 @@ namespace FrbaCommerce.Abm_Empresa
 
            empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
 
+           // Si creo la empresa a manopla (como admin) creo tambien un usuario genérico
+           if (usuarioId == -1)
+           {
+              DataRow usuarioGenerico = gD1C2014DataSet1.USUARIO.NewRow();
+               usuarioGenerico["USU_USERNAME"] = textBox11.Text;
+               usuarioGenerico["USU_PASSWORD"] = MetodosGlobales.sha256("1234");
+               usuarioGenerico["USU_INTENTOS_LOGIN"] = 0;
+               usuarioGenerico["USU_TIPO"] = "E";
+
+               gD1C2014DataSet1.USUARIO.Rows.Add(usuarioGenerico);
+               usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+           }
+    
+
            string mensaje = "La empresa " + textBox1.Text + " ha sido dada de alta";
            MessageBox.Show(mensaje);
            this.Close();
@@ -116,6 +130,11 @@ namespace FrbaCommerce.Abm_Empresa
                 MessageBox.Show(errores);
                 return false;
             }   
+        }
+
+        private void Alta_Load(object sender, EventArgs e)
+        {
+            this.usuarioTableAdapter1.Fill(this.gD1C2014DataSet1.USUARIO);
         }
 
 
