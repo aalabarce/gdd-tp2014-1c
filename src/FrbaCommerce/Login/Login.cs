@@ -90,7 +90,8 @@ namespace FrbaCommerce.Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FrbaCommerce.Registro_de_Usuario.Alta().Show();
+            new FrbaCommerce.Listado_Estadistico.Listado().Show();
+            //new FrbaCommerce.Registro_de_Usuario.Alta().Show();
             this.Hide();
         }
     }

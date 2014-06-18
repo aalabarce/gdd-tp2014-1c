@@ -21,8 +21,6 @@ namespace FrbaCommerce.Listado_Estadistico
 
         private void Listado_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.COMPRAS_SIN_CALIFICAR' Puede moverla o quitarla según sea necesario.
-            this.cOMPRAS_SIN_CALIFICARTableAdapter.Fill(this.gD1C2014DataSet1.COMPRAS_SIN_CALIFICAR);
            
             DateTime hoy = DateTime.Now; 
             int año_actual = hoy.Year;
@@ -39,7 +37,7 @@ namespace FrbaCommerce.Listado_Estadistico
             comboBox2.Items.Add("Tercero");
             comboBox2.Items.Add("Cuarto");
 
-
+            //Seteo el default del listado
             comboBox1.Text=Convert.ToString(año_actual);
             comboBox2.Text = "Primero";
             radioButton1.Checked = true;
@@ -94,6 +92,7 @@ namespace FrbaCommerce.Listado_Estadistico
                 dataGridView2.Visible = true;
                 dataGridView3.Visible = false;
                 dataGridView4.Visible = false;
+                fACTURACIONES_VENDEDORESTableAdapter.top5(gD1C2014DataSet1.FACTURACIONES_VENDEDORES, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
             }
             if (radioButton3.Checked == true)
             {
