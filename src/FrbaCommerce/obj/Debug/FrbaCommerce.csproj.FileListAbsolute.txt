@@ -1,0 +1,73 @@
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.pdb
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Form1.resources
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+C:\Users\Osvaldo\Documents\UTN 2014\Gestión de datos\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe.config
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.Login.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.MasDeUno.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Cliente.Clientes.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.Alta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.AltaRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.BajaRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.BuscarRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.AltaVi.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.BorrarVi.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.BuscarVi.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.ModVi.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.Generar_Publicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.AltaRol.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe.config
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.pdb
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Cliente.Clientes.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.Alta.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.Baja.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.AltaRol.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.AltaRubro.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.BajaRubro.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.BuscarRubro.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModRubro.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.AltaVi.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.BorrarVi.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.BuscarVi.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.ModVi.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Form1.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.Generar_Publicacion.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.Login.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.MasDeUno.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.Baja.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Editar_Publicacion.editar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Editar_Publicacion.Publicaciones.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Registro_de_Usuario.Alta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.Modificacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.PopupModificacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rol.ModRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rol.BuscarRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rol.BorrarRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.Historial.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.Calificar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.BuscarCalificar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Menu.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Comprar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Form1.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.VerPublicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Listado_Estadistico.Listado.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Cliente.AltaCliente.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Cliente.ModifCliente.resources
