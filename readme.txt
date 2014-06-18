@@ -1,0 +1,11 @@
+Curso: K3012
+
+Grupo: STR_NOMBRE_GRUPO
+
+Integrantes:
+AGUSTÍN ALABARCE	144.291-0
+ARIEL VILA		143.887-6
+MELANIE GUTERMAN	143.911-0
+OSVALDO FERNÁNDEZ	144.136-0
+
+Email integrante responsable: meliguter@gmail.com
