@@ -12,6 +12,7 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class Comprar : Form
     {
         int contador = 0;
+        int? maxPaginas;
         public Comprar()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void Comprar_Load(object sender, EventArgs e)
         {
-            publicacionTableAdapter1.ComprasActivas(gD1C2014DataSet1.PUBLICACION);
+            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0);
+            maxPaginas = publicacionTableAdapter1.maxPaginas();
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Comprar";
         }
 
@@ -48,7 +50,47 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Siguiente pagina
+            contador++;
+            if (contador <= maxPaginas)
+            {
+                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            }
+            else
+            {
+                contador = (int)maxPaginas;
+                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Primera pagina
+            contador = 0;
+            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Pagina anterior
+            contador--;
+            if (contador >= 0)
+            {
+                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            }
+            else
+            {
+                contador = 0;
+                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // Ultima pagina
+            contador = (int)maxPaginas;
+            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
         }
     }
 }
