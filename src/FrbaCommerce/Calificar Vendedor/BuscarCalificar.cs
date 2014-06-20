@@ -40,7 +40,7 @@ namespace FrbaCommerce.Calificar_Vendedor
                 }
                 else
                 {
-                    compra_id = Convert.ToInt32(compraTableAdapter1.compraId(publicacion));
+                    compra_id = Convert.ToInt32(compraTableAdapter1.compraId(publicacion,usuario));
                 }
 
                 new FrbaCommerce.Calificar_Vendedor.Calificar(compra_id,tipo_compra).Show();
