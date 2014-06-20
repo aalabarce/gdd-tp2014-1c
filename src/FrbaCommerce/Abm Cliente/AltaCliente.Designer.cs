@@ -60,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.clienteTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.CLIENTETableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.usuariO_ROLTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
@@ -330,6 +332,14 @@
             this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,5 +409,7 @@
         private System.Windows.Forms.Label label3;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.CLIENTETableAdapter clienteTableAdapter1;
         private GD1C2014DataSet gD1C2014DataSet1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
     }
 }
