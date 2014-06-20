@@ -130,5 +130,15 @@ namespace FrbaCommerce
         {
 
         }
+
+        private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Facturar_Publicaciones.Facturar().Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

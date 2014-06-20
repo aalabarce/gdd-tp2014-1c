@@ -59,9 +59,10 @@
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +107,8 @@
             this.rolToolStripMenuItem,
             this.historialToolStripMenuItem,
             this.calificarToolStripMenuItem,
-            this.comprasToolStripMenuItem});
+            this.comprasToolStripMenuItem,
+            this.facturaciónToolStripMenuItem});
             this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
             this.tareasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.tareasToolStripMenuItem.Text = "Tareas";
@@ -141,7 +143,7 @@
             this.generarNuevaToolStripMenuItem,
             this.editarPublicaciónToolStripMenuItem});
             this.publicaciónToolStripMenuItem.Name = "publicaciónToolStripMenuItem";
-            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.publicaciónToolStripMenuItem.Text = "Publicación";
             // 
             // generarNuevaToolStripMenuItem
@@ -165,7 +167,7 @@
             this.modificarVisibilidadToolStripMenuItem,
             this.eliminarVisibilidadToolStripMenuItem});
             this.visibilidadToolStripMenuItem.Name = "visibilidadToolStripMenuItem";
-            this.visibilidadToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.visibilidadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.visibilidadToolStripMenuItem.Text = "Visibilidad";
             // 
             // crearVisibilidadToolStripMenuItem
@@ -196,7 +198,7 @@
             this.modificiarRubroToolStripMenuItem,
             this.eliminarRubroToolStripMenuItem});
             this.rubroToolStripMenuItem.Name = "rubroToolStripMenuItem";
-            this.rubroToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.rubroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rubroToolStripMenuItem.Text = "Rubro";
             // 
             // crearRubroToolStripMenuItem
@@ -227,7 +229,7 @@
             this.modificacionToolStripMenuItem,
             this.bajaToolStripMenuItem});
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
-            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empresaToolStripMenuItem.Text = "Empresa";
             // 
             // altaToolStripMenuItem
@@ -258,7 +260,7 @@
             this.modificarRolToolStripMenuItem,
             this.eliminarRolToolStripMenuItem});
             this.rolToolStripMenuItem.Name = "rolToolStripMenuItem";
-            this.rolToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.rolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rolToolStripMenuItem.Text = "Rol";
             // 
             // crearRolToolStripMenuItem
@@ -285,14 +287,14 @@
             // historialToolStripMenuItem
             // 
             this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.historialToolStripMenuItem.Text = "Historial";
             this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
             // calificarToolStripMenuItem
             // 
             this.calificarToolStripMenuItem.Name = "calificarToolStripMenuItem";
-            this.calificarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.calificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calificarToolStripMenuItem.Text = "Calificar";
             this.calificarToolStripMenuItem.Click += new System.EventHandler(this.calificarToolStripMenuItem_Click);
             // 
@@ -302,7 +304,7 @@
             this.compraDirectaToolStripMenuItem,
             this.subastaToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // compraDirectaToolStripMenuItem
@@ -317,10 +319,6 @@
             this.subastaToolStripMenuItem.Name = "subastaToolStripMenuItem";
             this.subastaToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.subastaToolStripMenuItem.Text = "Subasta";
-            // 
-            // usuarioTableAdapter1
-            // 
-            this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
             // label3
             // 
@@ -342,6 +340,17 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Bienvenido a FRBA-Commerce!";
             // 
+            // facturaciónToolStripMenuItem
+            // 
+            this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
+            this.facturaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturaciónToolStripMenuItem.Text = "Facturación";
+            this.facturaciónToolStripMenuItem.Click += new System.EventHandler(this.facturaciónToolStripMenuItem_Click);
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +364,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.Text = "Frba Commerce";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -398,6 +408,7 @@
         private System.Windows.Forms.ToolStripMenuItem subastaToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
     }
 }
 
