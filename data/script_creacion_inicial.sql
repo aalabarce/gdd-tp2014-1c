@@ -587,16 +587,6 @@ SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
 		(@rol_id_admin, @funcionalidad_id);
-		
---inserto un usuario ADMIN
-DECLARE @usuarioAdminId int;
-INSERT INTO STR_NOMBRE_GRUPO.USUARIO(USU_USERNAME,USU_PASSWORD,USU_INTENTOS_LOGIN,USU_TIPO)
-VALUES('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',0,'A');
-SET @usuarioAdminId = @@IDENTITY;
-INSERT INTO [STR_NOMBRE_GRUPO].[USUARIO_ROL]
-           ([USU_ROL_USUARIO_ID]
-           ,[USU_ROL_ROL_ID])
-VALUES(@usuarioAdminId, @rol_id_admin);
 
 --inserto clientes
 	INSERT INTO STR_NOMBRE_GRUPO.CLIENTE(CLI_DOC,CLI_USU_ID,CLI_NOMBRE,CLI_APE,CLI_TIPO_DOC,CLI_MAIL,CLI_TELEFONO,CLI_CALLE,CLI_CALLE_NRO,CLI_PISO,CLI_DEPTO,CLI_LOCALIDAD,CLI_COD_POSTAL,CLI_FECHA_NAC)
@@ -644,6 +634,16 @@ VALUES(@usuarioAdminId, @rol_id_admin);
            ,[USU_ROL_ROL_ID])
      SELECT EMP_USU_ID, @rol_id_empresa from str_nombre_grupo.empresa
 	
+--inserto un usuario ADMIN
+DECLARE @usuarioAdminId int;
+INSERT INTO STR_NOMBRE_GRUPO.USUARIO(USU_USERNAME,USU_PASSWORD,USU_INTENTOS_LOGIN,USU_TIPO)
+VALUES('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',0,'A');
+SET @usuarioAdminId = @@IDENTITY;
+INSERT INTO [STR_NOMBRE_GRUPO].[USUARIO_ROL]
+           ([USU_ROL_USUARIO_ID]
+           ,[USU_ROL_ROL_ID])
+VALUES(@usuarioAdminId, @rol_id_admin);
+
 --inserto estados de publicacion
 	INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[ESTADO]([ESTADO_ID],[ESTADO_DESCRIPCION])
      VALUES
