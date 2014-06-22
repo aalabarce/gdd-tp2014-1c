@@ -23759,9 +23759,11 @@ SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, 
             this._commandCollection[4].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
 FROM STR_NOMBRE_GRUPO.PUBLICACION 
 WHERE PUB_ESTADO_ID = 'A' AND PUB_STOCK > 0 AND PUB_FECHA_FINALIZACION < GETDATE() AND PUB_TIPO_ID = 'C' 
-AND PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
-					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR @rubroId IS NULL";
+AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
+AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
+					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR @rubroId IS NULL)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -24275,9 +24277,15 @@ AND PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> maxPaginasRubro(decimal rubroId) {
+        public virtual object maxPaginasRubro(string descripcion, decimal rubroId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            command.Parameters[0].Value = ((decimal)(rubroId));
+            if ((descripcion == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(descripcion));
+            }
+            command.Parameters[1].Value = ((decimal)(rubroId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24294,10 +24302,10 @@ AND PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+                return null;
             }
             else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+                return ((object)(returnValue));
             }
         }
     }
@@ -31406,12 +31414,13 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contador", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 4000, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GD1C2014DataSet.ComprasLIMIT1DataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId) {
+        public virtual int Fill(GD1C2014DataSet.ComprasLIMIT1DataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -31424,6 +31433,12 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -31435,7 +31450,7 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GD1C2014DataSet.ComprasLIMIT1DataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId) {
+        public virtual GD1C2014DataSet.ComprasLIMIT1DataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -31448,6 +31463,12 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((descripcion == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
             }
             GD1C2014DataSet.ComprasLIMIT1DataTable dataTable = new GD1C2014DataSet.ComprasLIMIT1DataTable();
             this.Adapter.Fill(dataTable);
