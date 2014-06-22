@@ -140,5 +140,10 @@ namespace FrbaCommerce
         {
 
         }
+
+        private void subastaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Comprar_Ofertar.Ofertar().Show();
+        }
     }
 }

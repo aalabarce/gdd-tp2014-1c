@@ -30,6 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PUB_STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUB_PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUB_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Compra = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PUB_USU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comprasLIMIT1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,18 +48,23 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.comprasLIMIT1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.pUBLICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
-            this.comprasLIMIT1TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.ComprasLIMIT1TableAdapter();
-            this.PUB_STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PUB_PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PUB_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Compra = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PUB_USU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableAdapterManager1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.TableAdapterManager();
+            this.pUBIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBTIPOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBSTOCKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBESTADOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBFECHAINICIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBVISIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBUSUIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rowNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comprasLIMIT1TableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ComprasLIMIT1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasLIMIT1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
@@ -70,7 +83,19 @@
             this.PUB_DESCRIPCION,
             this.Compra,
             this.PUB_USU_ID,
-            this.PUB_ID});
+            this.PUB_ID,
+            this.pUBIDDataGridViewTextBoxColumn,
+            this.pUBTIPOIDDataGridViewTextBoxColumn,
+            this.pUBSTOCKDataGridViewTextBoxColumn,
+            this.pUBPRECIODataGridViewTextBoxColumn,
+            this.pUBESTADOIDDataGridViewTextBoxColumn,
+            this.pUBFECHAINICIODataGridViewTextBoxColumn,
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn,
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn,
+            this.pUBVISIDDataGridViewTextBoxColumn,
+            this.pUBUSUIDDataGridViewTextBoxColumn,
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn,
+            this.rowNumDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.comprasLIMIT1BindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 201);
             this.dataGridView1.Name = "dataGridView1";
@@ -78,6 +103,61 @@
             this.dataGridView1.Size = new System.Drawing.Size(463, 214);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_2);
+            // 
+            // PUB_STOCK
+            // 
+            this.PUB_STOCK.DataPropertyName = "PUB_STOCK";
+            this.PUB_STOCK.HeaderText = "PUB_STOCK";
+            this.PUB_STOCK.Name = "PUB_STOCK";
+            this.PUB_STOCK.ReadOnly = true;
+            // 
+            // PUB_PRECIO
+            // 
+            this.PUB_PRECIO.DataPropertyName = "PUB_PRECIO";
+            this.PUB_PRECIO.HeaderText = "PUB_PRECIO";
+            this.PUB_PRECIO.Name = "PUB_PRECIO";
+            this.PUB_PRECIO.ReadOnly = true;
+            // 
+            // PUB_DESCRIPCION
+            // 
+            this.PUB_DESCRIPCION.DataPropertyName = "PUB_DESCRIPCION";
+            this.PUB_DESCRIPCION.HeaderText = "PUB_DESCRIPCION";
+            this.PUB_DESCRIPCION.Name = "PUB_DESCRIPCION";
+            this.PUB_DESCRIPCION.ReadOnly = true;
+            // 
+            // Compra
+            // 
+            this.Compra.HeaderText = "Compra";
+            this.Compra.Name = "Compra";
+            this.Compra.ReadOnly = true;
+            this.Compra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Compra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // PUB_USU_ID
+            // 
+            this.PUB_USU_ID.DataPropertyName = "PUB_USU_ID";
+            this.PUB_USU_ID.HeaderText = "PUB_USU_ID";
+            this.PUB_USU_ID.Name = "PUB_USU_ID";
+            this.PUB_USU_ID.ReadOnly = true;
+            this.PUB_USU_ID.Visible = false;
+            // 
+            // PUB_ID
+            // 
+            this.PUB_ID.DataPropertyName = "PUB_ID";
+            this.PUB_ID.HeaderText = "PUB_ID";
+            this.PUB_ID.Name = "PUB_ID";
+            this.PUB_ID.ReadOnly = true;
+            this.PUB_ID.Visible = false;
+            // 
+            // comprasLIMIT1BindingSource
+            // 
+            this.comprasLIMIT1BindingSource.DataMember = "ComprasLIMIT1";
+            this.comprasLIMIT1BindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // gD1C2014DataSet1
+            // 
+            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBox1
             // 
@@ -171,16 +251,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // comprasLIMIT1BindingSource
-            // 
-            this.comprasLIMIT1BindingSource.DataMember = "ComprasLIMIT1";
-            this.comprasLIMIT1BindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
-            // gD1C2014DataSet1
-            // 
-            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pUBLICACIONBindingSource
             // 
             this.pUBLICACIONBindingSource.DataMember = "PUBLICACION";
@@ -194,54 +264,120 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
-            // comprasLIMIT1TableAdapter
+            // tableAdapterManager1
             // 
-            this.comprasLIMIT1TableAdapter.ClearBeforeFill = true;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CALIFICACIONTableAdapter = null;
+            this.tableAdapterManager1.CLIENTETableAdapter = null;
+            this.tableAdapterManager1.COMPRATableAdapter = null;
+            this.tableAdapterManager1.EMPRESATableAdapter = null;
+            this.tableAdapterManager1.ESTADOTableAdapter = null;
+            this.tableAdapterManager1.FACTURATableAdapter = null;
+            this.tableAdapterManager1.FORMA_PAGOTableAdapter = null;
+            this.tableAdapterManager1.FUNCIONALIDADTableAdapter = null;
+            this.tableAdapterManager1.ITEM_FACTURATableAdapter = null;
+            this.tableAdapterManager1.MaestraTableAdapter = null;
+            this.tableAdapterManager1.OFERTATableAdapter = null;
+            this.tableAdapterManager1.PREGUNTATableAdapter = null;
+            this.tableAdapterManager1.PUBLICACION_RUBROTableAdapter = null;
+            this.tableAdapterManager1.PUBLICACIONTableAdapter = this.publicacionTableAdapter1;
+            this.tableAdapterManager1.RESPUESTATableAdapter = null;
+            this.tableAdapterManager1.ROL_FUNCIONALIDADTableAdapter = null;
+            this.tableAdapterManager1.ROLTableAdapter = null;
+            this.tableAdapterManager1.RUBROTableAdapter = null;
+            this.tableAdapterManager1.TIPOTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = FrbaCommerce.GD1C2014DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.USUARIO_ROLTableAdapter = null;
+            this.tableAdapterManager1.USUARIOTableAdapter = this.usuarioTableAdapter1;
+            this.tableAdapterManager1.VISIBILIDADTableAdapter = null;
             // 
-            // PUB_STOCK
+            // pUBIDDataGridViewTextBoxColumn
             // 
-            this.PUB_STOCK.DataPropertyName = "PUB_STOCK";
-            this.PUB_STOCK.HeaderText = "PUB_STOCK";
-            this.PUB_STOCK.Name = "PUB_STOCK";
-            this.PUB_STOCK.ReadOnly = true;
+            this.pUBIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_ID";
+            this.pUBIDDataGridViewTextBoxColumn.HeaderText = "PUB_ID";
+            this.pUBIDDataGridViewTextBoxColumn.Name = "pUBIDDataGridViewTextBoxColumn";
+            this.pUBIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // PUB_PRECIO
+            // pUBTIPOIDDataGridViewTextBoxColumn
             // 
-            this.PUB_PRECIO.DataPropertyName = "PUB_PRECIO";
-            this.PUB_PRECIO.HeaderText = "PUB_PRECIO";
-            this.PUB_PRECIO.Name = "PUB_PRECIO";
-            this.PUB_PRECIO.ReadOnly = true;
+            this.pUBTIPOIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_TIPO_ID";
+            this.pUBTIPOIDDataGridViewTextBoxColumn.HeaderText = "PUB_TIPO_ID";
+            this.pUBTIPOIDDataGridViewTextBoxColumn.Name = "pUBTIPOIDDataGridViewTextBoxColumn";
+            this.pUBTIPOIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // PUB_DESCRIPCION
+            // pUBSTOCKDataGridViewTextBoxColumn
             // 
-            this.PUB_DESCRIPCION.DataPropertyName = "PUB_DESCRIPCION";
-            this.PUB_DESCRIPCION.HeaderText = "PUB_DESCRIPCION";
-            this.PUB_DESCRIPCION.Name = "PUB_DESCRIPCION";
-            this.PUB_DESCRIPCION.ReadOnly = true;
+            this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
+            this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "PUB_STOCK";
+            this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
+            this.pUBSTOCKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Compra
+            // pUBPRECIODataGridViewTextBoxColumn
             // 
-            this.Compra.HeaderText = "Compra";
-            this.Compra.Name = "Compra";
-            this.Compra.ReadOnly = true;
-            this.Compra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Compra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
+            this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "PUB_PRECIO";
+            this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
+            this.pUBPRECIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // PUB_USU_ID
+            // pUBESTADOIDDataGridViewTextBoxColumn
             // 
-            this.PUB_USU_ID.DataPropertyName = "PUB_USU_ID";
-            this.PUB_USU_ID.HeaderText = "PUB_USU_ID";
-            this.PUB_USU_ID.Name = "PUB_USU_ID";
-            this.PUB_USU_ID.ReadOnly = true;
-            this.PUB_USU_ID.Visible = false;
+            this.pUBESTADOIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_ESTADO_ID";
+            this.pUBESTADOIDDataGridViewTextBoxColumn.HeaderText = "PUB_ESTADO_ID";
+            this.pUBESTADOIDDataGridViewTextBoxColumn.Name = "pUBESTADOIDDataGridViewTextBoxColumn";
+            this.pUBESTADOIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // PUB_ID
+            // pUBFECHAINICIODataGridViewTextBoxColumn
             // 
-            this.PUB_ID.DataPropertyName = "PUB_ID";
-            this.PUB_ID.HeaderText = "PUB_ID";
-            this.PUB_ID.Name = "PUB_ID";
-            this.PUB_ID.ReadOnly = true;
-            this.PUB_ID.Visible = false;
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_INICIO";
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.HeaderText = "PUB_FECHA_INICIO";
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.Name = "pUBFECHAINICIODataGridViewTextBoxColumn";
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBFECHAFINALIZACIONDataGridViewTextBoxColumn
+            // 
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_FINALIZACION";
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.HeaderText = "PUB_FECHA_FINALIZACION";
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.Name = "pUBFECHAFINALIZACIONDataGridViewTextBoxColumn";
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBDESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "PUB_DESCRIPCION";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBVISIDDataGridViewTextBoxColumn
+            // 
+            this.pUBVISIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_VIS_ID";
+            this.pUBVISIDDataGridViewTextBoxColumn.HeaderText = "PUB_VIS_ID";
+            this.pUBVISIDDataGridViewTextBoxColumn.Name = "pUBVISIDDataGridViewTextBoxColumn";
+            this.pUBVISIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBUSUIDDataGridViewTextBoxColumn
+            // 
+            this.pUBUSUIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_USU_ID";
+            this.pUBUSUIDDataGridViewTextBoxColumn.HeaderText = "PUB_USU_ID";
+            this.pUBUSUIDDataGridViewTextBoxColumn.Name = "pUBUSUIDDataGridViewTextBoxColumn";
+            this.pUBUSUIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn
+            // 
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.DataPropertyName = "PUB_PERMITIR_PREGUNTAS";
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.HeaderText = "PUB_PERMITIR_PREGUNTAS";
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.Name = "pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn";
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // rowNumDataGridViewTextBoxColumn
+            // 
+            this.rowNumDataGridViewTextBoxColumn.DataPropertyName = "rowNum";
+            this.rowNumDataGridViewTextBoxColumn.HeaderText = "rowNum";
+            this.rowNumDataGridViewTextBoxColumn.Name = "rowNumDataGridViewTextBoxColumn";
+            this.rowNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // comprasLIMIT1TableAdapter1
+            // 
+            this.comprasLIMIT1TableAdapter1.ClearBeforeFill = true;
             // 
             // Comprar
             // 
@@ -296,5 +432,19 @@
         private System.Windows.Forms.DataGridViewButtonColumn Compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn PUB_USU_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PUB_ID;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBTIPOIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBSTOCKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBPRECIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBESTADOIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBFECHAINICIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBFECHAFINALIZACIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBDESCRIPCIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBVISIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUBUSUIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowNumDataGridViewTextBoxColumn;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.ComprasLIMIT1TableAdapter comprasLIMIT1TableAdapter1;
     }
 }

@@ -20,8 +20,8 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void Comprar_Load(object sender, EventArgs e)
         {
-            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0);
-            maxPaginas = publicacionTableAdapter1.maxPaginas();
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Comprar";
         }
 
@@ -51,15 +51,15 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void button3_Click(object sender, EventArgs e)
         {
             // Siguiente pagina
-            contador++;
+            contador = contador + 10;
             if (contador <= maxPaginas)
             {
-                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
             }
             else
             {
                 contador = (int)maxPaginas;
-                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
             }
 
         }
@@ -68,21 +68,21 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // Primera pagina
             contador = 0;
-            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // Pagina anterior
-            contador--;
+            contador = contador - 10;
             if (contador >= 0)
             {
-                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
             }
             else
             {
                 contador = 0;
-                comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
             }
         }
 
@@ -90,7 +90,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // Ultima pagina
             contador = (int)maxPaginas;
-            comprasLIMIT1TableAdapter.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador);
         }
     }
 }
