@@ -18,18 +18,23 @@ namespace FrbaCommerce.Abm_Rubro
 
         private void BajaRubro_Load(object sender, EventArgs e)
         {
-            this.rUBROTableAdapter.Fill(this.gD1C2014DataSet.RUBRO);
+            this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
             dataGridView1.Columns[2].DefaultCellStyle.NullValue = "Eliminar";
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.rUBROTableAdapter.Fill(this.gD1C2014DataSet.RUBRO);
+            this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!MetodosGlobales.esInteger(textBox1))
+            {
+                return;
+            }
+
             int? codigo = null;
             string desc = null;
 
@@ -38,7 +43,7 @@ namespace FrbaCommerce.Abm_Rubro
             if (textBox2.Text != "")
                 desc = textBox2.Text;
 
-          //  rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
+            rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,6 +59,8 @@ namespace FrbaCommerce.Abm_Rubro
                 FilaAModificar["RUBRO_BAJA"] = 1;
 
                 rUBROTableAdapter.Update(gD1C2014DataSet.RUBRO);
+
+                this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
             }
         }
     }

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rUBROIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rUBROBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -65,12 +65,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(448, 149);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Eliminar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
             // 
             // button2
             // 
@@ -130,10 +124,17 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(113, 103);
+            this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 17;
-            this.textBox2.Tag = "codigo";
+            this.textBox2.Tag = "descripcion";
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Eliminar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
             // 
             // rUBROIDDataGridViewTextBoxColumn
             // 
@@ -148,6 +149,7 @@
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.Name = "rUBRODESCRIPCIONDataGridViewTextBoxColumn";
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.Width = 180;
             // 
             // rUBROBindingSource
             // 
@@ -198,10 +200,10 @@
         private GD1C2014DataSet gD1C2014DataSet;
         private System.Windows.Forms.BindingSource rUBROBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rUBROTableAdapter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rUBROIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rUBRODESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }

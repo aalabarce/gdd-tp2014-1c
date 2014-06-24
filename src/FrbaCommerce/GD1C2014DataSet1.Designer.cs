@@ -25739,7 +25739,7 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO";
@@ -25757,20 +25757,25 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PUB_ID", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.Rubro \r\nWHERE (@des is null or @des=RUBRO_DESCRI" +
-                "PCION) AND (RUBRO_ID=@codigo or @codigo is null) ";
+            this._commandCollection[3].CommandText = "SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA \r\nFROM STR_NOMBRE_GRUPO.RUBRO\r\nWHE" +
+                "RE RUBRO_BAJA=0";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@des", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "RUBRO_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RUBRO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO\r\nORDER" +
-                " BY RUBRO_DESCRIPCION";
+            this._commandCollection[4].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.Rubro \r\nWHERE (@des is null or RUBRO_DESCRIPCION" +
+                " LIKE \'%\'+@des+\'%\') AND (RUBRO_ID=@codigo or @codigo is null) AND RUBRO_BAJA=0";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@des", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "RUBRO_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RUBRO_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT MAX(RUBRO_ID)+1 as ProxRu\r\nFROM STR_NOMBRE_GRUPO.RUBRO";
+            this._commandCollection[5].CommandText = "SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO\r\nORDER" +
+                " BY RUBRO_DESCRIPCION";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT MAX(RUBRO_ID)+1 as ProxRu\r\nFROM STR_NOMBRE_GRUPO.RUBRO";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25845,15 +25850,32 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltroRubro(GD1C2014DataSet.RUBRODataTable dataTable, string des, int codigo) {
+        public virtual int FillSinBajas(GD1C2014DataSet.RUBRODataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FiltroRubro(GD1C2014DataSet.RUBRODataTable dataTable, string des, global::System.Nullable<int> codigo) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((des == null)) {
-                throw new global::System.ArgumentNullException("des");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(des));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(codigo));
+            if ((codigo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(codigo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -25865,7 +25887,7 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int getOrdenados(GD1C2014DataSet.RUBRODataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -26023,7 +26045,7 @@ SELECT RUBRO_ID, RUBRO_DESCRIPCION, RUBRO_BAJA FROM STR_NOMBRE_GRUPO.RUBRO WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> proximoCodigo() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
