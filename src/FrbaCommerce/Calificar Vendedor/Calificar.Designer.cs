@@ -39,6 +39,7 @@
             this.calificacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.CALIFICACIONTableAdapter();
             this.ofertaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter();
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +123,10 @@
             // 
             this.compraTableAdapter1.ClearBeforeFill = true;
             // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
             // Calificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +161,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.CALIFICACIONTableAdapter calificacionTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter ofertaTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
     }
 }

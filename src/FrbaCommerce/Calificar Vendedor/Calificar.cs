@@ -28,6 +28,7 @@ namespace FrbaCommerce.Calificar_Vendedor
 
         private void Calificar_Load(object sender, EventArgs e)
         {
+
             comboBox1.Text = "1";
             comboBox1.Items.Add(1);
             comboBox1.Items.Add(2);
@@ -55,15 +56,15 @@ namespace FrbaCommerce.Calificar_Vendedor
             gD1C2014DataSet1.CALIFICACION.Rows.Add(nueva);
             calificacionTableAdapter1.Update(gD1C2014DataSet1.CALIFICACION);
 
-            int cal_id = Convert.ToInt32(nueva["CAL_ID"]);
+            decimal cal_id = Convert.ToDecimal(nueva["CAL_ID"]);
             string usuario;
 
-            if (tipo_compra == 'O')
+            if (tipo_compra == 'S')
             {
                 DataRow fila = gD1C2014DataSet1.OFERTA.NewRow();
                 fila = gD1C2014DataSet1.OFERTA.FindByOFE_ID(compra_id);
                 fila["OFE_CAL_ID"] = cal_id;
-                usuario =Convert.ToString(fila["OFE_USU_ID"]);
+                usuario = Convert.ToString(fila["OFE_USU_ID"]);
                 ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
             }
             else
@@ -71,7 +72,7 @@ namespace FrbaCommerce.Calificar_Vendedor
                 DataRow fila = gD1C2014DataSet1.COMPRA.NewRow();
                 fila = gD1C2014DataSet1.COMPRA.FindByCOM_ID(compra_id);
                 fila["COM_CAL_ID"] = cal_id;
-                usuario = Convert.ToString(Global.usuario_id);
+                usuario = usuarioTableAdapter1.get_username_by_id((int)Global.usuario_id);
                 compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
             }
 

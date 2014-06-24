@@ -10949,6 +10949,8 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnFecha;
             
+            private global::System.Data.DataColumn columnCOM_OFE_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public COMPRAS_SIN_CALIFICARDataTable() {
                 this.TableName = "COMPRAS_SIN_CALIFICAR";
@@ -11008,6 +11010,13 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn COM_OFE_IDColumn {
+                get {
+                    return this.columnCOM_OFE_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -11036,13 +11045,14 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public COMPRAS_SIN_CALIFICARRow AddCOMPRAS_SIN_CALIFICARRow(decimal PUB_ID, string Publicacion, string Comprador, System.DateTime Fecha) {
+            public COMPRAS_SIN_CALIFICARRow AddCOMPRAS_SIN_CALIFICARRow(decimal PUB_ID, string Publicacion, string Comprador, System.DateTime Fecha, int COM_OFE_ID) {
                 COMPRAS_SIN_CALIFICARRow rowCOMPRAS_SIN_CALIFICARRow = ((COMPRAS_SIN_CALIFICARRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PUB_ID,
                         Publicacion,
                         Comprador,
-                        Fecha};
+                        Fecha,
+                        COM_OFE_ID};
                 rowCOMPRAS_SIN_CALIFICARRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCOMPRAS_SIN_CALIFICARRow);
                 return rowCOMPRAS_SIN_CALIFICARRow;
@@ -11066,6 +11076,7 @@ namespace FrbaCommerce {
                 this.columnPublicacion = base.Columns["Publicacion"];
                 this.columnComprador = base.Columns["Comprador"];
                 this.columnFecha = base.Columns["Fecha"];
+                this.columnCOM_OFE_ID = base.Columns["COM_OFE_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11078,9 +11089,12 @@ namespace FrbaCommerce {
                 base.Columns.Add(this.columnComprador);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha);
+                this.columnCOM_OFE_ID = new global::System.Data.DataColumn("COM_OFE_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOM_OFE_ID);
                 this.columnPUB_ID.AllowDBNull = false;
                 this.columnPublicacion.MaxLength = 255;
                 this.columnComprador.MaxLength = 255;
+                this.columnCOM_OFE_ID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17646,6 +17660,16 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int COM_OFE_ID {
+                get {
+                    return ((int)(this[this.tableCOMPRAS_SIN_CALIFICAR.COM_OFE_IDColumn]));
+                }
+                set {
+                    this[this.tableCOMPRAS_SIN_CALIFICAR.COM_OFE_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsPublicacionNull() {
                 return this.IsNull(this.tableCOMPRAS_SIN_CALIFICAR.PublicacionColumn);
             }
@@ -20325,20 +20349,12 @@ SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM S" +
                 "TR_NOMBRE_GRUPO.COMPRA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT COM_ID \r\nFROM STR_NOMBRE_GRUPO.COMPRA\r\nJOIN STR_NOMBRE_GRUPO.PUBLICACION O" +
-                "N PUB_ID=COM_PUB_ID\r\nJOIN STR_NOMBRE_GRUPO.USUARIO ON COM_USU_ID=USU_ID\r\nWHERE P" +
-                "UB_ID=@publi AND USU_USERNAME=@usu";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publi", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20596,40 +20612,6 @@ SELECT COM_ID, COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID FROM 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<decimal> COM_PUB_ID, global::System.Nullable<decimal> COM_CANTIDAD, global::System.Nullable<global::System.DateTime> COM_FECHA, global::System.Nullable<int> COM_USU_ID, global::System.Nullable<decimal> COM_CAL_ID, int Original_COM_ID, global::System.Nullable<decimal> Original_COM_PUB_ID, global::System.Nullable<decimal> Original_COM_CANTIDAD, global::System.Nullable<global::System.DateTime> Original_COM_FECHA, global::System.Nullable<int> Original_COM_USU_ID, global::System.Nullable<decimal> Original_COM_CAL_ID) {
             return this.Update(COM_PUB_ID, COM_CANTIDAD, COM_FECHA, COM_USU_ID, COM_CAL_ID, Original_COM_ID, Original_COM_PUB_ID, Original_COM_CANTIDAD, Original_COM_FECHA, Original_COM_USU_ID, Original_COM_CAL_ID, Original_COM_ID);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object compraId(decimal publi, string usu) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((decimal)(publi));
-            if ((usu == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(usu));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
         }
     }
     
@@ -31391,6 +31373,7 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             tableMapping.ColumnMappings.Add("Publicacion", "Publicacion");
             tableMapping.ColumnMappings.Add("Comprador", "Comprador");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            tableMapping.ColumnMappings.Add("COM_OFE_ID", "COM_OFE_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -31405,12 +31388,13 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PUB_ID, Publicacion, Comprador, Fecha FROM STR_NOMBRE_GRUPO.COMPRAS_SIN_CA" +
-                "LIFICAR";
+            this._commandCollection[0].CommandText = "SELECT PUB_ID, Publicacion, Comprador, Fecha, COM_OFE_ID FROM STR_NOMBRE_GRUPO.CO" +
+                "MPRAS_SIN_CALIFICAR";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *\r\nFROM STR_NOMBRE_GRUPO.COMPRAS_SIN_CALIFICAR\r\nWHERE @usu=Comprador";
+            this._commandCollection[1].CommandText = "SELECT PUB_ID, COM_OFE_ID, Publicacion, Comprador, Fecha FROM STR_NOMBRE_GRUPO.CO" +
+                "MPRAS_SIN_CALIFICAR WHERE (Comprador = @usu)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Comprador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -31421,8 +31405,9 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT TOP 5 * \r\nFROM STR_NOMBRE_GRUPO.COMPRAS_SIN_CALIFICAR\r\nWHERE Fecha BETWEEN" +
-                " @fe_ini AND @fe_fin\r\nORDER BY 1 desc";
+            this._commandCollection[3].CommandText = "SELECT TOP (5) PUB_ID, COM_OFE_ID, Publicacion, Comprador, Fecha FROM STR_NOMBRE_" +
+                "GRUPO.COMPRAS_SIN_CALIFICAR WHERE (Fecha BETWEEN @fe_ini AND @fe_fin) ORDER BY P" +
+                "UB_ID DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fe_ini", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fe_fin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -31650,17 +31635,11 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Publicacion, Ganador, OFE_ID FROM STR_NOMBRE_GRUPO.SUBASTAS_GANADORES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT OFE_ID\r\nFROM STR_NOMBRE_GRUPO.SUBASTAS_GANADORES\r\nWHERE @publica=Publicaci" +
-                "on";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publica", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Publicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31683,34 +31662,6 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             GD1C2014DataSet.SUBASTAS_GANADORESDataTable dataTable = new GD1C2014DataSet.SUBASTAS_GANADORESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> ofertaId(decimal publica) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((decimal)(publica));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
-            }
-            else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
-            }
         }
     }
     

@@ -39,6 +39,7 @@
             this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COM_OFE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -54,7 +55,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.publicacionDataGridViewTextBoxColumn,
             this.Seleccionar,
-            this.PUB_ID});
+            this.PUB_ID,
+            this.COM_OFE_ID});
             this.dataGridView1.DataSource = this.cOMPRASSINCALIFICARBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 93);
             this.dataGridView1.Name = "dataGridView1";
@@ -115,6 +117,13 @@
             this.PUB_ID.ReadOnly = true;
             this.PUB_ID.Visible = false;
             // 
+            // COM_OFE_ID
+            // 
+            this.COM_OFE_ID.DataPropertyName = "COM_OFE_ID";
+            this.COM_OFE_ID.HeaderText = "COM_OFE_ID";
+            this.COM_OFE_ID.Name = "COM_OFE_ID";
+            this.COM_OFE_ID.ReadOnly = true;
+            // 
             // BuscarCalificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,5 +154,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn PUB_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COM_OFE_ID;
     }
 }

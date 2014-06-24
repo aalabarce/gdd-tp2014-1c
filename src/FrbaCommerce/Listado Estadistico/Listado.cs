@@ -56,26 +56,7 @@ namespace FrbaCommerce.Listado_Estadistico
         {
 
             //Veo las fechas
-            if (comboBox2.Text == "Primero")
-            {
-                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 1, 1, 0, 0, 0);
-                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 3, 31, 23, 59, 59);
-            }
-            if (comboBox2.Text == "Segundo")
-            {
-                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 4, 1, 0, 0, 0);
-                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 6, 30, 23, 59, 59);
-            }
-            if (comboBox2.Text == "Tercero")
-            {
-                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 7, 1, 0, 0, 0);
-                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 9, 30, 23, 59, 59);
-            }
-            if (comboBox2.Text == "Cuarto")
-            {
-                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 10, 1, 0, 0, 0);
-                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 12, 31, 23, 59, 59);
-            }
+            actualizarFecha();
 
 
             //Pongo visible el listado correspondiente
@@ -114,5 +95,31 @@ namespace FrbaCommerce.Listado_Estadistico
 
             }         
         }
+
+        public void actualizarFecha() 
+        {
+
+            if (comboBox2.Text == "Primero")
+            {
+                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 1, 1, 0, 0, 0);
+                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 3, 31, 23, 59, 59);
+            }
+            if (comboBox2.Text == "Segundo")
+            {
+                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 4, 1, 0, 0, 0);
+                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 6, 30, 23, 59, 59);
+            }
+            if (comboBox2.Text == "Tercero")
+            {
+                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 7, 1, 0, 0, 0);
+                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 9, 30, 23, 59, 59);
+            }
+            if (comboBox2.Text == "Cuarto")
+            {
+                fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 10, 1, 0, 0, 0);
+                fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 12, 31, 23, 59, 59);
+            }
+        }
+
     }
 }

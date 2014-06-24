@@ -36,11 +36,11 @@ namespace FrbaCommerce.Calificar_Vendedor
 
                 if (tipo_compra == 'S')
                 {
-                    compra_id = Convert.ToInt32(subastas_ganadoresTableAdapter1.ofertaId(publicacion));
+                    compra_id = Convert.ToInt32(fila.Cells[3].Value);
                 }
                 else
                 {
-                    compra_id = Convert.ToInt32(compraTableAdapter1.compraId(publicacion,usuario));
+                    compra_id = Convert.ToInt32(fila.Cells[3].Value);
                 }
 
                 new FrbaCommerce.Calificar_Vendedor.Calificar(compra_id,tipo_compra).Show();
