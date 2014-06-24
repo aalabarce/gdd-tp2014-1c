@@ -17,39 +17,15 @@ namespace FrbaCommerce.Abm_Rubro
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             
             //Valido que el codigo sea int y que no exista en la abse de datos y no este vacio los campos
-            if( textBox2.Text=="" || textBox1.Text=="" ){
+            if( textBox1.Text=="" || textBox2.Text=="" ){
                 MessageBox.Show("Debe completar todos los campos");
                 return;
             }
-
-            if (!esInteger(textBox1)) {
-                return;
-            }
-
-            if (Convert.ToInt32(rubroTableAdapter1.existeCodigo(Convert.ToInt32(textBox1.Text))) == 1) {
-                MessageBox.Show("Ese codigo de rubro ya existe");
-                return;
-            }
-            
+                 
             //Si no tira errores, agrego a la base de datos
             darAlta();
 
@@ -72,27 +48,16 @@ namespace FrbaCommerce.Abm_Rubro
                      
         }
 
-
-
-         private bool esInteger(TextBox txt)    {
-            int number;
-
-            bool result = Int32.TryParse(txt.Text, out number);
-            if (result) {
-                return true;
-            } 
-            else {
-                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
-                MessageBox.Show(errores);
-                return false;
-            }   
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
-
-         private void button2_Click(object sender, EventArgs e)
-         {
-             this.Close();
-         }
+        private void AltaRubro_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(rubroTableAdapter1.proximoCodigo());
+            textBox1.Enabled = false;
+        }
     }
 }
 

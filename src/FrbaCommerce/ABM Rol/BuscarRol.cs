@@ -31,7 +31,6 @@ namespace FrbaCommerce.Abm_Rol
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             rOLTableAdapter.FiltrarNombre(gD1C2014DataSet1.ROL,textBox1.Text);
         }
 

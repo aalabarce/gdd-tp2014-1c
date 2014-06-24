@@ -36,17 +36,18 @@ namespace FrbaCommerce.Abm_Rubro
             }
 
             DataRow FilaAModificar = gD1C2014DataSet1.RUBRO.NewRow();
-
             FilaAModificar = gD1C2014DataSet1.RUBRO.FindByRUBRO_ID(codigo);
          
-            MessageBox.Show(Convert.ToString(FilaAModificar["RUBRO_ID"]) + " 2");
-
-           
             if(textBox2.Text!="") {
                 FilaAModificar["RUBRO_DESCRIPCION"] = textBox2.Text; 
             }
 
             rubroTableAdapter1.Update(gD1C2014DataSet1.RUBRO);
+
+            MessageBox.Show("El rubro "+Convert.ToString(FilaAModificar["RUBRO_ID"])+" ha sido modificado");
+
+            new FrbaCommerce.Abm_Rubro.BuscarRubro().Show();
+            this.Close();
         }
      
 
