@@ -65,11 +65,14 @@ namespace FrbaCommerce
 
             if (sValue.IndexOf(',') > -1)
             {
-                MessageBox.Show("El campo "+txt.Tag+" debe tener . y 2 decimales");
+                MessageBox.Show("El campo "+txt.Tag+" debe usar punto en lugar de coma");
                 return false;
             }
-            MessageBox.Show("El campo " + txt.Tag + " debe tener . y 2 decimales");
-            return Regex.IsMatch(sValue, "(^[0-9]{1,16}(.[0-9]{2})$)");
+            if(false==Regex.IsMatch(sValue, "(^[0-9]{1,16}(.[0-9]{2})$)")) {
+                MessageBox.Show("El campo " + txt.Tag + " debe tener 2 decimales");
+                return false;
+            }
+            return true;
         }
 
         public static string sha256(string password)
