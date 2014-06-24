@@ -341,9 +341,9 @@ GO
 
 create view [STR_NOMBRE_GRUPO].[CALIFICACIONES_VENDEDORES]
 as
-SELECT Usuario, Año, Trimestre, SUM(Calificacion)/COUNT(Calificacion) as Promedio
+SELECT Usuario, Aï¿½o, Trimestre, SUM(Calificacion)/COUNT(Calificacion) as Promedio
 FROM
-(SELECT DATEPART(YEAR,COM_FECHA) As Año, 
+(SELECT DATEPART(YEAR,COM_FECHA) As Aï¿½o, 
 CASE WHEN 1=DATEPART(MONTH,COM_FECHA)or 2=DATEPART(MONTH,COM_FECHA)or 3=DATEPART(MONTH,COM_FECHA) THEN 'Primero' 
 WHEN 4=DATEPART(MONTH,COM_FECHA)or 5=DATEPART(MONTH,COM_FECHA)or 6=DATEPART(MONTH,COM_FECHA) THEN 'Segundo'
 WHEN 7=DATEPART(MONTH,COM_FECHA)or 8=DATEPART(MONTH,COM_FECHA)or 9=DATEPART(MONTH,COM_FECHA) THEN 'Tercero'
@@ -353,7 +353,7 @@ FROM STR_NOMBRE_GRUPO.COMPRA
 JOIN STR_NOMBRE_GRUPO.CALIFICACION ON CAL_ID=COM_CAL_ID
 JOIN STR_NOMBRE_GRUPO.USUARIO ON USU_ID=COM_USU_ID
 UNION
-SELECT DATEPART(YEAR,OFE_FECHA) As Año, 
+SELECT DATEPART(YEAR,OFE_FECHA) As Aï¿½o, 
 CASE WHEN 1=DATEPART(MONTH,OFE_FECHA)or 2=DATEPART(MONTH,OFE_FECHA)or 3=DATEPART(MONTH,OFE_FECHA) THEN 'Primero' 
 WHEN 4=DATEPART(MONTH,OFE_FECHA)or 5=DATEPART(MONTH,OFE_FECHA)or 6=DATEPART(MONTH,OFE_FECHA) THEN 'Segundo'
 WHEN 7=DATEPART(MONTH,OFE_FECHA)or 8=DATEPART(MONTH,OFE_FECHA)or 9=DATEPART(MONTH,OFE_FECHA) THEN 'Tercero'
@@ -362,23 +362,23 @@ USU_USERNAME As Usuario, CAL_ID, CAL_CANT_ESTRELLAS AS Calificacion
 FROM STR_NOMBRE_GRUPO.OFERTA
 JOIN STR_NOMBRE_GRUPO.CALIFICACION ON CAL_ID=OFE_CAL_ID
 JOIN STR_NOMBRE_GRUPO.USUARIO ON USU_ID=OFE_USU_ID) as tab
-GROUP BY Usuario, Año, Trimestre
+GROUP BY Usuario, Aï¿½o, Trimestre
 
 GO
 
 
 create view [STR_NOMBRE_GRUPO].[FACTURACIONES_VENDEDORES]
 as
-SELECT Usuario, Año, Trimestre, SUM(Monto) as Facturacion
+SELECT Usuario, Aï¿½o, Trimestre, SUM(Monto) as Facturacion
 FROM
-(SELECT FAC_ID, USU_USERNAME as Usuario, FAC_TOTAL as Monto, DATEPART(YEAR,FAC_FECHA) as Año,
+(SELECT FAC_ID, USU_USERNAME as Usuario, FAC_TOTAL as Monto, DATEPART(YEAR,FAC_FECHA) as Aï¿½o,
 CASE WHEN DATEPART(MONTH,FAC_FECHA)=1 OR DATEPART(MONTH,FAC_FECHA)=2 OR DATEPART(MONTH,FAC_FECHA)=3 THEN 'Primero'
 WHEN DATEPART(MONTH,FAC_FECHA)=4 OR DATEPART(MONTH,FAC_FECHA)=5 OR DATEPART(MONTH,FAC_FECHA)=6 THEN 'Segundo'
 WHEN DATEPART(MONTH,FAC_FECHA)=7 OR DATEPART(MONTH,FAC_FECHA)=8 OR DATEPART(MONTH,FAC_FECHA)=9 THEN 'Tercero'
 WHEN DATEPART(MONTH,FAC_FECHA)=10 OR DATEPART(MONTH,FAC_FECHA)=11 OR DATEPART(MONTH,FAC_FECHA)=12 THEN 'Cuarto' END as Trimestre
 FROM STR_NOMBRE_GRUPO.FACTURA
 JOIN STR_NOMBRE_GRUPO.USUARIO ON USU_ID=FAC_USU_ID) as Facturacion
-GROUP BY Usuario, Año, Trimestre
+GROUP BY Usuario, Aï¿½o, Trimestre
 
 GO
 
@@ -419,7 +419,9 @@ GO
 
 --CREACION PROCEDIMIENTO COMPRA_PAGINADA
 CREATE PROCEDURE [STR_NOMBRE_GRUPO].[ComprasLIMIT]
-@contador int
+@contador int,
+@rubroId int = null,
+@descripcion varchar(4000) = null
 AS
 SELECT *
 FROM
@@ -431,17 +433,20 @@ FROM
  AND PUB_STOCK > 0
  AND PUB_FECHA_FINALIZACION < GETDATE()
  AND PUB_TIPO_ID = 'C'
+ AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
+ AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
+					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR @rubroId IS NULL)
+
 ) sub
 WHERE rowNum > @contador
  AND rowNum <= @contador + 10
-
 GO
 	
 
 
 
 
---MIGRACIÓN DE DATOS
+--MIGRACIï¿½N DE DATOS
 
 	DECLARE @rol_id_cliente int
 	DECLARE @rol_id_empresa int
@@ -506,20 +511,20 @@ SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
 		(@rol_id_admin, @funcionalidad_id);
---abm Visibilidad de Publicación
+--abm Visibilidad de Publicaciï¿½n
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('ABM Visibilidad de Publicación');
+           ('ABM Visibilidad de Publicaciï¿½n');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
 		(@rol_id_admin, @funcionalidad_id);
---Generar Publicación
+--Generar Publicaciï¿½n
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Generar Publicación');
+           ('Generar Publicaciï¿½n');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -539,7 +544,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Gestión de Preguntas');
+           ('Gestiï¿½n de Preguntas');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -587,7 +592,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Listado estadístico');
+           ('Listado estadï¿½stico');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -757,7 +762,7 @@ VALUES(@usuarioAdminId, @rol_id_admin);
 	GO
 --inserto formas de pago
 	INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FORMA_PAGO]([FORMA_DESCRIPCION])
-	VALUES ('Efectivo'),('Tarjeta de Crédito');
+	VALUES ('Efectivo'),('Tarjeta de Crï¿½dito');
 
 
 --inserto facturas
@@ -780,4 +785,4 @@ INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[ITEM_FACTURA]([ITEM_MONTO],[ITEM_CANT
 SELECT DISTINCT item_factura_monto, item_factura_cantidad, publicacion_cod, factura_nro
 from [GD1C2014].[gd_esquema].[Maestra]
 where factura_nro is not null
-GO
+GOco
