@@ -299,7 +299,7 @@ WHERE COM_CAL_ID is null AND PUB_TIPO_ID='C'
 GO
 
 
---Creo vistas con las compras sin calificar
+--Creo vista con las compras sin calificar
 create view [STR_NOMBRE_GRUPO].[COMPRAS_SIN_CALIFICAR]
 as
 SELECT COM_ID, PUB_ID, PUB_DESCRIPCION As Publicacion, USU_USERNAME As Comprador, COM_FECHA As Fecha
@@ -307,6 +307,21 @@ FROM STR_NOMBRE_GRUPO.PUBLICACION
 JOIN STR_NOMBRE_GRUPO.COMPRA ON COM_PUB_ID=PUB_ID
 JOIN STR_NOMBRE_GRUPO.USUARIO ON COM_USU_ID=USU_ID
 WHERE COM_CAL_ID is null
+
+GO
+
+--Creo vista con la cantidad de compras sin calificar trimestrales
+create view [STR_NOMBRE_GRUPO].[CANTIDAD_SIN_CALIFICAR]
+as
+SELECT Usuario, Año, Trimestre, COUNT(COM_ID) as Cantidad
+FROM
+(SELECT Comprador as Usuario,COM_ID, YEAR(Fecha) as Año, 
+CASE WHEN MONTH(Fecha)=1 or MONTH(Fecha)=2 or MONTH(Fecha)=3 THEN 'Primero'
+WHEN MONTH(Fecha)=4 or MONTH(Fecha)=5 or MONTH(Fecha)=6 THEN 'Segundo'
+WHEN MONTH(Fecha)=7 or MONTH(Fecha)=8 or MONTH(Fecha)=9 THEN 'Tercero'
+WHEN MONTH(Fecha)=10 or MONTH(Fecha)=11 or MONTH(Fecha)=12 THEN 'Cuarto' END as Trimestre
+FROM STR_NOMBRE_GRUPO.COMPRAS_SIN_CALIFICAR) as tab
+GROUP BY Usuario, Año, Trimestre
 
 GO
 

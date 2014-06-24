@@ -145,5 +145,10 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Comprar_Ofertar.Ofertar().Show();
         }
+
+        private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Listado_Estadistico.Listado().Show();
+        }
     }
 }

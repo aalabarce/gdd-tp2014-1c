@@ -38,7 +38,7 @@ namespace FrbaCommerce.Abm_Rubro
             if (textBox2.Text != "")
                 desc = textBox2.Text;
 
-            rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
+          //  rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
