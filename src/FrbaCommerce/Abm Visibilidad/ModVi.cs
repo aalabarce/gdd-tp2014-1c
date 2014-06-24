@@ -41,8 +41,8 @@ namespace FrbaCommerce.Abm_Visibilidad
             
             textBox1.Text = Convert.ToString(FilaAModificar["VIS_CODIGO"]);
             textBox2.Text = Convert.ToString(FilaAModificar["VIS_DESCRIPCION"]);
-            textBox3.Text = Convert.ToString(FilaAModificar["VIS_PRECIO"]);
-            textBox4.Text = Convert.ToString(FilaAModificar["VIS_PORCENTAJE"]);
+            textBox3.Text = Convert.ToString(Convert.ToDecimal(FilaAModificar["VIS_PRECIO"]));
+            textBox4.Text = Convert.ToString(Convert.ToDecimal(FilaAModificar["VIS_PORCENTAJE"]));
             textBox5.Text = Convert.ToString(FilaAModificar["VIS_DURACION"]);
            
         }
