@@ -29,21 +29,10 @@ namespace FrbaCommerce.Calificar_Vendedor
         {
             if (e.ColumnIndex == 1)
             {
-                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-                decimal publicacion = Convert.ToDecimal(fila.Cells[2].Value);
-                char tipo_compra = Convert.ToChar(cOMPRAS_SIN_CALIFICARTableAdapter.tipoCompra(publicacion));
-                int compra_id;
-
-                if (tipo_compra == 'S')
-                {
-                    compra_id = Convert.ToInt32(fila.Cells[3].Value);
-                }
-                else
-                {
-                    compra_id = Convert.ToInt32(fila.Cells[3].Value);
-                }
-
-                new FrbaCommerce.Calificar_Vendedor.Calificar(compra_id,tipo_compra).Show();
+                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];              
+                int compra_id = Convert.ToInt32(fila.Cells[3].Value);
+             
+                new FrbaCommerce.Calificar_Vendedor.Calificar(compra_id).Show();
                 this.Close();
             }     
         }
