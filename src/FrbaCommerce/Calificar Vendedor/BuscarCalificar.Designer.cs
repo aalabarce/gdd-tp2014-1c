@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cOMPRASSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.cOMPRAS_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter();
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
             this.subastas_ganadoresTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_GANADORESTableAdapter();
+            this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -52,7 +53,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.publicacionDataGridViewTextBoxColumn,
-            this.Seleccionar});
+            this.Seleccionar,
+            this.PUB_ID});
             this.dataGridView1.DataSource = this.cOMPRASSINCALIFICARBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 93);
             this.dataGridView1.Name = "dataGridView1";
@@ -60,19 +62,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(268, 161);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // publicacionDataGridViewTextBoxColumn
-            // 
-            this.publicacionDataGridViewTextBoxColumn.DataPropertyName = "Publicacion";
-            this.publicacionDataGridViewTextBoxColumn.HeaderText = "Publicacion";
-            this.publicacionDataGridViewTextBoxColumn.Name = "publicacionDataGridViewTextBoxColumn";
-            this.publicacionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
             // 
             // cOMPRASSINCALIFICARBindingSource
             // 
@@ -105,6 +94,27 @@
             // 
             this.subastas_ganadoresTableAdapter1.ClearBeforeFill = true;
             // 
+            // publicacionDataGridViewTextBoxColumn
+            // 
+            this.publicacionDataGridViewTextBoxColumn.DataPropertyName = "Publicacion";
+            this.publicacionDataGridViewTextBoxColumn.HeaderText = "Publicacion";
+            this.publicacionDataGridViewTextBoxColumn.Name = "publicacionDataGridViewTextBoxColumn";
+            this.publicacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
+            // PUB_ID
+            // 
+            this.PUB_ID.DataPropertyName = "PUB_ID";
+            this.PUB_ID.HeaderText = "PUB_ID";
+            this.PUB_ID.Name = "PUB_ID";
+            this.PUB_ID.ReadOnly = true;
+            this.PUB_ID.Visible = false;
+            // 
             // BuscarCalificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,9 +140,10 @@
         private GD1C2014DataSet gD1C2014DataSet;
         private System.Windows.Forms.BindingSource cOMPRASSINCALIFICARBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter cOMPRAS_SIN_CALIFICARTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.SUBASTAS_GANADORESTableAdapter subastas_ganadoresTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PUB_ID;
     }
 }

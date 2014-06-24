@@ -30,8 +30,8 @@ namespace FrbaCommerce.Calificar_Vendedor
             if (e.ColumnIndex == 1)
             {
                 DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-                string publicacion = Convert.ToString(fila.Cells[0].Value);
-                char tipo_compra = Convert.ToChar(cOMPRAS_SIN_CALIFICARTableAdapter.tipoCompra(publicacion, usuario));
+                decimal publicacion = Convert.ToDecimal(fila.Cells[2].Value);
+                char tipo_compra = Convert.ToChar(cOMPRAS_SIN_CALIFICARTableAdapter.tipoCompra(publicacion));
                 int compra_id;
 
                 if (tipo_compra == 'S')

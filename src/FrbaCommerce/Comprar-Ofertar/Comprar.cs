@@ -22,7 +22,6 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void Comprar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.RUBRO' Puede moverla o quitarla según sea necesario.
             this.rUBROTableAdapter.Fill(this.gD1C2014DataSet1.RUBRO);
             comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, 0, "");
             maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
