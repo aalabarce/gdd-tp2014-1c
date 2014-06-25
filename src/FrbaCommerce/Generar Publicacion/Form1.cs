@@ -53,12 +53,14 @@ namespace FrbaCommerce.Generar_Publicacion
             if(validateCampos()){
                 persistir('A'); //estado activa.
             }
+            new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Hide();
         }
         private void btnBorrador_Click(object sender, EventArgs e)
         {
             if(validateCampos()){
                 persistir('B'); //estado borrador
             }
+            new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Hide();
         }
 
         private void persistir(char estado)

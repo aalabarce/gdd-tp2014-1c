@@ -72,6 +72,8 @@ namespace FrbaCommerce.Editar_Publicacion
             }
             if (estado == 'B')
             { 
+                btnCambiarEstado.Text = "Activar publicación";
+                btnFinalizar.Hide();
                 //si es borrador, muestro todos los rubros, y marcados los de la publicacion
                 //puedo modificar todo.
                 this.rubroTableAdapter1.getOrdenados(this.gD1C2014DataSet1.RUBRO);
@@ -90,6 +92,8 @@ namespace FrbaCommerce.Editar_Publicacion
             }
             else 
             {
+                btnCambiarEstado.Text = "Pausar publicación";
+                btnFinalizar.Show();
                 //si esta activa, muestro solo los rubros de la publicacion, porque total no se pueden modificar.
                 this.rubroTableAdapter1.fillByPubId(this.gD1C2014DataSet1.RUBRO, codigo);
                 //Solo puedo incrementar el stock si es compra inmediata... y cambiar la descripcion.
@@ -213,6 +217,7 @@ namespace FrbaCommerce.Editar_Publicacion
 
             publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
             MessageBox.Show("La publicación fue modificada");
+            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
         }
 
         private void radTipoCompra_CheckedChanged_1(object sender, EventArgs e)
@@ -230,6 +235,48 @@ namespace FrbaCommerce.Editar_Publicacion
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Hide();
+            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {            
+            DialogResult result = MessageBox.Show("Está seguro que desea finalizar la publicación?", "Finalizar Publicación",
+            MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes){
+                fila["PUB_ESTADO_ID"] = 'F';
+                publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
+                MessageBox.Show("La publicación fue finalizada");
+            }
+            this.Hide();
+            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+        }
+
+        private void btnCambiarEstado_Click(object sender, EventArgs e)
+        {
+            if (estado == 'B')
+            {
+                DialogResult result = MessageBox.Show("Está seguro que desea activar la publicación?", "Activar Publicación",
+                MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    fila["PUB_ESTADO_ID"] = 'A';
+                    publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
+                    MessageBox.Show("La publicación se encuentra activa");
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Está seguro que desea pausar la publicación?", "Pausar Publicación",
+                MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    fila["PUB_ESTADO_ID"] = 'P';
+                    publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
+                    MessageBox.Show("La publicación se encuentra pausada");
+                }
+            }
+            this.Hide();
+            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
         }
     }
 }
