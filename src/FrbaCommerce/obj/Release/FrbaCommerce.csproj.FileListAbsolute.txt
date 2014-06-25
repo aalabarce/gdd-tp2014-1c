@@ -81,3 +81,5 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Release\FrbaCommerce.pdb
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Release\FrbaCommerce.Comprar_Ofertar.Ofertar.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Release\FrbaCommerce.Facturar_Publicaciones.Facturar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Release\FrbaCommerce.Gestion_de_Preguntas.BuscarPre.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Release\FrbaCommerce.Gestion_de_Preguntas.Responder.resources

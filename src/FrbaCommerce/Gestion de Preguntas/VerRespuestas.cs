@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Gestion_de_Preguntas
 {
-    public partial class Form1 : Form
+    public partial class VerRespuestas : Form
     {
-        public Form1()
+        public VerRespuestas()
         {
             InitializeComponent();
+        }
+
+        private void VerRespuestas_Load(object sender, EventArgs e)
+        {
+            this.pREGUNTAS_RESPUESTASTableAdapter.FillByUsuario(this.gD1C2014DataSet.PREGUNTAS_RESPUESTAS, Global.usuario_id);
         }
     }
 }

@@ -60,10 +60,13 @@
             this.compraDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
-            this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preguntasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.responderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verRespuestasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +113,8 @@
             this.calificarToolStripMenuItem,
             this.comprasToolStripMenuItem,
             this.facturaciónToolStripMenuItem,
-            this.estadisticasToolStripMenuItem});
+            this.estadisticasToolStripMenuItem,
+            this.preguntasToolStripMenuItem});
             this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
             this.tareasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.tareasToolStripMenuItem.Text = "Tareas";
@@ -330,6 +334,13 @@
             this.facturaciónToolStripMenuItem.Text = "Facturación";
             this.facturaciónToolStripMenuItem.Click += new System.EventHandler(this.facturaciónToolStripMenuItem_Click);
             // 
+            // estadisticasToolStripMenuItem
+            // 
+            this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
+            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.estadisticasToolStripMenuItem.Text = "Estadisticas";
+            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -354,12 +365,28 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
-            // estadisticasToolStripMenuItem
+            // preguntasToolStripMenuItem
             // 
-            this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
-            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.estadisticasToolStripMenuItem.Text = "Estadisticas";
-            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
+            this.preguntasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.responderToolStripMenuItem,
+            this.verRespuestasToolStripMenuItem});
+            this.preguntasToolStripMenuItem.Name = "preguntasToolStripMenuItem";
+            this.preguntasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.preguntasToolStripMenuItem.Text = "Preguntas";
+            // 
+            // responderToolStripMenuItem
+            // 
+            this.responderToolStripMenuItem.Name = "responderToolStripMenuItem";
+            this.responderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.responderToolStripMenuItem.Text = "Responder";
+            this.responderToolStripMenuItem.Click += new System.EventHandler(this.responderToolStripMenuItem_Click);
+            // 
+            // verRespuestasToolStripMenuItem
+            // 
+            this.verRespuestasToolStripMenuItem.Name = "verRespuestasToolStripMenuItem";
+            this.verRespuestasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.verRespuestasToolStripMenuItem.Text = "Ver respuestas";
+            this.verRespuestasToolStripMenuItem.Click += new System.EventHandler(this.verRespuestasToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -420,6 +447,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preguntasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem responderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verRespuestasToolStripMenuItem;
     }
 }
 
