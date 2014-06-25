@@ -12,13 +12,11 @@ namespace FrbaCommerce.Calificar_Vendedor
     public partial class Calificar : Form
     {
         public int compra_id {get;set;}
-        public char tipo_compra { get; set; }
-        
-        public Calificar(int id, char tipo)
+                
+        public Calificar(int id)
         {
             InitializeComponent();
-            compra_id = id;
-            tipo_compra = tipo;
+            compra_id = id;            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -28,6 +26,7 @@ namespace FrbaCommerce.Calificar_Vendedor
 
         private void Calificar_Load(object sender, EventArgs e)
         {
+
             comboBox1.Text = "1";
             comboBox1.Items.Add(1);
             comboBox1.Items.Add(2);
@@ -41,39 +40,25 @@ namespace FrbaCommerce.Calificar_Vendedor
             comboBox1.Items.Add(10);
 
             compraTableAdapter1.Fill(gD1C2014DataSet1.COMPRA);
-            ofertaTableAdapter1.Fill(gD1C2014DataSet1.OFERTA);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Agrego datos a la tabla de calificacion
             DataRow nueva = gD1C2014DataSet1.CALIFICACION.NewRow();
-            
             nueva["CAL_CANT_ESTRELLAS"] = comboBox1.Text;
             nueva["CAL_DESCRIPCION"] = textBox1.Text;
 
             gD1C2014DataSet1.CALIFICACION.Rows.Add(nueva);
             calificacionTableAdapter1.Update(gD1C2014DataSet1.CALIFICACION);
 
-            int cal_id = Convert.ToInt32(nueva["CAL_ID"]);
-            string usuario;
+            //Actualizo la tabla compras
+            DataRow fila = gD1C2014DataSet1.COMPRA.NewRow();
+            fila = gD1C2014DataSet1.COMPRA.FindByCOM_ID(compra_id);
+            fila["COM_CAL_ID"] = Convert.ToDecimal(nueva["CAL_ID"]);
+            compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
 
-            if (tipo_compra == 'O')
-            {
-                DataRow fila = gD1C2014DataSet1.OFERTA.NewRow();
-                fila = gD1C2014DataSet1.OFERTA.FindByOFE_ID(compra_id);
-                fila["OFE_CAL_ID"] = cal_id;
-                usuario =Convert.ToString(fila["OFE_USU_ID"]);
-                ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
-            }
-            else
-            {
-                DataRow fila = gD1C2014DataSet1.COMPRA.NewRow();
-                fila = gD1C2014DataSet1.COMPRA.FindByCOM_ID(compra_id);
-                fila["COM_CAL_ID"] = cal_id;
-                usuario = Convert.ToString(Global.usuario_id);
-                compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
-            }
+            string usuario = usuarioTableAdapter1.get_username_by_id((int)Global.usuario_id);
 
             new FrbaCommerce.Calificar_Vendedor.BuscarCalificar(usuario).Show();
             this.Close();

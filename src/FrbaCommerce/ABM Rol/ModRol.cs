@@ -29,6 +29,7 @@ namespace FrbaCommerce.Abm_Rol
             DataRow FilaAModificar = gD1C2014DataSet1.ROL.NewRow();
             FilaAModificar = gD1C2014DataSet1.ROL.FindByROL_ID(id);
             textBox1.Text = Convert.ToString(FilaAModificar["ROL_NOMBRE"]);
+            radioButton1.Checked = true;
 
             if(Convert.ToInt32(FilaAModificar["ROL_BAJA"]) == 0) 
             {

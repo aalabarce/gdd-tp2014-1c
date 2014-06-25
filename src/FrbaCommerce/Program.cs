@@ -62,10 +62,10 @@ namespace FrbaCommerce
         public static bool esNumericConDosDecimales(TextBox txt)
         {
             string sValue = txt.Text;
-
-            if (sValue.IndexOf(',') > -1)
+            
+            if (sValue.IndexOf('.') > -1)
             {
-                MessageBox.Show("El campo "+txt.Tag+" debe usar punto en lugar de coma");
+                MessageBox.Show("El campo "+txt.Tag+" debe usar coma en lugar de punto");
                 return false;
             }
             if(false==Regex.IsMatch(sValue, "(^[0-9]{1,16}(.[0-9]{2})$)")) {

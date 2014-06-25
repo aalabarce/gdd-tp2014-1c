@@ -41,28 +41,28 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cOMPRASSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuarioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fACTURACIONESVENDEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.promedioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cALIFICACIONESVENDEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fACTURACIONESVENDEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.cALIFICACIONES_VENDEDORESTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.CALIFICACIONES_VENDEDORESTableAdapter();
-            this.cOMPRAS_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter();
             this.fACTURACIONES_VENDEDORESTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.FACTURACIONES_VENDEDORESTableAdapter();
-            this.usuarioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compradorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cANTIDADSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cANTIDAD_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.CANTIDAD_SIN_CALIFICARTableAdapter();
+            this.usuarioDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fACTURACIONESVENDEDORESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cANTIDADSINCALIFICARBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -185,6 +185,23 @@
             this.dataGridView2.Size = new System.Drawing.Size(144, 133);
             this.dataGridView2.TabIndex = 12;
             // 
+            // usuarioDataGridViewTextBoxColumn1
+            // 
+            this.usuarioDataGridViewTextBoxColumn1.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn1.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn1.Name = "usuarioDataGridViewTextBoxColumn1";
+            this.usuarioDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // fACTURACIONESVENDEDORESBindingSource
+            // 
+            this.fACTURACIONESVENDEDORESBindingSource.DataMember = "FACTURACIONES_VENDEDORES";
+            this.fACTURACIONESVENDEDORESBindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // gD1C2014DataSet1
+            // 
+            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -201,42 +218,6 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(144, 133);
             this.dataGridView3.TabIndex = 13;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToOrderColumns = true;
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.compradorDataGridViewTextBoxColumn});
-            this.dataGridView4.DataSource = this.cOMPRASSINCALIFICARBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(246, 329);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(144, 133);
-            this.dataGridView4.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(171, 215);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cOMPRASSINCALIFICARBindingSource
-            // 
-            this.cOMPRASSINCALIFICARBindingSource.DataMember = "COMPRAS_SIN_CALIFICAR";
-            this.cOMPRASSINCALIFICARBindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
-            // gD1C2014DataSet1
-            // 
-            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuarioDataGridViewTextBoxColumn
             // 
@@ -258,36 +239,55 @@
             this.cALIFICACIONESVENDEDORESBindingSource.DataMember = "CALIFICACIONES_VENDEDORES";
             this.cALIFICACIONESVENDEDORESBindingSource.DataSource = this.gD1C2014DataSet1;
             // 
-            // fACTURACIONESVENDEDORESBindingSource
+            // dataGridView4
             // 
-            this.fACTURACIONESVENDEDORESBindingSource.DataMember = "FACTURACIONES_VENDEDORES";
-            this.fACTURACIONESVENDEDORESBindingSource.DataSource = this.gD1C2014DataSet1;
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToOrderColumns = true;
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usuarioDataGridViewTextBoxColumn2});
+            this.dataGridView4.DataSource = this.cANTIDADSINCALIFICARBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(246, 329);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.Size = new System.Drawing.Size(144, 133);
+            this.dataGridView4.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(171, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cALIFICACIONES_VENDEDORESTableAdapter
             // 
             this.cALIFICACIONES_VENDEDORESTableAdapter.ClearBeforeFill = true;
             // 
-            // cOMPRAS_SIN_CALIFICARTableAdapter
-            // 
-            this.cOMPRAS_SIN_CALIFICARTableAdapter.ClearBeforeFill = true;
-            // 
             // fACTURACIONES_VENDEDORESTableAdapter
             // 
             this.fACTURACIONES_VENDEDORESTableAdapter.ClearBeforeFill = true;
             // 
-            // usuarioDataGridViewTextBoxColumn1
+            // cANTIDADSINCALIFICARBindingSource
             // 
-            this.usuarioDataGridViewTextBoxColumn1.DataPropertyName = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn1.HeaderText = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn1.Name = "usuarioDataGridViewTextBoxColumn1";
-            this.usuarioDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cANTIDADSINCALIFICARBindingSource.DataMember = "CANTIDAD_SIN_CALIFICAR";
+            this.cANTIDADSINCALIFICARBindingSource.DataSource = this.gD1C2014DataSet1;
             // 
-            // compradorDataGridViewTextBoxColumn
+            // cANTIDAD_SIN_CALIFICARTableAdapter
             // 
-            this.compradorDataGridViewTextBoxColumn.DataPropertyName = "Comprador";
-            this.compradorDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.compradorDataGridViewTextBoxColumn.Name = "compradorDataGridViewTextBoxColumn";
-            this.compradorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cANTIDAD_SIN_CALIFICARTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioDataGridViewTextBoxColumn2
+            // 
+            this.usuarioDataGridViewTextBoxColumn2.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn2.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn2.Name = "usuarioDataGridViewTextBoxColumn2";
+            this.usuarioDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // Listado
             // 
@@ -314,12 +314,12 @@
             this.Load += new System.EventHandler(this.Listado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fACTURACIONESVENDEDORESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cANTIDADSINCALIFICARBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,13 +345,13 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.CALIFICACIONES_VENDEDORESTableAdapter cALIFICACIONES_VENDEDORESTableAdapter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource cALIFICACIONESVENDEDORESBindingSource;
-        private System.Windows.Forms.BindingSource cOMPRASSINCALIFICARBindingSource;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter cOMPRAS_SIN_CALIFICARTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn promedioDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource fACTURACIONESVENDEDORESBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.FACTURACIONES_VENDEDORESTableAdapter fACTURACIONES_VENDEDORESTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compradorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource cANTIDADSINCALIFICARBindingSource;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.CANTIDAD_SIN_CALIFICARTableAdapter cANTIDAD_SIN_CALIFICARTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn2;
     }
 }

@@ -145,5 +145,20 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Comprar_Ofertar.Ofertar().Show();
         }
+
+        private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Listado_Estadistico.Listado().Show();
+        }
+
+        private void responderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Gestion_de_Preguntas.BuscarPre().Show();
+        }
+
+        private void verRespuestasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Gestion_de_Preguntas.VerRespuestas().Show();
+        }
     }
 }

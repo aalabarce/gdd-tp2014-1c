@@ -19,35 +19,39 @@ namespace FrbaCommerce.Abm_Rubro
 
         private void BuscarRubro_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.RUBRO' Puede moverla o quitarla según sea necesario.
-            this.rUBROTableAdapter.Fill(this.gD1C2014DataSet.RUBRO);
+            this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
             dataGridView1.Columns[2].DefaultCellStyle.NullValue = "Modificar";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (!MetodosGlobales.esInteger(textBox1))
             {
-                rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, Convert.ToInt32(textBox1.Text));
+                return;
             }
+
+            int? codigo = null;
+            string desc = null;
+
+            if (textBox1.Text != "")            
+                codigo = Convert.ToInt32(textBox1.Text);            
+            if (textBox2.Text != "")            
+                desc = textBox2.Text;            
+            
+            rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
         }
     
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            rUBROTableAdapter.Fill(gD1C2014DataSet.RUBRO);
+            rUBROTableAdapter.FillSinBajas(gD1C2014DataSet.RUBRO);
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
             DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
             int cod = Convert.ToInt32(fila.Cells[0].Value);
-            new FrbaCommerce.Abm_Rubro.ModRubro(cod).Show();         
+            new FrbaCommerce.Abm_Rubro.ModRubro(cod).Show();
+            this.Close();
         }
     }
 }

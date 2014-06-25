@@ -1,6 +1,6 @@
-﻿namespace FrbaCommerce.Calificar_Vendedor
+﻿namespace FrbaCommerce.Gestion_de_Preguntas
 {
-    partial class BuscarCalificar
+    partial class BuscarPre
     {
         /// <summary>
         /// Required designer variable.
@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.cOMPRASSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
-            this.cOMPRAS_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter();
-            this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+            this.pREGUNTASARESPONDERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pREGUNTAS_A_RESPONDERTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PREGUNTAS_A_RESPONDERTableAdapter();
             this.publicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PUB_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COM_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preguntaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Responder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PRE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUB_USU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTASARESPONDERBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,43 +53,40 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.publicacionDataGridViewTextBoxColumn,
-            this.Seleccionar,
-            this.PUB_ID,
-            this.COM_ID});
-            this.dataGridView1.DataSource = this.cOMPRASSINCALIFICARBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 93);
+            this.preguntaDataGridViewTextBoxColumn,
+            this.Responder,
+            this.PRE_ID,
+            this.PUB_USU_ID});
+            this.dataGridView1.DataSource = this.pREGUNTASARESPONDERBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(268, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(676, 172);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 33);
+            this.label1.Location = new System.Drawing.Point(239, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.Size = new System.Drawing.Size(222, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Elija la compra a calificar";
-            // 
-            // cOMPRASSINCALIFICARBindingSource
-            // 
-            this.cOMPRASSINCALIFICARBindingSource.DataMember = "COMPRAS_SIN_CALIFICAR";
-            this.cOMPRASSINCALIFICARBindingSource.DataSource = this.gD1C2014DataSet;
+            this.label1.Text = "Seleccione la pregunta que desea responder.";
             // 
             // gD1C2014DataSet
             // 
             this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
             this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cOMPRAS_SIN_CALIFICARTableAdapter
+            // pREGUNTASARESPONDERBindingSource
             // 
-            this.cOMPRAS_SIN_CALIFICARTableAdapter.ClearBeforeFill = true;
+            this.pREGUNTASARESPONDERBindingSource.DataMember = "PREGUNTAS_A_RESPONDER";
+            this.pREGUNTASARESPONDERBindingSource.DataSource = this.gD1C2014DataSet;
             // 
-            // compraTableAdapter1
+            // pREGUNTAS_A_RESPONDERTableAdapter
             // 
-            this.compraTableAdapter1.ClearBeforeFill = true;
+            this.pREGUNTAS_A_RESPONDERTableAdapter.ClearBeforeFill = true;
             // 
             // publicacionDataGridViewTextBoxColumn
             // 
@@ -97,42 +94,51 @@
             this.publicacionDataGridViewTextBoxColumn.HeaderText = "Publicacion";
             this.publicacionDataGridViewTextBoxColumn.Name = "publicacionDataGridViewTextBoxColumn";
             this.publicacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.publicacionDataGridViewTextBoxColumn.Width = 180;
             // 
-            // Seleccionar
+            // preguntaDataGridViewTextBoxColumn
             // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
+            this.preguntaDataGridViewTextBoxColumn.DataPropertyName = "Pregunta";
+            this.preguntaDataGridViewTextBoxColumn.HeaderText = "Pregunta";
+            this.preguntaDataGridViewTextBoxColumn.Name = "preguntaDataGridViewTextBoxColumn";
+            this.preguntaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.preguntaDataGridViewTextBoxColumn.Width = 330;
             // 
-            // PUB_ID
+            // Responder
             // 
-            this.PUB_ID.DataPropertyName = "PUB_ID";
-            this.PUB_ID.HeaderText = "PUB_ID";
-            this.PUB_ID.Name = "PUB_ID";
-            this.PUB_ID.ReadOnly = true;
-            this.PUB_ID.Visible = false;
+            this.Responder.HeaderText = "Seleccionar";
+            this.Responder.Name = "Responder";
+            this.Responder.ReadOnly = true;
             // 
-            // COM_ID
+            // PRE_ID
             // 
-            this.COM_ID.DataPropertyName = "COM_ID";
-            this.COM_ID.HeaderText = "COM_ID";
-            this.COM_ID.Name = "COM_ID";
-            this.COM_ID.ReadOnly = true;
-            this.COM_ID.Visible = false;
+            this.PRE_ID.DataPropertyName = "PRE_ID";
+            this.PRE_ID.HeaderText = "PRE_ID";
+            this.PRE_ID.Name = "PRE_ID";
+            this.PRE_ID.ReadOnly = true;
+            this.PRE_ID.Visible = false;
             // 
-            // BuscarCalificar
+            // PUB_USU_ID
+            // 
+            this.PUB_USU_ID.DataPropertyName = "PUB_USU_ID";
+            this.PUB_USU_ID.HeaderText = "PUB_USU_ID";
+            this.PUB_USU_ID.Name = "PUB_USU_ID";
+            this.PUB_USU_ID.ReadOnly = true;
+            this.PUB_USU_ID.Visible = false;
+            // 
+            // ResponderPre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ClientSize = new System.Drawing.Size(700, 266);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "BuscarCalificar";
+            this.Name = "ResponderPre";
             this.Text = "Frba Commerce";
-            this.Load += new System.EventHandler(this.BuscarCalificar_Load);
+            this.Load += new System.EventHandler(this.ResponderPre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRASSINCALIFICARBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTASARESPONDERBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,12 +149,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private GD1C2014DataSet gD1C2014DataSet;
-        private System.Windows.Forms.BindingSource cOMPRASSINCALIFICARBindingSource;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRAS_SIN_CALIFICARTableAdapter cOMPRAS_SIN_CALIFICARTableAdapter;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
+        private System.Windows.Forms.BindingSource pREGUNTASARESPONDERBindingSource;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PREGUNTAS_A_RESPONDERTableAdapter pREGUNTAS_A_RESPONDERTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PUB_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COM_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preguntaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Responder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PUB_USU_ID;
     }
 }

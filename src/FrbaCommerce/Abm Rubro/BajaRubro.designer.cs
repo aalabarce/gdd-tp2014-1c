@@ -35,15 +35,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
-            this.rUBROBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rUBROTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rUBROIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.rUBROBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
+            this.rUBROTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rUBROBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -62,24 +64,27 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(448, 149);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(348, 94);
+            this.button2.Location = new System.Drawing.Point(351, 100);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 13;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(249, 94);
+            this.button1.Location = new System.Drawing.Point(252, 100);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -93,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 99);
+            this.label1.Location = new System.Drawing.Point(48, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 10;
@@ -101,25 +106,35 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 97);
+            this.textBox1.Location = new System.Drawing.Point(113, 77);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 9;
             this.textBox1.Tag = "codigo";
             // 
-            // gD1C2014DataSet
+            // label3
             // 
-            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Descripcion";
             // 
-            // rUBROBindingSource
+            // textBox2
             // 
-            this.rUBROBindingSource.DataMember = "RUBRO";
-            this.rUBROBindingSource.DataSource = this.gD1C2014DataSet;
+            this.textBox2.Location = new System.Drawing.Point(113, 103);
+            this.textBox2.MaxLength = 255;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 17;
+            this.textBox2.Tag = "descripcion";
             // 
-            // rUBROTableAdapter
+            // Seleccionar
             // 
-            this.rUBROTableAdapter.ClearBeforeFill = true;
+            this.Seleccionar.HeaderText = "Eliminar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
             // 
             // rUBROIDDataGridViewTextBoxColumn
             // 
@@ -134,18 +149,29 @@
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.Name = "rUBRODESCRIPCIONDataGridViewTextBoxColumn";
             this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rUBRODESCRIPCIONDataGridViewTextBoxColumn.Width = 180;
             // 
-            // Seleccionar
+            // rUBROBindingSource
             // 
-            this.Seleccionar.HeaderText = "Eliminar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
+            this.rUBROBindingSource.DataMember = "RUBRO";
+            this.rUBROBindingSource.DataSource = this.gD1C2014DataSet;
+            // 
+            // gD1C2014DataSet
+            // 
+            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rUBROTableAdapter
+            // 
+            this.rUBROTableAdapter.ClearBeforeFill = true;
             // 
             // BajaRubro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 306);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -156,8 +182,8 @@
             this.Text = "Frba Commerce";
             this.Load += new System.EventHandler(this.BajaRubro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rUBROBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,6 +200,8 @@
         private GD1C2014DataSet gD1C2014DataSet;
         private System.Windows.Forms.BindingSource rUBROBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rUBROTableAdapter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rUBROIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rUBRODESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;

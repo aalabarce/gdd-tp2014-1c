@@ -18,9 +18,50 @@ namespace FrbaCommerce.Abm_Rubro
 
         private void BajaRubro_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.RUBRO' Puede moverla o quitarla según sea necesario.
-            this.rUBROTableAdapter.Fill(this.gD1C2014DataSet.RUBRO);
+            this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
+            dataGridView1.Columns[2].DefaultCellStyle.NullValue = "Eliminar";
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!MetodosGlobales.esInteger(textBox1))
+            {
+                return;
+            }
+
+            int? codigo = null;
+            string desc = null;
+
+            if (textBox1.Text != "")
+                codigo = Convert.ToInt32(textBox1.Text);
+            if (textBox2.Text != "")
+                desc = textBox2.Text;
+
+            rUBROTableAdapter.FiltroRubro(gD1C2014DataSet.RUBRO, desc, codigo);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                int cod = Convert.ToInt32(fila.Cells[0].Value);
+
+                DataRow FilaAModificar = gD1C2014DataSet.RUBRO.NewRow();
+                FilaAModificar = gD1C2014DataSet.RUBRO.FindByRUBRO_ID(cod);
+
+                FilaAModificar["RUBRO_BAJA"] = 1;
+
+                rUBROTableAdapter.Update(gD1C2014DataSet.RUBRO);
+
+                this.rUBROTableAdapter.FillSinBajas(this.gD1C2014DataSet.RUBRO);
+            }
         }
     }
 }
