@@ -80,7 +80,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(!Convert.ToBoolean(publicacionTableAdapter1.admitePreguntas(Convert.ToDecimal(publicacionId))))
+            if(Convert.ToBoolean(publicacionTableAdapter1.admitePreguntas(Convert.ToDecimal(publicacionId))))
             {
                 new FrbaCommerce.Comprar_Ofertar.Preguntar(publicacionId).Show();
             }
