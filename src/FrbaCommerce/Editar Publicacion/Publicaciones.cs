@@ -35,12 +35,31 @@ namespace FrbaCommerce.Editar_Publicacion
             if (e.ColumnIndex == 0) //Boton modificar
             {
                 DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-                if (Convert.ToChar(fila.Cells[5].Value) == 'F' || Convert.ToChar(fila.Cells[5].Value) == 'P')
-                    {
-                    MessageBox.Show("No se puede editar una publicación pausada o finalizada.");
+                int codigo = Convert.ToInt32(fila.Cells[1].Value);
+                if (Convert.ToChar(fila.Cells[5].Value) == 'F')
+                {
+                    MessageBox.Show("No se puede editar una publicación finalizada.");
                     return;
                 }
-                int codigo = Convert.ToInt32(fila.Cells[1].Value);
+                if(Convert.ToChar(fila.Cells[5].Value) == 'P')
+                {
+                    DialogResult result = MessageBox.Show("La publicación está pausada, no se puede modificar. Desea activarla?", "Publicación pausada",
+                    MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.publicacionTableAdapter1.Fill(this.gD1C2014DataSet.PUBLICACION);
+
+                        DataRow publicacion = gD1C2014DataSet.PUBLICACION.FindByPUB_ID(codigo);
+                        publicacion["PUB_ESTADO_ID"] = 'A';
+
+                        publicacionTableAdapter1.Update(gD1C2014DataSet.PUBLICACION);
+                        MessageBox.Show("La publicación ha sido activada.");
+                        this.Hide();
+                        new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+                    }
+                    return;
+                }
+                this.Hide();
                 new FrbaCommerce.Editar_Publicacion.editar(codigo).Show();
             }
         }

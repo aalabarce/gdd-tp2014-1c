@@ -55,6 +55,8 @@
             this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
             this.pub_rubro_TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter();
             this.rubroTableAdapter2 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
+            this.btnCambiarEstado = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +102,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(351, 478);
+            this.btnModificar.Location = new System.Drawing.Point(347, 478);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(104, 23);
             this.btnModificar.TabIndex = 42;
@@ -289,11 +291,35 @@
             // 
             this.rubroTableAdapter2.ClearBeforeFill = true;
             // 
+            // btnCambiarEstado
+            // 
+            this.btnCambiarEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarEstado.Location = new System.Drawing.Point(27, 478);
+            this.btnCambiarEstado.Name = "btnCambiarEstado";
+            this.btnCambiarEstado.Size = new System.Drawing.Size(278, 23);
+            this.btnCambiarEstado.TabIndex = 50;
+            this.btnCambiarEstado.Text = "Cambiar a estado:";
+            this.btnCambiarEstado.UseVisualStyleBackColor = true;
+            this.btnCambiarEstado.Click += new System.EventHandler(this.btnCambiarEstado_Click);
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Location = new System.Drawing.Point(27, 512);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(278, 23);
+            this.btnFinalizar.TabIndex = 51;
+            this.btnFinalizar.Text = "Finalizar publicación";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
             // editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 518);
+            this.ClientSize = new System.Drawing.Size(598, 547);
+            this.Controls.Add(this.btnFinalizar);
+            this.Controls.Add(this.btnCambiarEstado);
             this.Controls.Add(this.radTipoSubasta);
             this.Controls.Add(this.radTipoCompra);
             this.Controls.Add(this.label9);
@@ -353,5 +379,7 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter visibilidadTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter pub_rubro_TableAdapter;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter2;
+        private System.Windows.Forms.Button btnCambiarEstado;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }
