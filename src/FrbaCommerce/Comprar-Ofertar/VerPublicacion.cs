@@ -34,33 +34,11 @@ namespace FrbaCommerce.Comprar_Ofertar
             label4.Text = Convert.ToString(publicacion["PUB_STOCK"]);
             label6.Text = Convert.ToString(publicacion["PUB_PRECIO"]);
             stock = Convert.ToInt32(publicacion["PUB_STOCK"]);
+
             // Escondo el boton si la publicacion no permite preguntas
             if ( Convert.ToString(publicacion["PUB_PERMITIR_PREGUNTAS"]) == "0")
                 button2.Visible = false;
 
-            /* this.empresaTableAdapter1.Fill(this.gD1C2014DataSet1.EMPRESA);
-            this.clienteTableAdapter1.Fill(this.gD1C2014DataSet1.CLIENTE);
-
-            if (tipo == "C")
-            {
-                DataRow cliente = gD1C2014DataSet1.CLIENTE.NewRow();
-                cliente = gD1C2014DataSet1.CLIENTE.FindByCLI_ID(usuarioId);
-                label3.Text = (string)cliente["CLI_NOM"];
-            }
-            else
-            {
-
-                DataRow empresa = gD1C2014DataSet1.EMPRESA.NewRow();
-
-                empresa = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(usuarioId);
-
-                //DataRow gello = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(id);
-                // int? hola = 88;
-                //usuario = empresaTableAdapter1.BuscarPorUsuId(gD1C2014DataSet1.EMPRES, 5);
-                //empresaTableAdapter1.BuscarPorUsuId(gD1C2014DataSet1.EMPRESA, hola);
-
-                DataRow[] foundRows = gD1C2014DataSet1.EMPRESA.Select("");
-                label3.Text = "HOLA";//(string)usuario["EMP_RAZON_SOCIAL"];*/
             }
 
         private void button1_Click(object sender, EventArgs e)
@@ -98,6 +76,19 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.Close();
             
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(!Convert.ToBoolean(publicacionTableAdapter1.admitePreguntas(Convert.ToDecimal(publicacionId))))
+            {
+                new FrbaCommerce.Comprar_Ofertar.Preguntar(publicacionId).Show();
+            }
+            else
+            {
+                MessageBox.Show("No esta permitido realizar preguntas en esta publicacion");
+            }
+ 
         }
 
 

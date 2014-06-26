@@ -203,7 +203,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "Baja";
-            this.Text = "Baja";
+            this.Text = "Frba Commerce";
             this.Load += new System.EventHandler(this.Baja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPRESABindingSource)).EndInit();

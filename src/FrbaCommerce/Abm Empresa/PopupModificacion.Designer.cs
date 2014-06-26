@@ -312,7 +312,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "PopupModificacion";
-            this.Text = "PopupModificacion";
+            this.Text = "Frba Commerce";
             this.Load += new System.EventHandler(this.PopupModificacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
             this.ResumeLayout(false);
