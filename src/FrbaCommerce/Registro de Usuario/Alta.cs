@@ -18,6 +18,8 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private void Alta_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.ROL' Puede moverla o quitarla según sea necesario.
+            this.rOLTableAdapter.FillByActivos(this.gD1C2014DataSet1.ROL);
 
         }
 
@@ -35,15 +37,8 @@ namespace FrbaCommerce.Registro_de_Usuario
             }
             string usuario = textBox1.Text;
             string password = textBox2.Text;
-            char tipo;
-            if (radioButton1.Checked)
-            {
-               tipo = 'E';
-            }
-            else
-            {
-                tipo = 'C';
-            }
+            DataRowView rolElegido = (DataRowView)comboBox1.SelectedItem;
+            
 
             string passSHA = MetodosGlobales.sha256(textBox2.Text);
             
@@ -51,21 +46,46 @@ namespace FrbaCommerce.Registro_de_Usuario
             DataRow nuevoUsuario = gD1C2014DataSet1.USUARIO.NewRow();
             nuevoUsuario["USU_USERNAME"] = textBox1.Text;
             nuevoUsuario["USU_PASSWORD"] = passSHA;
-            nuevoUsuario["USU_TIPO"] = tipo;
             nuevoUsuario["USU_INTENTOS_LOGIN"] = 0;
             nuevoUsuario["USU_BAJA"] = 0;
 
+
+            if  ((rolElegido["ROL_NOMBRE"].ToString())=="Empresa")
+            {
+                nuevoUsuario["USU_TIPO"] = 'E';
+            }
+            else if ((rolElegido["ROL_NOMBRE"].ToString()) == "Cliente")
+            {
+                nuevoUsuario["USU_TIPO"] = 'C';
+            }
+            else
+            {
+                nuevoUsuario["USU_TIPO"] = null;
+            }
+
+
             gD1C2014DataSet1.USUARIO.Rows.Add(nuevoUsuario);
-
             usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
-
             int? id = usuarioTableAdapter1.get_id_by_username(textBox1.Text);
+            DataRow nuevoUsuRol = gD1C2014DataSet1.USUARIO_ROL.NewRow();
+            nuevoUsuRol["USU_ROL_USUARIO_ID"] = id;
+            nuevoUsuRol["USU_ROL_ROL_ID"] = rolElegido["ROL_ID"];
 
-            if (radioButton1.Checked)
+
+            if ((rolElegido["ROL_NOMBRE"].ToString()) == "Empresa")
+            {
                 new FrbaCommerce.Abm_Empresa.Alta(id).Show();
-            //else
-                //new FrbaCommerce.Abm_Cliente.AltaCliente().Show();
-            this.Close();
+            }
+            else if ((rolElegido["ROL_NOMBRE"].ToString()) == "Cliente")
+            {
+                new FrbaCommerce.Abm_Cliente.AltaCliente(id).Show();
+            }
+                this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

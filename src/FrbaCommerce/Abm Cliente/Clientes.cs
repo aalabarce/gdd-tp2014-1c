@@ -11,9 +11,11 @@ namespace FrbaCommerce.Abm_Cliente
 {
     public partial class Clientes : Form
     {
-        public Clientes()
+        int opcion { get; set; }
+        public Clientes(int option)
         {
             InitializeComponent();
+            opcion = option;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -24,6 +26,16 @@ namespace FrbaCommerce.Abm_Cliente
             dataGridView1.Columns[1].DefaultCellStyle.NullValue = "Ver Completo";
             dataGridView1.Columns[2].DefaultCellStyle.NullValue = "Modificar";
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Eliminar";
+            if (opcion == 1)
+                dataGridView1.Columns[3].Visible = false;
+            else if (opcion ==2)
+                dataGridView1.Columns[2].Visible = false;
+
+            comboBox1.Items.Add("DNI");
+            comboBox1.Items.Add("CI");
+            comboBox1.Items.Add("LE");
+            comboBox1.Items.Add("LC");
+            comboBox1.Items.Add("C.EXT");
 
         }
 
@@ -62,8 +74,9 @@ namespace FrbaCommerce.Abm_Cliente
 
             string nombre = null;
             string apellido = null;
-            string  documento = null;
+            string documento = null;
             string email = null;
+            string tipo_doc = null;
 
             if (textBox1.Text != "")
                 nombre = textBox1.Text;
@@ -71,11 +84,12 @@ namespace FrbaCommerce.Abm_Cliente
                 apellido = textBox2.Text;
             if (textBox3.Text != "")
                 email = textBox3.Text;
-            if (maskedTextBox1.Text != "")
-                documento = maskedTextBox1.Text;
+            if (textBox4.Text != "")
+                documento = textBox4.Text;
+            if (comboBox1.SelectedIndex != -1)
+                tipo_doc = (comboBox1.SelectedIndex + 1).ToString();
 
-
-            cLIENTETableAdapter.FiltroCliente(gD1C2014DataSet.CLIENTE,nombre,apellido,email); //+DOC +TIPO
+            cLIENTETableAdapter.FiltroCliente(gD1C2014DataSet.CLIENTE,nombre,apellido,email,documento,tipo_doc); 
         }
 
         private void button3_Click(object sender, EventArgs e)

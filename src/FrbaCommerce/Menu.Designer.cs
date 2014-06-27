@@ -61,12 +61,12 @@
             this.subastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             this.preguntasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.responderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verRespuestasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -341,6 +341,29 @@
             this.estadisticasToolStripMenuItem.Text = "Estadisticas";
             this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
             // 
+            // preguntasToolStripMenuItem
+            // 
+            this.preguntasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.responderToolStripMenuItem,
+            this.verRespuestasToolStripMenuItem});
+            this.preguntasToolStripMenuItem.Name = "preguntasToolStripMenuItem";
+            this.preguntasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.preguntasToolStripMenuItem.Text = "Preguntas";
+            // 
+            // responderToolStripMenuItem
+            // 
+            this.responderToolStripMenuItem.Name = "responderToolStripMenuItem";
+            this.responderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.responderToolStripMenuItem.Text = "Responder";
+            this.responderToolStripMenuItem.Click += new System.EventHandler(this.responderToolStripMenuItem_Click);
+            // 
+            // verRespuestasToolStripMenuItem
+            // 
+            this.verRespuestasToolStripMenuItem.Name = "verRespuestasToolStripMenuItem";
+            this.verRespuestasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.verRespuestasToolStripMenuItem.Text = "Ver respuestas";
+            this.verRespuestasToolStripMenuItem.Click += new System.EventHandler(this.verRespuestasToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -364,29 +387,6 @@
             // usuarioTableAdapter1
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
-            // 
-            // preguntasToolStripMenuItem
-            // 
-            this.preguntasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.responderToolStripMenuItem,
-            this.verRespuestasToolStripMenuItem});
-            this.preguntasToolStripMenuItem.Name = "preguntasToolStripMenuItem";
-            this.preguntasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.preguntasToolStripMenuItem.Text = "Preguntas";
-            // 
-            // responderToolStripMenuItem
-            // 
-            this.responderToolStripMenuItem.Name = "responderToolStripMenuItem";
-            this.responderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.responderToolStripMenuItem.Text = "Responder";
-            this.responderToolStripMenuItem.Click += new System.EventHandler(this.responderToolStripMenuItem_Click);
-            // 
-            // verRespuestasToolStripMenuItem
-            // 
-            this.verRespuestasToolStripMenuItem.Name = "verRespuestasToolStripMenuItem";
-            this.verRespuestasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.verRespuestasToolStripMenuItem.Text = "Ver respuestas";
-            this.verRespuestasToolStripMenuItem.Click += new System.EventHandler(this.verRespuestasToolStripMenuItem_Click);
             // 
             // Menu
             // 

@@ -271,6 +271,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 34;
+            
             // 
             // label4
             // 
@@ -367,6 +368,7 @@
             this.Controls.Add(this.label3);
             this.Name = "AltaCliente";
             this.Text = "AltaCliente";
+            this.Load += new System.EventHandler(this.AltaCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();

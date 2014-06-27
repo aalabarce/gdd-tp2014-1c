@@ -31,8 +31,8 @@ namespace FrbaCommerce
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PANEL DE CLIENTES");
-            new FrbaCommerce.Abm_Cliente.Clientes().Show(); 
+            
+            new FrbaCommerce.Abm_Cliente.Clientes(1).Show(); 
         }
 
         private void generarNuevaToolStripMenuItem_Click(object sender, EventArgs e)

@@ -17,6 +17,11 @@ namespace FrbaCommerce.Abm_Cliente
         {
             InitializeComponent();
             parametro_id = user;
+            comboBox1.Items.Add("DNI");
+            comboBox1.Items.Add("CI");
+            comboBox1.Items.Add("LE");
+            comboBox1.Items.Add("LC");
+            comboBox1.Items.Add("C.EXT");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,13 +38,13 @@ namespace FrbaCommerce.Abm_Cliente
                 }
             }
 
-            if (Convert.ToInt32(clienteTableAdapter1.ExisteDoc(Convert.ToInt32(textBox3.Text), comboBox1.Text)) > 0)
+            if (Convert.ToInt32(clienteTableAdapter1.ExisteDoc(Convert.ToInt32(textBox3.Text),(comboBox1.SelectedIndex+1).ToString())) > 0)
             {
                 MessageBox.Show("Número de documento o tipo de documento inválido, intente nuevamente");
                 return;
             }
 
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox5.Text =="")
             {
                 MessageBox.Show("Ingrese todos los datos necesarios");
                 return;
@@ -61,25 +66,33 @@ namespace FrbaCommerce.Abm_Cliente
 
             ClienteNuevo["CLI_NOMBRE"] = textBox1.Text;
             ClienteNuevo["CLI_APE"] = textBox2.Text;
-            ClienteNuevo["CLI_TIPO_DOC"] = 1; //SeleComb
+            if (comboBox1.SelectedIndex != -1)
+                ClienteNuevo["CLI_TIPO_DOC"] = (comboBox1.SelectedIndex + 1).ToString();
+            else
+                ClienteNuevo["CLI_TIPO_DOC"] = 1;
             ClienteNuevo["CLI_DOC"] = Convert.ToInt32(textBox3.Text);
-            nullear(textBox4.Text, ref entrada);
-            ClienteNuevo["CLI_MAIL"] = entrada;
-            nullear(textBox11.Text, ref entrada);
-            ClienteNuevo["CLI_LOCALIDAD"] = entrada;
-            nullear(textBox5.Text, ref entrada);
-            ClienteNuevo["CLI_TELEFONO"] = Convert.ToInt32(entrada);
+            ClienteNuevo["CLI_MAIL"] = textBox4.Text;
+            ClienteNuevo["CLI_LOCALIDAD"] = textBox11.Text;
+            if (textBox5.Text != "")
+                ClienteNuevo["CLI_TELEFONO"] = Convert.ToInt32(textBox5.Text);
+            else
+                ClienteNuevo["CLI_TELEFONO"] = null;
             ClienteNuevo["CLI_FECHA_NAC"] = dateTimePicker1.Value;
-            nullear(textBox7.Text, ref entrada);
-            ClienteNuevo["CLI_COD_POSTAL"] = Convert.ToInt32(entrada);
-            nullear(textBox8.Text, ref entrada);
-            ClienteNuevo["CLI_CALLE"] = entrada;
-            nullear(textBox9.Text, ref entrada);
-            ClienteNuevo["CLI_PISO"] = Convert.ToInt32(entrada);
-            nullear(textBox10.Text, ref entrada);
-            ClienteNuevo["CLI_DEPTO"] = entrada;
-            nullear(textBox6.Text, ref entrada);
-            ClienteNuevo["CLI_CALLE_NRO"] = Convert.ToInt32(entrada);
+            if (textBox7.Text != "")
+                ClienteNuevo["CLI_COD_POSTAL"] = Convert.ToInt32(textBox7.Text);
+            else
+                ClienteNuevo["CLI_COD_POSTAL"] = null;
+            ClienteNuevo["CLI_CALLE"] = textBox8;
+            if (textBox9.Text != "")
+            ClienteNuevo["CLI_PISO"] = Convert.ToInt32(textBox9.Text);
+            else
+                ClienteNuevo["CLI_PISO"] = null;
+            
+            ClienteNuevo["CLI_DEPTO"] = textBox10.Text;
+            if (textBox6.Text != "")
+                ClienteNuevo["CLI_CALLE_NRO"] = Convert.ToInt32(textBox6.Text);
+            else
+                ClienteNuevo["CLI_CALLE_NRO"] = null;
             ClienteNuevo["CLI_BAJA"] = 0;
 
             if (parametro_id == -1)
@@ -114,21 +127,17 @@ namespace FrbaCommerce.Abm_Cliente
             clienteTableAdapter1.Fill(gD1C2014DataSet1.CLIENTE);
 
 
-            new FrbaCommerce.Abm_Cliente.Clientes().Show();
+            new FrbaCommerce.Abm_Cliente.Clientes(3).Show();
             this.Close();
         }
 
-        private void nullear(string texto, ref string entrada)
+        private void AltaCliente_Load(object sender, EventArgs e)
         {
-            if (texto == "")
-            {
-                entrada = null;
-            }
-            else
-            {
-                entrada = texto;
-            }
+
         }
+
+
+
 
     }
 }

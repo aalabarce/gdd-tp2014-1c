@@ -29,9 +29,16 @@ namespace FrbaCommerce.Abm_Cliente
             DataRow FilaAModificar = gD1C2014DataSet1.CLIENTE.NewRow();
             FilaAModificar = gD1C2014DataSet1.CLIENTE.FindByCLI_ID((int)cliente);
 
+            comboBox1.Items.Add("DNI");
+            comboBox1.Items.Add("CI");
+            comboBox1.Items.Add("LE");
+            comboBox1.Items.Add("LC");
+            comboBox1.Items.Add("C.EXT");
+
+
             textBox1.Text = Convert.ToString(FilaAModificar["CLI_NOMBRE"]);
             textBox2.Text = Convert.ToString(FilaAModificar["CLI_APE"]);
-            comboBox1.Text = Convert.ToString(FilaAModificar["CLI_TIPO_DOC"]);
+            comboBox1.SelectedIndex = Convert.ToInt32(FilaAModificar["CLI_TIPO_DOC"])-1;
             textBox3.Text = Convert.ToString(FilaAModificar["CLI_DOC"]);
             textBox4.Text = Convert.ToString(FilaAModificar["CLI_MAIL"]);
             textBox5.Text = Convert.ToString(FilaAModificar["CLI_TELEFONO"]);
@@ -78,7 +85,7 @@ namespace FrbaCommerce.Abm_Cliente
                 return;
             }
 
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox5.Text=="")
             {
                 MessageBox.Show("Ingrese todos los datos necesarios");
                 return;
@@ -96,28 +103,37 @@ namespace FrbaCommerce.Abm_Cliente
             DataRow FilaAModificar = gD1C2014DataSet1.CLIENTE.NewRow();
             FilaAModificar = gD1C2014DataSet1.CLIENTE.FindByCLI_ID((int)cliente);
 
-           
-             FilaAModificar["CLI_NOMBRE"] = textBox1.Text;
-             FilaAModificar["CLI_APE"]=textBox2.Text;
-             FilaAModificar["CLI_TIPO_DOC"] = 1; //comboBox1.Text;
-             FilaAModificar["CLI_DOC"]=Convert.ToInt32(textBox3.Text);
-             nullear(textBox4.Text, ref entrada);
-             FilaAModificar["CLI_MAIL"]=entrada;
-             nullear(textBox11.Text, ref entrada);
-             FilaAModificar["CLI_LOCALIDAD"] = entrada;
-             nullear(textBox5.Text, ref entrada);
-             FilaAModificar["CLI_TELEFONO"]=Convert.ToInt32(entrada);
-             FilaAModificar["CLI_FECHA_NAC"]=dateTimePicker1.Value;
-             nullear(textBox7.Text, ref entrada);
-             FilaAModificar["CLI_COD_POSTAL"]=Convert.ToInt32(entrada);
-             nullear(textBox8.Text, ref entrada);
-             FilaAModificar["CLI_CALLE"] = entrada;
-             nullear(textBox9.Text, ref entrada);
-             FilaAModificar["CLI_PISO"]=Convert.ToInt32(entrada);
-             nullear(textBox10.Text, ref entrada);
-             FilaAModificar["CLI_DEPTO"]=entrada;
-             nullear(textBox6.Text, ref entrada);
-             FilaAModificar["CLI_CALLE_NRO"]=Convert.ToInt32(entrada);
+
+            FilaAModificar["CLI_NOMBRE"] = textBox1.Text;
+            FilaAModificar["CLI_APE"] = textBox2.Text;
+            if (comboBox1.SelectedIndex != -1)
+                FilaAModificar["CLI_TIPO_DOC"] = (comboBox1.SelectedIndex + 1).ToString();
+            else
+                FilaAModificar["CLI_TIPO_DOC"] = 1;
+            FilaAModificar["CLI_DOC"] = Convert.ToInt32(textBox3.Text);
+            FilaAModificar["CLI_MAIL"] = textBox4.Text;
+            FilaAModificar["CLI_LOCALIDAD"] = textBox11.Text;
+            if (textBox5.Text != "")
+                FilaAModificar["CLI_TELEFONO"] = Convert.ToInt32(textBox5.Text);
+            else
+                FilaAModificar["CLI_TELEFONO"] = null;
+            FilaAModificar["CLI_FECHA_NAC"] = dateTimePicker1.Value;
+            if (textBox7.Text != "")
+                FilaAModificar["CLI_COD_POSTAL"] = Convert.ToInt32(textBox7.Text);
+            else
+                FilaAModificar["CLI_COD_POSTAL"] = null;
+            FilaAModificar["CLI_CALLE"] = textBox8;
+            if (textBox9.Text != "")
+                FilaAModificar["CLI_PISO"] = Convert.ToInt32(textBox9.Text);
+            else
+                FilaAModificar["CLI_PISO"] = null;
+
+            FilaAModificar["CLI_DEPTO"] = textBox10.Text;
+            if (textBox6.Text != "")
+                FilaAModificar["CLI_CALLE_NRO"] = Convert.ToInt32(textBox6.Text);
+            else
+                FilaAModificar["CLI_CALLE_NRO"] = null;
+            FilaAModificar["CLI_BAJA"] = 0;
                
        
 
@@ -126,21 +142,10 @@ namespace FrbaCommerce.Abm_Cliente
             MessageBox.Show("El cliente " + textBox1.Text + " ha sido modificado");
             clienteTableAdapter1.Fill(gD1C2014DataSet1.CLIENTE);
 
-            new FrbaCommerce.Abm_Cliente.Clientes().Show();
+            new FrbaCommerce.Abm_Cliente.Clientes(1).Show();
             this.Close();
         }
         
-        private void nullear (string texto,ref string entrada)
-        {
-            if (texto == "")
-            {
-                entrada = null;
-            }
-            else
-            {
-                entrada = texto;
-            }
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

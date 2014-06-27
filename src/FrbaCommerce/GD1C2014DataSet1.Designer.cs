@@ -20414,14 +20414,18 @@ AND
 ((CLI_APE LIKE '%' + @apellido + '%') OR (@apellido  IS NULL))
 AND
 ((CLI_MAIL LIKE '%' + @email + '%') OR (@email  IS NULL))
---AND
---((CONVERT(varchar(10), CLI_DOC) LIKE '%' + @documento + '%') OR (@documento  IS NULL))
+AND
+((CONVERT(varchar(10), CLI_DOC) LIKE '%' + @documento + '%' ) OR (@documento IS NULL) )
+AND
+((CLI_TIPO_DOC = @tipo_doc) OR (@tipo_doc  IS NULL))
 AND
 CLI_BAJA=0";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_APE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_MAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documento", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_doc", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "CLI_TIPO_DOC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT CLI_ID FROM STR_NOMBRE_GRUPO.CLIENTE\r\nWHERE CLI_USU_ID = @usuarioId";
@@ -20466,7 +20470,7 @@ CLI_BAJA=0";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltroCliente(GD1C2014DataSet.CLIENTEDataTable dataTable, string nombre, string apellido, string email) {
+        public virtual int FiltroCliente(GD1C2014DataSet.CLIENTEDataTable dataTable, string nombre, string apellido, string email, string documento, string tipo_doc) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((nombre == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -20485,6 +20489,18 @@ CLI_BAJA=0";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(email));
+            }
+            if ((documento == null)) {
+                throw new global::System.ArgumentNullException("documento");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(documento));
+            }
+            if ((tipo_doc == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(tipo_doc));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -25841,7 +25857,7 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL";
@@ -25858,47 +25874,52 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE ROL_BAJA = 0 AND ROL_NOMBRE <> \'Admin" +
-                "istrador\'";
+            this._commandCollection[3].CommandText = "SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL\r\nWHERE ROL_BAJA =0\r" +
+                "\n";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE @nombre_rol=ROL_NOMBRE";
+            this._commandCollection[4].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE ROL_BAJA = 0 AND ROL_NOMBRE <> \'Admin" +
+                "istrador\'";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE @nombre_rol=ROL_NOMBRE AND ROL_BAJA =" +
-                "0  AND ROL_NOMBRE <> \'Administrador\'";
+            this._commandCollection[5].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE @nombre_rol=ROL_NOMBRE";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT FUN_ID, FUN_NOMBRE\r\nFROM STR_NOMBRE_GRUPO.ROL \r\njoin STR_NOMBRE_GRUPO.ROL_" +
-                "FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID\r\njoin STR_NOMBRE_GRUPO.FUNCIONALIDAD on R" +
-                "OL_FUN_FUN_ID=FUN_ID\r\nWHERE @nom=ROL_NOMBRE";
+            this._commandCollection[6].CommandText = "SELECT * \r\nFROM STR_NOMBRE_GRUPO.ROL\r\nWHERE @nombre_rol=ROL_NOMBRE AND ROL_BAJA =" +
+                "0  AND ROL_NOMBRE <> \'Administrador\'";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"SELECT FUN_ID, FUN_NOMBRE
+            this._commandCollection[7].CommandText = "SELECT FUN_ID, FUN_NOMBRE\r\nFROM STR_NOMBRE_GRUPO.ROL \r\njoin STR_NOMBRE_GRUPO.ROL_" +
+                "FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID\r\njoin STR_NOMBRE_GRUPO.FUNCIONALIDAD on R" +
+                "OL_FUN_FUN_ID=FUN_ID\r\nWHERE @nom=ROL_NOMBRE";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = @"SELECT FUN_ID, FUN_NOMBRE
 FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD
 WHERE NOT FUN_ID IN (select  FUN_ID
 from STR_NOMBRE_GRUPO.ROL 
 join STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID
 join STR_NOMBRE_GRUPO.FUNCIONALIDAD on ROL_FUN_FUN_ID=FUN_ID
 WHERE ROL_NOMBRE = @nom)";
-            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = @"SELECT STR_NOMBRE_GRUPO.ROL.ROL_NOMBRE
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = @"SELECT STR_NOMBRE_GRUPO.ROL.ROL_NOMBRE
 FROM STR_NOMBRE_GRUPO.USUARIO_ROL
 JOIN STR_NOMBRE_GRUPO.USUARIO on STR_NOMBRE_GRUPO.USUARIO_ROL.USU_ROL_USUARIO_ID= STR_NOMBRE_GRUPO.USUARIO.USU_ID
 JOIN STR_NOMBRE_GRUPO.ROL on STR_NOMBRE_GRUPO.USUARIO_ROL.USU_ROL_ROL_ID=ROL.ROL_ID
 WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
-            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "USU_USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25926,7 +25947,7 @@ WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int filtrarHabilitados(GD1C2014DataSet.ROLDataTable dataTable) {
+        public virtual int FillByActivos(GD1C2014DataSet.ROLDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -25938,8 +25959,20 @@ WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FiltrarNombre(GD1C2014DataSet.ROLDataTable dataTable, string nombre_rol) {
+        public virtual int filtrarHabilitados(GD1C2014DataSet.ROLDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FiltrarNombre(GD1C2014DataSet.ROLDataTable dataTable, string nombre_rol) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((nombre_rol == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -25957,7 +25990,7 @@ WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FiltrarNombreHabilitado(GD1C2014DataSet.ROLDataTable dataTable, string nombre_rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((nombre_rol == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -25975,22 +26008,6 @@ WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2014DataSet.ROLDataTable funcionalidadesDeUnRol(string nom) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((nom == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nom));
-            }
-            GD1C2014DataSet.ROLDataTable dataTable = new GD1C2014DataSet.ROLDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD1C2014DataSet.ROLDataTable funcQueNoTieneUnRol(string nom) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((nom == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -26006,8 +26023,24 @@ WHERE STR_NOMBRE_GRUPO.USUARIO.USU_USERNAME=@username";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD1C2014DataSet.ROLDataTable getRolesByUsername(string username) {
+        public virtual GD1C2014DataSet.ROLDataTable funcQueNoTieneUnRol(string nom) {
             this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((nom == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nom));
+            }
+            GD1C2014DataSet.ROLDataTable dataTable = new GD1C2014DataSet.ROLDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2014DataSet.ROLDataTable getRolesByUsername(string username) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
             if ((username == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }

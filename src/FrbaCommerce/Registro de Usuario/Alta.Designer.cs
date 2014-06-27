@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -40,7 +41,12 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rOLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter();
+            this.usuariO_ROLTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gD1C2014DataSet1
@@ -92,7 +98,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(77, 190);
+            this.button1.Location = new System.Drawing.Point(78, 216);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -134,7 +140,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(168, 190);
+            this.button2.Location = new System.Drawing.Point(174, 216);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -146,11 +152,36 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.rOLBindingSource;
+            this.comboBox1.DisplayMember = "ROL_NOMBRE";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(88, 179);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(161, 21);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // rOLBindingSource
+            // 
+            this.rOLBindingSource.DataMember = "ROL";
+            this.rOLBindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // rOLTableAdapter
+            // 
+            this.rOLTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
+            // 
             // Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 225);
+            this.ClientSize = new System.Drawing.Size(352, 299);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -165,6 +196,7 @@
             this.Text = "FRBA Commerce";
             this.Load += new System.EventHandler(this.Alta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +216,9 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button2;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource rOLBindingSource;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.ROLTableAdapter rOLTableAdapter;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
     }
 }
