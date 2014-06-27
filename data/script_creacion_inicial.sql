@@ -444,6 +444,7 @@ INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[ROL] ([ROL_NOMBRE])
      VALUES ('Empresa');
      SET @rol_id_empresa = @@IDENTITY;
      
+
 --creo las funcionalidades y se las asigno a los roles correspondientes.
 --login
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
@@ -495,7 +496,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('ABM Visibilidad de Publicaci�n');
+           ('ABM Visibilidad de Publicacion');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -504,7 +505,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Generar Publicaci�n');
+           ('Generar Publicacion');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -524,7 +525,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Gesti�n de Preguntas');
+           ('Gestion de Preguntas');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
@@ -572,7 +573,7 @@ insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], 
 INSERT INTO [GD1C2014].[STR_NOMBRE_GRUPO].[FUNCIONALIDAD]
            ([FUN_NOMBRE])
      VALUES
-           ('Listado estad�stico');
+           ('Listado estadistico');
 SET @funcionalidad_id = @@IDENTITY;
 insert into [GD1C2014].[STR_NOMBRE_GRUPO].[ROL_FUNCIONALIDAD]([ROL_FUN_ROL_ID], [ROL_FUN_FUN_ID])
 	VALUES
