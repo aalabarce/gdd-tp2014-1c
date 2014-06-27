@@ -28,7 +28,11 @@ namespace FrbaCommerce.Abm_Cliente
         {
             int? usu_id;
 
-
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox5.Text == "")
+            {
+                MessageBox.Show("Ingrese todos los datos necesarios");
+                return;
+            }
             if (textBox5.Text != "")
             {
                 if (clienteTableAdapter1.ExisteTel(Convert.ToInt32(textBox5.Text)) > 0)
@@ -44,11 +48,7 @@ namespace FrbaCommerce.Abm_Cliente
                 return;
             }
 
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox5.Text =="")
-            {
-                MessageBox.Show("Ingrese todos los datos necesarios");
-                return;
-            }
+            
 
             if (!MetodosGlobales.esInteger(textBox3) & textBox3.Text != "" || !MetodosGlobales.esInteger(textBox5) & textBox5.Text != "" || !MetodosGlobales.esInteger(textBox6) & textBox6.Text != "" || !MetodosGlobales.esInteger(textBox7) & textBox7.Text != "" || !MetodosGlobales.esInteger(textBox9) & textBox9.Text != "")
             {
@@ -134,6 +134,24 @@ namespace FrbaCommerce.Abm_Cliente
         private void AltaCliente_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (parametro_id == -1)
+            {
+                new FrbaCommerce.Abm_Cliente.Clientes(3).Show();
+                this.Close();
+            }
+            else
+            {
+                DataRow FilaABorrar = gD1C2014DataSet1.USUARIO.NewRow();
+                FilaABorrar = gD1C2014DataSet1.USUARIO.FindByUSU_ID((int)parametro_id);
+                MessageBox.Show(FilaABorrar["USU_USERNAME"].ToString());
+                FilaABorrar.Delete();
+                usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+                this.Close();
+            }
         }
 
 

@@ -53,8 +53,17 @@ namespace FrbaCommerce.Abm_Cliente
             }
             if (e.ColumnIndex == 3)
             {
+
+                if (MessageBox.Show("¿Está seguro que desea eliminar al cliente " + (dataGridView1.Rows[e.RowIndex].Cells[5]).Value.ToString() + "?\nNúmero de documento: " + (dataGridView1.Rows[e.RowIndex].Cells[7]).Value.ToString(), "Eliminar Cliente", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DataRow FilaABorrar = gD1C2014DataSet.CLIENTE.NewRow();
+                    FilaABorrar = gD1C2014DataSet.CLIENTE.FindByCLI_ID((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                    MessageBox.Show(FilaABorrar["CLI_ID"].ToString());
+                    FilaABorrar["CLI_BAJA"] = 1;
+                    cLIENTETableAdapter.Update(gD1C2014DataSet.CLIENTE);
+                    this.cLIENTETableAdapter.FillActivos(this.gD1C2014DataSet.CLIENTE);
+                }
                 
-                MessageBox.Show("¿Está seguro que desea eliminar al cliente "+ (dataGridView1.Rows[e.RowIndex].Cells[5]).Value.ToString()+"?\nNúmero de documento: "+ (dataGridView1.Rows[e.RowIndex].Cells[7]).Value.ToString(),"Eliminar Cliente",MessageBoxButtons.YesNo);
             }
         }
 

@@ -67,6 +67,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,8 @@
             // 
             this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoClienteToolStripMenuItem,
-            this.modificarClienteToolStripMenuItem});
+            this.modificarClienteToolStripMenuItem,
+            this.eliminarClienteToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
@@ -388,6 +390,13 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
+            // eliminarClienteToolStripMenuItem
+            // 
+            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
+            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.eliminarClienteToolStripMenuItem.Text = "Eliminar Cliente";
+            this.eliminarClienteToolStripMenuItem.Click += new System.EventHandler(this.eliminarClienteToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +459,7 @@
         private System.Windows.Forms.ToolStripMenuItem preguntasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem responderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verRespuestasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
     }
 }
 

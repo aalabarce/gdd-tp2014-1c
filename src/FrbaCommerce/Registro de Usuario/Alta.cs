@@ -35,6 +35,12 @@ namespace FrbaCommerce.Registro_de_Usuario
                 MessageBox.Show("Ingrese usuario y password");
                 return;
             }
+            if (usuarioTableAdapter1.existeUsuario(textBox1.Text) == 1)
+            {
+                MessageBox.Show("El nombre de usuario es inválido");
+                return;
+            }
+
             string usuario = textBox1.Text;
             string password = textBox2.Text;
             DataRowView rolElegido = (DataRowView)comboBox1.SelectedItem;

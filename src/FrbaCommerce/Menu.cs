@@ -155,5 +155,10 @@ namespace FrbaCommerce
         {
             new FrbaCommerce.Gestion_de_Preguntas.VerRespuestas().Show();
         }
+
+        private void eliminarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Abm_Cliente.Clientes(2).Show();
+        }
     }
 }

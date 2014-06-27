@@ -25874,8 +25874,8 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL\r\nWHERE ROL_BAJA =0\r" +
-                "\n";
+            this._commandCollection[3].CommandText = "SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL\r\nWHERE ROL_BAJA =0 " +
+                "AND ROL_NOMBRE != \'Administrador\'\r\n";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
