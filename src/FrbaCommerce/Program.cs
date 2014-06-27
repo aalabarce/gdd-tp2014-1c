@@ -35,8 +35,11 @@ namespace FrbaCommerce
             Application.Run(login);
             Global.usuario_id = login.usuario_id;
             Global.rol = login.rol;
-            Application.Run(new Menu());
 
+            if (Global.usuario_id != null)
+            {
+                Application.Run(new Menu());
+            }
             
         }
     }

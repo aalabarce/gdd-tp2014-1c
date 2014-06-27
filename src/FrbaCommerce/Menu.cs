@@ -21,12 +21,7 @@ namespace FrbaCommerce
             usuario = usuarioTableAdapter1.get_username_by_id((int)Global.usuario_id);
 
             label1.Text = "Usuario: " + usuario;
-            label2.Text = "    Rol: " + Global.rol;                        
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            label2.Text = "    Rol: " + Global.rol;
         }
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
