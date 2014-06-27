@@ -210,11 +210,11 @@
     <Compile Include="Comprar-Ofertar\VerVendedor.Designer.cs">
       <DependentUpon>VerVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\editar.cs">
+    <Compile Include="Editar Publicacion\Editar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editar Publicacion\editar.Designer.cs">
-      <DependentUpon>editar.cs</DependentUpon>
+    <Compile Include="Editar Publicacion\Editar.Designer.cs">
+      <DependentUpon>Editar.cs</DependentUpon>
     </Compile>
     <Compile Include="Editar Publicacion\Publicaciones.cs">
       <SubType>Form</SubType>
@@ -255,11 +255,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2014DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.cs">
+    <Compile Include="Generar Publicacion\GenerarPub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Publicacion\GenerarPub.Designer.cs">
+      <DependentUpon>GenerarPub.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Preguntas\BuscarPre.cs">
       <SubType>Form</SubType>
@@ -374,8 +374,8 @@
     <EmbeddedResource Include="Comprar-Ofertar\VerVendedor.resx">
       <DependentUpon>VerVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editar Publicacion\editar.resx">
-      <DependentUpon>editar.cs</DependentUpon>
+    <EmbeddedResource Include="Editar Publicacion\Editar.resx">
+      <DependentUpon>Editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editar Publicacion\Publicaciones.resx">
       <DependentUpon>Publicaciones.cs</DependentUpon>
@@ -398,8 +398,8 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Generar Publicacion\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Generar Publicacion\GenerarPub.resx">
+      <DependentUpon>GenerarPub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>

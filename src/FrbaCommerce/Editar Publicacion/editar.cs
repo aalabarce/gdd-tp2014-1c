@@ -8,13 +8,13 @@ using System.Text;
 using System.Windows.Forms;
 namespace FrbaCommerce.Editar_Publicacion
 {
-    public partial class editar : Form
+    public partial class Editar : Form
     {
         public int codigo { get; set; }
         public char estado { get; set; }
         public DataRow fila { get; set; }
 
-        public editar(int codigo_mod)
+        public Editar(int codigo_mod)
         {
             InitializeComponent();
             codigo = codigo_mod;

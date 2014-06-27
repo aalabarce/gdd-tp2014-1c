@@ -60,7 +60,7 @@ namespace FrbaCommerce.Editar_Publicacion
                     return;
                 }
                 this.Hide();
-                new FrbaCommerce.Editar_Publicacion.editar(codigo).Show();
+                new FrbaCommerce.Editar_Publicacion.Editar(codigo).Show();
             }
         }
 
