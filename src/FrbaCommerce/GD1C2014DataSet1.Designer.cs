@@ -22824,7 +22824,7 @@ SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD WHERE (FUN_ID = @F
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD";
@@ -22834,6 +22834,10 @@ SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD WHERE (FUN_ID = @F
             this._commandCollection[1].CommandText = "SELECT FUN_ID \r\nFROM STR_NOMBRE_GRUPO.FUNCIONALIDAD\r\nWHERE @nom=FUN_NOMBRE";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FUN_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT FUN_ID, FUN_NOMBRE \r\nFROM STR_NOMBRE_GRUPO.FUNCIONALIDAD\r\nWHERE FUN_ID<>0";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22853,6 +22857,16 @@ SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD WHERE (FUN_ID = @F
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD1C2014DataSet.FUNCIONALIDADDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD1C2014DataSet.FUNCIONALIDADDataTable dataTable = new GD1C2014DataSet.FUNCIONALIDADDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2014DataSet.FUNCIONALIDADDataTable tablaSinLogin() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             GD1C2014DataSet.FUNCIONALIDADDataTable dataTable = new GD1C2014DataSet.FUNCIONALIDADDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -25897,7 +25911,7 @@ SELECT ROL_ID, ROL_NOMBRE, ROL_BAJA FROM STR_NOMBRE_GRUPO.ROL WHERE (ROL_ID = @R
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = "SELECT FUN_ID, FUN_NOMBRE\r\nFROM STR_NOMBRE_GRUPO.ROL \r\njoin STR_NOMBRE_GRUPO.ROL_" +
                 "FUNCIONALIDAD on ROL_FUN_ROL_ID=ROL_ID\r\njoin STR_NOMBRE_GRUPO.FUNCIONALIDAD on R" +
-                "OL_FUN_FUN_ID=FUN_ID\r\nWHERE @nom=ROL_NOMBRE";
+                "OL_FUN_FUN_ID=FUN_ID\r\nWHERE @nom=ROL_NOMBRE AND FUN_ID<>0";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
@@ -30887,7 +30901,7 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD";
@@ -30899,6 +30913,12 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_FUN_ROL_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fun_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_FUN_FUN_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ROL_FUN_ROL_ID , ROL_FUN_FUN_ID \r\nFROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD\r" +
+                "\nWHERE ROL_FUN_ROL_ID=@rol";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ROL_FUN_ROL_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30918,6 +30938,17 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD1C2014DataSet.ROL_FUNCIONALIDADDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD1C2014DataSet.ROL_FUNCIONALIDADDataTable dataTable = new GD1C2014DataSet.ROL_FUNCIONALIDADDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2014DataSet.ROL_FUNCIONALIDADDataTable tablita(int rol) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(rol));
             GD1C2014DataSet.ROL_FUNCIONALIDADDataTable dataTable = new GD1C2014DataSet.ROL_FUNCIONALIDADDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

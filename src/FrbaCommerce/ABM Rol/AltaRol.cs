@@ -21,18 +21,12 @@ namespace FrbaCommerce.ABM_Rol
             this.Close();
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-               
-        }
-
         private void AltaRol_Load(object sender, EventArgs e)
         {
             funcionalidadTableAdapter1.Fill(gD1C2014DataSet1.FUNCIONALIDAD);
-            checkedListBox1.DataSource = gD1C2014DataSet1.FUNCIONALIDAD;
+            checkedListBox1.DataSource = funcionalidadTableAdapter1.tablaSinLogin();
             checkedListBox1.DisplayMember = "FUN_NOMBRE";
-            checkedListBox1.ValueMember = "FUN_ID";
-           
+            checkedListBox1.ValueMember = "FUN_ID";            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,6 +73,7 @@ namespace FrbaCommerce.ABM_Rol
 
         private void altaRolXFun(int rol_id)
         {
+            //Agrego las funcionalidades checkeadas
             DataRowView drv;
             int fun_Id;
             DataRow rol_funcionalidad;
@@ -95,6 +90,14 @@ namespace FrbaCommerce.ABM_Rol
                 gD1C2014DataSet1.ROL_FUNCIONALIDAD.Rows.Add(rol_funcionalidad);
             }
 
+            //Algrego Login
+            rol_funcionalidad = gD1C2014DataSet1.ROL_FUNCIONALIDAD.NewRow();
+            rol_funcionalidad["ROL_FUN_ROL_ID"] = rol_id;
+            rol_funcionalidad["ROL_FUN_FUN_ID"] = 0;
+            gD1C2014DataSet1.ROL_FUNCIONALIDAD.Rows.Add(rol_funcionalidad);
+            
+
+            //Actualizo la base de datos
             roL_FUNCIONALIDADTableAdapter1.Update(gD1C2014DataSet1.ROL_FUNCIONALIDAD);
             MessageBox.Show("Se asociaron al rol " + checkedListBox1.CheckedItems.Count.ToString() + " funcionalidades");
         

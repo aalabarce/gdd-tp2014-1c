@@ -24,6 +24,64 @@ namespace FrbaCommerce
             label2.Text = "    Rol: " + Global.rol;
         }
 
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            rolTableAdapter1.Fill(gD1C2014DataSet1.ROL);
+            roL_FUNCIONALIDADTableAdapter1.Fill(gD1C2014DataSet1.ROL_FUNCIONALIDAD);
+            funcionalidadTableAdapter1.Fill(gD1C2014DataSet1.FUNCIONALIDAD);
+
+            int rol_id = Convert.ToInt32(rolTableAdapter1.buscarID(Global.rol));
+
+            DataTable tablita = roL_FUNCIONALIDADTableAdapter1.tablita(rol_id);
+            foreach (DataRow fila in tablita.Rows)
+            {
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 1)
+                    rolToolStripMenuItem.Visible=true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 2)
+                    clienteToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 3)
+                    empresaToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 4)
+                    rubroToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 5)
+                    visibilidadToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 6)
+                {
+                    publicaciónToolStripMenuItem.Visible = true;
+                    generarNuevaToolStripMenuItem.Visible = true;
+                }
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 7)
+                {
+                    publicaciónToolStripMenuItem.Visible = true;
+                    editarPublicaciónToolStripMenuItem.Visible = true;
+                }
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 8)
+                    preguntasToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 9)
+                    comprasToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 10)
+                    historialToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 11)
+                    calificarToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 12)
+                    facturaciónToolStripMenuItem.Visible = true;
+
+                if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 13)
+                    estadisticasToolStripMenuItem.Visible = true;
+            }
+        }
+
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -98,7 +156,6 @@ namespace FrbaCommerce
         private void eliminarRolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Abm_Rol.BorrarRol().Show();
-
         }
 
         private void historialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,19 +178,9 @@ namespace FrbaCommerce
             new FrbaCommerce.Comprar_Ofertar.Comprar().Show();
         }
 
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Facturar_Publicaciones.Facturar().Show();
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void subastaToolStripMenuItem_Click(object sender, EventArgs e)
