@@ -13,6 +13,7 @@ namespace FrbaCommerce.Abm_Cliente
     {
         public string entrada;
         public int? parametro_id { get; set; }
+
         public AltaCliente(int? user)
         {
             InitializeComponent();
@@ -133,7 +134,7 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void AltaCliente_Load(object sender, EventArgs e)
         {
-
+            usuarioTableAdapter1.Fill(gD1C2014DataSet1.USUARIO);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -147,9 +148,11 @@ namespace FrbaCommerce.Abm_Cliente
             {
                 DataRow FilaABorrar = gD1C2014DataSet1.USUARIO.NewRow();
                 FilaABorrar = gD1C2014DataSet1.USUARIO.FindByUSU_ID((int)parametro_id);
-                MessageBox.Show(FilaABorrar["USU_USERNAME"].ToString());
+                
                 FilaABorrar.Delete();
                 usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+
+                new Registro_de_Usuario.Alta().Show();
                 this.Close();
             }
         }
