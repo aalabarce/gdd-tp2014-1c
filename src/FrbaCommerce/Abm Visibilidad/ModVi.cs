@@ -21,11 +21,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             codigo = codigo_mod;
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Abm_Visibilidad.BuscarVi().Show();
@@ -47,7 +42,6 @@ namespace FrbaCommerce.Abm_Visibilidad
            
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             //Valido que no dejen campos vacios
@@ -63,9 +57,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             {
                 return;
             }
-
-            
-
 
 
             //Valido que el codigo no exista

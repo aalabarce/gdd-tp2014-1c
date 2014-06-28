@@ -36,9 +36,15 @@ namespace FrbaCommerce.Listado_Estadistico
             comboBox2.Items.Add("Tercero");
             comboBox2.Items.Add("Cuarto");
 
+            //Agrego las visibilidades
+            comboBox3.DataSource = visibilidadTableAdapter1.GetData();
+            comboBox3.DisplayMember = "VIS_DESCRIPCION";
+            comboBox3.ValueMember = "VIS_ID";
+
             //Seteo el default del listado
             comboBox1.Text=Convert.ToString(año_actual);
             comboBox2.Text = "Primero";
+            //comboBox3.Text = "Bronce";
             radioButton1.Checked = true;
 
             dataGridView1.Visible = true;
@@ -46,7 +52,7 @@ namespace FrbaCommerce.Listado_Estadistico
             dataGridView3.Visible = false;
             dataGridView4.Visible = false;
 
-            pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
+            pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text, comboBox3.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,7 +64,8 @@ namespace FrbaCommerce.Listado_Estadistico
                 dataGridView2.Visible = false;
                 dataGridView3.Visible = false;
                 dataGridView4.Visible = false;
-                pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
+
+                pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text, comboBox3.Text);
             }
             if (radioButton2.Checked == true)
             {
@@ -66,6 +73,7 @@ namespace FrbaCommerce.Listado_Estadistico
                 dataGridView2.Visible = true;
                 dataGridView3.Visible = false;
                 dataGridView4.Visible = false;
+
                 fACTURACIONES_VENDEDORESTableAdapter.top5(gD1C2014DataSet1.FACTURACIONES_VENDEDORES, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
             }
             if (radioButton3.Checked == true)
@@ -85,8 +93,27 @@ namespace FrbaCommerce.Listado_Estadistico
                 dataGridView4.Visible = true;
 
                 cANTIDAD_SIN_CALIFICARTableAdapter.top5(gD1C2014DataSet1.CANTIDAD_SIN_CALIFICAR, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
-
             }         
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox3.Enabled = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox3.Enabled = false;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox3.Enabled = false;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox3.Enabled = false;
         }
     }
 }
