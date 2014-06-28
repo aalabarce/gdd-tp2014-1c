@@ -35,6 +35,13 @@ namespace FrbaCommerce.Registro_de_Usuario
                 MessageBox.Show("Ingrese usuario y password");
                 return;
             }
+
+            if (textBox2.Text == "1234")
+            {
+                MessageBox.Show("Introduzca una contraseña valida");
+                return;
+            }
+
             if (usuarioTableAdapter1.existeUsuario(textBox1.Text) == 1)
             {
                 MessageBox.Show("El nombre de usuario es inválido");

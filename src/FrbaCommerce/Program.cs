@@ -35,12 +35,15 @@ namespace FrbaCommerce
             Application.Run(login);
             Global.usuario_id = login.usuario_id;
             Global.rol = login.rol;
-
+            if (Global.usuario_id == null)
+            {
+                MessageBox.Show("ES NULL");
+            }
             if (Global.usuario_id != null)
             {
                 Application.Run(new Menu());
             }
-            
+            MessageBox.Show("Por aqui!!");
         }
     }
     static class MetodosGlobales

@@ -33,29 +33,40 @@ namespace FrbaCommerce.Login
             }
             usuario = textBox1.Text;
             string password = textBox2.Text;
+
             // LE AGREGO LA VERIFICACION DE SHA 256
             string contraseña = MetodosGlobales.sha256(password);
 
-            if (usuarioTableAdapter1.existeUsuario(usuario)==1) //Le mando a usuarioTableAdaapter el mensaje "Existe Usuario", que me devuelve 0 o 1
+            if (usuarioTableAdapter1.validarUsuario(usuario)==1) //Le mando a usuarioTableAdaapter el mensaje "Existe Usuario", que me devuelve 0 o 1
             {
                 if (usuarioTableAdapter1.habilitadoUsuario(usuario) == 1)
                 {
                     if (Convert.ToInt32(usuarioTableAdapter1.passValido(usuario, contraseña)) == 1)
                     {
                         usuarioTableAdapter1.resetearIntentosFallidos(usuario);
-                        usuario_id=usuarioTableAdapter1.get_id_by_username(usuario);
-                        if (usuariO_ROLTableAdapter1.cantidadRoles(usuario) > 1)
-                        {
+                        usuario_id = usuarioTableAdapter1.get_id_by_username(usuario);
 
-                            new FrbaCommerce.Login.MasDeUno(this).Show();
+                        if (contraseña == MetodosGlobales.sha256("1234"))
+                        {
+                            new FrbaCommerce.Login.CambioContraseña((int)usuario_id).Show();
                             this.Hide();
-                            
-                            
                         }
                         else
                         {
-                            this.rol = usuariO_ROLTableAdapter1.rolPorDefecto(usuario);
-                            this.Close();
+                            if (usuariO_ROLTableAdapter1.cantidadRoles(usuario) > 1)
+                            {
+
+                                new FrbaCommerce.Login.MasDeUno(this).Show();
+                                this.Hide();
+
+
+                            }
+                            else
+                            {
+                                this.rol = usuariO_ROLTableAdapter1.rolPorDefecto(usuario);
+                                this.Close();
+                            }
+
                         }
 
                     }
@@ -74,18 +85,8 @@ namespace FrbaCommerce.Login
             }
             else
             {
-                MessageBox.Show("No existe!!");
+                MessageBox.Show("El usuario no existe");
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

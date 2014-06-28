@@ -67,7 +67,6 @@
             this.textBox1.Size = new System.Drawing.Size(191, 20);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "8882310";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -140,7 +139,6 @@
             this.Name = "Login";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "FRBA Commerce";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

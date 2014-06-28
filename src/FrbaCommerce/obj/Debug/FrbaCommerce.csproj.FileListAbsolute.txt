@@ -119,3 +119,4 @@ C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.Responder.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.VerRespuestas.resources
 C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Preguntar.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.Login.CambioContraseña.resources
