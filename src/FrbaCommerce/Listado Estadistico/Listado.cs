@@ -21,8 +21,6 @@ namespace FrbaCommerce.Listado_Estadistico
 
         private void Listado_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.CANTIDAD_SIN_CALIFICAR' Puede moverla o quitarla según sea necesario.
-            this.cANTIDAD_SIN_CALIFICARTableAdapter.Fill(this.gD1C2014DataSet1.CANTIDAD_SIN_CALIFICAR);
             DateTime hoy = DateTime.Now; 
             int año_actual = hoy.Year;
             
@@ -48,21 +46,19 @@ namespace FrbaCommerce.Listado_Estadistico
             dataGridView3.Visible = false;
             dataGridView4.Visible = false;
 
-            fecha_ini = new DateTime(Convert.ToInt32(comboBox1.Text), 1, 1, 0, 0, 0);
-            fecha_fin = new DateTime(Convert.ToInt32(comboBox1.Text), 3, 31, 23, 59, 59); 
-
+            pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-             //Pongo visible el listado correspondiente
+            //Pongo visible el listado correspondiente
             if (radioButton1.Checked == true)
             {
                 dataGridView1.Visible = true;
                 dataGridView2.Visible = false;
                 dataGridView3.Visible = false;
                 dataGridView4.Visible = false;
+                pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
             }
             if (radioButton2.Checked == true)
             {

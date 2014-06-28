@@ -49,12 +49,15 @@
             this.promedioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cALIFICACIONESVENDEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.usuarioDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cANTIDADSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.cALIFICACIONES_VENDEDORESTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.CALIFICACIONES_VENDEDORESTableAdapter();
             this.fACTURACIONES_VENDEDORESTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.FACTURACIONES_VENDEDORESTableAdapter();
-            this.cANTIDADSINCALIFICARBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cANTIDAD_SIN_CALIFICARTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.CANTIDAD_SIN_CALIFICARTableAdapter();
-            this.usuarioDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRODUCTOSSINVENDERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pRODUCTOS_SIN_VENDERTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PRODUCTOS_SIN_VENDERTableAdapter();
+            this.usuarioDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fACTURACIONESVENDEDORESBindingSource)).BeginInit();
@@ -63,12 +66,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cANTIDADSINCALIFICARBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUCTOSSINVENDERBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(138, 43);
+            this.comboBox1.Location = new System.Drawing.Point(148, 52);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
@@ -76,7 +80,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(138, 71);
+            this.comboBox2.Location = new System.Drawing.Point(148, 80);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 1;
@@ -84,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 46);
+            this.label1.Location = new System.Drawing.Point(33, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 3;
@@ -93,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 74);
+            this.label2.Location = new System.Drawing.Point(33, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 4;
@@ -102,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 101);
+            this.label3.Location = new System.Drawing.Point(33, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 5;
@@ -110,16 +114,23 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 285);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usuarioDataGridViewTextBoxColumn3});
+            this.dataGridView1.DataSource = this.pRODUCTOSSINVENDERBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(135, 278);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(144, 133);
             this.dataGridView1.TabIndex = 6;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(94, 102);
+            this.radioButton1.Location = new System.Drawing.Point(93, 111);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(304, 17);
             this.radioButton1.TabIndex = 7;
@@ -130,7 +141,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(94, 126);
+            this.radioButton2.Location = new System.Drawing.Point(93, 135);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(190, 17);
             this.radioButton2.TabIndex = 8;
@@ -141,7 +152,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(94, 150);
+            this.radioButton3.Location = new System.Drawing.Point(93, 159);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(212, 17);
             this.radioButton3.TabIndex = 9;
@@ -152,7 +163,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(94, 174);
+            this.radioButton4.Location = new System.Drawing.Point(93, 183);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(296, 17);
             this.radioButton4.TabIndex = 10;
@@ -173,13 +184,12 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.usuarioDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.fACTURACIONESVENDEDORESBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(112, 300);
+            this.dataGridView2.Location = new System.Drawing.Point(135, 278);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(144, 133);
@@ -206,14 +216,13 @@
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToOrderColumns = true;
             this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.usuarioDataGridViewTextBoxColumn,
             this.promedioDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.cALIFICACIONESVENDEDORESBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(167, 311);
+            this.dataGridView3.Location = new System.Drawing.Point(135, 278);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(144, 133);
@@ -243,21 +252,32 @@
             // 
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToOrderColumns = true;
             this.dataGridView4.AutoGenerateColumns = false;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.usuarioDataGridViewTextBoxColumn2});
             this.dataGridView4.DataSource = this.cANTIDADSINCALIFICARBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(246, 329);
+            this.dataGridView4.Location = new System.Drawing.Point(136, 278);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(144, 133);
+            this.dataGridView4.Size = new System.Drawing.Size(147, 133);
             this.dataGridView4.TabIndex = 14;
+            // 
+            // usuarioDataGridViewTextBoxColumn2
+            // 
+            this.usuarioDataGridViewTextBoxColumn2.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn2.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn2.Name = "usuarioDataGridViewTextBoxColumn2";
+            this.usuarioDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // cANTIDADSINCALIFICARBindingSource
+            // 
+            this.cANTIDADSINCALIFICARBindingSource.DataMember = "CANTIDAD_SIN_CALIFICAR";
+            this.cANTIDADSINCALIFICARBindingSource.DataSource = this.gD1C2014DataSet1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(171, 215);
+            this.button1.Location = new System.Drawing.Point(171, 224);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -273,27 +293,31 @@
             // 
             this.fACTURACIONES_VENDEDORESTableAdapter.ClearBeforeFill = true;
             // 
-            // cANTIDADSINCALIFICARBindingSource
-            // 
-            this.cANTIDADSINCALIFICARBindingSource.DataMember = "CANTIDAD_SIN_CALIFICAR";
-            this.cANTIDADSINCALIFICARBindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
             // cANTIDAD_SIN_CALIFICARTableAdapter
             // 
             this.cANTIDAD_SIN_CALIFICARTableAdapter.ClearBeforeFill = true;
             // 
-            // usuarioDataGridViewTextBoxColumn2
+            // pRODUCTOSSINVENDERBindingSource
             // 
-            this.usuarioDataGridViewTextBoxColumn2.DataPropertyName = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn2.HeaderText = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn2.Name = "usuarioDataGridViewTextBoxColumn2";
-            this.usuarioDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.pRODUCTOSSINVENDERBindingSource.DataMember = "PRODUCTOS_SIN_VENDER";
+            this.pRODUCTOSSINVENDERBindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // pRODUCTOS_SIN_VENDERTableAdapter
+            // 
+            this.pRODUCTOS_SIN_VENDERTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioDataGridViewTextBoxColumn3
+            // 
+            this.usuarioDataGridViewTextBoxColumn3.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn3.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn3.Name = "usuarioDataGridViewTextBoxColumn3";
+            this.usuarioDataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // Listado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 485);
+            this.ClientSize = new System.Drawing.Size(419, 443);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.dataGridView3);
@@ -320,6 +344,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cALIFICACIONESVENDEDORESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cANTIDADSINCALIFICARBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUCTOSSINVENDERBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +378,8 @@
         private System.Windows.Forms.BindingSource cANTIDADSINCALIFICARBindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.CANTIDAD_SIN_CALIFICARTableAdapter cANTIDAD_SIN_CALIFICARTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource pRODUCTOSSINVENDERBindingSource;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PRODUCTOS_SIN_VENDERTableAdapter pRODUCTOS_SIN_VENDERTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn3;
     }
 }
