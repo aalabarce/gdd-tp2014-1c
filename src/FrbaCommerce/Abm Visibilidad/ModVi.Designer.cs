@@ -74,7 +74,6 @@
             this.label5.Size = new System.Drawing.Size(144, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Ingresar los datos a modificar";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox4
             // 

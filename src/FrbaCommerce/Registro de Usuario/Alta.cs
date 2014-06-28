@@ -92,7 +92,8 @@ namespace FrbaCommerce.Registro_de_Usuario
             {
                 new FrbaCommerce.Abm_Cliente.AltaCliente(id).Show();
             }
-                this.Close();
+
+            this.Close();
         }
     }
 }
