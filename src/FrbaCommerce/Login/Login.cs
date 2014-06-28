@@ -48,8 +48,7 @@ namespace FrbaCommerce.Login
 
                         if (contraseña == MetodosGlobales.sha256("1234"))
                         {
-                            new FrbaCommerce.Login.CambioContraseña((int)usuario_id).Show();
-                            this.Hide();
+                            new FrbaCommerce.Login.CambioContraseña((int)usuario_id).Show();                            
                         }
                         else
                         {
@@ -92,7 +91,6 @@ namespace FrbaCommerce.Login
         private void button2_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Registro_de_Usuario.Alta().Show();
-            this.Hide();
         }
     }
 }

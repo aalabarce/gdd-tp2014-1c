@@ -26,7 +26,6 @@ namespace FrbaCommerce.Registro_de_Usuario
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            new Login.Login().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,11 +93,6 @@ namespace FrbaCommerce.Registro_de_Usuario
                 new FrbaCommerce.Abm_Cliente.AltaCliente(id).Show();
             }
                 this.Close();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

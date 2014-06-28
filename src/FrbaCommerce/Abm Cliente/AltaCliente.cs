@@ -124,7 +124,6 @@ namespace FrbaCommerce.Abm_Cliente
             MessageBox.Show("El cliente " + textBox1.Text + " ha sido dado de alta");
             clienteTableAdapter1.Fill(gD1C2014DataSet1.CLIENTE);
 
-            new FrbaCommerce.Login.Login().Show();
             this.Close();
         }
 

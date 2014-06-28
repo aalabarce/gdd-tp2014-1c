@@ -36,7 +36,6 @@ namespace FrbaCommerce.Login
 
                 usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
 
-                new FrbaCommerce.Login.Login().Show();
                 this.Close();
             }
         }
@@ -57,7 +56,6 @@ namespace FrbaCommerce.Login
             usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
 
             MessageBox.Show("Vuelva a iniciar sesion con la nueva contraseña");
-            new FrbaCommerce.Login.Login().Show();
             this.Close();
         }
     }
