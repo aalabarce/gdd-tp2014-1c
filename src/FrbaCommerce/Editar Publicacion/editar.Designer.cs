@@ -57,6 +57,9 @@
             this.rubroTableAdapter2 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
             this.btnCambiarEstado = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
+            this.ofertaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter();
+            this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -313,7 +316,19 @@
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // editar
+            // ofertaTableAdapter1
+            // 
+            this.ofertaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // compraTableAdapter1
+            // 
+            this.compraTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -341,7 +356,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "editar";
+            this.Name = "Editar";
             this.Text = "Editar Publicacion";
             this.Load += new System.EventHandler(this.editar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
@@ -381,5 +396,8 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter2;
         private System.Windows.Forms.Button btnCambiarEstado;
         private System.Windows.Forms.Button btnFinalizar;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter ofertaTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
     }
 }

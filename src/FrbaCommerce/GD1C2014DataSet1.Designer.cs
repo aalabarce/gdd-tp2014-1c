@@ -24380,12 +24380,18 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR_" +
                 "NOMBRE_GRUPO.OFERTA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT top 1 OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID\r\nFROM STR_NOMBR" +
+                "E_GRUPO.OFERTA\r\nWHERE OFE_PUB_ID = @pub_id\r\norder by ofe_monto desc";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub_id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24405,6 +24411,22 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD1C2014DataSet.OFERTADataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD1C2014DataSet.OFERTADataTable dataTable = new GD1C2014DataSet.OFERTADataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2014DataSet.OFERTADataTable GetGanadoraByPubId(global::System.Nullable<decimal> pub_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((pub_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(pub_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             GD1C2014DataSet.OFERTADataTable dataTable = new GD1C2014DataSet.OFERTADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

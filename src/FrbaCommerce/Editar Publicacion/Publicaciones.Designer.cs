@@ -96,6 +96,7 @@
             this.dataGridView1.DataSource = this.pUBLICACIONCOMPLETABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 77);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(878, 335);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
@@ -104,6 +105,7 @@
             // 
             this.Modificar.HeaderText = "Modificar";
             this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
             this.Modificar.Text = "Modificar";
             // 
             // pUBIDDataGridViewTextBoxColumn
@@ -111,12 +113,14 @@
             this.pUBIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_ID";
             this.pUBIDDataGridViewTextBoxColumn.HeaderText = "Código";
             this.pUBIDDataGridViewTextBoxColumn.Name = "pUBIDDataGridViewTextBoxColumn";
+            this.pUBIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBTIPOIDDataGridViewTextBoxColumn
             // 
             this.pUBTIPOIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_TIPO_ID";
             this.pUBTIPOIDDataGridViewTextBoxColumn.HeaderText = "PUB_TIPO_ID";
             this.pUBTIPOIDDataGridViewTextBoxColumn.Name = "pUBTIPOIDDataGridViewTextBoxColumn";
+            this.pUBTIPOIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBTIPOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pUBSTOCKDataGridViewTextBoxColumn
@@ -124,18 +128,21 @@
             this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
             this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "Stock";
             this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
+            this.pUBSTOCKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBPRECIODataGridViewTextBoxColumn
             // 
             this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
             this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "Precio";
             this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
+            this.pUBPRECIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBESTADOIDDataGridViewTextBoxColumn
             // 
             this.pUBESTADOIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_ESTADO_ID";
             this.pUBESTADOIDDataGridViewTextBoxColumn.HeaderText = "PUB_ESTADO_ID";
             this.pUBESTADOIDDataGridViewTextBoxColumn.Name = "pUBESTADOIDDataGridViewTextBoxColumn";
+            this.pUBESTADOIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBESTADOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pUBFECHAINICIODataGridViewTextBoxColumn
@@ -143,24 +150,28 @@
             this.pUBFECHAINICIODataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_INICIO";
             this.pUBFECHAINICIODataGridViewTextBoxColumn.HeaderText = "Fecha Inicio";
             this.pUBFECHAINICIODataGridViewTextBoxColumn.Name = "pUBFECHAINICIODataGridViewTextBoxColumn";
+            this.pUBFECHAINICIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBFECHAFINALIZACIONDataGridViewTextBoxColumn
             // 
             this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_FECHA_FINALIZACION";
             this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.HeaderText = "Fecha Finalización";
             this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.Name = "pUBFECHAFINALIZACIONDataGridViewTextBoxColumn";
+            this.pUBFECHAFINALIZACIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBDESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBVISIDDataGridViewTextBoxColumn
             // 
             this.pUBVISIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_VIS_ID";
             this.pUBVISIDDataGridViewTextBoxColumn.HeaderText = "PUB_VIS_ID";
             this.pUBVISIDDataGridViewTextBoxColumn.Name = "pUBVISIDDataGridViewTextBoxColumn";
+            this.pUBVISIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBVISIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pUBUSUIDDataGridViewTextBoxColumn
@@ -168,6 +179,7 @@
             this.pUBUSUIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_USU_ID";
             this.pUBUSUIDDataGridViewTextBoxColumn.HeaderText = "PUB_USU_ID";
             this.pUBUSUIDDataGridViewTextBoxColumn.Name = "pUBUSUIDDataGridViewTextBoxColumn";
+            this.pUBUSUIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBUSUIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn
@@ -175,6 +187,7 @@
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.DataPropertyName = "PUB_PERMITIR_PREGUNTAS";
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.HeaderText = "Permitir Preguntas?";
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.Name = "pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn";
+            this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.ReadOnly = true;
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.pUBPERMITIRPREGUNTASDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -183,6 +196,7 @@
             this.vISIDDataGridViewTextBoxColumn.DataPropertyName = "VIS_ID";
             this.vISIDDataGridViewTextBoxColumn.HeaderText = "VIS_ID";
             this.vISIDDataGridViewTextBoxColumn.Name = "vISIDDataGridViewTextBoxColumn";
+            this.vISIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.vISIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // vISCODIGODataGridViewTextBoxColumn
@@ -190,6 +204,7 @@
             this.vISCODIGODataGridViewTextBoxColumn.DataPropertyName = "VIS_CODIGO";
             this.vISCODIGODataGridViewTextBoxColumn.HeaderText = "VIS_CODIGO";
             this.vISCODIGODataGridViewTextBoxColumn.Name = "vISCODIGODataGridViewTextBoxColumn";
+            this.vISCODIGODataGridViewTextBoxColumn.ReadOnly = true;
             this.vISCODIGODataGridViewTextBoxColumn.Visible = false;
             // 
             // vISDESCRIPCIONDataGridViewTextBoxColumn
@@ -197,12 +212,14 @@
             this.vISDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DESCRIPCION";
             this.vISDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Visibilidad";
             this.vISDESCRIPCIONDataGridViewTextBoxColumn.Name = "vISDESCRIPCIONDataGridViewTextBoxColumn";
+            this.vISDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vISPRECIODataGridViewTextBoxColumn
             // 
             this.vISPRECIODataGridViewTextBoxColumn.DataPropertyName = "VIS_PRECIO";
             this.vISPRECIODataGridViewTextBoxColumn.HeaderText = "VIS_PRECIO";
             this.vISPRECIODataGridViewTextBoxColumn.Name = "vISPRECIODataGridViewTextBoxColumn";
+            this.vISPRECIODataGridViewTextBoxColumn.ReadOnly = true;
             this.vISPRECIODataGridViewTextBoxColumn.Visible = false;
             // 
             // vISPORCENTAJEDataGridViewTextBoxColumn
@@ -210,6 +227,7 @@
             this.vISPORCENTAJEDataGridViewTextBoxColumn.DataPropertyName = "VIS_PORCENTAJE";
             this.vISPORCENTAJEDataGridViewTextBoxColumn.HeaderText = "VIS_PORCENTAJE";
             this.vISPORCENTAJEDataGridViewTextBoxColumn.Name = "vISPORCENTAJEDataGridViewTextBoxColumn";
+            this.vISPORCENTAJEDataGridViewTextBoxColumn.ReadOnly = true;
             this.vISPORCENTAJEDataGridViewTextBoxColumn.Visible = false;
             // 
             // vISDURACIONDataGridViewTextBoxColumn
@@ -217,6 +235,7 @@
             this.vISDURACIONDataGridViewTextBoxColumn.DataPropertyName = "VIS_DURACION";
             this.vISDURACIONDataGridViewTextBoxColumn.HeaderText = "VIS_DURACION";
             this.vISDURACIONDataGridViewTextBoxColumn.Name = "vISDURACIONDataGridViewTextBoxColumn";
+            this.vISDURACIONDataGridViewTextBoxColumn.ReadOnly = true;
             this.vISDURACIONDataGridViewTextBoxColumn.Visible = false;
             // 
             // vISBAJADataGridViewCheckBoxColumn
@@ -224,6 +243,7 @@
             this.vISBAJADataGridViewCheckBoxColumn.DataPropertyName = "VIS_BAJA";
             this.vISBAJADataGridViewCheckBoxColumn.HeaderText = "VIS_BAJA";
             this.vISBAJADataGridViewCheckBoxColumn.Name = "vISBAJADataGridViewCheckBoxColumn";
+            this.vISBAJADataGridViewCheckBoxColumn.ReadOnly = true;
             this.vISBAJADataGridViewCheckBoxColumn.Visible = false;
             // 
             // tIPOIDDataGridViewTextBoxColumn
@@ -231,6 +251,7 @@
             this.tIPOIDDataGridViewTextBoxColumn.DataPropertyName = "TIPO_ID";
             this.tIPOIDDataGridViewTextBoxColumn.HeaderText = "TIPO_ID";
             this.tIPOIDDataGridViewTextBoxColumn.Name = "tIPOIDDataGridViewTextBoxColumn";
+            this.tIPOIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.tIPOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // tIPODESCRIPCIONDataGridViewTextBoxColumn
@@ -238,12 +259,14 @@
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "TIPO_DESCRIPCION";
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn.Name = "tIPODESCRIPCIONDataGridViewTextBoxColumn";
+            this.tIPODESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // eSTADOIDDataGridViewTextBoxColumn
             // 
             this.eSTADOIDDataGridViewTextBoxColumn.DataPropertyName = "ESTADO_ID";
             this.eSTADOIDDataGridViewTextBoxColumn.HeaderText = "ESTADO_ID";
             this.eSTADOIDDataGridViewTextBoxColumn.Name = "eSTADOIDDataGridViewTextBoxColumn";
+            this.eSTADOIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.eSTADOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // eSTADODESCRIPCIONDataGridViewTextBoxColumn
@@ -251,6 +274,7 @@
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "ESTADO_DESCRIPCION";
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.Name = "eSTADODESCRIPCIONDataGridViewTextBoxColumn";
+            this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBLICACIONCOMPLETABindingSource
             // 

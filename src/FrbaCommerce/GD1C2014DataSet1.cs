@@ -3,6 +3,9 @@
     
     public partial class GD1C2014DataSet 
     {
+        partial class OFERTADataTable
+        {
+        }
     }
 }
 

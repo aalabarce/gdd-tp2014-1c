@@ -245,10 +245,39 @@ namespace FrbaCommerce.Editar_Publicacion
             if (result == DialogResult.Yes){
                 fila["PUB_ESTADO_ID"] = 'F';
                 publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
-                MessageBox.Show("La publicación fue finalizada");
+
+                if (Convert.ToChar(fila["PUB_TIPO_ID"]) == 'S')
+                {
+                    GD1C2014DataSet.OFERTADataTable oferta = this.ofertaTableAdapter1.GetGanadoraByPubId(codigo);
+
+                    if (oferta.Count > 0)
+                    {
+                        DataRow compra = gD1C2014DataSet1.COMPRA.NewRow();
+                        compra["COM_PUB_ID"] = codigo;
+                        compra["COM_CANTIDAD"] = fila["PUB_STOCK"];
+                        compra["COM_FECHA"] = DateTime.Now;
+                        compra["COM_USU_ID"] = oferta[0]["OFE_USU_ID"];
+
+                        gD1C2014DataSet1.COMPRA.Rows.Add(compra);
+                        compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
+
+                        string usuario = usuarioTableAdapter1.get_username_by_id((int)compra["COM_USU_ID"]);
+                        MessageBox.Show("La publicación fue finalizada. El ganador fue " + usuario + " por $" + oferta[0]["OFE_MONTO"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La publicación fue finalizada sin ningún ganador");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La publicación fue finalizada");
+                }
+                
+                this.Hide();
+                new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
             }
-            this.Hide();
-            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+            
         }
 
         private void btnCambiarEstado_Click(object sender, EventArgs e)
@@ -262,6 +291,8 @@ namespace FrbaCommerce.Editar_Publicacion
                     fila["PUB_ESTADO_ID"] = 'A';
                     publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
                     MessageBox.Show("La publicación se encuentra activa");
+                    this.Hide();
+                    new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
                 }
             }
             else
@@ -273,10 +304,11 @@ namespace FrbaCommerce.Editar_Publicacion
                     fila["PUB_ESTADO_ID"] = 'P';
                     publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
                     MessageBox.Show("La publicación se encuentra pausada");
+                    this.Hide();
+                    new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
                 }
             }
-            this.Hide();
-            new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+            
         }
     }
 }
