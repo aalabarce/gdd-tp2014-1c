@@ -47,7 +47,6 @@ namespace FrbaCommerce.Abm_Cliente
             }
             if (e.ColumnIndex == 2)
             {
-                MessageBox.Show("ABRIR FORMULARIO DE MODIFICACIÓN");
                 new FrbaCommerce.Abm_Cliente.ModifCliente((Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value))).Show();
                 this.Close();
             }
@@ -58,7 +57,7 @@ namespace FrbaCommerce.Abm_Cliente
                 {
                     DataRow FilaABorrar = gD1C2014DataSet.CLIENTE.NewRow();
                     FilaABorrar = gD1C2014DataSet.CLIENTE.FindByCLI_ID((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                    MessageBox.Show(FilaABorrar["CLI_ID"].ToString());
+
                     FilaABorrar["CLI_BAJA"] = 1;
                     cLIENTETableAdapter.Update(gD1C2014DataSet.CLIENTE);
                     this.cLIENTETableAdapter.FillActivos(this.gD1C2014DataSet.CLIENTE);
@@ -67,20 +66,9 @@ namespace FrbaCommerce.Abm_Cliente
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             // BUSCAR
-
             string nombre = null;
             string apellido = null;
             string documento = null;
@@ -103,19 +91,13 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void button3_Click(object sender, EventArgs e)
         {
-            cLIENTETableAdapter.FillActivos(gD1C2014DataSet.CLIENTE);
-           
+            cLIENTETableAdapter.FillActivos(gD1C2014DataSet.CLIENTE);           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Abm_Cliente.AltaCliente(-1).Show();
             this.Close();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

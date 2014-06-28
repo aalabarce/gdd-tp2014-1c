@@ -122,7 +122,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 13;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -139,6 +138,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 15;
+            this.textBox3.Tag = "numero de documento";
             // 
             // label6
             // 
@@ -171,6 +171,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 20);
             this.textBox5.TabIndex = 19;
+            this.textBox5.Tag = "telefono";
             // 
             // label8
             // 
@@ -206,6 +207,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(49, 20);
             this.textBox6.TabIndex = 9;
+            this.textBox6.Tag = "numero de calle";
             // 
             // label14
             // 
@@ -254,7 +256,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(29, 20);
             this.textBox9.TabIndex = 3;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox9.Tag = "piso";
             // 
             // label11
             // 
@@ -264,7 +266,6 @@
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nro. Piso";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // textBox8
             // 

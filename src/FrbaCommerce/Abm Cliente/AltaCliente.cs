@@ -37,7 +37,7 @@ namespace FrbaCommerce.Abm_Cliente
             //Valido que complete todos los campos menos piso y depto q son optativos
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == "" || textBox11.Text == "")
             {
-                MessageBox.Show("Ingrese todos los datos necesarios");
+                MessageBox.Show("Todos los campos son obligatorios, exceptuando Piso y Departamento");
                 return;
             }
 
@@ -106,7 +106,7 @@ namespace FrbaCommerce.Abm_Cliente
                 usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
 
                 usu_id = usuarioTableAdapter1.get_id_by_username(textBox3.Text);
-                MessageBox.Show(usu_id.ToString());
+
                 ClienteNuevo["CLI_USU_ID"] = usu_id;
                 UsuRolNuevo["USU_ROL_USUARIO_ID"] = usu_id;
                 gD1C2014DataSet1.USUARIO_ROL.Rows.Add(UsuRolNuevo);
@@ -119,7 +119,6 @@ namespace FrbaCommerce.Abm_Cliente
 
             gD1C2014DataSet1.CLIENTE.Rows.Add(ClienteNuevo);
             clienteTableAdapter1.Update(gD1C2014DataSet1.CLIENTE);
-
 
             MessageBox.Show("El cliente " + textBox1.Text + " ha sido dado de alta");
             clienteTableAdapter1.Fill(gD1C2014DataSet1.CLIENTE);

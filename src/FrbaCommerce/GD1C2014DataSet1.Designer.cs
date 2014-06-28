@@ -20408,14 +20408,15 @@ SELECT CLI_ID, CLI_USU_ID, CLI_NOMBRE, CLI_APE, CLI_DOC, CLI_TIPO_DOC, CLI_MAIL,
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT * 
- FROM STR_NOMBRE_GRUPO.CLIENTE WHERE 
+FROM STR_NOMBRE_GRUPO.CLIENTE 
+WHERE 
 ((CLI_NOMBRE LIKE '%' + @nombre + '%') OR (@nombre  IS NULL)) 
 AND
 ((CLI_APE LIKE '%' + @apellido + '%') OR (@apellido  IS NULL))
 AND
 ((CLI_MAIL LIKE '%' + @email + '%') OR (@email  IS NULL))
 AND
-((CONVERT(varchar(10), CLI_DOC) LIKE '%' + @documento + '%' ) OR (@documento IS NULL) )
+((@documento IS NULL) OR (CONVERT(varchar(18), CLI_DOC) LIKE '%' + @documento + '%' )  )
 AND
 ((CLI_TIPO_DOC = @tipo_doc) OR (@tipo_doc  IS NULL))
 AND
@@ -20491,7 +20492,7 @@ CLI_BAJA=0";
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(email));
             }
             if ((documento == null)) {
-                throw new global::System.ArgumentNullException("documento");
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(documento));
