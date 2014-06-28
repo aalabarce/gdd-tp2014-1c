@@ -96,6 +96,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(444, 184);
+            this.textBox7.MaxLength = 50;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(121, 20);
             this.textBox7.TabIndex = 44;
@@ -131,9 +132,11 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(201, 19);
+            this.textBox6.MaxLength = 18;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(49, 20);
             this.textBox6.TabIndex = 9;
+            this.textBox6.Tag = "numero de calle";
             // 
             // label14
             // 
@@ -147,6 +150,7 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(540, 19);
+            this.textBox11.MaxLength = 50;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 7;
@@ -163,6 +167,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(427, 19);
+            this.textBox10.MaxLength = 50;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(29, 20);
             this.textBox10.TabIndex = 5;
@@ -179,9 +184,11 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(331, 19);
+            this.textBox9.MaxLength = 18;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(29, 20);
             this.textBox9.TabIndex = 3;
+            this.textBox9.Tag = "piso";
             // 
             // label11
             // 
@@ -195,6 +202,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(50, 19);
+            this.textBox8.MaxLength = 255;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 1;
@@ -223,6 +231,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 20);
             this.textBox5.TabIndex = 40;
+            this.textBox5.Tag = "telefono";
             // 
             // label7
             // 
@@ -236,6 +245,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(161, 142);
+            this.textBox4.MaxLength = 255;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 20);
             this.textBox4.TabIndex = 38;
@@ -252,9 +262,11 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(444, 100);
+            this.textBox3.MaxLength = 18;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 36;
+            this.textBox3.Tag = "numero de documento";
             // 
             // label5
             // 
@@ -294,6 +306,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(444, 60);
+            this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 31;
@@ -301,6 +314,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(161, 60);
+            this.textBox1.MaxLength = 255;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 30;
