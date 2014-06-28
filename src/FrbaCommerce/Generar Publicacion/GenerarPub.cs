@@ -53,14 +53,14 @@ namespace FrbaCommerce.Generar_Publicacion
             if(validateCampos()){
                 persistir('A'); //estado activa.
             }
-            new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Hide();
+            this.Close();
         }
         private void btnBorrador_Click(object sender, EventArgs e)
         {
             if(validateCampos()){
                 persistir('B'); //estado borrador
             }
-            new FrbaCommerce.Generar_Publicacion.Generar_Publicacion().Hide();
+            this.Close();
         }
 
         private void persistir(char estado)
@@ -119,7 +119,7 @@ namespace FrbaCommerce.Generar_Publicacion
             }
 
             pub_rubro_TableAdapter.Update(gD1C2014DataSet1.PUBLICACION_RUBRO);
-            MessageBox.Show("Se asociaron a la publicacion " + chkRubros.CheckedItems.Count.ToString() + " rubros");
+ //           MessageBox.Show("Se asociaron a la publicacion " + chkRubros.CheckedItems.Count.ToString() + " rubros");
         }
 
         private void radTipoSubasta_CheckedChanged(object sender, EventArgs e)
