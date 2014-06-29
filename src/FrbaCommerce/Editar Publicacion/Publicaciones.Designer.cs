@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pUBLICACIONCOMPLETABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
+            this.pUBLICACION_COMPLETATableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pUBIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBTIPOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,11 +58,6 @@
             this.tIPODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eSTADOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pUBLICACIONCOMPLETABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
-            this.pUBLICACION_COMPLETATableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONCOMPLETABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -67,6 +67,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -94,12 +95,40 @@
             this.eSTADOIDDataGridViewTextBoxColumn,
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.pUBLICACIONCOMPLETABindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(878, 335);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // pUBLICACIONCOMPLETABindingSource
+            // 
+            this.pUBLICACIONCOMPLETABindingSource.DataMember = "PUBLICACION_COMPLETA";
+            this.pUBLICACIONCOMPLETABindingSource.DataSource = this.gD1C2014DataSet;
+            // 
+            // gD1C2014DataSet
+            // 
+            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pUBLICACION_COMPLETATableAdapter
+            // 
+            this.pUBLICACION_COMPLETATableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(350, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Mis Publicaciones";
+            // 
+            // publicacionTableAdapter1
+            // 
+            this.publicacionTableAdapter1.ClearBeforeFill = true;
             // 
             // Modificar
             // 
@@ -165,6 +194,7 @@
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Width = 200;
             // 
             // pUBVISIDDataGridViewTextBoxColumn
             // 
@@ -276,34 +306,6 @@
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.Name = "eSTADODESCRIPCIONDataGridViewTextBoxColumn";
             this.eSTADODESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pUBLICACIONCOMPLETABindingSource
-            // 
-            this.pUBLICACIONCOMPLETABindingSource.DataMember = "PUBLICACION_COMPLETA";
-            this.pUBLICACIONCOMPLETABindingSource.DataSource = this.gD1C2014DataSet;
-            // 
-            // gD1C2014DataSet
-            // 
-            this.gD1C2014DataSet.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pUBLICACION_COMPLETATableAdapter
-            // 
-            this.pUBLICACION_COMPLETATableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Mis Publicaciones";
-            // 
-            // publicacionTableAdapter1
-            // 
-            this.publicacionTableAdapter1.ClearBeforeFill = true;
-            // 
             // Publicaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +331,7 @@
         private System.Windows.Forms.BindingSource pUBLICACIONCOMPLETABindingSource;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_COMPLETATableAdapter pUBLICACION_COMPLETATableAdapter;
         private System.Windows.Forms.Label label1;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter publicacionTableAdapter1;
         private System.Windows.Forms.DataGridViewButtonColumn Modificar;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBTIPOIDDataGridViewTextBoxColumn;
@@ -352,7 +355,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tIPODESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eSTADOIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eSTADODESCRIPCIONDataGridViewTextBoxColumn;
-        private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter publicacionTableAdapter1;
 
     }
 }

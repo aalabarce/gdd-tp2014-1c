@@ -145,12 +145,6 @@ namespace FrbaCommerce.Generar_Publicacion
                 return false;
             }
 
-            //Valido que los tipos de datos sean correctos
-            if (!MetodosGlobales.esInteger(txtStock))
-            {
-                return false;
-            }
-
             if (!MetodosGlobales.esNumericConDosDecimales(txtPrecio))
             {
                 return false;

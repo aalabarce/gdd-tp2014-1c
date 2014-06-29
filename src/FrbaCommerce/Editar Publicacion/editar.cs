@@ -139,6 +139,8 @@ namespace FrbaCommerce.Editar_Publicacion
 
                     publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
                     MessageBox.Show("La publicación fue modificada");
+                    this.Close();
+                    new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
                 }
             }
         }
@@ -149,12 +151,6 @@ namespace FrbaCommerce.Editar_Publicacion
             if (txtDescripcion.Text == "")
             {
                 MessageBox.Show("Debe completar la descripción");
-                return false;
-            }
-
-            //Valido que el stock sea integer
-            if (!MetodosGlobales.esInteger(txtStock))
-            {
                 return false;
             }
 
@@ -174,12 +170,6 @@ namespace FrbaCommerce.Editar_Publicacion
             if (txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
             {
                 MessageBox.Show("Debe completar todos los campos");
-                return false;
-            }
-
-            //Valido que los tipos de datos sean correctos
-            if (!MetodosGlobales.esInteger(txtStock))
-            {
                 return false;
             }
 
@@ -217,6 +207,7 @@ namespace FrbaCommerce.Editar_Publicacion
 
             publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
             MessageBox.Show("La publicación fue modificada");
+            this.Close();
             new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
         }
 

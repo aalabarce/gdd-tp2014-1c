@@ -38,7 +38,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.chkRubros = new System.Windows.Forms.CheckedListBox();
             this.chkPreguntas = new System.Windows.Forms.CheckBox();
@@ -57,9 +56,11 @@
             this.getOrdenadosToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.lblAclaracionSubasta = new System.Windows.Forms.Label();
             this.pub_rubro_TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter();
+            this.txtStock = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             this.getOrdenadosToolStrip.SuspendLayout();
             this.getOrdenadosToolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -165,14 +166,6 @@
             this.lblPrecio.Size = new System.Drawing.Size(125, 16);
             this.lblPrecio.TabIndex = 10;
             this.lblPrecio.Text = "Precio (por unidad):";
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(198, 167);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 15;
-            this.txtStock.Tag = "Stock";
             // 
             // txtPrecio
             // 
@@ -319,11 +312,24 @@
             // 
             this.pub_rubro_TableAdapter.ClearBeforeFill = true;
             // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(198, 174);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 20);
+            this.txtStock.TabIndex = 27;
+            this.txtStock.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Generar_Publicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 512);
+            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.lblAclaracionSubasta);
             this.Controls.Add(this.getOrdenadosToolStrip1);
             this.Controls.Add(this.getOrdenadosToolStrip);
@@ -335,7 +341,6 @@
             this.Controls.Add(this.chkPreguntas);
             this.Controls.Add(this.chkRubros);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -354,6 +359,7 @@
             this.getOrdenadosToolStrip.PerformLayout();
             this.getOrdenadosToolStrip1.ResumeLayout(false);
             this.getOrdenadosToolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,7 +377,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.CheckedListBox chkRubros;
         private System.Windows.Forms.CheckBox chkPreguntas;
@@ -390,5 +395,6 @@
         private System.Windows.Forms.ToolStripButton getOrdenadosToolStripButton1;
         private System.Windows.Forms.Label lblAclaracionSubasta;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter pub_rubro_TableAdapter;
+        private System.Windows.Forms.NumericUpDown txtStock;
     }
 }

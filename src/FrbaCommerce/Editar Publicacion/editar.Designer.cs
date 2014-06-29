@@ -37,7 +37,6 @@
             this.chkPreguntas = new System.Windows.Forms.CheckBox();
             this.chkRubros = new System.Windows.Forms.CheckedListBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,18 +48,20 @@
             this.label9 = new System.Windows.Forms.Label();
             this.radTipoSubasta = new System.Windows.Forms.RadioButton();
             this.radTipoCompra = new System.Windows.Forms.RadioButton();
+            this.btnCambiarEstado = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.publicacionTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACIONTableAdapter();
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
             this.rubroTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
             this.visibilidadTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.VISIBILIDADTableAdapter();
             this.pub_rubro_TableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.PUBLICACION_RUBROTableAdapter();
             this.rubroTableAdapter2 = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
-            this.btnCambiarEstado = new System.Windows.Forms.Button();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.ofertaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter();
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
+            this.txtStock = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAclaracionSubasta
@@ -147,14 +148,6 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 38;
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(187, 176);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 37;
-            this.txtStock.Tag = "Stock";
             // 
             // lblPrecio
             // 
@@ -269,6 +262,28 @@
             this.radTipoCompra.UseVisualStyleBackColor = false;
             this.radTipoCompra.CheckedChanged += new System.EventHandler(this.radTipoCompra_CheckedChanged_1);
             // 
+            // btnCambiarEstado
+            // 
+            this.btnCambiarEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarEstado.Location = new System.Drawing.Point(27, 478);
+            this.btnCambiarEstado.Name = "btnCambiarEstado";
+            this.btnCambiarEstado.Size = new System.Drawing.Size(278, 23);
+            this.btnCambiarEstado.TabIndex = 50;
+            this.btnCambiarEstado.Text = "Cambiar a estado:";
+            this.btnCambiarEstado.UseVisualStyleBackColor = true;
+            this.btnCambiarEstado.Click += new System.EventHandler(this.btnCambiarEstado_Click);
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Location = new System.Drawing.Point(27, 512);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(278, 23);
+            this.btnFinalizar.TabIndex = 51;
+            this.btnFinalizar.Text = "Finalizar publicación";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
             // publicacionTableAdapter1
             // 
             this.publicacionTableAdapter1.ClearBeforeFill = true;
@@ -294,28 +309,6 @@
             // 
             this.rubroTableAdapter2.ClearBeforeFill = true;
             // 
-            // btnCambiarEstado
-            // 
-            this.btnCambiarEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiarEstado.Location = new System.Drawing.Point(27, 478);
-            this.btnCambiarEstado.Name = "btnCambiarEstado";
-            this.btnCambiarEstado.Size = new System.Drawing.Size(278, 23);
-            this.btnCambiarEstado.TabIndex = 50;
-            this.btnCambiarEstado.Text = "Cambiar a estado:";
-            this.btnCambiarEstado.UseVisualStyleBackColor = true;
-            this.btnCambiarEstado.Click += new System.EventHandler(this.btnCambiarEstado_Click);
-            // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizar.Location = new System.Drawing.Point(27, 512);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(278, 23);
-            this.btnFinalizar.TabIndex = 51;
-            this.btnFinalizar.Text = "Finalizar publicación";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
-            // 
             // ofertaTableAdapter1
             // 
             this.ofertaTableAdapter1.ClearBeforeFill = true;
@@ -328,11 +321,19 @@
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(187, 181);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 20);
+            this.txtStock.TabIndex = 52;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 547);
+            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.btnCambiarEstado);
             this.Controls.Add(this.radTipoSubasta);
@@ -347,7 +348,6 @@
             this.Controls.Add(this.chkPreguntas);
             this.Controls.Add(this.chkRubros);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -360,6 +360,7 @@
             this.Text = "Editar Publicacion";
             this.Load += new System.EventHandler(this.editar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,7 +377,6 @@
         private System.Windows.Forms.CheckBox chkPreguntas;
         private System.Windows.Forms.CheckedListBox chkRubros;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
@@ -399,5 +399,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTATableAdapter ofertaTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private System.Windows.Forms.NumericUpDown txtStock;
     }
 }
