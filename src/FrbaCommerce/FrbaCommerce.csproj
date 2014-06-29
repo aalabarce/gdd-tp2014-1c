@@ -229,6 +229,12 @@
     <Compile Include="Facturar Publicaciones\Facturar.Designer.cs">
       <DependentUpon>Facturar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturar Publicaciones\verFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\verFactura.Designer.cs">
+      <DependentUpon>verFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Preguntas\Responder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturar Publicaciones\Facturar.resx">
       <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\verFactura.resx">
+      <DependentUpon>verFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\BuscarPre.resx">
       <DependentUpon>BuscarPre.cs</DependentUpon>
