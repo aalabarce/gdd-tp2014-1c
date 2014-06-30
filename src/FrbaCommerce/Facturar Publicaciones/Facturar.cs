@@ -97,5 +97,33 @@ namespace FrbaCommerce.Facturar_Publicaciones
             this.Close();
             new FrbaCommerce.Facturar_Publicaciones.verFactura(Convert.ToInt32(factura["FAC_ID"])).Show();
         }
+
+        private void cmbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFormaPago.SelectedValue.ToString() == "1")
+            {
+                grDatosTarjeta.Show();
+                label8.Show();
+                label4.Show();
+                label6.Show();
+                label7.Show();
+                txtNumero.Show();
+                txtMes.Show();
+                txtAnio.Show();
+                txtCodSeguridad.Show();
+            }
+            else
+            {
+                grDatosTarjeta.Hide();
+                label8.Hide();
+                label4.Hide();
+                label6.Hide();
+                label7.Hide();
+                txtNumero.Hide();
+                txtMes.Hide();
+                txtAnio.Hide();
+                txtCodSeguridad.Hide();
+            }
+        }
     }
 }
