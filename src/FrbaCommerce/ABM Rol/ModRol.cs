@@ -35,6 +35,8 @@ namespace FrbaCommerce.Abm_Rol
             {
                 radioButton4.Visible = false;
             }
+
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

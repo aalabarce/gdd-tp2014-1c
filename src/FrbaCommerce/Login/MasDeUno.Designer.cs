@@ -94,6 +94,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MasDeUno";
             this.Text = "Seleccione un Rol";
+            this.Load += new System.EventHandler(this.MasDeUno_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -35,6 +35,8 @@ namespace FrbaCommerce.Generar_Publicacion
          
             cmbVisibilidad.ValueMember = "VIS_ID";
 
+            cmbVisibilidad.DropDownStyle = ComboBoxStyle.DropDownList;
+
             pub_rubro_TableAdapter.Fill(gD1C2014DataSet1.PUBLICACION_RUBRO);
         }
 

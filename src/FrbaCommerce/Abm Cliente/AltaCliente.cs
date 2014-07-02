@@ -23,11 +23,14 @@ namespace FrbaCommerce.Abm_Cliente
             comboBox1.Items.Add("LE");
             comboBox1.Items.Add("LC");
             comboBox1.Items.Add("C.EXT");
+
+            comboBox1.Text = "DNI";
         }
 
         private void AltaCliente_Load(object sender, EventArgs e)
         {
             usuarioTableAdapter1.Fill(gD1C2014DataSet1.USUARIO);
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,10 +96,11 @@ namespace FrbaCommerce.Abm_Cliente
             ClienteNuevo["CLI_CALLE_NRO"] = Convert.ToInt32(textBox6.Text);
             ClienteNuevo["CLI_BAJA"] = 0;
 
+            //Agrego rol
+
+
             if (parametro_id == -1)
             {
-                UsuRolNuevo["USU_ROL_ROL_ID"] = 1;
-
                 UsuarioNuevo["USU_USERNAME"] = textBox3.Text;
                 UsuarioNuevo["USU_PASSWORD"] = MetodosGlobales.sha256("1234");
                 UsuarioNuevo["USU_INTENTOS_LOGIN"] = 0;
@@ -107,13 +111,20 @@ namespace FrbaCommerce.Abm_Cliente
 
                 usu_id = usuarioTableAdapter1.get_id_by_username(textBox3.Text);
 
-                ClienteNuevo["CLI_USU_ID"] = usu_id;
+                UsuRolNuevo["USU_ROL_ROL_ID"] = 1;
                 UsuRolNuevo["USU_ROL_USUARIO_ID"] = usu_id;
                 gD1C2014DataSet1.USUARIO_ROL.Rows.Add(UsuRolNuevo);
                 usuariO_ROLTableAdapter1.Update(gD1C2014DataSet1.USUARIO_ROL);
+
+                ClienteNuevo["CLI_USU_ID"] = usu_id;
             }
             else
             {
+                UsuRolNuevo["USU_ROL_ROL_ID"] = 1;
+                UsuRolNuevo["USU_ROL_USUARIO_ID"] = parametro_id;
+                gD1C2014DataSet1.USUARIO_ROL.Rows.Add(UsuRolNuevo);
+                usuariO_ROLTableAdapter1.Update(gD1C2014DataSet1.USUARIO_ROL);
+
                 ClienteNuevo["CLI_USU_ID"] = parametro_id;
             }
 

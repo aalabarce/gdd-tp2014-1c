@@ -57,5 +57,10 @@ namespace FrbaCommerce.Login
          
         }
 
+        private void MasDeUno_Load(object sender, EventArgs e)
+        {
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
     }
 }

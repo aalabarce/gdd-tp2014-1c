@@ -39,6 +39,8 @@ namespace FrbaCommerce.Calificar_Vendedor
             comboBox1.Items.Add(9);
             comboBox1.Items.Add(10);
 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
             compraTableAdapter1.Fill(gD1C2014DataSet1.COMPRA);
         }
 

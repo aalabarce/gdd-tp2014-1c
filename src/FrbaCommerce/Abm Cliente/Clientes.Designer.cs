@@ -30,24 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cLIIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cLIUSUIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLINOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIAPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIDOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLITIPODOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLITELEFONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLICALLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIPISODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIDEPTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLILOCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLICODPOSTALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIFECHANACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLICALLENRODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet = new FrbaCommerce.GD1C2014DataSet();
@@ -66,6 +48,24 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cLIENTETableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.CLIENTETableAdapter();
+            this.cLIIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cLIUSUIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLINOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIAPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIDOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLITIPODOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLITELEFONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLICALLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIPISODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIDEPTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLILOCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLICODPOSTALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLIFECHANACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLICALLENRODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).BeginInit();
@@ -99,150 +99,12 @@
             this.cLIFECHANACDataGridViewTextBoxColumn,
             this.cLICALLENRODataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.cLIENTEBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 182);
+            this.dataGridView1.Location = new System.Drawing.Point(61, 195);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(635, 156);
+            this.dataGridView1.Size = new System.Drawing.Size(541, 156);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cLIIDDataGridViewTextBoxColumn
-            // 
-            this.cLIIDDataGridViewTextBoxColumn.DataPropertyName = "CLI_ID";
-            this.cLIIDDataGridViewTextBoxColumn.HeaderText = "CLI_ID";
-            this.cLIIDDataGridViewTextBoxColumn.Name = "cLIIDDataGridViewTextBoxColumn";
-            this.cLIIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLIIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Ver Completo";
-            this.Ver.Name = "Ver";
-            this.Ver.ReadOnly = true;
-            this.Ver.Visible = false;
-            this.Ver.Width = 80;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            this.Modificar.Width = 70;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 70;
-            // 
-            // cLIUSUIDDataGridViewTextBoxColumn
-            // 
-            this.cLIUSUIDDataGridViewTextBoxColumn.DataPropertyName = "CLI_USU_ID";
-            this.cLIUSUIDDataGridViewTextBoxColumn.HeaderText = "CLI_USU_ID";
-            this.cLIUSUIDDataGridViewTextBoxColumn.Name = "cLIUSUIDDataGridViewTextBoxColumn";
-            this.cLIUSUIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLIUSUIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLINOMBREDataGridViewTextBoxColumn
-            // 
-            this.cLINOMBREDataGridViewTextBoxColumn.DataPropertyName = "CLI_NOMBRE";
-            this.cLINOMBREDataGridViewTextBoxColumn.HeaderText = "CLI_NOMBRE";
-            this.cLINOMBREDataGridViewTextBoxColumn.Name = "cLINOMBREDataGridViewTextBoxColumn";
-            this.cLINOMBREDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cLIAPEDataGridViewTextBoxColumn
-            // 
-            this.cLIAPEDataGridViewTextBoxColumn.DataPropertyName = "CLI_APE";
-            this.cLIAPEDataGridViewTextBoxColumn.HeaderText = "CLI_APE";
-            this.cLIAPEDataGridViewTextBoxColumn.Name = "cLIAPEDataGridViewTextBoxColumn";
-            this.cLIAPEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cLIDOCDataGridViewTextBoxColumn
-            // 
-            this.cLIDOCDataGridViewTextBoxColumn.DataPropertyName = "CLI_DOC";
-            this.cLIDOCDataGridViewTextBoxColumn.HeaderText = "CLI_DOC";
-            this.cLIDOCDataGridViewTextBoxColumn.Name = "cLIDOCDataGridViewTextBoxColumn";
-            this.cLIDOCDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cLITIPODOCDataGridViewTextBoxColumn
-            // 
-            this.cLITIPODOCDataGridViewTextBoxColumn.DataPropertyName = "CLI_TIPO_DOC";
-            this.cLITIPODOCDataGridViewTextBoxColumn.HeaderText = "CLI_TIPO_DOC";
-            this.cLITIPODOCDataGridViewTextBoxColumn.Name = "cLITIPODOCDataGridViewTextBoxColumn";
-            this.cLITIPODOCDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLITIPODOCDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // cLIMAILDataGridViewTextBoxColumn
-            // 
-            this.cLIMAILDataGridViewTextBoxColumn.DataPropertyName = "CLI_MAIL";
-            this.cLIMAILDataGridViewTextBoxColumn.HeaderText = "CLI_MAIL";
-            this.cLIMAILDataGridViewTextBoxColumn.Name = "cLIMAILDataGridViewTextBoxColumn";
-            this.cLIMAILDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cLITELEFONODataGridViewTextBoxColumn
-            // 
-            this.cLITELEFONODataGridViewTextBoxColumn.DataPropertyName = "CLI_TELEFONO";
-            this.cLITELEFONODataGridViewTextBoxColumn.HeaderText = "CLI_TELEFONO";
-            this.cLITELEFONODataGridViewTextBoxColumn.Name = "cLITELEFONODataGridViewTextBoxColumn";
-            this.cLITELEFONODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLITELEFONODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLICALLEDataGridViewTextBoxColumn
-            // 
-            this.cLICALLEDataGridViewTextBoxColumn.DataPropertyName = "CLI_CALLE";
-            this.cLICALLEDataGridViewTextBoxColumn.HeaderText = "CLI_CALLE";
-            this.cLICALLEDataGridViewTextBoxColumn.Name = "cLICALLEDataGridViewTextBoxColumn";
-            this.cLICALLEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLICALLEDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLIPISODataGridViewTextBoxColumn
-            // 
-            this.cLIPISODataGridViewTextBoxColumn.DataPropertyName = "CLI_PISO";
-            this.cLIPISODataGridViewTextBoxColumn.HeaderText = "CLI_PISO";
-            this.cLIPISODataGridViewTextBoxColumn.Name = "cLIPISODataGridViewTextBoxColumn";
-            this.cLIPISODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLIPISODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLIDEPTODataGridViewTextBoxColumn
-            // 
-            this.cLIDEPTODataGridViewTextBoxColumn.DataPropertyName = "CLI_DEPTO";
-            this.cLIDEPTODataGridViewTextBoxColumn.HeaderText = "CLI_DEPTO";
-            this.cLIDEPTODataGridViewTextBoxColumn.Name = "cLIDEPTODataGridViewTextBoxColumn";
-            this.cLIDEPTODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLIDEPTODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLILOCALIDADDataGridViewTextBoxColumn
-            // 
-            this.cLILOCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CLI_LOCALIDAD";
-            this.cLILOCALIDADDataGridViewTextBoxColumn.HeaderText = "CLI_LOCALIDAD";
-            this.cLILOCALIDADDataGridViewTextBoxColumn.Name = "cLILOCALIDADDataGridViewTextBoxColumn";
-            this.cLILOCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLILOCALIDADDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLICODPOSTALDataGridViewTextBoxColumn
-            // 
-            this.cLICODPOSTALDataGridViewTextBoxColumn.DataPropertyName = "CLI_COD_POSTAL";
-            this.cLICODPOSTALDataGridViewTextBoxColumn.HeaderText = "CLI_COD_POSTAL";
-            this.cLICODPOSTALDataGridViewTextBoxColumn.Name = "cLICODPOSTALDataGridViewTextBoxColumn";
-            this.cLICODPOSTALDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLICODPOSTALDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLIFECHANACDataGridViewTextBoxColumn
-            // 
-            this.cLIFECHANACDataGridViewTextBoxColumn.DataPropertyName = "CLI_FECHA_NAC";
-            this.cLIFECHANACDataGridViewTextBoxColumn.HeaderText = "CLI_FECHA_NAC";
-            this.cLIFECHANACDataGridViewTextBoxColumn.Name = "cLIFECHANACDataGridViewTextBoxColumn";
-            this.cLIFECHANACDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLIFECHANACDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLICALLENRODataGridViewTextBoxColumn
-            // 
-            this.cLICALLENRODataGridViewTextBoxColumn.DataPropertyName = "CLI_CALLE_NRO";
-            this.cLICALLENRODataGridViewTextBoxColumn.HeaderText = "CLI_CALLE_NRO";
-            this.cLICALLENRODataGridViewTextBoxColumn.Name = "cLICALLENRODataGridViewTextBoxColumn";
-            this.cLICALLENRODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cLICALLENRODataGridViewTextBoxColumn.Visible = false;
             // 
             // cLIENTEBindingSource
             // 
@@ -336,7 +198,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(262, 50);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(123, 20);
             this.textBox4.TabIndex = 14;
             // 
             // button3
@@ -395,6 +257,145 @@
             // 
             this.cLIENTETableAdapter.ClearBeforeFill = true;
             // 
+            // cLIIDDataGridViewTextBoxColumn
+            // 
+            this.cLIIDDataGridViewTextBoxColumn.DataPropertyName = "CLI_ID";
+            this.cLIIDDataGridViewTextBoxColumn.HeaderText = "CLI_ID";
+            this.cLIIDDataGridViewTextBoxColumn.Name = "cLIIDDataGridViewTextBoxColumn";
+            this.cLIIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLIIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver Completo";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
+            this.Ver.Visible = false;
+            this.Ver.Width = 80;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Width = 70;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 70;
+            // 
+            // cLIUSUIDDataGridViewTextBoxColumn
+            // 
+            this.cLIUSUIDDataGridViewTextBoxColumn.DataPropertyName = "CLI_USU_ID";
+            this.cLIUSUIDDataGridViewTextBoxColumn.HeaderText = "CLI_USU_ID";
+            this.cLIUSUIDDataGridViewTextBoxColumn.Name = "cLIUSUIDDataGridViewTextBoxColumn";
+            this.cLIUSUIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLIUSUIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLINOMBREDataGridViewTextBoxColumn
+            // 
+            this.cLINOMBREDataGridViewTextBoxColumn.DataPropertyName = "CLI_NOMBRE";
+            this.cLINOMBREDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.cLINOMBREDataGridViewTextBoxColumn.Name = "cLINOMBREDataGridViewTextBoxColumn";
+            this.cLINOMBREDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cLIAPEDataGridViewTextBoxColumn
+            // 
+            this.cLIAPEDataGridViewTextBoxColumn.DataPropertyName = "CLI_APE";
+            this.cLIAPEDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.cLIAPEDataGridViewTextBoxColumn.Name = "cLIAPEDataGridViewTextBoxColumn";
+            this.cLIAPEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cLIDOCDataGridViewTextBoxColumn
+            // 
+            this.cLIDOCDataGridViewTextBoxColumn.DataPropertyName = "CLI_DOC";
+            this.cLIDOCDataGridViewTextBoxColumn.HeaderText = "Nº Documento";
+            this.cLIDOCDataGridViewTextBoxColumn.Name = "cLIDOCDataGridViewTextBoxColumn";
+            this.cLIDOCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cLITIPODOCDataGridViewTextBoxColumn
+            // 
+            this.cLITIPODOCDataGridViewTextBoxColumn.DataPropertyName = "CLI_TIPO_DOC";
+            this.cLITIPODOCDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.cLITIPODOCDataGridViewTextBoxColumn.Name = "cLITIPODOCDataGridViewTextBoxColumn";
+            this.cLITIPODOCDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLITIPODOCDataGridViewTextBoxColumn.Visible = false;
+            this.cLITIPODOCDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // cLIMAILDataGridViewTextBoxColumn
+            // 
+            this.cLIMAILDataGridViewTextBoxColumn.DataPropertyName = "CLI_MAIL";
+            this.cLIMAILDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.cLIMAILDataGridViewTextBoxColumn.Name = "cLIMAILDataGridViewTextBoxColumn";
+            this.cLIMAILDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cLITELEFONODataGridViewTextBoxColumn
+            // 
+            this.cLITELEFONODataGridViewTextBoxColumn.DataPropertyName = "CLI_TELEFONO";
+            this.cLITELEFONODataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.cLITELEFONODataGridViewTextBoxColumn.Name = "cLITELEFONODataGridViewTextBoxColumn";
+            this.cLITELEFONODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLITELEFONODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLICALLEDataGridViewTextBoxColumn
+            // 
+            this.cLICALLEDataGridViewTextBoxColumn.DataPropertyName = "CLI_CALLE";
+            this.cLICALLEDataGridViewTextBoxColumn.HeaderText = "CLI_CALLE";
+            this.cLICALLEDataGridViewTextBoxColumn.Name = "cLICALLEDataGridViewTextBoxColumn";
+            this.cLICALLEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLICALLEDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLIPISODataGridViewTextBoxColumn
+            // 
+            this.cLIPISODataGridViewTextBoxColumn.DataPropertyName = "CLI_PISO";
+            this.cLIPISODataGridViewTextBoxColumn.HeaderText = "CLI_PISO";
+            this.cLIPISODataGridViewTextBoxColumn.Name = "cLIPISODataGridViewTextBoxColumn";
+            this.cLIPISODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLIPISODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLIDEPTODataGridViewTextBoxColumn
+            // 
+            this.cLIDEPTODataGridViewTextBoxColumn.DataPropertyName = "CLI_DEPTO";
+            this.cLIDEPTODataGridViewTextBoxColumn.HeaderText = "CLI_DEPTO";
+            this.cLIDEPTODataGridViewTextBoxColumn.Name = "cLIDEPTODataGridViewTextBoxColumn";
+            this.cLIDEPTODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLIDEPTODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLILOCALIDADDataGridViewTextBoxColumn
+            // 
+            this.cLILOCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CLI_LOCALIDAD";
+            this.cLILOCALIDADDataGridViewTextBoxColumn.HeaderText = "CLI_LOCALIDAD";
+            this.cLILOCALIDADDataGridViewTextBoxColumn.Name = "cLILOCALIDADDataGridViewTextBoxColumn";
+            this.cLILOCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLILOCALIDADDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLICODPOSTALDataGridViewTextBoxColumn
+            // 
+            this.cLICODPOSTALDataGridViewTextBoxColumn.DataPropertyName = "CLI_COD_POSTAL";
+            this.cLICODPOSTALDataGridViewTextBoxColumn.HeaderText = "CLI_COD_POSTAL";
+            this.cLICODPOSTALDataGridViewTextBoxColumn.Name = "cLICODPOSTALDataGridViewTextBoxColumn";
+            this.cLICODPOSTALDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLICODPOSTALDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLIFECHANACDataGridViewTextBoxColumn
+            // 
+            this.cLIFECHANACDataGridViewTextBoxColumn.DataPropertyName = "CLI_FECHA_NAC";
+            this.cLIFECHANACDataGridViewTextBoxColumn.HeaderText = "CLI_FECHA_NAC";
+            this.cLIFECHANACDataGridViewTextBoxColumn.Name = "cLIFECHANACDataGridViewTextBoxColumn";
+            this.cLIFECHANACDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLIFECHANACDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLICALLENRODataGridViewTextBoxColumn
+            // 
+            this.cLICALLENRODataGridViewTextBoxColumn.DataPropertyName = "CLI_CALLE_NRO";
+            this.cLICALLENRODataGridViewTextBoxColumn.HeaderText = "CLI_CALLE_NRO";
+            this.cLICALLENRODataGridViewTextBoxColumn.Name = "cLICALLENRODataGridViewTextBoxColumn";
+            this.cLICALLENRODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cLICALLENRODataGridViewTextBoxColumn.Visible = false;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +433,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLIIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
         private System.Windows.Forms.DataGridViewButtonColumn Modificar;
@@ -450,12 +457,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cLICODPOSTALDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLIFECHANACDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLICALLENRODataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
 
     }
 }

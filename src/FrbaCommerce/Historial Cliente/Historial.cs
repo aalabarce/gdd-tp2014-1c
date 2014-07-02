@@ -28,6 +28,8 @@ namespace FrbaCommerce.Historial_Cliente
             comboBox1.Items.Add("Compras directas");
             comboBox1.Items.Add("Subastas");
             comboBox1.Text = "Compras directas";
+
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

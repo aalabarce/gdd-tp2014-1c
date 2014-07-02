@@ -21,6 +21,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.ROL' Puede moverla o quitarla según sea necesario.
             this.rOLTableAdapter.FillByActivos(this.gD1C2014DataSet1.ROL);
 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void button2_Click(object sender, EventArgs e)

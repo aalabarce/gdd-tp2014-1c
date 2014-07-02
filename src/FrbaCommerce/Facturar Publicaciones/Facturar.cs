@@ -34,6 +34,8 @@ namespace FrbaCommerce.Facturar_Publicaciones
             lineas = this.lINEAS_FACTURACIONTableAdapter.GetByUsuID(Global.usuario_id);
             cantPublicaciones = (int)this.lINEAS_FACTURACIONTableAdapter.cantPublicacionesUsuario(Global.usuario_id);
             lblCantFacturaciones.Text = "Usted tiene " + cantPublicaciones + " publicaciones sin facturar.";
+            
+            cmbFormaPago.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
@@ -85,8 +87,6 @@ namespace FrbaCommerce.Facturar_Publicaciones
                     gD1C2014DataSet.ITEM_FACTURA.Rows.Add(itemFactura);
 
                     iteM_FACTURATableAdapter1.Update(gD1C2014DataSet.ITEM_FACTURA);
-
-
                 }
             }
 

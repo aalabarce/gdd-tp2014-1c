@@ -20,7 +20,6 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.CLIENTE' Puede moverla o quitarla según sea necesario.
             this.cLIENTETableAdapter.FillActivos(this.gD1C2014DataSet.CLIENTE);
 
             dataGridView1.Columns[1].DefaultCellStyle.NullValue = "Ver Completo";
@@ -37,6 +36,7 @@ namespace FrbaCommerce.Abm_Cliente
             comboBox1.Items.Add("LC");
             comboBox1.Items.Add("C.EXT");
 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

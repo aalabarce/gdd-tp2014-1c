@@ -52,6 +52,10 @@ namespace FrbaCommerce.Listado_Estadistico
             dataGridView3.Visible = false;
             dataGridView4.Visible = false;
 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+
             pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text, comboBox3.Text);
         }
 
