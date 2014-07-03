@@ -96,8 +96,6 @@ namespace FrbaCommerce.Abm_Cliente
             ClienteNuevo["CLI_CALLE_NRO"] = Convert.ToInt32(textBox6.Text);
             ClienteNuevo["CLI_BAJA"] = 0;
 
-            //Agrego rol
-
 
             if (parametro_id == -1)
             {

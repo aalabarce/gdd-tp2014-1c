@@ -66,7 +66,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             if (textBox5.Text != "")
                 dur = Convert.ToInt32(textBox5.Text);
 
-
             visibilidadTableAdapter1.Filtrar(gD1C2014DataSet.VISIBILIDAD, cod, des, pre, por, dur);
         }
 
@@ -87,11 +86,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             MessageBox.Show("La visibilidad " + codigo + " ha sido eliminada");
 
             visibilidadTableAdapter1.Fill(gD1C2014DataSet.VISIBILIDAD);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
