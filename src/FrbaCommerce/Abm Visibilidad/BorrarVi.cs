@@ -88,5 +88,10 @@ namespace FrbaCommerce.Abm_Visibilidad
 
             visibilidadTableAdapter1.Fill(gD1C2014DataSet.VISIBILIDAD);
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

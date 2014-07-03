@@ -59,6 +59,12 @@ namespace FrbaCommerce.Abm_Empresa
                 return;
             }
 
+            if (empresaTableAdapter1.ExisteEmpresa(textBox1.Text, textBox8.Text) > 0)
+            {
+                MessageBox.Show("Ya existe una empresa con esa razón social y CUIT");
+                return;
+            }
+
             if (!MetodosGlobales.esInteger(textBox3) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esInteger(textBox6))
             {
                 MessageBox.Show("Alguno de los datos no es del tipo que se requiere");
