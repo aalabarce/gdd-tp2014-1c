@@ -15,9 +15,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
             InitializeComponent();
         }
-
-
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,14 +33,12 @@ namespace FrbaCommerce.Abm_Visibilidad
 
             
             //Valido que los tipos de datos sean correctos
-            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esNumericConDosDecimales(textBox3) || !MetodosGlobales.esNumericConDosDecimales(textBox4))
+            if (!MetodosGlobales.esInteger(textBox1) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esNumericConDosDecimales(textBox3) || !MetodosGlobales.esInteger(textBox4))
             {
                 return;
             }
 
-
-
-
+            
             //Valido que el codigo no exista
             if (Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) > 0)
             {
@@ -56,16 +52,15 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         }
         
-
-
         private void darAlta()
         {
+            decimal porcentaje = Convert.ToDecimal(textBox4.Text) / 100;
             DataRow nuevo = gD1C2014DataSet1.VISIBILIDAD.NewRow();
 
             nuevo["VIS_CODIGO"] = textBox1.Text;
             nuevo["VIS_DESCRIPCION"] = textBox2.Text;
             nuevo["VIS_PRECIO"] = textBox3.Text;
-            nuevo["VIS_PORCENTAJE"] = textBox4.Text;
+            nuevo["VIS_PORCENTAJE"] = porcentaje;
             nuevo["VIS_DURACION"] = textBox5.Text;
             nuevo["VIS_BAJA"] = 0;
 

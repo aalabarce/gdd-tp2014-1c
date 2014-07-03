@@ -16,11 +16,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BorrarVi_Load(object sender, EventArgs e)
         {
             visibilidadTableAdapter1.Fill(gD1C2014DataSet.VISIBILIDAD);
@@ -51,8 +46,6 @@ namespace FrbaCommerce.Abm_Visibilidad
             {
                return;
             }
-
-
 
 
             //Filtro
@@ -95,6 +88,5 @@ namespace FrbaCommerce.Abm_Visibilidad
 
             visibilidadTableAdapter1.Fill(gD1C2014DataSet.VISIBILIDAD);
         }
-
     }
 }
