@@ -109,8 +109,6 @@ namespace FrbaCommerce {
         
         private global::System.Data.DataRelation relationFK__EMPRESA__EMP_USU__1FCDBCEB;
         
-        private global::System.Data.DataRelation relationFK__OFERTA__OFE_CAL___5070F446;
-        
         private global::System.Data.DataRelation relationFK__OFERTA__OFE_PUB___5165187F;
         
         private global::System.Data.DataRelation relationFK__OFERTA__OFE_USU___4F7CD00D;
@@ -1066,7 +1064,6 @@ namespace FrbaCommerce {
             this.relationFK__COMPRA__COM_PUB___4AB81AF0 = this.Relations["FK__COMPRA__COM_PUB___4AB81AF0"];
             this.relationFK__COMPRA__COM_USU___48CFD27E = this.Relations["FK__COMPRA__COM_USU___48CFD27E"];
             this.relationFK__EMPRESA__EMP_USU__1FCDBCEB = this.Relations["FK__EMPRESA__EMP_USU__1FCDBCEB"];
-            this.relationFK__OFERTA__OFE_CAL___5070F446 = this.Relations["FK__OFERTA__OFE_CAL___5070F446"];
             this.relationFK__OFERTA__OFE_PUB___5165187F = this.Relations["FK__OFERTA__OFE_PUB___5165187F"];
             this.relationFK__OFERTA__OFE_USU___4F7CD00D = this.Relations["FK__OFERTA__OFE_USU___4F7CD00D"];
             this.relationFK__PREGUNTA__PRE_PU__300424B4 = this.Relations["FK__PREGUNTA__PRE_PU__300424B4"];
@@ -1190,10 +1187,6 @@ namespace FrbaCommerce {
                         this.tableUSUARIO.USU_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableEMPRESA.EMP_USU_IDColumn}, false);
             this.Relations.Add(this.relationFK__EMPRESA__EMP_USU__1FCDBCEB);
-            this.relationFK__OFERTA__OFE_CAL___5070F446 = new global::System.Data.DataRelation("FK__OFERTA__OFE_CAL___5070F446", new global::System.Data.DataColumn[] {
-                        this.tableCALIFICACION.CAL_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOFERTA.OFE_CAL_IDColumn}, false);
-            this.Relations.Add(this.relationFK__OFERTA__OFE_CAL___5070F446);
             this.relationFK__OFERTA__OFE_PUB___5165187F = new global::System.Data.DataRelation("FK__OFERTA__OFE_PUB___5165187F", new global::System.Data.DataColumn[] {
                         this.tablePUBLICACION.PUB_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOFERTA.OFE_PUB_IDColumn}, false);
@@ -4320,8 +4313,6 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnOFE_USU_ID;
             
-            private global::System.Data.DataColumn columnOFE_CAL_ID;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public OFERTADataTable() {
                 this.TableName = "OFERTA";
@@ -4388,13 +4379,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn OFE_CAL_IDColumn {
-                get {
-                    return this.columnOFE_CAL_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4423,23 +4407,19 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public OFERTARow AddOFERTARow(PUBLICACIONRow parentPUBLICACIONRowByFK__OFERTA__OFE_PUB___5165187F, decimal OFE_MONTO, System.DateTime OFE_FECHA, USUARIORow parentUSUARIORowByFK__OFERTA__OFE_USU___4F7CD00D, CALIFICACIONRow parentCALIFICACIONRowByFK__OFERTA__OFE_CAL___5070F446) {
+            public OFERTARow AddOFERTARow(PUBLICACIONRow parentPUBLICACIONRowByFK__OFERTA__OFE_PUB___5165187F, decimal OFE_MONTO, System.DateTime OFE_FECHA, USUARIORow parentUSUARIORowByFK__OFERTA__OFE_USU___4F7CD00D) {
                 OFERTARow rowOFERTARow = ((OFERTARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         OFE_MONTO,
                         OFE_FECHA,
-                        null,
                         null};
                 if ((parentPUBLICACIONRowByFK__OFERTA__OFE_PUB___5165187F != null)) {
                     columnValuesArray[1] = parentPUBLICACIONRowByFK__OFERTA__OFE_PUB___5165187F[0];
                 }
                 if ((parentUSUARIORowByFK__OFERTA__OFE_USU___4F7CD00D != null)) {
                     columnValuesArray[4] = parentUSUARIORowByFK__OFERTA__OFE_USU___4F7CD00D[0];
-                }
-                if ((parentCALIFICACIONRowByFK__OFERTA__OFE_CAL___5070F446 != null)) {
-                    columnValuesArray[5] = parentCALIFICACIONRowByFK__OFERTA__OFE_CAL___5070F446[0];
                 }
                 rowOFERTARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOFERTARow);
@@ -4471,7 +4451,6 @@ namespace FrbaCommerce {
                 this.columnOFE_MONTO = base.Columns["OFE_MONTO"];
                 this.columnOFE_FECHA = base.Columns["OFE_FECHA"];
                 this.columnOFE_USU_ID = base.Columns["OFE_USU_ID"];
-                this.columnOFE_CAL_ID = base.Columns["OFE_CAL_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4486,8 +4465,6 @@ namespace FrbaCommerce {
                 base.Columns.Add(this.columnOFE_FECHA);
                 this.columnOFE_USU_ID = new global::System.Data.DataColumn("OFE_USU_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOFE_USU_ID);
-                this.columnOFE_CAL_ID = new global::System.Data.DataColumn("OFE_CAL_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOFE_CAL_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOFE_ID}, true));
                 this.columnOFE_ID.AutoIncrement = true;
@@ -13515,16 +13492,6 @@ namespace FrbaCommerce {
                     return ((COMPRARow[])(base.GetChildRows(this.Table.ChildRelations["FK__COMPRA__COM_CAL___49C3F6B7"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public OFERTARow[] GetOFERTARows() {
-                if ((this.Table.ChildRelations["FK__OFERTA__OFE_CAL___5070F446"] == null)) {
-                    return new OFERTARow[0];
-                }
-                else {
-                    return ((OFERTARow[])(base.GetChildRows(this.Table.ChildRelations["FK__OFERTA__OFE_CAL___5070F446"])));
-                }
-            }
         }
         
         /// <summary>
@@ -16073,31 +16040,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal OFE_CAL_ID {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableOFERTA.OFE_CAL_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OFE_CAL_ID\' de la tabla \'OFERTA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOFERTA.OFE_CAL_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public CALIFICACIONRow CALIFICACIONRow {
-                get {
-                    return ((CALIFICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__OFERTA__OFE_CAL___5070F446"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__OFERTA__OFE_CAL___5070F446"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public PUBLICACIONRow PUBLICACIONRow {
                 get {
                     return ((PUBLICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__OFERTA__OFE_PUB___5165187F"])));
@@ -16155,16 +16097,6 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetOFE_USU_IDNull() {
                 this[this.tableOFERTA.OFE_USU_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsOFE_CAL_IDNull() {
-                return this.IsNull(this.tableOFERTA.OFE_CAL_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetOFE_CAL_IDNull() {
-                this[this.tableOFERTA.OFE_CAL_IDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -25947,11 +25879,10 @@ SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD WHERE (FUN_ID = @F
             tableMapping.ColumnMappings.Add("OFE_MONTO", "OFE_MONTO");
             tableMapping.ColumnMappings.Add("OFE_FECHA", "OFE_FECHA");
             tableMapping.ColumnMappings.Add("OFE_USU_ID", "OFE_USU_ID");
-            tableMapping.ColumnMappings.Add("OFE_CAL_ID", "OFE_CAL_ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [STR_NOMBRE_GRUPO].[OFERTA] WHERE (([OFE_ID] = @Original_OFE_ID) AND ((@IsNull_OFE_PUB_ID = 1 AND [OFE_PUB_ID] IS NULL) OR ([OFE_PUB_ID] = @Original_OFE_PUB_ID)) AND ((@IsNull_OFE_MONTO = 1 AND [OFE_MONTO] IS NULL) OR ([OFE_MONTO] = @Original_OFE_MONTO)) AND ((@IsNull_OFE_FECHA = 1 AND [OFE_FECHA] IS NULL) OR ([OFE_FECHA] = @Original_OFE_FECHA)) AND ((@IsNull_OFE_USU_ID = 1 AND [OFE_USU_ID] IS NULL) OR ([OFE_USU_ID] = @Original_OFE_USU_ID)) AND ((@IsNull_OFE_CAL_ID = 1 AND [OFE_CAL_ID] IS NULL) OR ([OFE_CAL_ID] = @Original_OFE_CAL_ID)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [STR_NOMBRE_GRUPO].[OFERTA] WHERE (([OFE_ID] = @Original_OFE_ID) AND ((@IsNull_OFE_PUB_ID = 1 AND [OFE_PUB_ID] IS NULL) OR ([OFE_PUB_ID] = @Original_OFE_PUB_ID)) AND ((@IsNull_OFE_MONTO = 1 AND [OFE_MONTO] IS NULL) OR ([OFE_MONTO] = @Original_OFE_MONTO)) AND ((@IsNull_OFE_FECHA = 1 AND [OFE_FECHA] IS NULL) OR ([OFE_FECHA] = @Original_OFE_FECHA)) AND ((@IsNull_OFE_USU_ID = 1 AND [OFE_USU_ID] IS NULL) OR ([OFE_USU_ID] = @Original_OFE_USU_ID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_PUB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -25962,28 +25893,24 @@ SELECT FUN_ID, FUN_NOMBRE FROM STR_NOMBRE_GRUPO.FUNCIONALIDAD WHERE (FUN_ID = @F
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_CAL_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_CAL_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [STR_NOMBRE_GRUPO].[OFERTA] ([OFE_PUB_ID], [OFE_MONTO], [OFE_FECHA], [OFE_USU_ID], [OFE_CAL_ID]) VALUES (@OFE_PUB_ID, @OFE_MONTO, @OFE_FECHA, @OFE_USU_ID, @OFE_CAL_ID);
-SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR_NOMBRE_GRUPO.OFERTA WHERE (OFE_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [STR_NOMBRE_GRUPO].[OFERTA] ([OFE_PUB_ID], [OFE_MONTO], [OFE_FECHA], [OFE_USU_ID]) VALUES (@OFE_PUB_ID, @OFE_MONTO, @OFE_FECHA, @OFE_USU_ID);
+SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUPO.OFERTA WHERE (OFE_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_PUB_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_MONTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OFE_MONTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_CAL_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [STR_NOMBRE_GRUPO].[OFERTA] SET [OFE_PUB_ID] = @OFE_PUB_ID, [OFE_MONTO] = @OFE_MONTO, [OFE_FECHA] = @OFE_FECHA, [OFE_USU_ID] = @OFE_USU_ID, [OFE_CAL_ID] = @OFE_CAL_ID WHERE (([OFE_ID] = @Original_OFE_ID) AND ((@IsNull_OFE_PUB_ID = 1 AND [OFE_PUB_ID] IS NULL) OR ([OFE_PUB_ID] = @Original_OFE_PUB_ID)) AND ((@IsNull_OFE_MONTO = 1 AND [OFE_MONTO] IS NULL) OR ([OFE_MONTO] = @Original_OFE_MONTO)) AND ((@IsNull_OFE_FECHA = 1 AND [OFE_FECHA] IS NULL) OR ([OFE_FECHA] = @Original_OFE_FECHA)) AND ((@IsNull_OFE_USU_ID = 1 AND [OFE_USU_ID] IS NULL) OR ([OFE_USU_ID] = @Original_OFE_USU_ID)) AND ((@IsNull_OFE_CAL_ID = 1 AND [OFE_CAL_ID] IS NULL) OR ([OFE_CAL_ID] = @Original_OFE_CAL_ID)));
-SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR_NOMBRE_GRUPO.OFERTA WHERE (OFE_ID = @OFE_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [STR_NOMBRE_GRUPO].[OFERTA] SET [OFE_PUB_ID] = @OFE_PUB_ID, [OFE_MONTO] = @OFE_MONTO, [OFE_FECHA] = @OFE_FECHA, [OFE_USU_ID] = @OFE_USU_ID WHERE (([OFE_ID] = @Original_OFE_ID) AND ((@IsNull_OFE_PUB_ID = 1 AND [OFE_PUB_ID] IS NULL) OR ([OFE_PUB_ID] = @Original_OFE_PUB_ID)) AND ((@IsNull_OFE_MONTO = 1 AND [OFE_MONTO] IS NULL) OR ([OFE_MONTO] = @Original_OFE_MONTO)) AND ((@IsNull_OFE_FECHA = 1 AND [OFE_FECHA] IS NULL) OR ([OFE_FECHA] = @Original_OFE_FECHA)) AND ((@IsNull_OFE_USU_ID = 1 AND [OFE_USU_ID] IS NULL) OR ([OFE_USU_ID] = @Original_OFE_USU_ID)));
+SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUPO.OFERTA WHERE (OFE_ID = @OFE_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_PUB_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_MONTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OFE_MONTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_CAL_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_PUB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_PUB_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -25993,8 +25920,6 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_USU_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_USU_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OFE_CAL_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OFE_CAL_ID", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_CAL_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OFE_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OFE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -26009,13 +25934,13 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR_" +
-                "NOMBRE_GRUPO.OFERTA";
+            this._commandCollection[0].CommandText = "SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUPO" +
+                ".OFERTA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT top 1 OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID\r\nFROM STR_NOMBR" +
-                "E_GRUPO.OFERTA\r\nWHERE OFE_PUB_ID = @pub_id\r\norder by ofe_monto desc";
+            this._commandCollection[1].CommandText = "SELECT TOP (1) OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMB" +
+                "RE_GRUPO.OFERTA WHERE (OFE_PUB_ID = @pub_id) ORDER BY OFE_MONTO DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub_id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -26086,7 +26011,7 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID, global::System.Nullable<decimal> Original_OFE_CAL_ID) {
+        public virtual int Delete(int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_OFE_ID));
             if ((Original_OFE_PUB_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -26120,14 +26045,6 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_OFE_CAL_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_OFE_CAL_ID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -26147,7 +26064,7 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, global::System.Nullable<decimal> OFE_CAL_ID) {
+        public virtual int Insert(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID) {
             if ((OFE_PUB_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(OFE_PUB_ID.Value));
             }
@@ -26172,12 +26089,6 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((OFE_CAL_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(OFE_CAL_ID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -26197,7 +26108,7 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, global::System.Nullable<decimal> OFE_CAL_ID, int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID, global::System.Nullable<decimal> Original_OFE_CAL_ID, int OFE_ID) {
+        public virtual int Update(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID, int OFE_ID) {
             if ((OFE_PUB_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(OFE_PUB_ID.Value));
             }
@@ -26222,54 +26133,40 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((OFE_CAL_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(OFE_CAL_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_OFE_ID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_OFE_ID));
             if ((Original_OFE_PUB_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_OFE_PUB_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_OFE_PUB_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_OFE_MONTO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_OFE_MONTO.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_OFE_MONTO.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_OFE_FECHA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_OFE_FECHA.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_OFE_FECHA.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_OFE_USU_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_OFE_USU_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_OFE_USU_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_OFE_CAL_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_OFE_CAL_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(OFE_ID));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(OFE_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -26289,8 +26186,8 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID FROM STR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, global::System.Nullable<decimal> OFE_CAL_ID, int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID, global::System.Nullable<decimal> Original_OFE_CAL_ID) {
-            return this.Update(OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, OFE_CAL_ID, Original_OFE_ID, Original_OFE_PUB_ID, Original_OFE_MONTO, Original_OFE_FECHA, Original_OFE_USU_ID, Original_OFE_CAL_ID, Original_OFE_ID);
+        public virtual int Update(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID) {
+            return this.Update(OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, Original_OFE_ID, Original_OFE_PUB_ID, Original_OFE_MONTO, Original_OFE_FECHA, Original_OFE_USU_ID, Original_OFE_ID);
         }
     }
     
