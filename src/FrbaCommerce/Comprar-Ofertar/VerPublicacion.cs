@@ -67,8 +67,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
 
-            // Actualizo el stock de ese producto
-            //publicacionTableAdapter1.ActualizarStock((decimal?)stock, (decimal)publicacionId);
+            // Si termina el stock, doy por finalizada la publicacion
 
             if (Convert.ToInt32(textBox1.Text) == stock)
             { 
@@ -76,6 +75,8 @@ namespace FrbaCommerce.Comprar_Ofertar
                 DataRow publicacion = gD1C2014DataSet1.PUBLICACION.NewRow();
                 publicacion = gD1C2014DataSet1.PUBLICACION.FindByPUB_ID(publicacionId);
                 publicacion["PUB_ESTADO_ID"] = 'F';
+
+                publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
  
             }
 
