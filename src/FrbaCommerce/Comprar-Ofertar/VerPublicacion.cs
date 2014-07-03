@@ -68,10 +68,17 @@ namespace FrbaCommerce.Comprar_Ofertar
             compraTableAdapter1.Update(gD1C2014DataSet1.COMPRA);
 
             // Actualizo el stock de ese producto
-            publicacionTableAdapter1.ActualizarStock((decimal?)stock, (decimal)publicacionId);
-            // Actualizo el datagrid
-            //this.publicacionTableAdapter1.Fill(this.gD1C2014DataSet1.PUBLICACION);
-            // Le muestro los datos del vendedor
+            //publicacionTableAdapter1.ActualizarStock((decimal?)stock, (decimal)publicacionId);
+
+            if (Convert.ToInt32(textBox1.Text) == stock)
+            { 
+                //TODO: FINALIZAR PUBLICACION
+                DataRow publicacion = gD1C2014DataSet1.PUBLICACION.NewRow();
+                publicacion = gD1C2014DataSet1.PUBLICACION.FindByPUB_ID(publicacionId);
+                publicacion["PUB_ESTADO_ID"] = 'F';
+ 
+            }
+
             new FrbaCommerce.Comprar_Ofertar.VerVendedor(usuarioId, tipo).Show();
             this.Close();
             
