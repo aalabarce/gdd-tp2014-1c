@@ -18,7 +18,6 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private void Alta_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet1.ROL' Puede moverla o quitarla según sea necesario.
             this.rOLTableAdapter.FillByActivos(this.gD1C2014DataSet1.ROL);
 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -51,11 +50,9 @@ namespace FrbaCommerce.Registro_de_Usuario
             string usuario = textBox1.Text;
             string password = textBox2.Text;
             DataRowView rolElegido = (DataRowView)comboBox1.SelectedItem;
-            
-
+      
             string passSHA = MetodosGlobales.sha256(textBox2.Text);
             
-
             DataRow nuevoUsuario = gD1C2014DataSet1.USUARIO.NewRow();
             nuevoUsuario["USU_USERNAME"] = textBox1.Text;
             nuevoUsuario["USU_PASSWORD"] = passSHA;
@@ -73,7 +70,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             }
             else
             {
-                nuevoUsuario["USU_TIPO"] = null;
+                nuevoUsuario["USU_TIPO"] = DBNull.Value;
             }
 
 
