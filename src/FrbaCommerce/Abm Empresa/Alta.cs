@@ -38,16 +38,17 @@ namespace FrbaCommerce.Abm_Empresa
                 // Si me llego -1 es porque esta creando una empresa a manopla, entonces no tengo ningun usuario que borrar
 
                 if (usuarioId != -1)
-                {
-                    DataRow FilaAModificar = gD1C2014DataSet1.USUARIO.NewRow();
-                    FilaAModificar = gD1C2014DataSet1.USUARIO.FindByUSU_ID((int)usuarioId);
+                {                  
+                    DataRow FilaABorrar = gD1C2014DataSet1.USUARIO.NewRow();
+                    FilaABorrar = gD1C2014DataSet1.USUARIO.FindByUSU_ID((int)usuarioId);
 
-                    FilaAModificar["USU_BAJA"] = 1;
+                    FilaABorrar.Delete();
                     usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
+
+                    new Registro_de_Usuario.Alta().Show();
+                    
                 }
-                
-                
-                
+                                               
                 this.Close();
                 
             }
@@ -113,6 +114,7 @@ namespace FrbaCommerce.Abm_Empresa
                gD1C2014DataSet1.USUARIO.Rows.Add(usuarioGenerico);
                usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
                empresa["EMP_USU_ID"] = usuarioGenerico["USU_ID"];
+               usuarioId = Convert.ToInt32(usuarioGenerico["USU_ID"]);
            }
            else
            {
@@ -121,6 +123,15 @@ namespace FrbaCommerce.Abm_Empresa
            gD1C2014DataSet1.EMPRESA.Rows.Add(empresa);
 
            empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
+
+            // Agrego el USUARIO_ROL
+
+           DataRow usuario_rol = gD1C2014DataSet1.USUARIO_ROL.NewRow();
+           usuario_rol["USU_ROL_USUARIO_ID"] = usuarioId;
+           usuario_rol["USU_ROL_ROL_ID"] = 2;
+
+           gD1C2014DataSet1.USUARIO_ROL.Rows.Add(usuario_rol);
+           usuariO_ROLTableAdapter1.Update(gD1C2014DataSet1.USUARIO_ROL);
 
            string mensaje = "La empresa " + textBox1.Text + " ha sido dada de alta";
            MessageBox.Show(mensaje);
