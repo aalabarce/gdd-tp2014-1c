@@ -10,22 +10,16 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Abm_Empresa
 {
-
-    
+        
     public partial class Alta : Form
     {
         public int? usuarioId { get; set; }
-       
+     
         
         public Alta(int? user)
         {
             InitializeComponent();
             usuarioId = user;
-        }
-
-        private void gD1C2014DataSetBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,7 +65,7 @@ namespace FrbaCommerce.Abm_Empresa
                 return;
             }
 
-            if (!esInteger(textBox3) || !esInteger(textBox5) || !esInteger(textBox6))
+            if (!MetodosGlobales.esInteger(textBox3) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esInteger(textBox6))
             {
                 return;
             }
@@ -96,8 +90,7 @@ namespace FrbaCommerce.Abm_Empresa
            empresa["EMP_CIUDAD"] = textBox10.Text;
            empresa["EMP_CUIT"] = textBox11.Text;
            empresa["EMP_NOM_CONTACTO"] = textBox12.Text;
-           empresa["EMP_FECHA_CREACION"] = DateTime.Now;
-           
+           empresa["EMP_FECHA_CREACION"] = DateTime.Now;           
            empresa["EMP_BAJA"] = 0;
 
            
@@ -110,6 +103,7 @@ namespace FrbaCommerce.Abm_Empresa
                usuarioGenerico["USU_PASSWORD"] = MetodosGlobales.sha256("1234");
                usuarioGenerico["USU_INTENTOS_LOGIN"] = 0;
                usuarioGenerico["USU_TIPO"] = "E";
+               usuarioGenerico["USU_BAJA"] = 0;
 
                gD1C2014DataSet1.USUARIO.Rows.Add(usuarioGenerico);
                usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
@@ -124,8 +118,7 @@ namespace FrbaCommerce.Abm_Empresa
 
            empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
 
-            // Agrego el USUARIO_ROL
-
+           // Agrego el USUARIO_ROL
            DataRow usuario_rol = gD1C2014DataSet1.USUARIO_ROL.NewRow();
            usuario_rol["USU_ROL_USUARIO_ID"] = usuarioId;
            usuario_rol["USU_ROL_ROL_ID"] = 2;
@@ -139,28 +132,9 @@ namespace FrbaCommerce.Abm_Empresa
             
         }
 
-        private bool esInteger(TextBox txt)
-        {
-            int number;
-
-            bool result = Int32.TryParse(txt.Text, out number);
-            if (result)
-                return true;
-            else
-            {
-                string errores = "El campo " + txt.Tag + " debe ser de tipo numérico";
-                MessageBox.Show(errores);
-                return false;
-            }   
-        }
-
         private void Alta_Load(object sender, EventArgs e)
         {
             this.usuarioTableAdapter1.Fill(this.gD1C2014DataSet1.USUARIO);
         }
-
-
-
-
     }
 }

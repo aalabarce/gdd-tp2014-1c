@@ -295,7 +295,6 @@
             // 
             // gD1C2014DataSetBindingSource
             // 
-            this.gD1C2014DataSetBindingSource.CurrentChanged += new System.EventHandler(this.gD1C2014DataSetBindingSource_CurrentChanged);
             // 
             // gD1C2014DataSet1
             // 

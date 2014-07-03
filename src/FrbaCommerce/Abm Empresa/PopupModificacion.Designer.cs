@@ -153,6 +153,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 10;
+            this.textBox3.Tag = "telefono";
             // 
             // textBox4
             // 
@@ -167,6 +168,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 12;
+            this.textBox5.Tag = "numero";
             // 
             // textBox6
             // 
@@ -174,6 +176,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 13;
+            this.textBox6.Tag = "piso";
             // 
             // textBox7
             // 
