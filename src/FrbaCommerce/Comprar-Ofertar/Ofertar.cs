@@ -15,5 +15,26 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             InitializeComponent();
         }
+
+        private void Ofertar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ofertar_Load_1(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.OFERTAS_ACTIVAS' Puede moverla o quitarla según sea necesario.
+            this.oFERTAS_ACTIVASTableAdapter.Fill(this.gD1C2014DataSet.OFERTAS_ACTIVAS);
+            dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Ofertar";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Abro el popup
+            DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+            int publicacionId = Convert.ToInt32(fila.Cells[5].Value);
+
+            new FrbaCommerce.Comprar_Ofertar.RealizarOferta(publicacionId).Show();
+        }
     }
 }
