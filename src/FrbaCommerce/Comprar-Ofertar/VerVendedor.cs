@@ -28,7 +28,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             if (tipo == "C")
             {
-                int? clienteId = empresaTableAdapter1.getIdByUsuId((int?)usuarioId);
+                int? clienteId = clienteTableAdapter1.getIdByUsuId((int?)usuarioId);
 
                 DataRow cliente = gD1C2014DataSet1.CLIENTE.NewRow();
                 cliente = gD1C2014DataSet1.CLIENTE.FindByCLI_ID((int)clienteId);

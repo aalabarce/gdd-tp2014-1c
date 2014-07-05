@@ -42,21 +42,25 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gD1C2014DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oFERTASACTIVASBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oFERTAS_ACTIVASTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTAS_ACTIVASTableAdapter();
             this.pUBSTOCKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBPRECIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subastar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pUBUSUIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUBIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oFERTASACTIVASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2014DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oFERTAS_ACTIVASTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.OFERTAS_ACTIVASTableAdapter();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rUBROBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONRUBROBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oFERTASACTIVASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // publicacioN_RUBROTableAdapter1
@@ -124,7 +128,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(221, 122);
+            this.button1.Location = new System.Drawing.Point(246, 146);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -133,7 +137,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(331, 122);
+            this.button2.Location = new System.Drawing.Point(339, 146);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -161,42 +165,32 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // gD1C2014DataSetBindingSource
-            // 
-            this.gD1C2014DataSetBindingSource.DataSource = this.gD1C2014DataSet;
-            this.gD1C2014DataSetBindingSource.Position = 0;
-            // 
-            // oFERTASACTIVASBindingSource
-            // 
-            this.oFERTASACTIVASBindingSource.DataMember = "OFERTAS_ACTIVAS";
-            this.oFERTASACTIVASBindingSource.DataSource = this.gD1C2014DataSetBindingSource;
-            // 
-            // oFERTAS_ACTIVASTableAdapter
-            // 
-            this.oFERTAS_ACTIVASTableAdapter.ClearBeforeFill = true;
-            // 
             // pUBSTOCKDataGridViewTextBoxColumn
             // 
             this.pUBSTOCKDataGridViewTextBoxColumn.DataPropertyName = "PUB_STOCK";
             this.pUBSTOCKDataGridViewTextBoxColumn.HeaderText = "PUB_STOCK";
             this.pUBSTOCKDataGridViewTextBoxColumn.Name = "pUBSTOCKDataGridViewTextBoxColumn";
+            this.pUBSTOCKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBPRECIODataGridViewTextBoxColumn
             // 
             this.pUBPRECIODataGridViewTextBoxColumn.DataPropertyName = "PUB_PRECIO";
             this.pUBPRECIODataGridViewTextBoxColumn.HeaderText = "PUB_PRECIO";
             this.pUBPRECIODataGridViewTextBoxColumn.Name = "pUBPRECIODataGridViewTextBoxColumn";
+            this.pUBPRECIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pUBDESCRIPCIONDataGridViewTextBoxColumn
             // 
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "PUB_DESCRIPCION";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "PUB_DESCRIPCION";
             this.pUBDESCRIPCIONDataGridViewTextBoxColumn.Name = "pUBDESCRIPCIONDataGridViewTextBoxColumn";
+            this.pUBDESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Subastar
             // 
             this.Subastar.HeaderText = "Subastar";
             this.Subastar.Name = "Subastar";
+            this.Subastar.ReadOnly = true;
             this.Subastar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Subastar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -205,6 +199,7 @@
             this.pUBUSUIDDataGridViewTextBoxColumn.DataPropertyName = "PUB_USU_ID";
             this.pUBUSUIDDataGridViewTextBoxColumn.HeaderText = "PUB_USU_ID";
             this.pUBUSUIDDataGridViewTextBoxColumn.Name = "pUBUSUIDDataGridViewTextBoxColumn";
+            this.pUBUSUIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBUSUIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pUBIDDataGridViewTextBoxColumn
@@ -215,11 +210,65 @@
             this.pUBIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pUBIDDataGridViewTextBoxColumn.Visible = false;
             // 
+            // oFERTASACTIVASBindingSource
+            // 
+            this.oFERTASACTIVASBindingSource.DataMember = "OFERTAS_ACTIVAS";
+            this.oFERTASACTIVASBindingSource.DataSource = this.gD1C2014DataSetBindingSource;
+            // 
+            // gD1C2014DataSetBindingSource
+            // 
+            this.gD1C2014DataSetBindingSource.DataSource = this.gD1C2014DataSet;
+            this.gD1C2014DataSetBindingSource.Position = 0;
+            // 
+            // oFERTAS_ACTIVASTableAdapter
+            // 
+            this.oFERTAS_ACTIVASTableAdapter.ClearBeforeFill = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(117, 146);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(32, 23);
+            this.button6.TabIndex = 14;
+            this.button6.Text = ">>";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(15, 146);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(32, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "<<";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(55, 146);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(22, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "<";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(85, 146);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(21, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = ">";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Ofertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 432);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -234,8 +283,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUBLICACIONRUBROBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oFERTASACTIVASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +314,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn Subastar;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBUSUIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }

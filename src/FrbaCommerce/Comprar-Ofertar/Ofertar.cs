@@ -11,6 +11,11 @@ namespace FrbaCommerce.Comprar_Ofertar
 {
     public partial class Ofertar : Form
     {
+        int contador = 0;
+        int? maxPaginas, rubro;
+        string descripcion;
+        decimal rubroId;
+
         public Ofertar()
         {
             InitializeComponent();

@@ -12,8 +12,8 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class Comprar : Form
     {
         int contador = 0;
-        int? maxPaginas, rubro;
-        string descripcion;
+        int? maxPaginas, rubro = null;
+        string descripcion = "";
         decimal rubroId;
         public Comprar()
         {
@@ -23,9 +23,10 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void Comprar_Load(object sender, EventArgs e)
         {
             this.rUBROTableAdapter.Fill(this.gD1C2014DataSet1.RUBRO);
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, 0, "");
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, null, "");
             maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Comprar";
+            comboBox1.Items.Add("-");
         }
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
@@ -47,6 +48,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubroId = (decimal)rId;
             rubro = (int?)rubroId;
             descripcion = textBox2.Text;
+
+            if (checkBox1.Checked)
+            {
+                //  rubro;
+            }
+
             maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubro(descripcion,rubroId);
             comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
             
