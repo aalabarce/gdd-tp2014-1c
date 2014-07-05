@@ -26802,7 +26802,7 @@ SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, P" +
@@ -26830,14 +26830,11 @@ SELECT PUB_ID, PUB_STOCK, PUB_PRECIO, PUB_FECHA_INICIO, PUB_FECHA_FINALIZACION, 
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
-FROM STR_NOMBRE_GRUPO.PUBLICACION 
-WHERE PUB_ESTADO_ID = 'A' 
-AND (PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.COMPRA WHERE COM_PUB_ID = PUB_ID)) > 0
-AND PUB_FECHA_FINALIZACION > GETDATE() 
-AND PUB_TIPO_ID = 'C' 
-";
+            this._commandCollection[4].CommandText = "SELECT PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.CO" +
+                "MPRA WHERE COM_PUB_ID = PUB_ID)\r\n FROM STR_NOMBRE_GRUPO.PUBLICACION\r\n WHERE PUB_" +
+                "ID = @pubId";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pubId", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
@@ -26846,12 +26843,22 @@ WHERE PUB_ESTADO_ID = 'A'
 AND (PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.COMPRA WHERE COM_PUB_ID = PUB_ID)) > 0
 AND PUB_FECHA_FINALIZACION > GETDATE() 
 AND PUB_TIPO_ID = 'C' 
+";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
+FROM STR_NOMBRE_GRUPO.PUBLICACION 
+WHERE PUB_ESTADO_ID = 'A' 
+AND (PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.COMPRA WHERE COM_PUB_ID = PUB_ID)) > 0
+AND PUB_FECHA_FINALIZACION > GETDATE() 
+AND PUB_TIPO_ID = 'C' 
 AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
 AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
 					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27365,8 +27372,36 @@ AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object maxPaginas() {
+        public virtual object getStockByPubId(decimal pubId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            command.Parameters[0].Value = ((decimal)(pubId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object maxPaginas() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -27393,7 +27428,7 @@ AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object maxPaginasRubro(string descripcion, decimal rubroId) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((descripcion == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
