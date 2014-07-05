@@ -26,7 +26,6 @@ namespace FrbaCommerce.Comprar_Ofertar
             comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, null, "");
             maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Comprar";
-            comboBox1.Items.Add("-");
         }
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
