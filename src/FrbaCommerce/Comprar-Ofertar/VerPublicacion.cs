@@ -12,8 +12,8 @@ namespace FrbaCommerce.Comprar_Ofertar
 
     public partial class VerPublicacion : Form
     {
-        int usuarioId, publicacionId, stock, cantidadComprasSinCalificar;
-        string tipo, estadoPublicacion;
+        int usuarioId, publicacionId, stock;
+        string tipo;
 
         public VerPublicacion(int id, string tipoUsuario, int pubId)
         {
@@ -21,21 +21,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             usuarioId = id;
             tipo = tipoUsuario;
             publicacionId = pubId;
-            estadoPublicacion = (string)publicacionTableAdapter1.getEstadoByPubId(pubId);
-            cantidadComprasSinCalificar = (int)compraTableAdapter1.cantidadComprasSinCalificar(Global.usuario_id);
-            if (estadoPublicacion == "P")
-            {
-                label8.Text = "No se puede comprar esta publicacion, su estado es 'Pausado'";
-                button1.Visible = false;
-                button2.Visible = false;
-            }
-
-            if (cantidadComprasSinCalificar >= 5)
-            {
-                label9.Text = "No se puede comprar esta publicacion debido a que tiene 5 o más compras sin calificar";
-                button1.Visible = false;
-                button2.Visible = false;
-            }
+            
             
         }
 

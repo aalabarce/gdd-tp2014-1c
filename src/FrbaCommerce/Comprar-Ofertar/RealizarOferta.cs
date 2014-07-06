@@ -11,7 +11,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 {
     public partial class RealizarOferta : Form
     {
-        int publicacionId, cantidadComprasSinCalificar;
+        int publicacionId;
         decimal? maxOferta;
         public RealizarOferta(int pubId)
         {
@@ -21,13 +21,6 @@ namespace FrbaCommerce.Comprar_Ofertar
             if (maxOferta == null)
                 maxOferta = 0;
             label3.Text = Convert.ToString(maxOferta);
-            cantidadComprasSinCalificar = (int)compraTableAdapter1.cantidadComprasSinCalificar(Global.usuario_id);
-            if (cantidadComprasSinCalificar >= 5)
-            {
-                label4.Text = "No se puede comprar esta publicacion debido a que tiene 5 o más compras sin calificar";
-                button1.Visible = false;
-                button2.Visible = false;
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,6 +71,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
 
             MessageBox.Show("Su oferta ha sido enviada");
+            this.Close();
+            new FrbaCommerce.Comprar_Ofertar.Ofertar().Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

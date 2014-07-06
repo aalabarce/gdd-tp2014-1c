@@ -60,7 +60,8 @@
             this.comprasLIMIT1TableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.ComprasLIMIT1TableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rUBROBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rUBROTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
+            this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasLIMIT1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
@@ -347,7 +348,11 @@
             // rUBROTableAdapter
             // 
             this.rUBROTableAdapter.ClearBeforeFill = true;
+
+            // compraTableAdapter1
             // 
+            this.compraTableAdapter1.ClearBeforeFill = true;
+
             // Comprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,5 +423,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBDESCRIPCIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUBUSUIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumDataGridViewTextBoxColumn;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
     }
 }

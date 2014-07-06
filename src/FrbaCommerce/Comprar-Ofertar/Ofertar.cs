@@ -77,7 +77,22 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
             int publicacionId = Convert.ToInt32(fila.Cells[5].Value);
+            int cantidadComprasSinCalificar;
+            string estadoPublicacion;
+            estadoPublicacion = (string)publicacionTableAdapter1.getEstadoByPubId(publicacionId);
+            cantidadComprasSinCalificar = (int)compraTableAdapter1.cantidadComprasSinCalificar(Global.usuario_id);
+            if (estadoPublicacion == "P")
+            {
+                MessageBox.Show("No se puede comprar esta publicacion, su estado es 'Pausado'");
+                return;
+            }
 
+            if (cantidadComprasSinCalificar >= 5)
+            {
+                MessageBox.Show("No se puede comprar esta publicacion debido a que tiene 5 o más compras sin calificar");
+                return;
+
+            }
             new FrbaCommerce.Comprar_Ofertar.RealizarOferta(publicacionId).Show();
             this.Close();
         }
