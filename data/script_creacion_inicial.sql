@@ -758,7 +758,7 @@ VALUES(@usuarioAdminId, @rol_id_admin);
 			   ([PUB_ID], [PUB_TIPO_ID],[PUB_STOCK],[PUB_PRECIO],[PUB_ESTADO_ID],[PUB_FECHA_INICIO],[PUB_FECHA_FINALIZACION]
 			   ,[PUB_DESCRIPCION],[PUB_VIS_ID],[PUB_USU_ID])
 	SELECT DISTINCT Publicacion_Cod, 
-	LEFT(Publicacion_Tipo, 1),Publicacion_Stock, Publicacion_Precio, 'A',
+	LEFT(Publicacion_Tipo, 1),Publicacion_Stock, Publicacion_Precio, 'F',
 	Publicacion_Fecha, Publicacion_Fecha_Venc,
 	Publicacion_Descripcion, (SELECT vis_id from [STR_NOMBRE_GRUPO].[visibilidad] where vis_codigo = Publicacion_Visibilidad_Cod), 
 	(CASE WHEN Publ_Cli_Mail IS NULL THEN
