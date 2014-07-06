@@ -61,7 +61,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rUBROBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rUBROTableAdapter = new FrbaCommerce.GD1C2014DataSetTableAdapters.RUBROTableAdapter();
+
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasLIMIT1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
@@ -221,7 +223,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(116, 95);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(196, 20);
             this.textBox2.TabIndex = 3;
             // 
             // button1
@@ -336,7 +338,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(116, 61);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(196, 21);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.ValueMember = "RUBRO_ID";
             // 
