@@ -60,6 +60,7 @@
             this.compraTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter();
             this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             this.txtStock = new System.Windows.Forms.NumericUpDown();
+            this.lineaS_FACTURACIONTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.LINEAS_FACTURACIONTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             this.SuspendLayout();
@@ -324,9 +325,23 @@
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(187, 181);
+            this.txtStock.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 52;
+            this.txtStock.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lineaS_FACTURACIONTableAdapter1
+            // 
+            this.lineaS_FACTURACIONTableAdapter1.ClearBeforeFill = true;
             // 
             // Editar
             // 
@@ -400,5 +415,6 @@
         private FrbaCommerce.GD1C2014DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
         private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.NumericUpDown txtStock;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.LINEAS_FACTURACIONTableAdapter lineaS_FACTURACIONTableAdapter1;
     }
 }
