@@ -63,7 +63,10 @@ namespace FrbaCommerce
                 }
 
                 if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 8)
+                {
                     preguntasToolStripMenuItem.Visible = true;
+                    verRespuestasToolStripMenuItem.Visible = true;
+                }
 
                 if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 9)
                     comprasToolStripMenuItem.Visible = true;

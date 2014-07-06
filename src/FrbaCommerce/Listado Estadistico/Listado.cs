@@ -73,8 +73,8 @@ namespace FrbaCommerce.Listado_Estadistico
             }
             if (radioButton2.Checked == true)
             {
-                dataGridView1.Visible = false;
                 dataGridView2.Visible = true;
+                dataGridView1.Visible = false;
                 dataGridView3.Visible = false;
                 dataGridView4.Visible = false;
 
@@ -82,19 +82,19 @@ namespace FrbaCommerce.Listado_Estadistico
             }
             if (radioButton3.Checked == true)
             {
+                dataGridView3.Visible = true;
                 dataGridView1.Visible = false;
                 dataGridView2.Visible = false;
-                dataGridView3.Visible = true;
                 dataGridView4.Visible = false;
 
                 cALIFICACIONES_VENDEDORESTableAdapter.top5(gD1C2014DataSet1.CALIFICACIONES_VENDEDORES, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
             }
             if (radioButton4.Checked == true)
             {
+                dataGridView4.Visible = true;
                 dataGridView1.Visible = false;
                 dataGridView2.Visible = false;
                 dataGridView3.Visible = false;
-                dataGridView4.Visible = true;
 
                 cANTIDAD_SIN_CALIFICARTableAdapter.top5(gD1C2014DataSet1.CANTIDAD_SIN_CALIFICAR, Convert.ToInt32(comboBox1.Text), comboBox2.Text);
             }         

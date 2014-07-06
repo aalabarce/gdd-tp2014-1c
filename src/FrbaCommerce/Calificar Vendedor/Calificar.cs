@@ -26,7 +26,6 @@ namespace FrbaCommerce.Calificar_Vendedor
 
         private void Calificar_Load(object sender, EventArgs e)
         {
-
             comboBox1.Items.Add(1);
             comboBox1.Items.Add(2);
             comboBox1.Items.Add(3);

@@ -293,21 +293,21 @@
             // crearRolToolStripMenuItem
             // 
             this.crearRolToolStripMenuItem.Name = "crearRolToolStripMenuItem";
-            this.crearRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.crearRolToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.crearRolToolStripMenuItem.Text = "Crear Rol";
             this.crearRolToolStripMenuItem.Click += new System.EventHandler(this.crearRolToolStripMenuItem_Click);
             // 
             // modificarRolToolStripMenuItem
             // 
             this.modificarRolToolStripMenuItem.Name = "modificarRolToolStripMenuItem";
-            this.modificarRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modificarRolToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.modificarRolToolStripMenuItem.Text = "Modificar Rol";
             this.modificarRolToolStripMenuItem.Click += new System.EventHandler(this.modificarRolToolStripMenuItem_Click);
             // 
             // eliminarRolToolStripMenuItem
             // 
             this.eliminarRolToolStripMenuItem.Name = "eliminarRolToolStripMenuItem";
-            this.eliminarRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eliminarRolToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.eliminarRolToolStripMenuItem.Text = "Eliminar Rol";
             this.eliminarRolToolStripMenuItem.Click += new System.EventHandler(this.eliminarRolToolStripMenuItem_Click);
             // 
@@ -389,6 +389,7 @@
             this.verRespuestasToolStripMenuItem.Name = "verRespuestasToolStripMenuItem";
             this.verRespuestasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.verRespuestasToolStripMenuItem.Text = "Ver respuestas";
+            this.verRespuestasToolStripMenuItem.Visible = false;
             this.verRespuestasToolStripMenuItem.Click += new System.EventHandler(this.verRespuestasToolStripMenuItem_Click);
             // 
             // label3
