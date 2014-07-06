@@ -12,7 +12,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
     public partial class VerPublicacion : Form
     {
-        int usuarioId, publicacionId, stock;
+        int usuarioId, publicacionId, stock, cantidadComprasSinCalificar;
         string tipo, estadoPublicacion;
 
         public VerPublicacion(int id, string tipoUsuario, int pubId)
@@ -22,12 +22,21 @@ namespace FrbaCommerce.Comprar_Ofertar
             tipo = tipoUsuario;
             publicacionId = pubId;
             estadoPublicacion = (string)publicacionTableAdapter1.getEstadoByPubId(pubId);
+            cantidadComprasSinCalificar = (int)compraTableAdapter1.cantidadComprasSinCalificar(Global.usuario_id);
             if (estadoPublicacion == "P")
             {
                 label8.Text = "No se puede comprar esta publicacion, su estado es 'Pausado'";
                 button1.Visible = false;
                 button2.Visible = false;
             }
+
+            if (cantidadComprasSinCalificar >= 5)
+            {
+                label9.Text = "No se puede comprar esta publicacion debido a que tiene 5 o más compras sin calificar";
+                button1.Visible = false;
+                button2.Visible = false;
+            }
+            
         }
 
         private void VerPublicacion_Load(object sender, EventArgs e)
@@ -88,6 +97,18 @@ namespace FrbaCommerce.Comprar_Ofertar
                 publicacion["PUB_ESTADO_ID"] = 'F';
 
                 publicacionTableAdapter1.Update(gD1C2014DataSet1.PUBLICACION);
+
+                GD1C2014DataSet.LINEAS_FACTURACIONDataTable lineas;
+                lineas = this.lineaS_FACTURACIONTableAdapter1.GetByUsuID(Global.usuario_id);
+                int cantPublicaciones = (int)this.lineaS_FACTURACIONTableAdapter1.cantPublicacionesUsuario(Global.usuario_id);
+                if (cantPublicaciones >= 10)
+                {
+                    usuarioTableAdapter1.deshabilitarUsuario((int)Global.usuario_id);
+                    MessageBox.Show("Usted tiene " + cantPublicaciones + " publicaciones sin rendir. Todas sus publicaciones activas fueron pausadas, y usted fue inhabilitado del sistema. Contáctese con la oficina de administración para solucionar el inconveniente.");
+                    this.Hide();
+                    new FrbaCommerce.Login.Login().Show();
+
+                }
  
             }
 
@@ -108,6 +129,12 @@ namespace FrbaCommerce.Comprar_Ofertar
                 MessageBox.Show("No esta permitido realizar preguntas en esta publicacion");
             }
  
+        }
+
+        private void Volver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrbaCommerce.Comprar_Ofertar.Comprar().Show(); 
         }
 
 

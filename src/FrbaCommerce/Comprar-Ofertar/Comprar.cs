@@ -50,7 +50,6 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubro = (int?)rubroId;
             descripcion = textBox2.Text;
 
-          
 
             maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubro(descripcion, rubroId, Global.usuario_id);
             comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);

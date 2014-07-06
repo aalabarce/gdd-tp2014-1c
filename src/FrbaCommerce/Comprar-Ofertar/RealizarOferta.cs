@@ -11,7 +11,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 {
     public partial class RealizarOferta : Form
     {
-        int publicacionId;
+        int publicacionId, cantidadComprasSinCalificar;
         decimal? maxOferta;
         public RealizarOferta(int pubId)
         {
@@ -21,6 +21,13 @@ namespace FrbaCommerce.Comprar_Ofertar
             if (maxOferta == null)
                 maxOferta = 0;
             label3.Text = Convert.ToString(maxOferta);
+            cantidadComprasSinCalificar = (int)compraTableAdapter1.cantidadComprasSinCalificar(Global.usuario_id);
+            if (cantidadComprasSinCalificar >= 5)
+            {
+                label4.Text = "No se puede comprar esta publicacion debido a que tiene 5 o más compras sin calificar";
+                button1.Visible = false;
+                button2.Visible = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,19 +46,22 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // TODO: Validar que sea entero
             decimal? pubId = (decimal?)publicacionId;
-            decimal? oferta = Convert.ToDecimal(textBox1.Text);
-            
             if (MetodosGlobales.esInteger(textBox1))
             {
-                if (maxOferta < oferta)
-                    persistir();
+                decimal? oferta = Convert.ToDecimal(textBox1.Text);
+
+                if (MetodosGlobales.esInteger(textBox1))
+                {
+                    if (maxOferta < oferta)
+                        persistir();
+                    else
+                        MessageBox.Show("Su oferta es menor a la maximo valor ofertado previamente");
+                }
                 else
-                    MessageBox.Show("Su oferta es menor a la maximo valor ofertado previamente");
-            }
-            else
-            {
-                MessageBox.Show("El monto no es entero");
-                return;
+                {
+                    MessageBox.Show("El monto no es entero");
+                    return;
+                }
             }
         }
 
