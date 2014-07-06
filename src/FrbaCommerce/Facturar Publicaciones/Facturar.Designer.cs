@@ -58,6 +58,7 @@
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.txtCodSeguridad = new System.Windows.Forms.TextBox();
             this.grDatosTarjeta = new System.Windows.Forms.GroupBox();
+            this.tarjetaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.TARJETATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lINEASFACTURACIONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet)).BeginInit();
@@ -261,6 +262,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(181, 26);
             this.txtNumero.TabIndex = 30;
+            this.txtNumero.Tag = "Número";
             // 
             // txtMes
             // 
@@ -270,6 +272,7 @@
             this.txtMes.Name = "txtMes";
             this.txtMes.Size = new System.Drawing.Size(51, 26);
             this.txtMes.TabIndex = 31;
+            this.txtMes.Tag = "Mes";
             // 
             // label4
             // 
@@ -285,10 +288,11 @@
             // 
             this.txtAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnio.Location = new System.Drawing.Point(317, 497);
-            this.txtAnio.MaxLength = 4;
+            this.txtAnio.MaxLength = 2;
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(51, 26);
             this.txtAnio.TabIndex = 33;
+            this.txtAnio.Tag = "Año";
             // 
             // txtCodSeguridad
             // 
@@ -298,6 +302,7 @@
             this.txtCodSeguridad.Name = "txtCodSeguridad";
             this.txtCodSeguridad.Size = new System.Drawing.Size(51, 26);
             this.txtCodSeguridad.TabIndex = 34;
+            this.txtCodSeguridad.Tag = "Código de Seguridad";
             // 
             // grDatosTarjeta
             // 
@@ -307,6 +312,10 @@
             this.grDatosTarjeta.TabIndex = 35;
             this.grDatosTarjeta.TabStop = false;
             this.grDatosTarjeta.Text = "Datos Tarjeta";
+            // 
+            // tarjetaTableAdapter1
+            // 
+            this.tarjetaTableAdapter1.ClearBeforeFill = true;
             // 
             // Facturar
             // 
@@ -373,5 +382,6 @@
         private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.TextBox txtCodSeguridad;
         private System.Windows.Forms.GroupBox grDatosTarjeta;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.TARJETATableAdapter tarjetaTableAdapter1;
     }
 }

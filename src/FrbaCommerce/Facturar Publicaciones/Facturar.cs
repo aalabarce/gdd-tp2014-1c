@@ -52,6 +52,25 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 return;
             }
 
+            //si pago con tarjeta, valido los datos.
+            if (cmbFormaPago.SelectedValue.ToString() == "1")
+            {
+                if (txtNumero.Text == "" || txtAnio.Text == "" || txtMes.Text == "" || txtCodSeguridad.Text == "") {
+                    MessageBox.Show("Debe completar todos los datos de la tarjeta");
+                    return;
+                }
+                if(!MetodosGlobales.esInteger(txtAnio)){
+                    return;
+                }
+                if(!MetodosGlobales.esInteger(txtMes)){
+                    return;
+                }
+                if (!MetodosGlobales.esInteger(txtCodSeguridad))
+                {
+                    return;
+                }
+            }
+
             //creo la factura.
             DataRow factura = gD1C2014DataSet.FACTURA.NewRow();
             factura["FAC_FECHA"] = DateTime.Now;
@@ -62,7 +81,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
             facturaTableAdapter1.Update(gD1C2014DataSet.FACTURA);
 
-            int total = 0;
+            double total = 0;
             int cantFacturada = 0;
             string codPubAnterior = "";
 
@@ -76,7 +95,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 }
                 if (cantFacturada <= Convert.ToInt32(txtCantidad.Text))
                 {
-                    total = total + Convert.ToInt32(linea["PRECIO"]);
+                    total = total + Convert.ToDouble(linea["PRECIO"]);
 
                     DataRow itemFactura = gD1C2014DataSet.ITEM_FACTURA.NewRow();
                     itemFactura["ITEM_MONTO"] = linea["PRECIO"];
@@ -93,6 +112,21 @@ namespace FrbaCommerce.Facturar_Publicaciones
             //actualizo la factura con el total pagado.
             factura["FAC_TOTAL"] = total;
             facturaTableAdapter1.Update(gD1C2014DataSet.FACTURA);
+
+            //si pago con tarjeta, guardo los datos de la misma.
+            if (cmbFormaPago.SelectedValue.ToString() == "1")
+            {
+                DataRow tarjeta = gD1C2014DataSet.TARJETA.NewRow();
+                tarjeta["TAR_NUMERO"] = txtNumero.Text;
+                tarjeta["TAR_ANIO_VENC"] = txtAnio.Text;
+                tarjeta["TAR_MES_VENC"] = txtMes.Text;
+                tarjeta["TAR_CODIGO_SEGURIDAD"] = txtCodSeguridad.Text;
+                tarjeta["TAR_FAC_ID"] = factura["FAC_ID"];
+
+                gD1C2014DataSet.TARJETA.Rows.Add(tarjeta);
+
+                tarjetaTableAdapter1.Update(gD1C2014DataSet.TARJETA);
+            }
 
             this.Close();
             new FrbaCommerce.Facturar_Publicaciones.verFactura(Convert.ToInt32(factura["FAC_ID"])).Show();

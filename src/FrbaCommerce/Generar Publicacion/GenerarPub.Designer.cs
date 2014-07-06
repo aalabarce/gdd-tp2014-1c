@@ -315,6 +315,11 @@
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(198, 174);
+            this.txtStock.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 27;

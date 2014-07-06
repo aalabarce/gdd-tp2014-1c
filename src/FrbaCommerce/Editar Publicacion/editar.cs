@@ -266,9 +266,26 @@ namespace FrbaCommerce.Editar_Publicacion
                 {
                     MessageBox.Show("La publicación fue finalizada");
                 }
+
+                //me fijo si el vendedor sumó 10 publicaciones sin pagar.
+                GD1C2014DataSet.LINEAS_FACTURACIONDataTable lineas;
+                lineas = this.lineaS_FACTURACIONTableAdapter1.GetByUsuID(Global.usuario_id);
+                int cantPublicaciones = (int)this.lineaS_FACTURACIONTableAdapter1.cantPublicacionesUsuario(Global.usuario_id);
+                if (cantPublicaciones >= 10)
+                {
+                    usuarioTableAdapter1.deshabilitarUsuario((int)Global.usuario_id);
+                    MessageBox.Show("Usted tiene " + cantPublicaciones + " publicaciones sin rendir. Todas sus publicaciones activas fueron pausadas, y usted fue inhabilitado del sistema. Contáctese con la oficina de administración para solucionar el inconveniente.");
+                    this.Hide();
+                    new FrbaCommerce.Login.Login().Show();
+
+                }
+                else
+                {
+                    this.Hide();
+                    new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
+                }
+
                 
-                this.Hide();
-                new FrbaCommerce.Editar_Publicacion.Publicaciones().Show();
             }
             
         }
