@@ -13,7 +13,7 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class VerPublicacion : Form
     {
         int usuarioId, publicacionId, stock;
-        string tipo;
+        string tipo, estadoPublicacion;
 
         public VerPublicacion(int id, string tipoUsuario, int pubId)
         {
@@ -21,7 +21,13 @@ namespace FrbaCommerce.Comprar_Ofertar
             usuarioId = id;
             tipo = tipoUsuario;
             publicacionId = pubId;
-
+            estadoPublicacion = (string)publicacionTableAdapter1.getEstadoByPubId(pubId);
+            if (estadoPublicacion == "P")
+            {
+                label8.Text = "No se puede comprar esta publicacion, su estado es 'Pausado'";
+                button1.Visible = false;
+                button2.Visible = false;
+            }
         }
 
         private void VerPublicacion_Load(object sender, EventArgs e)
@@ -77,7 +83,6 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             if (Convert.ToInt32(textBox1.Text) == stock)
             { 
-                //TODO: FINALIZAR PUBLICACION
                 DataRow publicacion = gD1C2014DataSet1.PUBLICACION.NewRow();
                 publicacion = gD1C2014DataSet1.PUBLICACION.FindByPUB_ID(publicacionId);
                 publicacion["PUB_ESTADO_ID"] = 'F';
