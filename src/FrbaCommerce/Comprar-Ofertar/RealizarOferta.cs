@@ -12,10 +12,15 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class RealizarOferta : Form
     {
         int publicacionId;
+        decimal? maxOferta;
         public RealizarOferta(int pubId)
         {
             InitializeComponent();
             publicacionId = pubId;
+            maxOferta = (decimal?)ofertaTableAdapter1.maximaOfertaDePublicacion(pubId);
+            if (maxOferta == null)
+                maxOferta = 0;
+            label3.Text = Convert.ToString(maxOferta);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,9 +38,15 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void button1_Click(object sender, EventArgs e)
         {
             // TODO: Validar que sea entero
+            decimal? pubId = (decimal?)publicacionId;
+            decimal? oferta = Convert.ToDecimal(textBox1.Text);
+            
             if (MetodosGlobales.esInteger(textBox1))
             {
-                persistir();
+                if (maxOferta < oferta)
+                    persistir();
+                else
+                    MessageBox.Show("Su oferta es menor a la maximo valor ofertado previamente");
             }
             else
             {

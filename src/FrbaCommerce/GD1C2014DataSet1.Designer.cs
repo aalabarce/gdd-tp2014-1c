@@ -26446,7 +26446,7 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUP
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUPO" +
@@ -26458,6 +26458,11 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUP
                 "RE_GRUPO.OFERTA WHERE (OFE_PUB_ID = @pub_id) ORDER BY OFE_MONTO DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub_id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT MAX(OFE_MONTO) FROM STR_NOMBRE_GRUPO.OFERTA WHERE OFE_PUB_ID = @pubId";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pubId", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26703,6 +26708,39 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUP
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<decimal> OFE_PUB_ID, global::System.Nullable<decimal> OFE_MONTO, global::System.Nullable<global::System.DateTime> OFE_FECHA, global::System.Nullable<int> OFE_USU_ID, int Original_OFE_ID, global::System.Nullable<decimal> Original_OFE_PUB_ID, global::System.Nullable<decimal> Original_OFE_MONTO, global::System.Nullable<global::System.DateTime> Original_OFE_FECHA, global::System.Nullable<int> Original_OFE_USU_ID) {
             return this.Update(OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID, Original_OFE_ID, Original_OFE_PUB_ID, Original_OFE_MONTO, Original_OFE_FECHA, Original_OFE_USU_ID, Original_OFE_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object maximaOfertaDePublicacion(global::System.Nullable<decimal> pubId) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((pubId.HasValue == true)) {
+                command.Parameters[0].Value = ((decimal)(pubId.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     
