@@ -13380,6 +13380,8 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnrowNum;
             
+            private global::System.Data.DataColumn columnPUB_VIS_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public OfertasLIMITDataTable() {
                 this.TableName = "OfertasLIMIT";
@@ -13453,6 +13455,13 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PUB_VIS_IDColumn {
+                get {
+                    return this.columnPUB_VIS_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -13481,7 +13490,7 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public OfertasLIMITRow AddOfertasLIMITRow(decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_DESCRIPCION, int PUB_USU_ID, long rowNum) {
+            public OfertasLIMITRow AddOfertasLIMITRow(decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_DESCRIPCION, int PUB_USU_ID, long rowNum, decimal PUB_VIS_ID) {
                 OfertasLIMITRow rowOfertasLIMITRow = ((OfertasLIMITRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PUB_STOCK,
@@ -13489,7 +13498,8 @@ namespace FrbaCommerce {
                         PUB_DESCRIPCION,
                         PUB_USU_ID,
                         null,
-                        rowNum};
+                        rowNum,
+                        PUB_VIS_ID};
                 rowOfertasLIMITRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOfertasLIMITRow);
                 return rowOfertasLIMITRow;
@@ -13521,6 +13531,7 @@ namespace FrbaCommerce {
                 this.columnPUB_USU_ID = base.Columns["PUB_USU_ID"];
                 this.columnPUB_ID = base.Columns["PUB_ID"];
                 this.columnrowNum = base.Columns["rowNum"];
+                this.columnPUB_VIS_ID = base.Columns["PUB_VIS_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13537,6 +13548,8 @@ namespace FrbaCommerce {
                 base.Columns.Add(this.columnPUB_ID);
                 this.columnrowNum = new global::System.Data.DataColumn("rowNum", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrowNum);
+                this.columnPUB_VIS_ID = new global::System.Data.DataColumn("PUB_VIS_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPUB_VIS_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPUB_ID}, true));
                 this.columnPUB_DESCRIPCION.MaxLength = 255;
@@ -20752,6 +20765,21 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal PUB_VIS_ID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableOfertasLIMIT.PUB_VIS_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_VIS_ID\' de la tabla \'OfertasLIMIT\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfertasLIMIT.PUB_VIS_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsPUB_STOCKNull() {
                 return this.IsNull(this.tableOfertasLIMIT.PUB_STOCKColumn);
             }
@@ -20799,6 +20827,16 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetrowNumNull() {
                 this[this.tableOfertasLIMIT.rowNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPUB_VIS_IDNull() {
+                return this.IsNull(this.tableOfertasLIMIT.PUB_VIS_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPUB_VIS_IDNull() {
+                this[this.tableOfertasLIMIT.PUB_VIS_IDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -26267,9 +26305,11 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUP
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pub_id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT MAX(OFE_MONTO) FROM STR_NOMBRE_GRUPO.OFERTA WHERE OFE_PUB_ID = @pubId";
+            this._commandCollection[2].CommandText = "SELECT isnull((SELECT MAX(OFE_MONTO) FROM STR_NOMBRE_GRUPO.OFERTA WHERE OFE_PUB_I" +
+                "D = @pubId),PUB_PRECIO) \r\nFROM STR_NOMBRE_GRUPO.PUBLICACION\r\nWHERE PUB_ID = @pub" +
+                "Id";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pubId", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "OFE_PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pubId", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "PUB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26519,14 +26559,9 @@ SELECT OFE_ID, OFE_PUB_ID, OFE_MONTO, OFE_FECHA, OFE_USU_ID FROM STR_NOMBRE_GRUP
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object maximaOfertaDePublicacion(global::System.Nullable<decimal> pubId) {
+        public virtual object maximaOfertaDePublicacion(decimal pubId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((pubId.HasValue == true)) {
-                command.Parameters[0].Value = ((decimal)(pubId.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
+            command.Parameters[0].Value = ((decimal)(pubId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -37055,6 +37090,7 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             tableMapping.ColumnMappings.Add("PUB_USU_ID", "PUB_USU_ID");
             tableMapping.ColumnMappings.Add("PUB_ID", "PUB_ID");
             tableMapping.ColumnMappings.Add("rowNum", "rowNum");
+            tableMapping.ColumnMappings.Add("PUB_VIS_ID", "PUB_VIS_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
