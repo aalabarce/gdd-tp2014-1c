@@ -27,7 +27,6 @@ namespace FrbaCommerce.Calificar_Vendedor
         private void Calificar_Load(object sender, EventArgs e)
         {
 
-            comboBox1.Text = "1";
             comboBox1.Items.Add(1);
             comboBox1.Items.Add(2);
             comboBox1.Items.Add(3);
@@ -38,8 +37,8 @@ namespace FrbaCommerce.Calificar_Vendedor
             comboBox1.Items.Add(8);
             comboBox1.Items.Add(9);
             comboBox1.Items.Add(10);
-
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Text = "1";
 
             compraTableAdapter1.Fill(gD1C2014DataSet1.COMPRA);
         }

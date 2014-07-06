@@ -486,7 +486,7 @@ WHERE rowNum > @contador
 GO
 	
 	
-CREATE PROCEDURE PROCEDURE [STR_NOMBRE_GRUPO].[OfertasLIMIT] 
+CREATE PROCEDURE [STR_NOMBRE_GRUPO].[OfertasLIMIT] 
 @contador int, 
 @rubroId int = null,
 @descripcion varchar(4000) = null,
