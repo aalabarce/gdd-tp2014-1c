@@ -507,7 +507,7 @@ SELECT PUB_STOCK, PUB_PRECIO, PUB_DESCRIPCION, PUB_USU_ID, PUB_ID, PUB_VIS_ID,
  WHERE PUB_RUB_RUBRO_ID = @rubroId) OR @rubroId IS NULL) 
  AND VIS_ID = PUB_VIS_ID
  AND PUB_USU_ID <> @usuarioId ) 
- sub 
+ sub  
  WHERE rowNum > @contador 
  AND rowNum <= @contador + 10
 
