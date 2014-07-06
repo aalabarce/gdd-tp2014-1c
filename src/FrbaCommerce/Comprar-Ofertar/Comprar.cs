@@ -23,9 +23,10 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void Comprar_Load(object sender, EventArgs e)
         {
             this.rUBROTableAdapter.Fill(this.gD1C2014DataSet1.RUBRO);
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, null, "");
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, 0, null, "", Global.usuario_id);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginas(Global.usuario_id);
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Comprar";
+
         }
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
@@ -54,8 +55,8 @@ namespace FrbaCommerce.Comprar_Ofertar
                 //  rubro;
             }
 
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubro(descripcion,rubroId);
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubro(descripcion, rubroId, Global.usuario_id);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             
         }
 
@@ -64,8 +65,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             // LIMPIAR
             rubro = null;
             descripcion = "";
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginas();
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginas(Global.usuario_id);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             
         }
 
@@ -75,12 +76,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             contador = contador + 10;
             if (contador <= maxPaginas)
             {
-                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             }
             else
             {
                 contador = (int)maxPaginas;
-                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             }
 
         }
@@ -89,7 +90,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // Primera pagina
             contador = 0;
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -98,12 +99,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             contador = contador - 10;
             if (contador >= 0)
             {
-                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             }
             else
             {
                 contador = 0;
-                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+                comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
             }
         }
 
@@ -111,7 +112,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // Ultima pagina
             contador = (int)maxPaginas;
-            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion);
+            comprasLIMIT1TableAdapter1.Fill(gD1C2014DataSet1.ComprasLIMIT1, contador, rubro, descripcion, Global.usuario_id);
         }
     }
 }

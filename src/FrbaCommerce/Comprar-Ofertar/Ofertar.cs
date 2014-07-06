@@ -24,9 +24,9 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // TODO: esta línea de código carga datos en la tabla 'gD1C2014DataSet.RUBRO' Puede moverla o quitarla según sea necesario.
             this.rUBROTableAdapter.Fill(this.gD1C2014DataSet.RUBRO);
-            this.ofertasLIMITTableAdapter1.Fill(this.gD1C2014DataSet.OfertasLIMIT, 0, null, "");
+            this.ofertasLIMITTableAdapter1.Fill(this.gD1C2014DataSet.OfertasLIMIT, 0, null, "", Global.usuario_id);
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Ofertar";
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasOfertas();  
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasOfertas(Global.usuario_id);  
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -35,12 +35,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             contador = contador + 10;
             if (contador <= maxPaginas)
             {
-                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
             }
             else
             {
                 contador = (int)maxPaginas;
-                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
             }
         }
 
@@ -48,7 +48,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // ULTIMA PAGINA
             contador = (int)maxPaginas;
-            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -57,12 +57,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             contador = contador - 10;
             if (contador >= 0)
             {
-                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
             }
             else
-            {
+            { 
                 contador = 0;
-                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+                ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
             }
         }
 
@@ -70,7 +70,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             // PRIMERA PAGINA
             contador = 0;
-            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,16 +92,16 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubro = (int?)rubroId;
             descripcion = textBox2.Text;
 
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubroOfertas(descripcion, rubroId);
-            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasRubroOfertas(descripcion, rubroId, Global.usuario_id);
+            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             rubro = null;
             descripcion = "";
-            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasOfertas();
-            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion);
+            maxPaginas = (int?)publicacionTableAdapter1.maxPaginasOfertas(Global.usuario_id);
+            ofertasLIMITTableAdapter1.Fill(gD1C2014DataSet.OfertasLIMIT, contador, rubro, descripcion, Global.usuario_id);
         }
     }
 }

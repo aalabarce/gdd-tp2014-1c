@@ -10216,25 +10216,13 @@ namespace FrbaCommerce {
             
             private global::System.Data.DataColumn columnPUB_ID;
             
-            private global::System.Data.DataColumn columnPUB_TIPO_ID;
-            
             private global::System.Data.DataColumn columnPUB_STOCK;
             
             private global::System.Data.DataColumn columnPUB_PRECIO;
             
-            private global::System.Data.DataColumn columnPUB_ESTADO_ID;
-            
-            private global::System.Data.DataColumn columnPUB_FECHA_INICIO;
-            
-            private global::System.Data.DataColumn columnPUB_FECHA_FINALIZACION;
-            
             private global::System.Data.DataColumn columnPUB_DESCRIPCION;
             
-            private global::System.Data.DataColumn columnPUB_VIS_ID;
-            
             private global::System.Data.DataColumn columnPUB_USU_ID;
-            
-            private global::System.Data.DataColumn columnPUB_PERMITIR_PREGUNTAS;
             
             private global::System.Data.DataColumn columnrowNum;
             
@@ -10276,13 +10264,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_TIPO_IDColumn {
-                get {
-                    return this.columnPUB_TIPO_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn PUB_STOCKColumn {
                 get {
                     return this.columnPUB_STOCK;
@@ -10297,27 +10278,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_ESTADO_IDColumn {
-                get {
-                    return this.columnPUB_ESTADO_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_FECHA_INICIOColumn {
-                get {
-                    return this.columnPUB_FECHA_INICIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_FECHA_FINALIZACIONColumn {
-                get {
-                    return this.columnPUB_FECHA_FINALIZACION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn PUB_DESCRIPCIONColumn {
                 get {
                     return this.columnPUB_DESCRIPCION;
@@ -10325,23 +10285,9 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_VIS_IDColumn {
-                get {
-                    return this.columnPUB_VIS_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn PUB_USU_IDColumn {
                 get {
                     return this.columnPUB_USU_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PUB_PERMITIR_PREGUNTASColumn {
-                get {
-                    return this.columnPUB_PERMITIR_PREGUNTAS;
                 }
             }
             
@@ -10381,20 +10327,14 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ComprasLIMIT1Row AddComprasLIMIT1Row(string PUB_TIPO_ID, decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_ESTADO_ID, System.DateTime PUB_FECHA_INICIO, System.DateTime PUB_FECHA_FINALIZACION, string PUB_DESCRIPCION, decimal PUB_VIS_ID, int PUB_USU_ID, bool PUB_PERMITIR_PREGUNTAS, long rowNum) {
+            public ComprasLIMIT1Row AddComprasLIMIT1Row(decimal PUB_STOCK, decimal PUB_PRECIO, string PUB_DESCRIPCION, int PUB_USU_ID, long rowNum) {
                 ComprasLIMIT1Row rowComprasLIMIT1Row = ((ComprasLIMIT1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        PUB_TIPO_ID,
                         PUB_STOCK,
                         PUB_PRECIO,
-                        PUB_ESTADO_ID,
-                        PUB_FECHA_INICIO,
-                        PUB_FECHA_FINALIZACION,
                         PUB_DESCRIPCION,
-                        PUB_VIS_ID,
                         PUB_USU_ID,
-                        PUB_PERMITIR_PREGUNTAS,
                         rowNum};
                 rowComprasLIMIT1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComprasLIMIT1Row);
@@ -10422,16 +10362,10 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnPUB_ID = base.Columns["PUB_ID"];
-                this.columnPUB_TIPO_ID = base.Columns["PUB_TIPO_ID"];
                 this.columnPUB_STOCK = base.Columns["PUB_STOCK"];
                 this.columnPUB_PRECIO = base.Columns["PUB_PRECIO"];
-                this.columnPUB_ESTADO_ID = base.Columns["PUB_ESTADO_ID"];
-                this.columnPUB_FECHA_INICIO = base.Columns["PUB_FECHA_INICIO"];
-                this.columnPUB_FECHA_FINALIZACION = base.Columns["PUB_FECHA_FINALIZACION"];
                 this.columnPUB_DESCRIPCION = base.Columns["PUB_DESCRIPCION"];
-                this.columnPUB_VIS_ID = base.Columns["PUB_VIS_ID"];
                 this.columnPUB_USU_ID = base.Columns["PUB_USU_ID"];
-                this.columnPUB_PERMITIR_PREGUNTAS = base.Columns["PUB_PERMITIR_PREGUNTAS"];
                 this.columnrowNum = base.Columns["rowNum"];
             }
             
@@ -10439,26 +10373,14 @@ namespace FrbaCommerce {
             private void InitClass() {
                 this.columnPUB_ID = new global::System.Data.DataColumn("PUB_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_ID);
-                this.columnPUB_TIPO_ID = new global::System.Data.DataColumn("PUB_TIPO_ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_TIPO_ID);
                 this.columnPUB_STOCK = new global::System.Data.DataColumn("PUB_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_STOCK);
                 this.columnPUB_PRECIO = new global::System.Data.DataColumn("PUB_PRECIO", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_PRECIO);
-                this.columnPUB_ESTADO_ID = new global::System.Data.DataColumn("PUB_ESTADO_ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_ESTADO_ID);
-                this.columnPUB_FECHA_INICIO = new global::System.Data.DataColumn("PUB_FECHA_INICIO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_FECHA_INICIO);
-                this.columnPUB_FECHA_FINALIZACION = new global::System.Data.DataColumn("PUB_FECHA_FINALIZACION", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_FECHA_FINALIZACION);
                 this.columnPUB_DESCRIPCION = new global::System.Data.DataColumn("PUB_DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_DESCRIPCION);
-                this.columnPUB_VIS_ID = new global::System.Data.DataColumn("PUB_VIS_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_VIS_ID);
                 this.columnPUB_USU_ID = new global::System.Data.DataColumn("PUB_USU_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPUB_USU_ID);
-                this.columnPUB_PERMITIR_PREGUNTAS = new global::System.Data.DataColumn("PUB_PERMITIR_PREGUNTAS", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPUB_PERMITIR_PREGUNTAS);
                 this.columnrowNum = new global::System.Data.DataColumn("rowNum", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrowNum);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -10467,8 +10389,6 @@ namespace FrbaCommerce {
                 this.columnPUB_ID.AllowDBNull = false;
                 this.columnPUB_ID.ReadOnly = true;
                 this.columnPUB_ID.Unique = true;
-                this.columnPUB_TIPO_ID.MaxLength = 1;
-                this.columnPUB_ESTADO_ID.MaxLength = 1;
                 this.columnPUB_DESCRIPCION.MaxLength = 255;
                 this.columnrowNum.ReadOnly = true;
             }
@@ -19310,21 +19230,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string PUB_TIPO_ID {
-                get {
-                    try {
-                        return ((string)(this[this.tableComprasLIMIT1.PUB_TIPO_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_TIPO_ID\' de la tabla \'ComprasLIMIT1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_TIPO_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal PUB_STOCK {
                 get {
                     try {
@@ -19355,52 +19260,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string PUB_ESTADO_ID {
-                get {
-                    try {
-                        return ((string)(this[this.tableComprasLIMIT1.PUB_ESTADO_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_ESTADO_ID\' de la tabla \'ComprasLIMIT1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_ESTADO_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime PUB_FECHA_INICIO {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableComprasLIMIT1.PUB_FECHA_INICIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_FECHA_INICIO\' de la tabla \'ComprasLIMIT1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_FECHA_INICIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime PUB_FECHA_FINALIZACION {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableComprasLIMIT1.PUB_FECHA_FINALIZACIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_FECHA_FINALIZACION\' de la tabla \'ComprasLIMIT1\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_FECHA_FINALIZACIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string PUB_DESCRIPCION {
                 get {
                     try {
@@ -19412,21 +19271,6 @@ namespace FrbaCommerce {
                 }
                 set {
                     this[this.tableComprasLIMIT1.PUB_DESCRIPCIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal PUB_VIS_ID {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableComprasLIMIT1.PUB_VIS_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_VIS_ID\' de la tabla \'ComprasLIMIT1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_VIS_IDColumn] = value;
                 }
             }
             
@@ -19446,22 +19290,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool PUB_PERMITIR_PREGUNTAS {
-                get {
-                    try {
-                        return ((bool)(this[this.tableComprasLIMIT1.PUB_PERMITIR_PREGUNTASColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PUB_PERMITIR_PREGUNTAS\' de la tabla \'ComprasLIMIT1\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableComprasLIMIT1.PUB_PERMITIR_PREGUNTASColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public long rowNum {
                 get {
                     try {
@@ -19474,16 +19302,6 @@ namespace FrbaCommerce {
                 set {
                     this[this.tableComprasLIMIT1.rowNumColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_TIPO_IDNull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_TIPO_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_TIPO_IDNull() {
-                this[this.tableComprasLIMIT1.PUB_TIPO_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19507,36 +19325,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_ESTADO_IDNull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_ESTADO_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_ESTADO_IDNull() {
-                this[this.tableComprasLIMIT1.PUB_ESTADO_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_FECHA_INICIONull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_FECHA_INICIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_FECHA_INICIONull() {
-                this[this.tableComprasLIMIT1.PUB_FECHA_INICIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_FECHA_FINALIZACIONNull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_FECHA_FINALIZACIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_FECHA_FINALIZACIONNull() {
-                this[this.tableComprasLIMIT1.PUB_FECHA_FINALIZACIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsPUB_DESCRIPCIONNull() {
                 return this.IsNull(this.tableComprasLIMIT1.PUB_DESCRIPCIONColumn);
             }
@@ -19547,16 +19335,6 @@ namespace FrbaCommerce {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_VIS_IDNull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_VIS_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_VIS_IDNull() {
-                this[this.tableComprasLIMIT1.PUB_VIS_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsPUB_USU_IDNull() {
                 return this.IsNull(this.tableComprasLIMIT1.PUB_USU_IDColumn);
             }
@@ -19564,16 +19342,6 @@ namespace FrbaCommerce {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetPUB_USU_IDNull() {
                 this[this.tableComprasLIMIT1.PUB_USU_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPUB_PERMITIR_PREGUNTASNull() {
-                return this.IsNull(this.tableComprasLIMIT1.PUB_PERMITIR_PREGUNTASColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPUB_PERMITIR_PREGUNTASNull() {
-                this[this.tableComprasLIMIT1.PUB_PERMITIR_PREGUNTASColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27396,15 +27164,20 @@ WHERE PUB_ESTADO_ID = 'A'
 AND (PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.COMPRA WHERE COM_PUB_ID = PUB_ID)) > 0
 AND PUB_FECHA_FINALIZACION > GETDATE() 
 AND PUB_TIPO_ID = 'C' 
-";
+AND PUB_USU_ID <> @usuarioId";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT (FLOOR(COUNT(*)/10))*10\r\nFROM STR_NOMBRE_GRUPO.PUBLICACION \r\nWHERE PUB_EST" +
-                "ADO_ID = \'A\'\r\n AND PUB_STOCK > 0 AND PUB_FECHA_FINALIZACION > GETDATE()\r\n AND PU" +
-                "B_TIPO_ID = \'S\'\r\n AND PUB_ID NOT IN (SELECT COM_PUB_ID FROM STR_NOMBRE_GRUPO.COM" +
-                "PRA)\r\n\r\n";
+            this._commandCollection[6].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
+FROM STR_NOMBRE_GRUPO.PUBLICACION 
+WHERE PUB_ESTADO_ID = 'A'
+ AND PUB_STOCK > 0 AND PUB_FECHA_FINALIZACION > GETDATE()
+ AND PUB_TIPO_ID = 'S'
+ AND PUB_ID NOT IN (SELECT COM_PUB_ID FROM STR_NOMBRE_GRUPO.COMPRA)
+AND PUB_USU_ID <> @usuarioId";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
@@ -27415,10 +27188,12 @@ AND PUB_FECHA_FINALIZACION > GETDATE()
 AND PUB_TIPO_ID = 'C' 
 AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
 AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
-					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))";
+					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))
+AND PUB_USU_ID <> @usuarioId";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
             this._commandCollection[8].CommandText = @"SELECT (FLOOR(COUNT(*)/10))*10
@@ -27429,10 +27204,12 @@ WHERE PUB_ESTADO_ID = 'A'
  AND PUB_ID NOT IN (SELECT COM_PUB_ID FROM STR_NOMBRE_GRUPO.COMPRA)
  AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
  AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
-					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))";
+					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))
+AND PUB_USU_ID <> @usuarioId";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PUB_USU_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27974,8 +27751,14 @@ WHERE PUB_ESTADO_ID = 'A'
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object maxPaginas() {
+        public virtual object maxPaginas(global::System.Nullable<int> usuarioId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((usuarioId.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28001,8 +27784,14 @@ WHERE PUB_ESTADO_ID = 'A'
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object maxPaginasOfertas() {
+        public virtual object maxPaginasOfertas(global::System.Nullable<int> usuarioId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            if ((usuarioId.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28028,7 +27817,7 @@ WHERE PUB_ESTADO_ID = 'A'
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object maxPaginasRubro(string descripcion, decimal rubroId) {
+        public virtual object maxPaginasRubro(string descripcion, decimal rubroId, global::System.Nullable<int> usuarioId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             if ((descripcion == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -28037,6 +27826,12 @@ WHERE PUB_ESTADO_ID = 'A'
                 command.Parameters[0].Value = ((string)(descripcion));
             }
             command.Parameters[1].Value = ((decimal)(rubroId));
+            if ((usuarioId.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28062,7 +27857,7 @@ WHERE PUB_ESTADO_ID = 'A'
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> maxPaginasRubroOfertas(string descripcion, decimal rubroId) {
+        public virtual object maxPaginasRubroOfertas(string descripcion, decimal rubroId, global::System.Nullable<int> usuarioId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             if ((descripcion == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -28071,6 +27866,12 @@ WHERE PUB_ESTADO_ID = 'A'
                 command.Parameters[0].Value = ((string)(descripcion));
             }
             command.Parameters[1].Value = ((decimal)(rubroId));
+            if ((usuarioId.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28087,10 +27888,10 @@ WHERE PUB_ESTADO_ID = 'A'
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+                return null;
             }
             else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+                return ((object)(returnValue));
             }
         }
     }
@@ -34560,16 +34361,10 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ComprasLIMIT1";
             tableMapping.ColumnMappings.Add("PUB_ID", "PUB_ID");
-            tableMapping.ColumnMappings.Add("PUB_TIPO_ID", "PUB_TIPO_ID");
             tableMapping.ColumnMappings.Add("PUB_STOCK", "PUB_STOCK");
             tableMapping.ColumnMappings.Add("PUB_PRECIO", "PUB_PRECIO");
-            tableMapping.ColumnMappings.Add("PUB_ESTADO_ID", "PUB_ESTADO_ID");
-            tableMapping.ColumnMappings.Add("PUB_FECHA_INICIO", "PUB_FECHA_INICIO");
-            tableMapping.ColumnMappings.Add("PUB_FECHA_FINALIZACION", "PUB_FECHA_FINALIZACION");
             tableMapping.ColumnMappings.Add("PUB_DESCRIPCION", "PUB_DESCRIPCION");
-            tableMapping.ColumnMappings.Add("PUB_VIS_ID", "PUB_VIS_ID");
             tableMapping.ColumnMappings.Add("PUB_USU_ID", "PUB_USU_ID");
-            tableMapping.ColumnMappings.Add("PUB_PERMITIR_PREGUNTAS", "PUB_PERMITIR_PREGUNTAS");
             tableMapping.ColumnMappings.Add("rowNum", "rowNum");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -34591,12 +34386,13 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contador", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 4000, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GD1C2014DataSet.ComprasLIMIT1DataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
+        public virtual int Fill(GD1C2014DataSet.ComprasLIMIT1DataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion, global::System.Nullable<int> usuarioId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -34615,6 +34411,12 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
+            }
+            if ((usuarioId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -34626,7 +34428,7 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GD1C2014DataSet.ComprasLIMIT1DataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
+        public virtual GD1C2014DataSet.ComprasLIMIT1DataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion, global::System.Nullable<int> usuarioId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -34645,6 +34447,12 @@ SELECT ROL_FUN_ROL_ID, ROL_FUN_FUN_ID FROM STR_NOMBRE_GRUPO.ROL_FUNCIONALIDAD WH
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
+            }
+            if ((usuarioId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             GD1C2014DataSet.ComprasLIMIT1DataTable dataTable = new GD1C2014DataSet.ComprasLIMIT1DataTable();
             this.Adapter.Fill(dataTable);
@@ -37165,12 +36973,13 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contador", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubroId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 4000, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GD1C2014DataSet.OfertasLIMITDataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
+        public virtual int Fill(GD1C2014DataSet.OfertasLIMITDataTable dataTable, global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion, global::System.Nullable<int> usuarioId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -37189,6 +36998,12 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
+            }
+            if ((usuarioId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -37200,7 +37015,7 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GD1C2014DataSet.OfertasLIMITDataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion) {
+        public virtual GD1C2014DataSet.OfertasLIMITDataTable GetData(global::System.Nullable<int> contador, global::System.Nullable<int> rubroId, string descripcion, global::System.Nullable<int> usuarioId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((contador.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contador.Value));
@@ -37219,6 +37034,12 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(descripcion));
+            }
+            if ((usuarioId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(usuarioId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             GD1C2014DataSet.OfertasLIMITDataTable dataTable = new GD1C2014DataSet.OfertasLIMITDataTable();
             this.Adapter.Fill(dataTable);
