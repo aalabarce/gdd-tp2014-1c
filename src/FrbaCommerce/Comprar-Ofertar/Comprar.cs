@@ -37,6 +37,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             int publicacionId = Convert.ToInt32(fila.Cells[5].Value);
 
             new FrbaCommerce.Comprar_Ofertar.VerPublicacion(usuarioId, tipo, publicacionId).Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

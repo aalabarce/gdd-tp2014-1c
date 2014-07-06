@@ -1049,7 +1049,7 @@ WHERE PUB_ESTADO_ID = 'A' AND PUB_STOCK &gt; 0 AND PUB_FECHA_FINALIZACION &lt; G
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy5" GeneratorSourceName="getStockByPubId" Modifier="Public" Name="getStockByPubId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="getStockByPubId">
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy5" GeneratorSourceName="getStockByPubId" Modifier="Public" Name="getStockByPubId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getStockByPubId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT PUB_STOCK - (SELECT (isnull(sum(COM_CANTIDAD),0)) FROM STR_NOMBRE_GRUPO.COMPRA WHERE COM_PUB_ID = PUB_ID)
@@ -1061,7 +1061,7 @@ WHERE PUB_ESTADO_ID = 'A' AND PUB_STOCK &gt; 0 AND PUB_FECHA_FINALIZACION &lt; G
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginas" Modifier="Public" Name="maxPaginas" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="maxPaginas">
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginas" Modifier="Public" Name="maxPaginas" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="maxPaginas">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT (FLOOR(COUNT(*)/10))*10
@@ -1075,7 +1075,22 @@ AND PUB_TIPO_ID = 'C'
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginasRubro" Modifier="Public" Name="maxPaginasRubro" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="maxPaginasRubro">
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginasOfertas" Modifier="Public" Name="maxPaginasOfertas" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="maxPaginasOfertas">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT (FLOOR(COUNT(*)/10))*10
+FROM STR_NOMBRE_GRUPO.PUBLICACION 
+WHERE PUB_ESTADO_ID = 'A'
+ AND PUB_STOCK &gt; 0 AND PUB_FECHA_FINALIZACION &gt; GETDATE()
+ AND PUB_TIPO_ID = 'S'
+ AND PUB_ID NOT IN (SELECT COM_PUB_ID FROM STR_NOMBRE_GRUPO.COMPRA)
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginasRubro" Modifier="Public" Name="maxPaginasRubro" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="maxPaginasRubro">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT (FLOOR(COUNT(*)/10))*10
@@ -1086,6 +1101,25 @@ AND PUB_FECHA_FINALIZACION &gt; GETDATE()
 AND PUB_TIPO_ID = 'C' 
 AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
 AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
+					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="descripcion" ColumnName="PUB_DESCRIPCION" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.PUBLICACION" DataTypeServer="nvarchar(255)" DbType="String" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="255" SourceColumn="PUB_DESCRIPCION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="rubroId" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@rubroId" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="maxPaginasRubroOfertas" Modifier="Public" Name="maxPaginasRubroOfertas" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="maxPaginasRubroOfertas">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT (FLOOR(COUNT(*)/10))*10
+FROM STR_NOMBRE_GRUPO.PUBLICACION 
+WHERE PUB_ESTADO_ID = 'A'
+ AND PUB_STOCK &gt; 0 AND PUB_FECHA_FINALIZACION &gt; GETDATE()
+ AND PUB_TIPO_ID = 'S'
+ AND PUB_ID NOT IN (SELECT COM_PUB_ID FROM STR_NOMBRE_GRUPO.COMPRA)
+ AND PUB_DESCRIPCION LIKE '%' + @descripcion + '%'
+ AND (PUB_ID IN (SELECT PUB_RUB_PUB_ID FROM STR_NOMBRE_GRUPO.PUBLICACION_RUBRO 
 					WHERE PUB_RUB_RUBRO_ID = @rubroId) OR (@rubroId IS NULL))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="descripcion" ColumnName="PUB_DESCRIPCION" DataSourceName="GD1C2014.STR_NOMBRE_GRUPO.PUBLICACION" DataTypeServer="nvarchar(255)" DbType="String" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="255" SourceColumn="PUB_DESCRIPCION" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -2897,6 +2931,32 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OfertasLIMITTableAdapter" GeneratorDataComponentClassName="OfertasLIMITTableAdapter" Name="OfertasLIMIT" UserDataComponentName="OfertasLIMITTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GD1C2014ConnectionString1 (Settings)" DbObjectName="GD1C2014.STR_NOMBRE_GRUPO.OfertasLIMIT" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>STR_NOMBRE_GRUPO.OfertasLIMIT</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@contador" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@rubroId" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="4000" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PUB_STOCK" DataSetColumn="PUB_STOCK" />
+              <Mapping SourceColumn="PUB_PRECIO" DataSetColumn="PUB_PRECIO" />
+              <Mapping SourceColumn="PUB_DESCRIPCION" DataSetColumn="PUB_DESCRIPCION" />
+              <Mapping SourceColumn="PUB_USU_ID" DataSetColumn="PUB_USU_ID" />
+              <Mapping SourceColumn="PUB_ID" DataSetColumn="PUB_ID" />
+              <Mapping SourceColumn="rowNum" DataSetColumn="rowNum" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -3967,6 +4027,24 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="OfertasLIMIT" msprop:Generator_UserTableName="OfertasLIMIT" msprop:Generator_RowDeletedName="OfertasLIMITRowDeleted" msprop:Generator_RowChangedName="OfertasLIMITRowChanged" msprop:Generator_RowClassName="OfertasLIMITRow" msprop:Generator_RowChangingName="OfertasLIMITRowChanging" msprop:Generator_RowEvArgName="OfertasLIMITRowChangeEvent" msprop:Generator_RowEvHandlerName="OfertasLIMITRowChangeEventHandler" msprop:Generator_TableClassName="OfertasLIMITDataTable" msprop:Generator_TableVarName="tableOfertasLIMIT" msprop:Generator_RowDeletingName="OfertasLIMITRowDeleting" msprop:Generator_TablePropName="OfertasLIMIT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PUB_STOCK" msprop:Generator_UserColumnName="PUB_STOCK" msprop:Generator_ColumnVarNameInTable="columnPUB_STOCK" msprop:Generator_ColumnPropNameInRow="PUB_STOCK" msprop:Generator_ColumnPropNameInTable="PUB_STOCKColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PUB_PRECIO" msprop:Generator_UserColumnName="PUB_PRECIO" msprop:Generator_ColumnVarNameInTable="columnPUB_PRECIO" msprop:Generator_ColumnPropNameInRow="PUB_PRECIO" msprop:Generator_ColumnPropNameInTable="PUB_PRECIOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PUB_DESCRIPCION" msprop:Generator_UserColumnName="PUB_DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnPUB_DESCRIPCION" msprop:Generator_ColumnPropNameInRow="PUB_DESCRIPCION" msprop:Generator_ColumnPropNameInTable="PUB_DESCRIPCIONColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PUB_USU_ID" msprop:Generator_UserColumnName="PUB_USU_ID" msprop:Generator_ColumnVarNameInTable="columnPUB_USU_ID" msprop:Generator_ColumnPropNameInRow="PUB_USU_ID" msprop:Generator_ColumnPropNameInTable="PUB_USU_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PUB_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="PUB_ID" msprop:Generator_ColumnVarNameInTable="columnPUB_ID" msprop:Generator_ColumnPropNameInRow="PUB_ID" msprop:Generator_ColumnPropNameInTable="PUB_IDColumn" type="xs:decimal" />
+              <xs:element name="rowNum" msdata:ReadOnly="true" msprop:Generator_UserColumnName="rowNum" msprop:Generator_ColumnVarNameInTable="columnrowNum" msprop:Generator_ColumnPropNameInRow="rowNum" msprop:Generator_ColumnPropNameInTable="rowNumColumn" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -4085,6 +4163,10 @@ SELECT TAR_ID, TAR_NUMERO, TAR_MES_VENC, TAR_ANIO_VENC, TAR_CODIGO_SEGURIDAD, TA
     </xs:unique>
     <xs:unique name="OFERTAS_ACTIVAS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:OFERTAS_ACTIVAS" />
+      <xs:field xpath="mstns:PUB_ID" />
+    </xs:unique>
+    <xs:unique name="OfertasLIMIT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OfertasLIMIT" />
       <xs:field xpath="mstns:PUB_ID" />
     </xs:unique>
   </xs:element>

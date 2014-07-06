@@ -57,6 +57,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             ofertaTableAdapter1.Update(gD1C2014DataSet1.OFERTA);
 
             MessageBox.Show("Su oferta ha sido enviada");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrbaCommerce.Comprar_Ofertar.Ofertar().Show();
         }   
 
     }

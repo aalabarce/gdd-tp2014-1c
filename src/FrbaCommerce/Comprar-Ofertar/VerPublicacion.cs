@@ -51,6 +51,12 @@ namespace FrbaCommerce.Comprar_Ofertar
                 return;
             }
 
+            if (Convert.ToInt32(textBox1.Text) <= 0)
+            {
+                MessageBox.Show("La cantidad minima es 1 unidad");
+                return;
+            }
+
             if (Convert.ToInt32(textBox1.Text) > stock)
             {
                 MessageBox.Show("La cantidad máxima que puede comprar es de: " + Convert.ToString(stock) + " unidades");
