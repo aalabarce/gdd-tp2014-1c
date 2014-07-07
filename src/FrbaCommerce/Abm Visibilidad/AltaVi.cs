@@ -42,10 +42,24 @@ namespace FrbaCommerce.Abm_Visibilidad
             //Valido que el codigo no exista
             if (Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) > 0)
             {
-                MessageBox.Show("Ese codigo de rubro ya existe");
+                MessageBox.Show("Ese codigo de visibilidad ya existe");
                 return;
             }
 
+            //Valido que el nombre no exista
+            if (Convert.ToInt32(visibilidadTableAdapter1.existeNom(textBox2.Text)) > 0)
+            {
+                MessageBox.Show("Ese nombre de visibilidad ya existe");
+                return;
+            }
+
+            //Valido que no exista la combinacion de $, % y duracion
+            if (Convert.ToInt32(visibilidadTableAdapter1.existeCombinacion(Convert.ToInt32(textBox5.Text),Convert.ToDecimal(textBox3.Text), Convert.ToDecimal(textBox4.Text)/100)) > 0)
+            {
+                MessageBox.Show("Esa combinacion de precio, porcentaje y duracion ya existe");
+                return;
+            }
+            
 
             //Si hay errores, agrego a la base de datos
             darAlta();
