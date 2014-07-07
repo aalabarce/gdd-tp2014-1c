@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Listado_Estadistico
 {
+
     public partial class Listado : Form
     {
         public DateTime fecha_ini { get; set; }
@@ -58,6 +59,7 @@ namespace FrbaCommerce.Listado_Estadistico
 
             pRODUCTOS_SIN_VENDERTableAdapter.top5(gD1C2014DataSet1.PRODUCTOS_SIN_VENDER, Convert.ToInt32(comboBox1.Text), comboBox2.Text, comboBox3.Text);
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
