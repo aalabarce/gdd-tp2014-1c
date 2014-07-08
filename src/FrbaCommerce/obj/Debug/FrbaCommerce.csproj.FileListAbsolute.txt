@@ -173,3 +173,4 @@ C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.R
 C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
 C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.exe
 C:\Users\Agustin\UTN\GDD\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP\gdd-tp2014-1c\src\FrbaCommerce\obj\Debug\FrbaCommerce.Login.ContraseñasUsuarios.resources

@@ -83,11 +83,13 @@ namespace FrbaCommerce
                 if (Convert.ToInt32(fila["ROL_FUN_FUN_ID"]) == 13)
                     estadisticasToolStripMenuItem.Visible = true;
             }
+
+            if (Global.rol == "Administrador")
+                contraseñasDeUsuariosToolStripMenuItem.Visible = true;
         }
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        {            
             new FrbaCommerce.Abm_Cliente.Clientes(1).Show(); 
         }
 
@@ -209,6 +211,16 @@ namespace FrbaCommerce
         private void eliminarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Abm_Cliente.Clientes(2).Show();
+        }
+
+        private void miContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Login.CambioContraseña((int)Global.usuario_id).Show();
+        }
+
+        private void contraseñasDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrbaCommerce.Login.ContraseñasUsuarios().Show();
         }
     }
 }

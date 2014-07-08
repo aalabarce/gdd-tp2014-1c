@@ -55,7 +55,7 @@ namespace FrbaCommerce.Login
 
             usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);
 
-            MessageBox.Show("Vuelva a iniciar sesion con la nueva contraseña");
+            MessageBox.Show("La contraseña ha sido cambiada correctamente");
             this.Close();
         }
     }
