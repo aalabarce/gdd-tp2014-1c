@@ -85,6 +85,9 @@ namespace FrbaCommerce.Facturar_Publicaciones
             int cantFacturada = 0;
             string codPubAnterior = "";
 
+            string pubBonificadas = "";
+            bool debeBonificar = false;
+
             //recorro las lineas, y voy creando items factura hasta llegar a la cant de publicaciones elegida por el usuario.
             foreach (GD1C2014DataSet.LINEAS_FACTURACIONRow linea in lineas)
             {
@@ -92,13 +95,30 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 {
                     cantFacturada++;
                     codPubAnterior = linea["CODIGO_PUB"].ToString();
+                    int cantItemsVisUsuario = (int)this.iteM_FACTURATableAdapter1.getCantPublicacionesUsuVis(Global.usuario_id, (decimal)linea["CODIGO_PUB"]);
+                    debeBonificar = cantItemsVisUsuario % 10 == 0; //si la publicacion es multiplo de 10 (de la misma visibilidad), bonifico
+
+                    if (debeBonificar){
+                        if (pubBonificadas.Length > 0) {
+                            pubBonificadas += ", ";
+                        }
+                        pubBonificadas += linea["CODIGO_PUB"].ToString();
+                    }
                 }
                 if (cantFacturada <= Convert.ToInt32(txtCantidad.Text))
                 {
-                    total = total + Convert.ToDouble(linea["PRECIO"]);
-
                     DataRow itemFactura = gD1C2014DataSet.ITEM_FACTURA.NewRow();
-                    itemFactura["ITEM_MONTO"] = linea["PRECIO"];
+                    int cantItemsVisUsuario = (int)this.iteM_FACTURATableAdapter1.getCantPublicacionesUsuVis(Global.usuario_id, (decimal)linea["CODIGO_PUB"]);
+                    if (debeBonificar)
+                    {
+                        itemFactura["ITEM_MONTO"] = 0;
+                    }
+                    else
+                    {
+                        itemFactura["ITEM_MONTO"] = linea["PRECIO"];
+                        total = total + Convert.ToDouble(linea["PRECIO"]);
+                    }
+
                     itemFactura["ITEM_CANTIDAD"] = linea["CANTIDAD"];
                     itemFactura["ITEM_PUB_ID"] = linea["CODIGO_PUB"];
                     itemFactura["ITEM_FAC_ID"] = factura["FAC_ID"];
@@ -107,6 +127,11 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
                     iteM_FACTURATableAdapter1.Update(gD1C2014DataSet.ITEM_FACTURA);
                 }
+            }
+
+            if (pubBonificadas.Length > 0)
+            {
+                MessageBox.Show("Las publicaciones " + pubBonificadas + " han sido bonificadas, son gratuitas");
             }
 
             //actualizo la factura con el total pagado.
