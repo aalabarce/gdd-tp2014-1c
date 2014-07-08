@@ -36,16 +36,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EMP_CUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EMP_MAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.EMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMPRESABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2014DataSet1 = new FrbaCommerce.GD1C2014DataSet();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.empresaTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.EMPRESATableAdapter();
+            this.usuarioTableAdapter1 = new FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPRESABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2014DataSet1)).BeginInit();
@@ -119,6 +120,13 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // eMPRAZONSOCIALDataGridViewTextBoxColumn
+            // 
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.DataPropertyName = "EMP_RAZON_SOCIAL";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.HeaderText = "Razón Social";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.Name = "eMPRAZONSOCIALDataGridViewTextBoxColumn";
+            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // EMP_CUIT
             // 
             this.EMP_CUIT.DataPropertyName = "EMP_CUIT";
@@ -147,6 +155,16 @@
             this.EMP_ID.ReadOnly = true;
             this.EMP_ID.Visible = false;
             // 
+            // eMPRESABindingSource
+            // 
+            this.eMPRESABindingSource.DataMember = "EMPRESA";
+            this.eMPRESABindingSource.DataSource = this.gD1C2014DataSet1;
+            // 
+            // gD1C2014DataSet1
+            // 
+            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
+            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(302, 120);
@@ -167,26 +185,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // eMPRAZONSOCIALDataGridViewTextBoxColumn
-            // 
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.DataPropertyName = "EMP_RAZON_SOCIAL";
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.HeaderText = "Razón Social";
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.Name = "eMPRAZONSOCIALDataGridViewTextBoxColumn";
-            this.eMPRAZONSOCIALDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eMPRESABindingSource
-            // 
-            this.eMPRESABindingSource.DataMember = "EMPRESA";
-            this.eMPRESABindingSource.DataSource = this.gD1C2014DataSet1;
-            // 
-            // gD1C2014DataSet1
-            // 
-            this.gD1C2014DataSet1.DataSetName = "GD1C2014DataSet";
-            this.gD1C2014DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // empresaTableAdapter1
             // 
             this.empresaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
             // Baja
             // 
@@ -232,5 +237,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn EMP_ID;
         private System.Windows.Forms.Button button2;
+        private FrbaCommerce.GD1C2014DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
     }
 }

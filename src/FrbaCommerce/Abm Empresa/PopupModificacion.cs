@@ -65,6 +65,12 @@ namespace FrbaCommerce.Abm_Empresa
                 return;
             }
 
+            if (empresaTableAdapter1.ExisteCUIT(textBox11.Text) > 0)
+            {
+                MessageBox.Show("Ya existe una empresa con ese CUIT");
+                return;
+            }
+
             if (!MetodosGlobales.esInteger(textBox3) || !MetodosGlobales.esInteger(textBox5) || !MetodosGlobales.esInteger(textBox6))
             {
                 return;

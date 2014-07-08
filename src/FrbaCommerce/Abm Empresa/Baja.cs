@@ -19,6 +19,7 @@ namespace FrbaCommerce.Abm_Empresa
         private void Baja_Load(object sender, EventArgs e)
 {
             empresaTableAdapter1.FiltrarBaja(gD1C2014DataSet1.EMPRESA);
+            usuarioTableAdapter1.Fill(gD1C2014DataSet1.USUARIO);
             dataGridView1.Columns[3].DefaultCellStyle.NullValue = "Eliminar";
             
         }
@@ -49,8 +50,16 @@ namespace FrbaCommerce.Abm_Empresa
             FilaAModificar = gD1C2014DataSet1.EMPRESA.FindByEMP_ID(id);
          
             FilaAModificar["EMP_BAJA"] = 1;
-
+            
             empresaTableAdapter1.Update(gD1C2014DataSet1.EMPRESA);
+
+         
+            DataRow usuarioAModificar = gD1C2014DataSet1.USUARIO.NewRow();
+            usuarioAModificar = gD1C2014DataSet1.USUARIO.FindByUSU_ID(id);
+
+            usuarioAModificar["USU_BAJA"] = 1;
+
+            usuarioTableAdapter1.Update(gD1C2014DataSet1.USUARIO);      
 
             MessageBox.Show("La empresa " + razonSocial + " ha sido eliminada");
 
