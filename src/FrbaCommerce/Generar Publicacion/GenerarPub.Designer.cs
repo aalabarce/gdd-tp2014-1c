@@ -202,6 +202,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 43);
             this.txtDescripcion.TabIndex = 19;
+            this.txtDescripcion.Tag = "Descripción";
             this.txtDescripcion.Text = "";
             // 
             // btnBorrador
@@ -323,6 +324,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 27;
+            this.txtStock.Tag = "Stock";
             this.txtStock.Value = new decimal(new int[] {
             1,
             0,

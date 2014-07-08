@@ -187,6 +187,12 @@ namespace FrbaCommerce.Editar_Publicacion
                 return false;
             }
 
+            if (Convert.ToDouble(txtPrecio.Text) <= 0)
+            {
+                MessageBox.Show("El producto no puede valer $0 o menos.");
+                return false;
+            }
+
             return true;
         }
 

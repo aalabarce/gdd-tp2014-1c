@@ -53,6 +53,9 @@ namespace FrbaCommerce.Generar_Publicacion
         private void btnPublicar_Click(object sender, EventArgs e)
         {
             if(validateCampos()){
+                
+
+
                 persistir('A'); //estado activa.
                 this.Close();
             }
