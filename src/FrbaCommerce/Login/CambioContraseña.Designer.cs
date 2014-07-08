@@ -92,6 +92,7 @@
             this.label2.Size = new System.Drawing.Size(269, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Es obligatorio el cambio de la contraseña autogenerada";
+            this.label2.Visible = false;
             // 
             // CambioContraseña
             // 

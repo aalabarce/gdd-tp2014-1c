@@ -215,7 +215,7 @@ namespace FrbaCommerce
 
         private void miContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrbaCommerce.Login.CambioContraseña((int)Global.usuario_id).Show();
+            new FrbaCommerce.Login.CambioContraseña((int)Global.usuario_id,1).Show();
         }
 
         private void contraseñasDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
