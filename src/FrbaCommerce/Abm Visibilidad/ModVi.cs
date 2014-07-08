@@ -14,6 +14,10 @@ namespace FrbaCommerce.Abm_Visibilidad
     {
 
         public int codigo { get; set; }
+        public string nombre { get; set; }
+        public decimal precio { get; set; }
+        public int porcentaje { get; set; }
+        public int duracion { get; set; }
 
         public ModVi(int codigo_mod)
         {
@@ -32,7 +36,13 @@ namespace FrbaCommerce.Abm_Visibilidad
             textBox2.Text = Convert.ToString(FilaAModificar["VIS_DESCRIPCION"]);
             textBox3.Text = Convert.ToString(Convert.ToDecimal(FilaAModificar["VIS_PRECIO"]));
             textBox4.Text = Convert.ToString(Convert.ToInt32(100*Convert.ToDecimal(FilaAModificar["VIS_PORCENTAJE"])));
-            textBox5.Text = Convert.ToString(FilaAModificar["VIS_DURACION"]);           
+            textBox5.Text = Convert.ToString(FilaAModificar["VIS_DURACION"]);    
+       
+            //Guardo los datos actuales
+            nombre = Convert.ToString(FilaAModificar["VIS_DESCRIPCION"]);
+            precio = Convert.ToDecimal(FilaAModificar["VIS_PRECIO"]);
+            porcentaje = Convert.ToInt32(100 * Convert.ToDecimal(FilaAModificar["VIS_PORCENTAJE"]));
+            duracion = Convert.ToInt32(FilaAModificar["VIS_DURACION"]);   
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -50,12 +60,25 @@ namespace FrbaCommerce.Abm_Visibilidad
             {
                 return;
             }
-
-
+            
             //Valido que el codigo no exista
             if (Convert.ToInt32(textBox1.Text) != codigo && Convert.ToInt32(visibilidadTableAdapter1.existeCod(Convert.ToDecimal(textBox1.Text))) > 0)
             {
-                MessageBox.Show("Ese codigo de rubro ya existe");
+                MessageBox.Show("Ese codigo de visibilidad ya existe");
+                return;
+            }
+
+            //Valido que el nombre no exista
+            if (textBox2.Text != nombre && Convert.ToInt32(visibilidadTableAdapter1.existeNom(textBox2.Text)) > 0)
+            {
+                MessageBox.Show("Ese nombre de visibilidad ya existe");
+                return;
+            }
+
+            //Valido que no exista la combinacion de $, % y duracion
+            if ((Convert.ToInt32(textBox5.Text) != duracion || Convert.ToInt32(textBox4.Text) != porcentaje || Convert.ToDecimal(textBox3.Text) != precio) && Convert.ToInt32(visibilidadTableAdapter1.existeCombinacion(Convert.ToInt32(textBox5.Text), Convert.ToDecimal(textBox3.Text), Convert.ToDecimal(textBox4.Text) / 100)) > 0)
+            {
+                MessageBox.Show("Esa combinacion de precio, porcentaje y duracion ya existe");
                 return;
             }
 
