@@ -121,6 +121,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 43);
             this.txtDescripcion.TabIndex = 41;
+            this.txtDescripcion.Tag = "Descripción";
             this.txtDescripcion.Text = "";
             // 
             // chkPreguntas
@@ -149,6 +150,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 38;
+            this.txtPrecio.Tag = "Precio";
             // 
             // lblPrecio
             // 
@@ -333,6 +335,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 52;
+            this.txtStock.Tag = "Stock";
             this.txtStock.Value = new decimal(new int[] {
             1,
             0,
