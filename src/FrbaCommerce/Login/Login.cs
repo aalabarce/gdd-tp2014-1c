@@ -71,7 +71,7 @@ namespace FrbaCommerce.Login
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña NO coincide, se te agrega intento fallido.");
+                        MessageBox.Show("Usuario o contraseña inválido, intente nuevamente");
                         usuarioTableAdapter1.agregaIntentoFallido(usuario);
                     }
                     
@@ -91,6 +91,11 @@ namespace FrbaCommerce.Login
         private void button2_Click(object sender, EventArgs e)
         {
             new FrbaCommerce.Registro_de_Usuario.Alta().Show();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
