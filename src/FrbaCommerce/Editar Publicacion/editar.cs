@@ -300,6 +300,13 @@ namespace FrbaCommerce.Editar_Publicacion
         {
             if (estado == 'B')
             {
+                int cantGratisActivas = (int)this.publicacionTableAdapter1.cantGratisActivasUsuario(Global.usuario_id);
+                if (cantGratisActivas >= 2 && cmbVisibilidad.Text == "Gratis")
+                {
+                    MessageBox.Show("No puede tener tres publicaciones gratis activas al mismo tiempo.");
+                    return;
+                }
+
                 DialogResult result = MessageBox.Show("Está seguro que desea activar la publicación?", "Activar Publicación",
                 MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
