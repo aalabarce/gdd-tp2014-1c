@@ -29,7 +29,7 @@ namespace FrbaCommerce.Login
                 DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
                 int codigo = Convert.ToInt32(fila.Cells[2].Value);
 
-                new FrbaCommerce.Login.CambioContraseña(codigo).Show();
+                new FrbaCommerce.Login.CambioContraseña(codigo,1).Show();
             }
         }
     }

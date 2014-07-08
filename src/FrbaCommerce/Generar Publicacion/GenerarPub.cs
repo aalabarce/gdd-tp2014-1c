@@ -53,8 +53,13 @@ namespace FrbaCommerce.Generar_Publicacion
         private void btnPublicar_Click(object sender, EventArgs e)
         {
             if(validateCampos()){
-                
 
+                int cantGratisActivas = (int)this.publicacionTableAdapter1.cantGratisActivasUsuario(Global.usuario_id);
+                if (cantGratisActivas >= 2 && cmbVisibilidad.Text == "Gratis")
+                {
+                    MessageBox.Show("No puede tener tres publicaciones gratis activas al mismo tiempo.");
+                    return;
+                }
 
                 persistir('A'); //estado activa.
                 this.Close();
