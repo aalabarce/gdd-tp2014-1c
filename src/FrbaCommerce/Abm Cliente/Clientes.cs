@@ -21,6 +21,7 @@ namespace FrbaCommerce.Abm_Cliente
         private void Clientes_Load(object sender, EventArgs e)
         {
             this.cLIENTETableAdapter.FillActivos(this.gD1C2014DataSet.CLIENTE);
+            usuarioTableAdapter1.Fill(gD1C2014DataSet.USUARIO);
 
             dataGridView1.Columns[1].DefaultCellStyle.NullValue = "Ver Completo";
             dataGridView1.Columns[2].DefaultCellStyle.NullValue = "Modificar";
@@ -52,6 +53,8 @@ namespace FrbaCommerce.Abm_Cliente
             }
             if (e.ColumnIndex == 3)
             {
+                int id=Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                
 
                 if (MessageBox.Show("¿Está seguro que desea eliminar al cliente " + (dataGridView1.Rows[e.RowIndex].Cells[5]).Value.ToString() + "?\nNúmero de documento: " + (dataGridView1.Rows[e.RowIndex].Cells[7]).Value.ToString(), "Eliminar Cliente", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -61,6 +64,15 @@ namespace FrbaCommerce.Abm_Cliente
                     FilaABorrar["CLI_BAJA"] = 1;
                     cLIENTETableAdapter.Update(gD1C2014DataSet.CLIENTE);
                     this.cLIENTETableAdapter.FillActivos(this.gD1C2014DataSet.CLIENTE);
+                    
+            
+                    DataRow usuarioABaja = gD1C2014DataSet.USUARIO.NewRow();
+                    usuarioABaja = gD1C2014DataSet.USUARIO.FindByUSU_ID(id);
+
+                    usuarioABaja["USU_BAJA"] = 1;
+
+                    usuarioTableAdapter1.Update(gD1C2014DataSet.USUARIO);     
+
                 }
                 
             }
